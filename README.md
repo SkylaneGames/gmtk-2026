@@ -1,4 +1,13 @@
+# Overview
 
-## Setup
+Entry for the GMTK 2026 Game Jam
 
-- [ ] Create a new secret on the repository called `ITCH_GAME_NAME` set to the project name on itch.io.
+## Theme
+
+_TBC_
+
+## Prerequisites
+
+- Game Engine: [Godot 4.7.1](https://godotengine.org/)
+
+
