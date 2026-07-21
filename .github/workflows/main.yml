@@ -183,7 +183,7 @@ jobs:
 
   notify:
     runs-on: windows-latest
-    needs: [deploy-webgl, deploy-win64, deploy-osx]
+    needs: [deploy-webgl, deploy-win64, deploy-linux]
     name: Notify Discord
     env:
       itch_url: https://${{ secrets.ITCH_USERNAME }}.itch.io/${{ secrets.ITCH_GAME_NAME }}
