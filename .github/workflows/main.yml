@@ -190,5 +190,5 @@ jobs:
     if: success() 
     steps:
       - name: Notify Discord
-        run: Invoke-WebRequest -Method Post -Body @{content="New build deployed - $env:itch_url"} -Uri ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: Invoke-WebRequest -Method Post -Body @{content="New build deployed - $env:itch_url"} -Uri "${{ secrets.DISCORD_WEBHOOK_URL }}"
         shell: powershell
