@@ -4,7 +4,7 @@ Entry for the GMTK 2026 Game Jam
 
 ## Theme
 
-_TBC_
+Countdown
 
 ## Prerequisites
 
