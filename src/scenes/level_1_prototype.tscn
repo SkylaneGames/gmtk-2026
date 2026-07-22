@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://bc3ei81ffph76"]
+
+[ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="1_t5l3w"]
+[ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="2_au3tk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t5l3w"]
+sky_top_color = Color(0.5181582, 0.37407064, 0.64759207, 1)
+sky_horizon_color = Color(0.21712932, 0.73221207, 0.9099657, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_au3tk"]
+sky_material = SubResource("ProceduralSkyMaterial_t5l3w")
+
+[sub_resource type="Environment" id="Environment_iu18l"]
+background_mode = 2
+sky = SubResource("Sky_au3tk")
+ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.28905383, 0.14255166, 0.34144095, 1)
+fog_light_energy = 0.23
+fog_density = 0.0945
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w5pmr"]
+
+[node name="Level1Prototype" type="Node3D" unique_id=340066768]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1439770437]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 10.08013, 14.918585, -17.459291)
+light_color = Color(0.32796702, 0.5778435, 0.72627777, 1)
+light_energy = 1.046
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1939617672]
+environment = SubResource("Environment_iu18l")
+
+[node name="World" type="Node3D" parent="." unique_id=1360628353]
+
+[node name="Ground" type="StaticBody3D" parent="World" unique_id=1557817014]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" unique_id=338256364]
+shape = SubResource("WorldBoundaryShape3D_w5pmr")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="World/Ground" unique_id=569983549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.4921627, 0)
+use_collision = true
+radius = 25.0
+radial_segments = 26
+rings = 15
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World/Ground/CSGSphere3D" unique_id=25382439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.93407, 0)
+operation = 2
+size = Vector3(50, 16.9, 50)
+metadata/_edit_lock_ = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="World/Ground/CSGSphere3D" unique_id=1333277985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1611261, 23.556496)
+radius = 4.0
+metadata/_edit_lock_ = true
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="World/Ground/CSGSphere3D" unique_id=975341883]
+transform = Transform3D(0.08909789, 0.9960229, 0, -0.9960229, 0.08909789, 0, 0, 0, 1, 24.409805, 4.7127056, 0)
+inner_radius = 0.654
+outer_radius = 3.601
+sides = 11
+ring_sides = 8
+metadata/_edit_lock_ = true
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="World/Ground/CSGSphere3D" unique_id=326153843]
+transform = Transform3D(0.08889425, -0.99604106, 0, 0.99604106, 0.08889425, 0, 0, 0, 1, -24.41, 4.713, 0)
+inner_radius = 0.654
+outer_radius = 3.601
+sides = 11
+ring_sides = 8
+metadata/_edit_lock_ = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="World/Ground/CSGSphere3D" unique_id=586708052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.00001, 0)
+operation = 2
+radius = 21.0
+height = 5.0
+sides = 26
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="Node3D" parent="World" unique_id=799314222]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World/Walls" unique_id=948268217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 18.677277)
+use_collision = true
+size = Vector3(0.25, 2, 4.4)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="World/Walls" unique_id=1063137729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12.177277)
+use_collision = true
+size = Vector3(0.25, 2, 4.6)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="World/Walls" unique_id=1054021662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 16.377277)
+use_collision = true
+size = Vector3(0.25, 2, 9)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="World/Walls" unique_id=75425252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 5.8772774)
+use_collision = true
+size = Vector3(0.25, 2, 12)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="World/Walls" unique_id=1767745009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 3.8772774)
+use_collision = true
+size = Vector3(0.25, 2, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World/Walls" unique_id=252045873]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.3999999, 1, 16.589117)
+use_collision = true
+size = Vector3(0.25, 2, 7)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World/Walls" unique_id=1048903632]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.3999999, 1, 14.589117)
+use_collision = true
+size = Vector3(0.25, 2, 7)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="World/Walls" unique_id=1023785183]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.4000006, 1, 11.789117)
+use_collision = true
+size = Vector3(0.25, 2, 5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="World/Walls" unique_id=1369314856]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4000006, 1, 9.789117)
+use_collision = true
+size = Vector3(0.25, 2, 5)
+
+[node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("1_t5l3w")]
+target = NodePath("../Player")
+
+[node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(0.6235975, -0.5828783, 0.52093714, -2.9802239e-08, 0.66637796, 0.7456127, -0.78174204, -0.4649635, 0.41555277, 10.402, 13.457, 27.5)
+follow_target = NodePath("../../Player")
+look_at_mode = 2
+look_at_target = NodePath("../../Player")
+follow_offset = Vector3(9.402, 13.457, 7.5)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+
+[node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
+physics_interpolation_mode = 1
+transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 10.402, 13.457, 27.5)
+
+[node name="Player" parent="." unique_id=730368400 instance=ExtResource("2_au3tk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 20)
+
+[editable path="IsoCamera"]
