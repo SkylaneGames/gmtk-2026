@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dftrpkfy22rxb"]
+
+[ext_resource type="Script" uid="uid://cihi57x30053y" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w5pmr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5pmr"]
+size = Vector3(0.7734375, 0.34179688, 0.70410156)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pf81"]
+albedo_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+roughness = 0.44
+
+[node name="Player" type="CharacterBody3D" unique_id=730368400]
+script = ExtResource("1_3vyb7")
+ROTATION_SPEED = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633951677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w5pmr")
+
+[node name="Model" type="Node3D" parent="." unique_id=1390353177]
+
+[node name="Body" type="MeshInstance3D" parent="Model" unique_id=1235894192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_w5pmr")
+
+[node name="Face" type="MeshInstance3D" parent="Model" unique_id=1473368907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5092031, -0.2302041)
+mesh = SubResource("BoxMesh_w5pmr")
+surface_material_override/0 = SubResource("StandardMaterial3D_0pf81")
