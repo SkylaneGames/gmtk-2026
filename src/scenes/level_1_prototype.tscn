@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="2_au3tk"]
 [ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager_level_1.gd" id="5_o47vv"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="6_3sct1"]
+[ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="7_3sct1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w5pmr"]
 
@@ -120,12 +121,20 @@ transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("2_au3tk")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2.9308567, 1.9073486e-06, 18.241718)
 
-[node name="GameManagerLevel1" type="Node" parent="." unique_id=479928619]
+[node name="GameManagerLevel1" type="Node" parent="." unique_id=479928619 node_paths=PackedStringArray("doors")]
 unique_name_in_owner = true
 script = ExtResource("5_o47vv")
+doors = [NodePath("../Door"), NodePath("../Door2")]
+door_times = Array[float]([85.0, 75.0])
 
 [node name="Exit" parent="." unique_id=1627543186 instance=ExtResource("6_3sct1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.19435, 0, 3.8619866)
+
+[node name="Door" parent="." unique_id=804377546 instance=ExtResource("7_3sct1")]
+transform = Transform3D(0.83803016, 0, -0.5456239, 0, 1, 0, 0.5456239, 0, 0.83803016, -9.571, 0, 15.651)
+
+[node name="Door2" parent="." unique_id=121371161 instance=ExtResource("7_3sct1")]
+transform = Transform3D(0.68936, 0, -0.72441894, 0, 1, 0, 0.72441894, 0, 0.68936, -7.398209, 1.9073486e-06, 2.573787)
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel1" method="_on_exit_player_exited"]
 
