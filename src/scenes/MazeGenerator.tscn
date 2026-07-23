@@ -2790,12 +2790,6 @@ size = Vector3(1.1540242, 2, 0.25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pxef"]
 size = Vector3(1.1540242, 2, 0.25)
 
-[sub_resource type="BoxMesh" id="BoxMesh_i2lfr"]
-size = Vector3(0.6116101, 2, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yxwsm"]
-size = Vector3(0.6116101, 2, 0.25)
-
 [sub_resource type="BoxMesh" id="BoxMesh_sld6b"]
 size = Vector3(0.5293766, 2, 0.25)
 
@@ -3113,18 +3107,6 @@ size = Vector3(0.7633765, 2, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2unlu"]
 size = Vector3(0.7633765, 2, 0.25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dr35n"]
-size = Vector3(0.45534807, 2, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yt2l4"]
-size = Vector3(0.45534807, 2, 0.25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_gp1iw"]
-size = Vector3(0.46193475, 2, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_egdeu"]
-size = Vector3(0.46193475, 2, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xtwn7"]
 size = Vector3(0.779836, 2, 0.25)
@@ -7870,12 +7852,6 @@ shape = SubResource("BoxShape3D_8pxef")
 [node name="Wall_0466" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=1373763955]
 transform = Transform3D(0.026628759, 0, -0.9996454, 0, 1, 0, 0.9996454, 0, 0.026628759, 9.055834, 1, 0.39425904)
 
-[node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0466" unique_id=221396047]
-mesh = SubResource("BoxMesh_i2lfr")
-
-[node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0466" unique_id=1156631199]
-shape = SubResource("BoxShape3D_yxwsm")
-
 [node name="Wall_0467" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=885647085]
 transform = Transform3D(0.029165618, 0, 0.9995746, 0, 1, 0, -0.9995746, 0, 0.029165618, -5.365278, 1, 10.565371)
 
@@ -8300,7 +8276,7 @@ mesh = SubResource("BoxMesh_mjpd1")
 shape = SubResource("BoxShape3D_tjayd")
 
 [node name="Wall_0514" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=896328149]
-transform = Transform3D(-0.99983466, 0, -0.018185241, 0, 1, 0, 0.018185241, 0, -0.99983466, -2.1078706, 1, 4.953518)
+transform = Transform3D(-0.99983466, 0, -0.018185241, 0, 1, 0, 0.018185241, 0, -0.99983466, -1.9378753, 1, 4.953518)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0514" unique_id=174732569]
 mesh = SubResource("BoxMesh_rdv5x")
@@ -8309,7 +8285,7 @@ mesh = SubResource("BoxMesh_rdv5x")
 shape = SubResource("BoxShape3D_8jlb8")
 
 [node name="Wall_0515" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=19786149]
-transform = Transform3D(-0.09378677, 0, -0.9955923, 0, 1, 0, 0.9955923, 0, -0.09378677, -2.1989813, 1, 5.0572214)
+transform = Transform3D(-0.09378677, 0, -0.9955923, 0, 1, 0, 0.9955923, 0, -0.09378677, -1.973019, 1, 5.0572214)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0515" unique_id=2115535913]
 mesh = SubResource("BoxMesh_38mqf")
@@ -8318,7 +8294,7 @@ mesh = SubResource("BoxMesh_38mqf")
 shape = SubResource("BoxShape3D_xion7")
 
 [node name="Wall_0516" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=1401431629]
-transform = Transform3D(-0.09378736, 0, -0.99559224, 0, 1, 0, 0.99559224, 0, -0.09378736, -2.2326849, 1, 5.415)
+transform = Transform3D(-0.09378736, 0, -0.99559224, 0, 1, 0, 0.99559224, 0, -0.09378736, -2.008099, 1, 5.415)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0516" unique_id=895433980]
 mesh = SubResource("BoxMesh_2ntld")
@@ -8327,7 +8303,7 @@ mesh = SubResource("BoxMesh_2ntld")
 shape = SubResource("BoxShape3D_jwu5j")
 
 [node name="Wall_0517" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=597529979]
-transform = Transform3D(-0.09378807, 0, -0.9955922, 0, 1, 0, 0.9955922, 0, -0.09378807, -2.2880554, 1, 6.002778)
+transform = Transform3D(-0.09378807, 0, -0.9955922, 0, 1, 0, 0.9955922, 0, -0.09378807, -2.0691795, 1, 6.002778)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0517" unique_id=156455074]
 mesh = SubResource("BoxMesh_560xq")
@@ -8336,7 +8312,7 @@ mesh = SubResource("BoxMesh_560xq")
 shape = SubResource("BoxShape3D_u43l1")
 
 [node name="Wall_0518" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=728782622]
-transform = Transform3D(-0.09378807, 0, -0.9955922, 0, 1, 0, 0.9955922, 0, -0.09378807, -2.350648, 1, 6.6672215)
+transform = Transform3D(-0.09378807, 0, -0.9955922, 0, 1, 0, 0.9955922, 0, -0.09378807, -2.134448, 1, 6.6672215)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0518" unique_id=404989037]
 mesh = SubResource("BoxMesh_o84ai")
@@ -8345,7 +8321,7 @@ mesh = SubResource("BoxMesh_o84ai")
 shape = SubResource("BoxShape3D_eu3i7")
 
 [node name="Wall_0519" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=803193537]
-transform = Transform3D(-0.093787715, 0, -0.99559224, 0, 1, 0, 0.99559224, 0, -0.093787715, -2.4060187, 1, 7.255)
+transform = Transform3D(-0.093787715, 0, -0.99559224, 0, 1, 0, 0.99559224, 0, -0.093787715, -2.1930265, 1, 7.255)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0519" unique_id=677500568]
 mesh = SubResource("BoxMesh_6rj1o")
@@ -8355,21 +8331,6 @@ shape = SubResource("BoxShape3D_2unlu")
 
 [node name="Wall_0520" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=1189987352]
 transform = Transform3D(-0.09378701, 0, -0.9955923, 0, 1, 0, 0.9955923, 0, -0.09378701, -2.4397223, 1, 7.612778)
-
-[node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0520" unique_id=764085596]
-mesh = SubResource("BoxMesh_dr35n")
-
-[node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0520" unique_id=690890173]
-shape = SubResource("BoxShape3D_yt2l4")
-
-[node name="Wall_0521" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=630269433]
-transform = Transform3D(0.99960876, 0, -0.02797106, 0, 1, 0, 0.02797106, 0, 0.99960876, -2.3434258, 1, 7.7179637)
-
-[node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0521" unique_id=126074988]
-mesh = SubResource("BoxMesh_gp1iw")
-
-[node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0521" unique_id=123330874]
-shape = SubResource("BoxShape3D_egdeu")
 
 [node name="Wall_0522" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=1985072447]
 transform = Transform3D(0.99960905, 0, -0.027960304, 0, 1, 0, 0.027960304, 0, 0.99960905, -1.9726856, 1, 7.728335)
