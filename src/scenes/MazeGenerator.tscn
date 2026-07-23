@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxwmjol8166w5"]
 
 [ext_resource type="Script" uid="uid://c2eoih6i57sgc" path="res://scripts/maze_g.gd" id="1_ftevm"]
-[ext_resource type="Script" uid="uid://dnbiaqst2mojs" path="res://scripts/orbPlayer.gd" id="2_us07s"]
+[ext_resource type="Script" uid="uid://cihi57x30053y" path="res://scripts/player.gd" id="2_ftevm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hx47i"]
 size = Vector3(0.6417706, 2, 0.25)
@@ -2613,17 +2613,8 @@ size = Vector3(1.8461761, 2, 0.25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ty5a5"]
 size = Vector3(1.8461761, 2, 0.25)
 
-[sub_resource type="BoxMesh" id="BoxMesh_h1rhb"]
-size = Vector3(1.4778287, 2, 0.25)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_tgpky"]
-size = Vector3(1.4778287, 2, 0.25)
-
-[sub_resource type="BoxMesh" id="BoxMesh_7br3f"]
-size = Vector3(0.74113095, 2, 0.25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rg3lk"]
-size = Vector3(0.74113095, 2, 0.25)
+size = Vector3(1.4454573, 2, 0.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_11tql"]
 size = Vector3(0.5781704, 2, 0.25)
@@ -3672,6 +3663,8 @@ size = Vector3(2.4479742, 2, 0.25)
 [sub_resource type="SphereShape3D" id="SphereShape3D_2d7kw"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_2d7kw"]
+radius = 0.25
+height = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2q3u"]
 albedo_color = Color(1, 0.07450981, 1, 1)
@@ -7597,6 +7590,7 @@ shape = SubResource("BoxShape3D_4bypn")
 transform = Transform3D(-0.99995905, 0, -0.009050158, 0, 1, 0, 0.009050158, 0, -0.99995905, 6.3175926, 1, 5.7722225)
 
 [node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0434" unique_id=533914376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11615515, 0, -0.0010514259)
 mesh = SubResource("BoxMesh_kyf5n")
 
 [node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0434" unique_id=1080893515]
@@ -7605,20 +7599,12 @@ shape = SubResource("BoxShape3D_ty5a5")
 [node name="Wall_0435" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=1053111655]
 transform = Transform3D(-0.99995905, 0, -0.009049205, 0, 1, 0, 0.009049205, 0, -0.99995905, 4.905648, 1, 5.785001)
 
-[node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0435" unique_id=1452831967]
-mesh = SubResource("BoxMesh_h1rhb")
-
 [node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0435" unique_id=1872371692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.002)
 shape = SubResource("BoxShape3D_tgpky")
 
 [node name="Wall_0436" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=2084754995]
 transform = Transform3D(-0.99995905, 0, -0.009047775, 0, 1, 0, 0.009047775, 0, -0.99995905, 4.0462036, 1, 5.792778)
-
-[node name="WallMesh" type="MeshInstance3D" parent="Node3D/GeneratedMaze/Wall_0436" unique_id=555217206]
-mesh = SubResource("BoxMesh_7br3f")
-
-[node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0436" unique_id=2083276262]
-shape = SubResource("BoxShape3D_rg3lk")
 
 [node name="Wall_0437" type="StaticBody3D" parent="Node3D/GeneratedMaze" unique_id=1874541542]
 transform = Transform3D(0.011284187, 0, -0.99993634, 0, 1, 0, 0.99993634, 0, 0.011284187, 11.112499, 1, -2.7009254)
@@ -9193,13 +9179,13 @@ polygon = PackedVector2Array(6.9383802, 4.4749765, 7.3500395, 1.7516756, 7.09671
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=518491459]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.293647, 0.7979238, 12.188132)
-script = ExtResource("2_us07s")
+script = ExtResource("2_ftevm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1107354950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26525497, 0, 0)
 shape = SubResource("SphereShape3D_2d7kw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1915753630]
+[node name="Model" type="MeshInstance3D" parent="Player" unique_id=1915753630]
 mesh = SubResource("SphereMesh_2d7kw")
 surface_material_override/0 = SubResource("StandardMaterial3D_n2q3u")
 
@@ -9209,5 +9195,5 @@ light_energy = 1.5
 light_indirect_energy = 2.077
 light_volumetric_fog_energy = 4.154
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=272055123]
-transform = Transform3D(0.9780161, -0.08628411, 0.18984123, 0, 0.9103798, 0.41377366, -0.20852971, -0.4046773, 0.890366, 5.888753, 8.946877, 18.885714)
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=272055123]
+transform = Transform3D(0.9780161, -0.08628412, 0.18984126, -0.14315918, 0.384132, 0.9121119, -0.15162487, -0.91923755, 0.36333483, -0.19535446, 8.1489525, 0.31525612)
