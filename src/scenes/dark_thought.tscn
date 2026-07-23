@@ -1,18 +1,28 @@
 [gd_scene format=3 uid="uid://d2t74rq5t4eyc"]
 
 [ext_resource type="PackedScene" uid="uid://cfvasj5ub0bp2" path="res://assets/models/dark thought.glb" id="1_770li"]
+[ext_resource type="Texture2D" uid="uid://c8nalkyd3binw" path="res://assets/models/dark thought_Dark Thoughts Albedo.png" id="2_v87l2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7jhi"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_v87l2")
+roughness = 0.2
 
 [node name="Dark Thought" type="Node3D" unique_id=1534479851]
 
 [node name="dark thought" parent="." unique_id=1821134870 instance=ExtResource("1_770li")]
 
-[node name="Skeleton3D" parent="dark thought/Dark Thought" parent_id_path=PackedInt32Array(1821134870, 752523872) index="0" unique_id=543501477]
-bones/0/position = Vector3(-1.4210858e-14, 1.0626998, -0.58861023)
+[node name="Skeleton3D" parent="dark thought/Dark Thought" parent_id_path=PackedInt32Array(1821134870, 1485642641) index="0" unique_id=2063011731]
+bones/0/position = Vector3(-2.8421716e-14, 2.1253996, -1.1772205)
 bones/1/rotation = Quaternion(-0.07264576, -0.009080409, -0.028369712, 0.99691296)
 bones/2/rotation = Quaternion(-0.00049475016, 0.03193546, -0.5908188, 0.8061718)
 bones/3/rotation = Quaternion(0.9563157, 3.4849123e-08, 1.1400182e-07, -0.29233596)
 
-[node name="AnimationPlayer" parent="dark thought" index="1" unique_id=1639790262]
+[node name="DarkThought" parent="dark thought/Dark Thought/Skeleton3D" index="0" unique_id=785818351]
+surface_material_override/0 = SubResource("StandardMaterial3D_o7jhi")
+
+[node name="AnimationPlayer" parent="dark thought" index="1" unique_id=584956189]
 autoplay = &"idle"
 
 [editable path="dark thought"]
