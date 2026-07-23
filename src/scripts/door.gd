@@ -12,3 +12,4 @@ func close() -> void:
 
 	closed = true;
 	animation.play("close")
+	$NavigationLink3D.enabled = false
