@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://djesw0mcxu7gc"]
 
+[ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager_level_1.gd" id="2_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="3_4nkto"]
+[ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="4_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_fcfvj"]
 [ext_resource type="Script" uid="uid://cihi57x30053y" path="res://scripts/player.gd" id="2_rus8k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hx47i"]
@@ -3601,18 +3607,6 @@ size = Vector3(2.4479742, 2, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d2pre"]
 size = Vector3(2.4479742, 2, 0.25)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_2d7kw"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_2d7kw"]
-radius = 0.25
-height = 0.25
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2q3u"]
-albedo_color = Color(1, 0.07450981, 1, 1)
-emission_enabled = true
-emission = Color(0.78306496, 0.09365445, 0.29271516, 1)
-emission_energy_multiplier = 3.27
 
 [node name="MazeGenerator" type="Node3D" unique_id=1341214287]
 
@@ -9197,28 +9191,85 @@ mesh = SubResource("BoxMesh_wreu2")
 [node name="WallCollision" type="CollisionShape3D" parent="Node3D/GeneratedMaze/Wall_0610" unique_id=663857119]
 shape = SubResource("BoxShape3D_d2pre")
 
+[node name="GameManagerLevel1" type="Node" parent="Node3D" unique_id=30003758 node_paths=PackedStringArray("doors", "nav_agent", "exit")]
+unique_name_in_owner = true
+script = ExtResource("2_5xbjy")
+doors = [NodePath("../../DoorFrame"), NodePath("../../DoorFrame2"), NodePath("../../DoorFrame3"), NodePath("../../DoorFrame4"), NodePath("../../DoorFrame5")]
+door_times = Array[float]([85.0, 75.0, 50.0, 20.0, 8.0])
+nav_agent = NodePath("../Player/NavigationAgent3D")
+exit = NodePath("../Exit")
+
+[node name="Exit" parent="Node3D" unique_id=63415680 instance=ExtResource("3_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.728448, 0.118466735, 11.373203)
+
+[node name="PlayerHUD" type="CanvasLayer" parent="Node3D" unique_id=293115492]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Node3D/PlayerHUD" unique_id=1011770456]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node3D/PlayerHUD/MarginContainer" unique_id=2046175944]
+layout_mode = 2
+
+[node name="label_MemoryCount" type="Label" parent="Node3D/PlayerHUD/MarginContainer/VBoxContainer" unique_id=1404971089]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Memories Collected: 0"
+
+[node name="MemoryPickup5" parent="Node3D" unique_id=78866939 instance=ExtResource("4_fcfvj")]
+transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, -5.804949, 0.6037125, 8.223128)
+
+[node name="MemoryPickup1" parent="Node3D" unique_id=1546469845 instance=ExtResource("4_fcfvj")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.71544176, 0.48297, 6.1305876)
+
+[node name="MemoryPickup2" parent="Node3D" unique_id=671271374 instance=ExtResource("4_fcfvj")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.1250743, 0, -1.3858886)
+
+[node name="MemoryPickup3" parent="Node3D" unique_id=229853580 instance=ExtResource("4_fcfvj")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.1144066, 0, -1.746675)
+
+[node name="MemoryPickup4" parent="Node3D" unique_id=862153808 instance=ExtResource("4_fcfvj")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.2036762, 0, -8.386365)
+
+[node name="Player" parent="Node3D" unique_id=730368400 instance=ExtResource("5_fcfvj")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -6.443928, 1.9073486e-06, 12.718603)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D/Player" unique_id=999681000]
+
+[node name="IsoCamera" parent="Node3D" unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_pa8r4")]
+target = NodePath("../Player")
+
+[node name="PhantomCamera3D" parent="Node3D/IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, 2.9580727, 13.457002, 20.218603)
+follow_target = NodePath("../../Player")
+look_at_mode = 2
+look_at_target = NodePath("../../Player")
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+
+[node name="Camera3D" parent="Node3D/IsoCamera" index="1" unique_id=250779762]
+physics_interpolation_mode = 1
+transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 2.9580727, 13.457002, 20.218603)
+
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=414906713]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.0643005, 0.19211483, -6.3527946)
 use_collision = true
 polygon = PackedVector2Array(6.9383802, 4.4749765, 7.3500395, 1.7516756, 7.096713, -16.32978, 5.735057, -18.704754, 4.3417425, -19.559742, 1.8084364, -19.781406, -14.903299, -19.744427, -16.91989, -19.370987, -18.869656, -17.849762, -19.661312, -16.108116, -19.59798, 2.7966623, -18.932987, 4.664974, -17.761333, 6.2166233, -15.798024, 7.0716124, 3.708415, 6.8816156, 5.735057, 6.0582914)
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=518491459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8051972, 0.7979238, 12.188132)
-script = ExtResource("2_rus8k")
+[node name="DoorFrame" parent="." unique_id=804377546 instance=ExtResource("5_4nkto")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1107354950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030215263, 0, 0)
-shape = SubResource("SphereShape3D_2d7kw")
+[node name="DoorFrame2" parent="." unique_id=1856432430 instance=ExtResource("5_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.358952, 0, -6.843464)
 
-[node name="Model" type="MeshInstance3D" parent="Player" unique_id=1915753630]
-mesh = SubResource("SphereMesh_2d7kw")
-surface_material_override/0 = SubResource("StandardMaterial3D_n2q3u")
+[node name="DoorFrame3" parent="." unique_id=2090708730 instance=ExtResource("5_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.077804, 0, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=392719704]
-light_color = Color(1, 0.23137255, 1, 1)
-light_energy = 1.5
-light_indirect_energy = 2.077
-light_volumetric_fog_energy = 4.154
+[node name="DoorFrame4" parent="." unique_id=406781370 instance=ExtResource("5_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.098023, 0, -0.94015443)
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=272055123]
-transform = Transform3D(0.9780161, -0.08628412, 0.18984126, -0.14315918, 0.384132, 0.9121119, -0.15162487, -0.91923755, 0.36333483, -0.19535446, 8.1489525, 0.31525612)
+[node name="DoorFrame5" parent="." unique_id=1823333156 instance=ExtResource("5_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5264759, 0.047966957, 2.8160176)
+
+[editable path="Node3D/IsoCamera"]

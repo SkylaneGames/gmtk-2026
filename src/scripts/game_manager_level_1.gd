@@ -6,6 +6,8 @@ extends Node
 @export var nav_agent: NavigationAgent3D
 @export var exit: Node3D
 @export var nav_check_interval: float = 2
+@export var memorycount: int = 0
+@onready var labelMemoryCount = %label_MemoryCount
 
 var time_remaining: float
 var time_since_last_nav_update: float = 0.0
@@ -32,7 +34,7 @@ func _on_exit_player_exited() -> void:
 
 func check_player_can_complete() -> void:
 	if (!nav_agent.is_target_reachable()):
-		game_over()
+		#game_over()
 		return
 
 	print("Exit is still reachable.")
@@ -40,3 +42,8 @@ func check_player_can_complete() -> void:
 func game_over() -> void:
 	print("Game over!")
 	get_tree().reload_current_scene()
+	
+func incrementMemoryCount() -> void:
+	memorycount = memorycount+1
+	print("Memories collected: " + str(memorycount))
+	%label_MemoryCount.text = "Memories collected: " + str(memorycount)
