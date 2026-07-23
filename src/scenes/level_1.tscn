@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager_level_1.gd" id="2_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="3_4nkto"]
+[ext_resource type="PackedScene" uid="uid://bc3ei81ffph76" path="res://scenes/level_2.tscn" id="3_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="4_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="5_4nkto"]
@@ -9216,6 +9217,7 @@ exit = NodePath("../Exit")
 
 [node name="Exit" parent="Node3D" unique_id=63415680 instance=ExtResource("3_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.522154, 1.12218, -11.165398)
+next_Level = ExtResource("3_pa8r4")
 
 [node name="PlayerHUD" type="CanvasLayer" parent="Node3D" unique_id=293115492]
 follow_viewport_enabled = true
@@ -9267,6 +9269,12 @@ align_rotation_with_view = Callable()
 [node name="Camera3D" parent="Node3D/IsoCamera" index="1" unique_id=250779762]
 physics_interpolation_mode = 1
 transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 2.2665992, 13.457002, 20.218603)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1941911600]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0.55797577, 16.040764, -28.62469)
+light_color = Color(0.32796702, 0.5778435, 0.72627777, 1)
+light_energy = 1.046
+shadow_enabled = true
 
 [node name="DoorFrame" parent="." unique_id=804377546 instance=ExtResource("5_4nkto")]
 
