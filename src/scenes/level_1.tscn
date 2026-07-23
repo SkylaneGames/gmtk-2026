@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://djesw0mcxu7gc"]
 
-[ext_resource type="Script" path="res://scripts/maze_g.gd" id="1_ftevm"]
 [ext_resource type="Script" uid="uid://cihi57x30053y" path="res://scripts/player.gd" id="2_ftevm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hx47i"]
@@ -3657,8 +3656,6 @@ emission_energy_multiplier = 3.27
 [node name="MazeGenerator" type="Node3D" unique_id=1341214287]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=999925732]
-script = ExtResource("1_ftevm")
-svg_file = "uid://y2nuw75jmm4t"
 
 [node name="GeneratedMaze" type="Node3D" parent="Node3D" unique_id=782420388]
 

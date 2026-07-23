@@ -6,7 +6,9 @@ extends Area3D
 
 var starting_y: float
 var elapsed_time: float = 0.0
-
+@onready var game_manager = (
+	get_tree().current_scene.get_node("GameManagerLevel1")
+)
 
 func _ready() -> void:
 	starting_y = position.y
@@ -27,5 +29,5 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("player"):
 		return
 
-	print("Memory collected!")
+	game_manager.incrementMemoryCount()
 	queue_free()

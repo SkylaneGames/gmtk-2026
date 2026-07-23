@@ -6,6 +6,10 @@ extends Node
 @export var nav_agent: NavigationAgent3D
 @export var exit: Node3D
 @export var nav_check_interval: float = 2
+@export var memorycount: int = 0
+@onready var labelMemoryCount = (
+	get_tree().current_scene.get_node("label_MemoryCount")
+)
 
 var time_remaining: float
 var time_since_last_nav_update: float = 0.0
@@ -40,3 +44,8 @@ func check_player_can_complete() -> void:
 func game_over() -> void:
 	print("Game over!")
 	get_tree().reload_current_scene()
+	
+func incrementMemoryCount() -> void:
+	memorycount = memorycount+1
+	print("Memories collected: " + str(memorycount))
+	$"../PlayerHUD/MarginContainer/VBoxContainer/label_MemoryCount".text = "Memories collected: " + str(memorycount)

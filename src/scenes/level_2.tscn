@@ -44,7 +44,7 @@ navigation_mesh = SubResource("NavigationMesh_fmvnm")
 [node name="Walls" parent="World/NavigationRegion3D" unique_id=854971284 instance=ExtResource("1_au3tk")]
 transform = Transform3D(-7.8899056e-08, 0, 2.104, 0, 1.811, 0, -1.805, 0, -9.1968765e-08, 0, 0, 0)
 
-[node name="Walls" parent="World/NavigationRegion3D/Walls" index="0" unique_id=1267553260]
+[node name="Walls" parent="World/NavigationRegion3D/Walls" index="0" unique_id=4341938]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("1_iu18l")
 surface_material_override/1 = ExtResource("1_iu18l")
@@ -135,9 +135,6 @@ transform = Transform3D(0.6235973, -0.5828783, 0.52093714, -2.980223e-08, 0.6663
 follow_target = NodePath("../../Player")
 look_at_mode = 2
 look_at_target = NodePath("../../Player")
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
 physics_interpolation_mode = 1
@@ -170,6 +167,20 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.2363636, 1.0841141
 
 [node name="MemoryPickup1" parent="." unique_id=663653571 instance=ExtResource("5_c1m5u")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1081154, 1.2527542, -13.847475)
+
+[node name="PlayerHUD" type="CanvasLayer" parent="." unique_id=843886383]
+follow_viewport_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerHUD" unique_id=235419281]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHUD/MarginContainer" unique_id=965691178]
+layout_mode = 2
+
+[node name="label_MemoryCount" type="Label" parent="PlayerHUD/MarginContainer/VBoxContainer" unique_id=1324063160]
+layout_mode = 2
+text = "Memories Collected: 0"
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel1" method="_on_exit_player_exited"]
 

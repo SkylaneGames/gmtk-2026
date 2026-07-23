@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cg6i7ho2iej11"]
 
-[ext_resource type="Script" uid="uid://ba0da0utm5tf5" path="res://scenes/memory_pickup.gd" id="1_h6lpd"]
+[ext_resource type="Script" uid="uid://ba0da0utm5tf5" path="res://scripts/memory_pickup.gd" id="1_h6lpd"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_wjkn1"]
 
