@@ -135,6 +135,9 @@ transform = Transform3D(0.6235973, -0.5828783, 0.52093714, -2.980223e-08, 0.6663
 follow_target = NodePath("../../Player")
 look_at_mode = 2
 look_at_target = NodePath("../../Player")
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
 physics_interpolation_mode = 1
@@ -179,6 +182,7 @@ offset_bottom = 40.0
 layout_mode = 2
 
 [node name="label_MemoryCount" type="Label" parent="PlayerHUD/MarginContainer/VBoxContainer" unique_id=1324063160]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Memories Collected: 0"
 
