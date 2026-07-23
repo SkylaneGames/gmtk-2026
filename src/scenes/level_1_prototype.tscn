@@ -4,6 +4,10 @@
 [ext_resource type="Material" uid="uid://c0wal7jotb384" path="res://assets/models/wall_material.tres" id="1_iu18l"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="1_t5l3w"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="2_au3tk"]
+[ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager_level_1.gd" id="5_o47vv"]
+[ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="6_3sct1"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w5pmr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t5l3w"]
 sky_top_color = Color(0.5181582, 0.37407064, 0.64759207, 1)
@@ -22,27 +26,16 @@ fog_light_color = Color(0.28905383, 0.14255166, 0.34144095, 1)
 fog_light_energy = 0.23
 fog_density = 0.0945
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w5pmr"]
-
 [node name="Level1Prototype" type="Node3D" unique_id=340066768]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1439770437]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 10.08013, 14.918585, -17.459291)
-light_color = Color(0.32796702, 0.5778435, 0.72627777, 1)
-light_energy = 1.046
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1939617672]
-environment = SubResource("Environment_iu18l")
 
 [node name="World" type="Node3D" parent="." unique_id=1360628353]
 
-[node name="Ground" type="StaticBody3D" parent="World" unique_id=1557817014]
+[node name="Head" type="StaticBody3D" parent="World" unique_id=1557817014]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground" unique_id=338256364]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Head" unique_id=338256364]
 shape = SubResource("WorldBoundaryShape3D_w5pmr")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="World/Ground" unique_id=569983549]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="World/Head" unique_id=569983549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.4921627, 0)
 use_collision = true
 radius = 25.0
@@ -51,20 +44,20 @@ rings = 15
 material = ExtResource("1_iu18l")
 metadata/_edit_lock_ = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="World/Ground/CSGSphere3D" unique_id=25382439]
+[node name="CSGBox3D" type="CSGBox3D" parent="World/Head/CSGSphere3D" unique_id=25382439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.93407, 0)
 operation = 2
 size = Vector3(50, 16.9, 50)
 material = ExtResource("1_iu18l")
 metadata/_edit_lock_ = true
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="World/Ground/CSGSphere3D" unique_id=1333277985]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="World/Head/CSGSphere3D" unique_id=1333277985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1611261, 23.556496)
 radius = 4.0
 material = ExtResource("1_iu18l")
 metadata/_edit_lock_ = true
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="World/Ground/CSGSphere3D" unique_id=975341883]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="World/Head/CSGSphere3D" unique_id=975341883]
 transform = Transform3D(0.08909789, 0.9960229, 0, -0.9960229, 0.08909789, 0, 0, 0, 1, 24.409805, 4.7127056, 0)
 inner_radius = 0.654
 outer_radius = 3.601
@@ -73,7 +66,7 @@ ring_sides = 8
 material = ExtResource("1_iu18l")
 metadata/_edit_lock_ = true
 
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="World/Ground/CSGSphere3D" unique_id=326153843]
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="World/Head/CSGSphere3D" unique_id=326153843]
 transform = Transform3D(0.08889425, -0.99604106, 0, 0.99604106, 0.08889425, 0, 0, 0, 1, -24.41, 4.713, 0)
 inner_radius = 0.654
 outer_radius = 3.601
@@ -82,7 +75,7 @@ ring_sides = 8
 material = ExtResource("1_iu18l")
 metadata/_edit_lock_ = true
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="World/Ground/CSGSphere3D" unique_id=586708052]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="World/Head/CSGSphere3D" unique_id=586708052]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.00001, 0)
 operation = 2
 radius = 21.0
@@ -91,33 +84,50 @@ sides = 26
 material = ExtResource("1_iu18l")
 metadata/_edit_lock_ = true
 
-[node name="map-test" parent="World" unique_id=854971284 instance=ExtResource("1_au3tk")]
+[node name="Walls" parent="World" unique_id=854971284 instance=ExtResource("1_au3tk")]
 transform = Transform3D(-7.8899056e-08, 0, 2.104, 0, 1.811, 0, -1.805, 0, -9.1968765e-08, 0, 0, 0)
 
-[node name="Walls" parent="World/map-test" index="0" unique_id=1267553260]
+[node name="Walls" parent="World/Walls" index="0" unique_id=1267553260]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("1_iu18l")
 surface_material_override/1 = ExtResource("1_iu18l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1439770437]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 10.08013, 14.918585, -17.459291)
+light_color = Color(0.32796702, 0.5778435, 0.72627777, 1)
+light_energy = 1.046
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1939617672]
+environment = SubResource("Environment_iu18l")
 
 [node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("1_t5l3w")]
 target = NodePath("../Player")
 
 [node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.6235975, -0.5828783, 0.52093714, -2.9802239e-08, 0.66637796, 0.7456127, -0.78174204, -0.4649635, 0.41555277, 12.402, 13.457, 26.5)
+transform = Transform3D(0.6235973, -0.5828783, 0.52093714, -2.980223e-08, 0.66637796, 0.7456127, -0.7817418, -0.4649635, 0.41555277, 6.4711437, 13.457002, 25.741718)
 follow_target = NodePath("../../Player")
 look_at_mode = 2
 look_at_target = NodePath("../../Player")
-follow_offset = Vector3(9.402, 13.457, 7.5)
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
 physics_interpolation_mode = 1
-transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 12.402, 13.457, 26.5)
+transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 6.4711437, 13.457002, 25.741718)
 
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("2_au3tk")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 3, 0, 19)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2.9308567, 1.9073486e-06, 18.241718)
 
-[editable path="World/map-test"]
+[node name="GameManagerLevel1" type="Node" parent="." unique_id=479928619]
+unique_name_in_owner = true
+script = ExtResource("5_o47vv")
+
+[node name="Exit" parent="." unique_id=1627543186 instance=ExtResource("6_3sct1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.19435, 0, 3.8619866)
+
+[connection signal="player_exited" from="Exit" to="GameManagerLevel1" method="_on_exit_player_exited"]
+
+[editable path="World/Walls"]
 [editable path="IsoCamera"]

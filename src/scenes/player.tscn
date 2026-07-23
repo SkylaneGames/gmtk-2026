@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dftrpkfy22rxb"]
 
 [ext_resource type="Script" uid="uid://cihi57x30053y" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://b0abllb5hkptc" path="res://scenes/interactor.tscn" id="2_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
 radius = 0.31591797
@@ -16,6 +17,8 @@ size = Vector3(0.39453125, 0.16015625, 0.32714844)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pf81"]
 albedo_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
 roughness = 0.44
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
 [node name="Player" type="CharacterBody3D" unique_id=730368400]
 script = ExtResource("1_3vyb7")
@@ -35,3 +38,10 @@ mesh = SubResource("CapsuleMesh_w5pmr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3563317, -0.2302041)
 mesh = SubResource("BoxMesh_w5pmr")
 surface_material_override/0 = SubResource("StandardMaterial3D_0pf81")
+
+[node name="Interactor" parent="." unique_id=1341937022 node_paths=PackedStringArray("root") instance=ExtResource("2_g2els")]
+root = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor" unique_id=1535296190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5701765, 0)
+shape = SubResource("SphereShape3D_w5pmr")

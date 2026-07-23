@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bsqiusf3vpks5"]
+
+[ext_resource type="Script" uid="uid://cskewb1swhqv6" path="res://scripts/exit.gd" id="1_uyw7u"]
+[ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="2_l5n14"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5pmr"]
+transparency = 1
+emission_enabled = true
+emission = Color(0.2696959, 0.4690544, 0.27037323, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="Curve" id="Curve_uyw7u"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.43519473), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l5n14"]
+curve_z = SubResource("Curve_uyw7u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tmunc"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.3
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 0.0810001
+orbit_velocity_max = 0.40500012
+orbit_velocity_curve = SubResource("CurveXYZTexture_l5n14")
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 0.71999776
+
+[sub_resource type="SphereMesh" id="SphereMesh_3g4q3"]
+radius = 0.02
+height = 0.04
+radial_segments = 5
+rings = 3
+
+[node name="Exit" type="Node3D" unique_id=63415680]
+script = ExtResource("1_uyw7u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=201608085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9529371, 0)
+light_color = Color(0.37254903, 1, 0.36862746, 1)
+light_energy = 0.43
+
+[node name="Interactable" parent="." unique_id=1123878260 instance=ExtResource("2_l5n14")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=86312019]
+shape = SubResource("SphereShape3D_w5pmr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=978722948]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_w5pmr")
+amount = 1000
+lifetime = 1.31
+process_material = SubResource("ParticleProcessMaterial_tmunc")
+draw_pass_1 = SubResource("SphereMesh_3g4q3")
+
+[connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]
