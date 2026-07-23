@@ -191,4 +191,4 @@ jobs:
     steps:
       - name: Notify Discord
         run: |
-          curl -X POST -H "Content-Type: application/json" --data '{"content":"New build deployed - $env:itch_url"}' "${{ secrets.DISCORD_WEBHOOK_URL }}"
+          curl -X POST -H "Content-Type: application/json" --data '{"content":"New build deployed - '"$itch_url"'"}' "${{ secrets.DISCORD_WEBHOOK_URL }}"
