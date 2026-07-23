@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cpsi0vf8w83c0"]
+
+[ext_resource type="Script" uid="uid://cyyvau0rmsiu0" path="res://scripts/door.gd" id="1_hpvv5"]
+
+[sub_resource type="Animation" id="Animation_3sct1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.746954, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o47vv"]
+resource_name = "close"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.746954, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmvnm"]
+_data = {
+&"RESET": SubResource("Animation_3sct1"),
+&"close": SubResource("Animation_o47vv")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5pmr"]
+size = Vector3(0.48657227, 1.7464844, 3.9260254)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5pmr"]
+size = Vector3(0.47851563, 1.7236328, 3.8606873)
+
+[node name="DoorFrame" type="Node3D" unique_id=804377546]
+script = ExtResource("1_hpvv5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1364955867]
+libraries/ = SubResource("AnimationLibrary_fmvnm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1162723933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.746954, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1295027024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8146973e-06, 0.8583252, 0.16517258)
+shape = SubResource("BoxShape3D_w5pmr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1825531154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.861023e-06, 0.8618164, 0.10827637)
+mesh = SubResource("BoxMesh_w5pmr")
