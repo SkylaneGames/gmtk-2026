@@ -34,7 +34,7 @@ func _on_exit_player_exited() -> void:
 
 func check_player_can_complete() -> void:
 	if (!nav_agent.is_target_reachable()):
-		game_over()
+		#game_over()
 		return
 
 	print("Exit is still reachable.")
