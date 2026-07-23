@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://c0wal7jotb384" path="res://assets/models/wall_material.tres" id="1_iu18l"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="1_t5l3w"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="2_au3tk"]
+[ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="5_c1m5u"]
 [ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager_level_1.gd" id="5_o47vv"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="6_3sct1"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="7_3sct1"]
@@ -146,6 +147,18 @@ transform = Transform3D(0.68936, 0, -0.72441894, 0, 1, 0, 0.72441894, 0, 0.68936
 transform = Transform3D(-0.46852827, 0, -0.8834485, 0, 1, 0, 0.8834485, 0, -0.46852827, 12.539369, 1.9073486e-06, -3.0792556)
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel1" method="_on_exit_player_exited"]
+
+[node name="MemoryPickup2" parent="." unique_id=78866939 instance=ExtResource("5_c1m5u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 16.034042, 0.8378651, -1.0456114)
+
+[node name="MemoryPickup3" parent="." unique_id=210555334 instance=ExtResource("5_c1m5u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -11.427069, 0.90847194, 3.504393)
+
+[node name="MemoryPickup4" parent="." unique_id=58274610 instance=ExtResource("5_c1m5u")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.2363636, 1.0841141, 13.145182)
+
+[node name="MemoryPickup1" parent="." unique_id=663653571 instance=ExtResource("5_c1m5u")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1081154, 1.2527542, -13.847475)
 
 [editable path="World/Walls"]
 [editable path="IsoCamera"]
