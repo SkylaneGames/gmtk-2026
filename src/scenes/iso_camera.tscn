@@ -17,7 +17,7 @@ top_level = true
 script = ExtResource("1_rdn8x")
 follow_mode = 2
 tween_resource = SubResource("Resource_kv6en")
-follow_offset = Vector3(7.5, 20, 7.5)
+follow_offset = Vector3(9.402, 13.457, 7.5)
 follow_damping = true
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 

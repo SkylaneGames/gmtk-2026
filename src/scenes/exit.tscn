@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bsqiusf3vpks5"]
+
+[ext_resource type="Script" uid="uid://cskewb1swhqv6" path="res://scripts/exit.gd" id="1_uyw7u"]
+[ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="2_l5n14"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
+
+[node name="Exit" type="Node3D" unique_id=63415680]
+script = ExtResource("1_uyw7u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=201608085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9529371, 0)
+light_color = Color(0.37254903, 1, 0.36862746, 1)
+light_energy = 0.43
+
+[node name="Interactable" parent="." unique_id=1123878260 instance=ExtResource("2_l5n14")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=86312019]
+shape = SubResource("SphereShape3D_w5pmr")
+
+[connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]
