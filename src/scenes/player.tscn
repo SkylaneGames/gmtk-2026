@@ -17,7 +17,7 @@ size = Vector3(0.39453125, 0.16015625, 0.32714844)
 albedo_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
 roughness = 0.44
 
-[node name="Player" type="CharacterBody3D" unique_id=730368400]
+[node name="Player" type="CharacterBody3D" unique_id=730368400 groups=["player"]]
 script = ExtResource("1_3vyb7")
 ROTATION_SPEED = 15.0
 
