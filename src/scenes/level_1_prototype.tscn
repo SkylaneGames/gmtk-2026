@@ -124,8 +124,8 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="GameManagerLevel1" type="Node" parent="." unique_id=479928619 node_paths=PackedStringArray("doors")]
 unique_name_in_owner = true
 script = ExtResource("5_o47vv")
-doors = [NodePath("../Door"), NodePath("../Door2")]
-door_times = Array[float]([85.0, 75.0])
+doors = [NodePath("../Door"), NodePath("../Door2"), NodePath("../Door3"), NodePath("../Door4"), NodePath("../Door5")]
+door_times = Array[float]([85.0, 75.0, 50.0, 20.0, 8.0])
 
 [node name="Exit" parent="." unique_id=1627543186 instance=ExtResource("6_3sct1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.19435, 0, 3.8619866)
@@ -135,6 +135,15 @@ transform = Transform3D(0.83803016, 0, -0.5456239, 0, 1, 0, 0.5456239, 0, 0.8380
 
 [node name="Door2" parent="." unique_id=121371161 instance=ExtResource("7_3sct1")]
 transform = Transform3D(0.68936, 0, -0.72441894, 0, 1, 0, 0.72441894, 0, 0.68936, -7.398209, 1.9073486e-06, 2.573787)
+
+[node name="Door3" parent="." unique_id=1605619620 instance=ExtResource("7_3sct1")]
+transform = Transform3D(0.68936, 0, -0.72441894, 0, 1, 0, 0.72441894, 0, 0.68936, -8.49347, 1.9073486e-06, -7.0532107)
+
+[node name="Door4" parent="." unique_id=1826426455 instance=ExtResource("7_3sct1")]
+transform = Transform3D(0.68936, 0, -0.72441894, 0, 1, 0, 0.72441894, 0, 0.68936, 3.024846, 1.9073486e-06, -14.994411)
+
+[node name="Door5" parent="." unique_id=1501953131 instance=ExtResource("7_3sct1")]
+transform = Transform3D(-0.46852827, 0, -0.8834485, 0, 1, 0, 0.8834485, 0, -0.46852827, 12.539369, 1.9073486e-06, -3.0792556)
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel1" method="_on_exit_player_exited"]
 
