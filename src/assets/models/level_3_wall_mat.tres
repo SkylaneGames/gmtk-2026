@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://oworh5hcq758"]
+
+[ext_resource type="Texture2D" uid="uid://rra0dpabx0hs" path="res://assets/models/hedge_noise.tres" id="1_fx4wu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fx4wu"]
+frequency = 0.0785
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_px2ji"]
+noise = SubResource("FastNoiseLite_fx4wu")
+as_normal_map = true
+
+[resource]
+albedo_texture = ExtResource("1_fx4wu")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_px2ji")
