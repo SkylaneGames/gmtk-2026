@@ -3643,6 +3643,8 @@ size = Vector3(2.4479742, 2, 0.25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d2pre"]
 size = Vector3(2.4479742, 2, 0.25)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w5pmr"]
+
 [node name="Level 1" type="Node3D" unique_id=1341214287]
 
 [node name="GameManagerLevel1" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("doors", "nav_agent", "exit")]
@@ -9929,5 +9931,12 @@ transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, -5.804949, 0.6
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -7.1354012, 1.9073486e-06, 12.718603)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=898546562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.457762)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=697856540]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.174899, 0)
+shape = SubResource("WorldBoundaryShape3D_w5pmr")
 
 [editable path="IsoCamera"]
