@@ -34,10 +34,10 @@ func set_target(delta: float) -> void:
 
 func is_hunting_target(delta: float) -> bool:
 	if target == null:
-		print( "No target!")
+#		print( "No target!")
 		return false;
 
-	print("Raycasting for player...")
+#	print("Raycasting for player...")
 
 	var start := global_position
 	start.y = 1
@@ -50,21 +50,21 @@ func is_hunting_target(delta: float) -> bool:
 
 	var result: Dictionary = space_state.intersect_ray(query)
 
-	if result:
-		print(result)
-	else:
-		print("No hits")
+#	if result:
+#		print(result)
+#	else:
+#		print("No hits")
 
 	if result && result.collider is Player:
 		time_since_last_visual = 0.0
-		print("Can see player!")
+#		print("Can see player!")
 		return true
 
 	if time_since_last_visual > attention_span:
-		print( "Lost interest in player!")
+#		print( "Lost interest in player!")
 		return false
 
-	print("Lost visual on player!")
+#	print("Lost visual on player!")
 	return true
 
 func _on_interactable_interaction_started(interactor: Interactor) -> void:
