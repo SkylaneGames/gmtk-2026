@@ -1,7 +1,137 @@
 [gd_scene format=3 uid="uid://bui77c7e1hja8"]
 
+[ext_resource type="Script" uid="uid://ck8octtm7uspl" path="res://scripts/energy_effect.gd" id="1_6s54i"]
 [ext_resource type="Texture2D" uid="uid://wh34wwl5vtgf" path="res://assets/effects/textures/spark_02.png" id="1_qj3e3"]
 [ext_resource type="Texture2D" uid="uid://c5fvxmdnd4yij" path="res://assets/effects/textures/spark_03.png" id="2_6s54i"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tr3ms"]
+animation = &"flicker"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ob5m"]
+animation = &"turn_off"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ds2k"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghciy"]
+reset = false
+advance_mode = 2
+advance_expression = "enabled == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pv5n"]
+reset = false
+advance_mode = 2
+advance_expression = "enabled == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w5pmr"]
+states/Start/position = Vector2(198.73047, 84.25391)
+states/flicker/node = SubResource("AnimationNodeAnimation_tr3ms")
+states/flicker/position = Vector2(395.57422, 47.242188)
+states/turn_off/node = SubResource("AnimationNodeAnimation_0ob5m")
+states/turn_off/position = Vector2(395.57422, 149.38281)
+transitions = ["Start", "flicker", SubResource("AnimationNodeStateMachineTransition_5ds2k"), "flicker", "turn_off", SubResource("AnimationNodeStateMachineTransition_ghciy"), "turn_off", "flicker", SubResource("AnimationNodeStateMachineTransition_2pv5n")]
+graph_offset = Vector2(-1.3671875, -12.871094)
+
+[sub_resource type="Animation" id="Animation_qj3e3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.815, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6s54i"]
+resource_name = "flicker"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1.0926809, 0, 0, 0.133, 0, 0.87886375, -0.133, 0, 0.08888888, 0, 1.140908, -0.08888888, 0, 0.111111104, 0, 0.747681, -0.111111104, 0, 0.12222223, 0, 0.69937164, -0.12222223, 0, 0.08888888, 0, 0.97531533, -0.08888888, 0, 0.07777779, 0, 0.62671816, -0.07777779, 0, 0.077777825, 0, 1.1575311, -0.077777825, 0, 0.0333333, 0, 0.78085303, -0.0333333, 0, 0.044444405, 0, 0.8917302, -0.044444405, 0, 0.02222228, 0, 0.5681334, -0.02222228, 0, 0.0333333, 0, 1.093, -0.10349774, 0.007430196, 0, 0),
+"times": PackedFloat32Array(0.034333333, 0.43333334, 0.7, 1.0333333, 1.4, 1.6666666, 1.8666667, 2.1333334, 2.2666667, 2.4666667, 2.6333334, 3)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sparks:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Core:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_408rv"]
+resource_name = "turn_off"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Core:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sparks:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tr3ms"]
+_data = {
+&"RESET": SubResource("Animation_qj3e3"),
+&"flicker": SubResource("Animation_6s54i"),
+&"turn_off": SubResource("Animation_408rv")
+}
 
 [sub_resource type="Gradient" id="Gradient_tr3ms"]
 offsets = PackedFloat32Array(0, 0.5452895, 1)
@@ -82,6 +212,17 @@ material = SubResource("StandardMaterial3D_3g4q3")
 size = Vector2(0.5, 0.5)
 
 [node name="EnergyEffect" type="Node3D" unique_id=529939267]
+script = ExtResource("1_6s54i")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1943292450]
+tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" unique_id=861194183]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_tr3ms")
+autoplay = &"flicker"
 
 [node name="Core" type="GPUParticles3D" parent="." unique_id=1181858700]
 amount = 70
@@ -94,3 +235,9 @@ amount = 50
 lifetime = 2.23
 process_material = SubResource("ParticleProcessMaterial_w5pmr")
 draw_pass_1 = SubResource("QuadMesh_0pf81")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=50907600]
+light_color = Color(1, 0.68235296, 0.36078432, 1)
+light_energy = 0.75023997
+light_size = 0.01
+omni_range = 1.7136005

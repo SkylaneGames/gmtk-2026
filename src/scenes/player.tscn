@@ -10,6 +10,21 @@ height = 1.6933594
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5pmr"]
+render_priority = -1
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.26828408, 0.2682841, 0.26828402, 1)
+roughness = 0.26
+
+[sub_resource type="SphereMesh" id="SphereMesh_w5pmr"]
+material = SubResource("StandardMaterial3D_w5pmr")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
 [node name="Player" type="CharacterBody3D" unique_id=730368400 groups=["player"]]
 script = ExtResource("1_3vyb7")
 ROTATION_SPEED = 15.0
@@ -25,5 +40,10 @@ root = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5701765, 0)
 shape = SubResource("SphereShape3D_w5pmr")
 
-[node name="Body" parent="." unique_id=529939267 instance=ExtResource("3_qhqgy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="Body" type="Node3D" parent="." unique_id=812515218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6806635, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1545146745]
+mesh = SubResource("SphereMesh_w5pmr")
+
+[node name="Energy" parent="Body" unique_id=529939267 instance=ExtResource("3_qhqgy")]
