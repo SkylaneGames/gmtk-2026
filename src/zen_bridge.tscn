@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bxoyqq2hach18"]
+
+[ext_resource type="PackedScene" uid="uid://5cs5iq0m22v" path="res://assets/models/zen_garden_bridge.glb" id="1_a618b"]
+
+[node name="ZenBridge" type="Node3D" unique_id=1809996700]
+
+[node name="zen_garden_bridge" parent="." unique_id=1597818852 instance=ExtResource("1_a618b")]
