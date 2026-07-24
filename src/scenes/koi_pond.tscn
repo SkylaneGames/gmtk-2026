@@ -3,17 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://yq4qnkspy3ph" path="res://assets/models/koi_pond.glb" id="1_kdgt6"]
 [ext_resource type="Texture2D" uid="uid://do7dh318brddo" path="res://assets/models/WaterDistortion.png" id="3_415qy"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_415qy"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_o5mqn"]
-sky_material = SubResource("ProceduralSkyMaterial_415qy")
-
-[sub_resource type="Environment" id="Environment_n7t8c"]
-background_mode = 2
-sky = SubResource("Sky_o5mqn")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdgt6"]
 diffuse_mode = 3
 specular_mode = 1
@@ -43,16 +32,6 @@ radius = 0.3
 height = 0.6
 
 [node name="Koi Pond" type="Node3D" unique_id=1190557702]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703116980]
-environment = SubResource("Environment_n7t8c")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1057081104]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1406778466]
-transform = Transform3D(0.57957274, -0.44880486, 0.68019825, 0, 0.8346805, 0.5507345, -0.8149205, -0.3191907, 0.4837581, 4.903424, 3.9701436, 3.4873226)
 
 [node name="koi_pond" parent="." unique_id=767025198 instance=ExtResource("1_kdgt6")]
 
