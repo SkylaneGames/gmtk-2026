@@ -165,7 +165,22 @@ layout_mode = 2
 text = "Memories Collected: 0"
 
 [node name="Dark Thought" parent="." unique_id=1534479851 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2146693, 0.007842302, 2.757439)
+transform = Transform3D(0.35421383, 0, 0.93516445, 0, 1, 0, -0.93516445, 0, 0.35421383, 4.4858203, 0.007842302, 4.837325)
+
+[node name="Dark Thought2" parent="." unique_id=712645014 instance=ExtResource("7_y0kc7")]
+transform = Transform3D(0.17242736, 0, -0.98502225, 0, 1, 0, 0.98502225, 0, 0.17242736, 7.5655093, 0.007842302, 15.380014)
+
+[node name="Dark Thought3" parent="." unique_id=391978302 instance=ExtResource("7_y0kc7")]
+transform = Transform3D(0.9885416, 0, -0.15094846, 0, 1, 0, 0.15094846, 0, 0.9885416, -18.221773, 0.007842302, 5.658581)
+
+[node name="Dark Thought4" parent="." unique_id=1232942885 instance=ExtResource("7_y0kc7")]
+transform = Transform3D(0.2041903, 0, 0.9789313, 0, 1, 0, -0.9789313, 0, 0.2041903, 8.104518, 0.007842302, -3.1832075)
+
+[node name="Dark Thought5" parent="." unique_id=1909012842 instance=ExtResource("7_y0kc7")]
+transform = Transform3D(0.101982534, 0, -0.99478626, 0, 1, 0, 0.99478626, 0, 0.101982534, 5.626932, 0.007842302, -6.4977837)
+
+[node name="Dark Thought6" parent="." unique_id=2008087184 instance=ExtResource("7_y0kc7")]
+transform = Transform3D(0.95068413, 0, -0.31016102, 0, 1, 0, 0.31016102, 0, 0.95068413, 16.374363, 0.007842302, 0.17424154)
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel2" method="_on_exit_player_exited"]
 
