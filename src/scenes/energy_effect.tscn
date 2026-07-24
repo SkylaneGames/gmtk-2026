@@ -200,7 +200,6 @@ size = Vector2(0.5, 0.5)
 
 [node name="EnergyEffect" type="Node3D" unique_id=529939267]
 script = ExtResource("1_6s54i")
-enabled = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1943292450]
 tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
@@ -212,14 +211,12 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_tr3ms")
 
 [node name="Core" type="GPUParticles3D" parent="." unique_id=1181858700]
-emitting = false
 amount = 70
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_3g4q3")
 draw_pass_1 = SubResource("QuadMesh_w5pmr")
 
 [node name="Sparks" type="GPUParticles3D" parent="." unique_id=35741564]
-emitting = false
 amount = 50
 lifetime = 2.23
 process_material = SubResource("ParticleProcessMaterial_w5pmr")
@@ -227,6 +224,7 @@ draw_pass_1 = SubResource("QuadMesh_0pf81")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=50907600]
 light_color = Color(1, 0.68235296, 0.36078432, 1)
-light_energy = 0.0
+light_energy = 1.0129383
 light_size = 0.01
-omni_range = 1.7136005
+shadow_enabled = true
+omni_range = 5.9894843
