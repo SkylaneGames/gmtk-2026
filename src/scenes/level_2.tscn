@@ -49,7 +49,7 @@ navigation_mesh = SubResource("NavigationMesh_fmvnm")
 [node name="Walls" parent="World/NavigationRegion3D" unique_id=854971284 instance=ExtResource("1_ne2mo")]
 transform = Transform3D(-7.8899056e-08, 0, 2.104, 0, 1.811, 0, -1.805, 0, -9.1968765e-08, 0, 0, 0)
 
-[node name="Walls" parent="World/NavigationRegion3D/Walls" index="0" unique_id=1267553260]
+[node name="Walls" parent="World/NavigationRegion3D/Walls" index="0" unique_id=4341938]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_6cvei")
 surface_material_override/1 = ExtResource("2_6cvei")
@@ -149,21 +149,6 @@ exit = NodePath("../Exit")
 [node name="Exit" parent="." unique_id=1627543186 instance=ExtResource("7_fldb1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.19435, 0, 3.8619866)
 next_Level = ExtResource("7_ne2mo")
-
-[node name="PlayerHUD" type="CanvasLayer" parent="." unique_id=843886383]
-follow_viewport_enabled = true
-
-[node name="MarginContainer" type="MarginContainer" parent="PlayerHUD" unique_id=235419281]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHUD/MarginContainer" unique_id=965691178]
-layout_mode = 2
-
-[node name="label_MemoryCount" type="Label" parent="PlayerHUD/MarginContainer/VBoxContainer" unique_id=1324063160]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Memories Collected: 0"
 
 [node name="Dark Thought" parent="." unique_id=1534479851 instance=ExtResource("7_y0kc7")]
 transform = Transform3D(0.35421383, 0, 0.93516445, 0, 1, 0, -0.93516445, 0, 0.35421383, 4.4858203, 0.007842302, 4.837325)
