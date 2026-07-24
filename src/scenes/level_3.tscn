@@ -5,6 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="3_1pn4d"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_ah8om"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1pn4d"]
+sky_top_color = Color(0.92612267, 0.5804387, 0.78067935, 1)
+sky_horizon_color = Color(0.46134287, 0.87881833, 0.95108813, 1)
+sky_curve = 0.73868656
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ah8om"]
+sky_material = SubResource("ProceduralSkyMaterial_1pn4d")
+
+[sub_resource type="Environment" id="Environment_p6vls"]
+background_mode = 2
+sky = SubResource("Sky_ah8om")
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.5
+fog_enabled = true
+fog_light_color = Color(0.8881033, 0.79684216, 0.87655383, 1)
+fog_density = 0.0019
+
 [sub_resource type="Gradient" id="Gradient_ha73p"]
 colors = PackedColorArray(0.720538, 0.54344386, 0.28762567, 1, 0.87234896, 0.8787446, 0.886312, 1)
 
@@ -6851,6 +6871,15 @@ albedo_color = Color(0.4105838, 0.41058382, 0.4105838, 1)
 albedo_color = Color(0.26399913, 0.26399934, 0.26399925, 1)
 
 [node name="Level3" type="Node3D" unique_id=340066768]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=736491843]
+environment = SubResource("Environment_p6vls")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=512421020]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.9212788, 0.7223453, 0.6853762, 1)
+light_energy = 0.453
+shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1776940229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28723145, 0)
@@ -17954,8 +17983,9 @@ sides = 15
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("3_1pn4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.323975)
 
-[node name="IsoCamera" parent="." unique_id=878880942 instance=ExtResource("4_ah8om")]
+[node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_ah8om")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.323975)
+target = NodePath("../Player")
 
 [node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
 transform = Transform3D(0.6235978, -0.58287895, 0.5209376, -2.9802255e-08, 0.66637874, 0.7456134, -0.78174245, -0.46496403, 0.41555315, 9.402, 13.457, 22.823975)
