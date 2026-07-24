@@ -183,6 +183,12 @@ transform = Transform3D(0.101982534, 0, -0.99478626, 0, 1, 0, 0.99478626, 0, 0.1
 transform = Transform3D(0.95068413, 0, -0.31016102, 0, 1, 0, 0.31016102, 0, 0.95068413, 16.374363, 0.007842302, 0.17424154)
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel2" method="_on_exit_player_exited"]
+[connection signal="player_killed" from="Dark Thought" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
+[connection signal="player_killed" from="Dark Thought2" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
+[connection signal="player_killed" from="Dark Thought3" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
+[connection signal="player_killed" from="Dark Thought4" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
+[connection signal="player_killed" from="Dark Thought5" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
+[connection signal="player_killed" from="Dark Thought6" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
 
 [editable path="World/NavigationRegion3D/Walls"]
 [editable path="IsoCamera"]

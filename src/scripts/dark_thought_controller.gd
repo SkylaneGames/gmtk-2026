@@ -31,7 +31,6 @@ func set_target(delta: float) -> void:
 	agent.target_desired_distance = 2.0
 	agent.target_position = target.global_position
 
-
 func is_hunting_target(delta: float) -> bool:
 	if target == null:
 #		print( "No target!")

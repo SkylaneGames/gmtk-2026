@@ -36,3 +36,7 @@ func decrementMemoryCount() -> void:
 	memorycount = memorycount-1
 	print("Memories collected: " + str(memorycount))
 	%label_MemoryCount.text = "Memories collected: " + str(memorycount)
+
+
+func _on_dark_thought_player_killed() -> void:
+	get_tree().reload_current_scene()
