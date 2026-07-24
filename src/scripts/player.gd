@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name Player
 
-@onready var body: Node3D = $Model;
+@onready var body: Node3D = $Body;
 
 @export var SPEED: float = 5.0
 @export var ROTATION_SPEED: float = 8.0

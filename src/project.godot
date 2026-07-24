@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Game"
-run/main_scene="uid://bc3ei81ffph76"
+run/main_scene="uid://djesw0mcxu7gc"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
@@ -53,6 +58,11 @@ jump={
 "deadzone": 0.2,
 "events": []
 }
+
+[navigation]
+
+3d/default_cell_size=0.1
+3d/default_cell_height=0.1
 
 [physics]
 

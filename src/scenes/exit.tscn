@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cskewb1swhqv6" path="res://scripts/exit.gd" id="1_uyw7u"]
 [ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="2_l5n14"]
+[ext_resource type="Texture2D" uid="uid://fxjchaqsn3ak" path="res://assets/effects/textures/smoke_07.png" id="3_l5n14"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5pmr"]
-transparency = 1
-emission_enabled = true
-emission = Color(0.2696959, 0.4690544, 0.27037323, 1)
-emission_energy_multiplier = 5.0
+[sub_resource type="Gradient" id="Gradient_l5n14"]
+offsets = PackedFloat32Array(0.6389706, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_56pq6"]
+gradient = SubResource("Gradient_l5n14")
 
 [sub_resource type="Curve" id="Curve_l5n14"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -30,12 +32,19 @@ curve_x = SubResource("Curve_l5n14")
 curve_y = SubResource("Curve_c7mer")
 curve_z = SubResource("Curve_uyw7u")
 
+[sub_resource type="Curve" id="Curve_ka15t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.34125876, 0.98332167), 0.0, 0.0, 0, 0, Vector2(1, 0.022779226), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ts7x6"]
+curve = SubResource("Curve_ka15t")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tmunc"]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 0.1
-emission_ring_radius = 0.5
-emission_ring_inner_radius = 0.3
+emission_ring_radius = 0.8
+emission_ring_inner_radius = 0.6
 emission_ring_cone_angle = 90.0
 orbit_velocity_min = 0.0810001
 orbit_velocity_max = 0.40500012
@@ -43,12 +52,25 @@ orbit_velocity_curve = SubResource("CurveXYZTexture_l5n14")
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -2.2351742e-06
 tangential_accel_max = 0.71999776
+scale_curve = SubResource("CurveTexture_ts7x6")
+color = Color(0.34872934, 0.90101576, 0.591193, 1)
+color_ramp = SubResource("GradientTexture1D_56pq6")
 
-[sub_resource type="SphereMesh" id="SphereMesh_3g4q3"]
-radius = 0.02
-height = 0.04
-radial_segments = 5
-rings = 3
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpn1d"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_l5n14")
+emission_enabled = true
+emission = Color(0.66677207, 0.8453963, 0.5190216, 1)
+emission_energy_multiplier = 1.8
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.581
+proximity_fade_distance = 0.01
+
+[sub_resource type="QuadMesh" id="QuadMesh_n3evk"]
+material = SubResource("StandardMaterial3D_xpn1d")
+size = Vector2(0.5, 0.5)
 
 [node name="Exit" type="Node3D" unique_id=63415680]
 script = ExtResource("1_uyw7u")
@@ -65,10 +87,9 @@ shape = SubResource("SphereShape3D_w5pmr")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=978722948]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_w5pmr")
-amount = 1000
+amount = 300
 lifetime = 1.31
 process_material = SubResource("ParticleProcessMaterial_tmunc")
-draw_pass_1 = SubResource("SphereMesh_3g4q3")
+draw_pass_1 = SubResource("QuadMesh_n3evk")
 
 [connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]

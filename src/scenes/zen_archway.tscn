@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://knswbcea1t66"]
+
+[ext_resource type="PackedScene" uid="uid://dfmvikec8q6gu" path="res://assets/models/Zen_Arch.glb" id="1_blhw8"]
+
+[node name="ZenArchway" type="Node3D" unique_id=308472002]
+
+[node name="Zen_Arch" parent="." unique_id=738353661 instance=ExtResource("1_blhw8")]
