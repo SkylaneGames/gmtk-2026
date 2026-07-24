@@ -13,3 +13,4 @@ as_normal_map = true
 albedo_texture = ExtResource("1_fx4wu")
 normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_px2ji")
+uv1_triplanar = true
