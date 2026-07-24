@@ -50,7 +50,7 @@ navigation_mesh = SubResource("NavigationMesh_fmvnm")
 [node name="Walls" parent="World/NavigationRegion3D" unique_id=854971284 instance=ExtResource("1_ne2mo")]
 transform = Transform3D(-7.8899056e-08, 0, 2.104, 0, 1.811, 0, -1.805, 0, -9.1968765e-08, 0, 0, 0)
 
-[node name="Walls" parent="World/NavigationRegion3D/Walls" index="0" unique_id=1267553260]
+[node name="Walls" parent="World/NavigationRegion3D/Walls" index="0" unique_id=1852582039]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_6cvei")
 surface_material_override/1 = ExtResource("2_6cvei")
@@ -126,9 +126,6 @@ transform = Transform3D(0.6235973, -0.5828783, 0.52093714, -2.980223e-08, 0.6663
 follow_target = NodePath("../../Player")
 look_at_mode = 2
 look_at_target = NodePath("../../Player")
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
 physics_interpolation_mode = 1
@@ -168,6 +165,8 @@ transform = Transform3D(0.101982534, 0, -0.99478626, 0, 1, 0, 0.99478626, 0, 0.1
 
 [node name="Dark Thought6" parent="." unique_id=2008087184 instance=ExtResource("7_y0kc7")]
 transform = Transform3D(0.95068413, 0, -0.31016102, 0, 1, 0, 0.31016102, 0, 0.95068413, 16.374363, 0.007842302, 0.17424154)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=898395114]
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel2" method="_on_exit_player_exited"]
 [connection signal="player_killed" from="Dark Thought" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
