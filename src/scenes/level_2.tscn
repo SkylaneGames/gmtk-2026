@@ -36,6 +36,11 @@ glow_bloom = 0.05
 
 [node name="Level1Prototype" type="Node3D" unique_id=340066768]
 
+[node name="DebugLight" type="DirectionalLight3D" parent="." unique_id=1848582950]
+visible = false
+light_energy = 0.585
+sky_mode = 1
+
 [node name="World" type="Node3D" parent="." unique_id=1360628353]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="World" unique_id=1670217184]
@@ -161,11 +166,6 @@ text = "Memories Collected: 0"
 
 [node name="Dark Thought" parent="." unique_id=1534479851 instance=ExtResource("7_y0kc7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2146693, 0.007842302, 2.757439)
-
-[node name="DebugLight" type="DirectionalLight3D" parent="." unique_id=1848582950]
-visible = false
-light_energy = 0.585
-sky_mode = 1
 
 [connection signal="player_exited" from="Exit" to="GameManagerLevel2" method="_on_exit_player_exited"]
 
