@@ -8,6 +8,20 @@ specular_mode = 1
 albedo_color = Color(0.27969933, 0.8979521, 0.92739606, 1)
 roughness = 0.03
 
+[sub_resource type="Curve" id="Curve_5upxr"]
+
+[sub_resource type="Curve" id="Curve_3r5tj"]
+_limits = [-1.0, 1.0, -1.0, 1.0]
+_data = [Vector2(-1, 0), 0.0, 0.0, 0, 0, Vector2(0.20246112, 0.12868679), 0.0, 0.0, 0, 0, Vector2(1, -0.31961024), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_fy4nv"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_6g7as"]
+curve_x = SubResource("Curve_5upxr")
+curve_y = SubResource("Curve_3r5tj")
+curve_z = SubResource("Curve_fy4nv")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w5pmr"]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
@@ -15,8 +29,11 @@ emission_ring_height = 0.1
 emission_ring_radius = 1.6
 emission_ring_inner_radius = 0.0
 emission_ring_cone_angle = 90.0
-orbit_velocity_min = 0.1030001
-orbit_velocity_max = 0.1030001
+directional_velocity_min = -1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_6g7as")
+orbit_velocity_min = -0.028
+orbit_velocity_max = 0.024
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g4q3"]
@@ -36,8 +53,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0046949387, 0, -0.00154852
 material_override = SubResource("StandardMaterial3D_kdgt6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1825948875]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.20814466, 0)
-amount = 1
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.07806015, 0)
+amount = 2
+lifetime = 7.0
 process_material = SubResource("ParticleProcessMaterial_w5pmr")
 draw_pass_1 = SubResource("SphereMesh_0pf81")
 
