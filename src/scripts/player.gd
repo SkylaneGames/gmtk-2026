@@ -4,8 +4,12 @@ class_name Player
 
 @onready var body: Node3D = $Body;
 @export var light_enabled: bool = true :
-	get: return $Body/Energy.enabled
-	set(value): $Body/Energy.enabled = value
+	get:
+		return light.enabled
+	set(value):
+		light.enabled = value
+
+@export var light: EnergyEffect
 
 @export var SPEED: float = 5.0
 @export var ROTATION_SPEED: float = 8.0

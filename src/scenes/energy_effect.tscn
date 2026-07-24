@@ -14,11 +14,13 @@ animation = &"turn_off"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ghciy"]
+xfade_time = 1.5
 reset = false
 advance_mode = 2
 advance_expression = "enabled == false"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pv5n"]
+xfade_time = 1.5
 reset = false
 advance_mode = 2
 advance_expression = "enabled == true"
@@ -26,25 +28,11 @@ advance_expression = "enabled == true"
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w5pmr"]
 states/Start/position = Vector2(198.73047, 84.25391)
 states/flicker/node = SubResource("AnimationNodeAnimation_tr3ms")
-states/flicker/position = Vector2(395.57422, 47.242188)
+states/flicker/position = Vector2(428.01563, 48.98828)
 states/turn_off/node = SubResource("AnimationNodeAnimation_0ob5m")
-states/turn_off/position = Vector2(395.57422, 149.38281)
+states/turn_off/position = Vector2(428.01563, 158.14453)
 transitions = ["Start", "flicker", SubResource("AnimationNodeStateMachineTransition_5ds2k"), "flicker", "turn_off", SubResource("AnimationNodeStateMachineTransition_ghciy"), "turn_off", "flicker", SubResource("AnimationNodeStateMachineTransition_2pv5n")]
-graph_offset = Vector2(-1.3671875, -12.871094)
-
-[sub_resource type="Animation" id="Animation_qj3e3"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("OmniLight3D:light_energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.815, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+graph_offset = Vector2(-40.5625, -59.5)
 
 [sub_resource type="Animation" id="Animation_6s54i"]
 resource_name = "flicker"
@@ -88,7 +76,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_408rv"]
 resource_name = "turn_off"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,10 +84,10 @@ tracks/0/path = NodePath("OmniLight3D:light_energy")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [1.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -128,7 +116,6 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tr3ms"]
 _data = {
-&"RESET": SubResource("Animation_qj3e3"),
 &"flicker": SubResource("Animation_6s54i"),
 &"turn_off": SubResource("Animation_408rv")
 }
@@ -213,6 +200,7 @@ size = Vector2(0.5, 0.5)
 
 [node name="EnergyEffect" type="Node3D" unique_id=529939267]
 script = ExtResource("1_6s54i")
+enabled = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1943292450]
 tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
@@ -222,15 +210,16 @@ anim_player = NodePath("AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree" unique_id=861194183]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_tr3ms")
-autoplay = &"flicker"
 
 [node name="Core" type="GPUParticles3D" parent="." unique_id=1181858700]
+emitting = false
 amount = 70
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_3g4q3")
 draw_pass_1 = SubResource("QuadMesh_w5pmr")
 
 [node name="Sparks" type="GPUParticles3D" parent="." unique_id=35741564]
+emitting = false
 amount = 50
 lifetime = 2.23
 process_material = SubResource("ParticleProcessMaterial_w5pmr")
@@ -238,6 +227,6 @@ draw_pass_1 = SubResource("QuadMesh_0pf81")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=50907600]
 light_color = Color(1, 0.68235296, 0.36078432, 1)
-light_energy = 0.75023997
+light_energy = 0.0
 light_size = 0.01
 omni_range = 1.7136005
