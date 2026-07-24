@@ -14,7 +14,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -1.746954, 0)]
+"values": [Vector3(0, -1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_o47vv"]
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -1.746954, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, -1, 0), Vector3(0, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmvnm"]
@@ -40,10 +40,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w5pmr"]
-size = Vector3(0.48657227, 1.7464844, 3.9260254)
+size = Vector3(0.2, 2, 1.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_w5pmr"]
-size = Vector3(0.47851563, 1.7236328, 3.8606873)
+size = Vector3(0.2, 2, 1.5)
 
 [node name="DoorFrame" type="Node3D" unique_id=804377546]
 script = ExtResource("1_hpvv5")
@@ -52,14 +52,12 @@ script = ExtResource("1_hpvv5")
 libraries/ = SubResource("AnimationLibrary_fmvnm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1162723933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.746954, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1295027024]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8146973e-06, 0.8583252, 0.16517258)
 shape = SubResource("BoxShape3D_w5pmr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1825531154]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.861023e-06, 0.8618164, 0.10827637)
 mesh = SubResource("BoxMesh_w5pmr")
 
 [node name="NavigationLink3D" type="NavigationLink3D" parent="." unique_id=469774289]
