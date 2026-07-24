@@ -4,6 +4,10 @@
 [ext_resource type="Material" uid="uid://oworh5hcq758" path="res://assets/models/level_3_wall_mat.tres" id="2_h23n6"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="3_1pn4d"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_ah8om"]
+[ext_resource type="PackedScene" uid="uid://c06yb5ht530vd" path="res://assets/models/tree_3.glb" id="5_wae8j"]
+[ext_resource type="PackedScene" uid="uid://dfmvikec8q6gu" path="res://assets/models/Zen_Arch.glb" id="6_ha73p"]
+[ext_resource type="PackedScene" uid="uid://cnik3o0l3m5ft" path="res://assets/models/rocks_3.glb" id="7_vcx5n"]
+[ext_resource type="PackedScene" uid="uid://dlj7kqr5nkctf" path="res://assets/models/rocks_4.glb" id="8_56dhn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1pn4d"]
 sky_top_color = Color(0.92612267, 0.5804387, 0.78067935, 1)
@@ -6870,6 +6874,12 @@ albedo_color = Color(0.4105838, 0.41058382, 0.4105838, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwxec"]
 albedo_color = Color(0.26399913, 0.26399934, 0.26399925, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhfj6"]
+albedo_color = Color(0.47058824, 0.003921569, 0.03529412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d7kw"]
+albedo_color = Color(0.22092095, 0.3287168, 0.14390734, 1)
+
 [node name="Level3" type="Node3D" unique_id=340066768]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=736491843]
@@ -6895,7 +6905,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37858582, -0.86086273, -0.
 shape = SubResource("CylinderShape3D_2d7kw")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1724695241]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 1.5982733, 0, -0.8952222)
+transform = Transform3D(1.8, 0, 0, 0, 0.75, 0, 0, 0, 1.8, 1.5982733, 0, -0.8952222)
 
 [node name="GeneratedMaze" type="Node3D" parent="Node3D" unique_id=1945291437]
 script = ExtResource("1_70nk6")
@@ -17973,7 +17983,7 @@ height = 2.9013672
 sides = 15
 
 [node name="CSGCylinder3D (Small)" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2042589190]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.548893, 1.079834, -8.106202)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5625343, 1.0961838, -8.133378)
 material_override = SubResource("StandardMaterial3D_uwxec")
 operation = 2
 radius = 18.686035
@@ -18000,4 +18010,76 @@ align_rotation_with_view = Callable()
 physics_interpolation_mode = 1
 transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 9.402, 13.457, 22.823975)
 
+[node name="tree_3" parent="." unique_id=364035462 instance=ExtResource("5_wae8j")]
+transform = Transform3D(0.80511355, 0, 0.5931207, 0, 1, 0, -0.5931207, 0, 0.80511355, -14.965565, 0.11832163, -6.113489)
+
+[node name="4" parent="tree_3" index="0" unique_id=1868559194]
+surface_material_override/0 = SubResource("StandardMaterial3D_hhfj6")
+
+[node name="Zen_Arch2" parent="tree_3" unique_id=231913595 instance=ExtResource("6_ha73p")]
+transform = Transform3D(0.80511355, 0, -0.5931207, 0, 1.5, 0, 0.5931207, 0, 0.80511355, 10.347248, -0.2652473, 5.9577045)
+
+[node name="tree_4" parent="." unique_id=1732923221 instance=ExtResource("5_wae8j")]
+transform = Transform3D(0.4769069, 0, 0.15019919, 0, 0.5, 0, -0.15019919, 0, 0.4769069, -16.833437, 0.11832163, -2.8924375)
+
+[node name="4" parent="tree_4" index="0" unique_id=1868559194]
+surface_material_override/0 = SubResource("StandardMaterial3D_hhfj6")
+
+[node name="Zen_Arch2" parent="tree_4" unique_id=673530807 instance=ExtResource("6_ha73p")]
+transform = Transform3D(0.80511355, 0, -0.5931207, 0, 1.5, 0, 0.5931207, 0, 0.80511355, 10.347248, -0.2652473, 5.9577045)
+
+[node name="Stone_1" parent="." unique_id=488181870 instance=ExtResource("7_vcx5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9186535, -0.14809418, 10.036653)
+
+[node name="Stone_2" parent="." unique_id=501087343 instance=ExtResource("7_vcx5n")]
+transform = Transform3D(0.25650203, 0, 0.42919305, 0, 0.5, 0, -0.42919305, 0, 0.25650203, -14.459734, -0.14809418, 6.9139795)
+
+[node name="Stone_3" parent="." unique_id=488871916 instance=ExtResource("7_vcx5n")]
+transform = Transform3D(-0.4625955, 0, 0.18975082, 0, 0.5, 0, -0.18975082, 0, -0.4625955, -10.756938, -0.14809418, 13.189596)
+
+[node name="Stone_6" parent="." unique_id=537465247 instance=ExtResource("7_vcx5n")]
+transform = Transform3D(-0.35996813, 0, 0.34702006, 0, 0.5, 0, -0.34702006, 0, -0.35996813, 4.426573, -0.14809418, 12.914568)
+
+[node name="Stone_5" parent="." unique_id=1697280761 instance=ExtResource("7_vcx5n")]
+transform = Transform3D(-0.4625955, 0, 0.18975082, 0, 0.5, 0, -0.18975082, 0, -0.4625955, -10.756938, -0.14809418, 13.189596)
+
+[node name="Stone_4" parent="." unique_id=552597761 instance=ExtResource("7_vcx5n")]
+transform = Transform3D(0.1780342, 0, -0.72856283, 0, 0.75, 0, 0.72856283, 0, 0.1780342, 6.155655, -0.14809418, 15.211515)
+
+[node name="rocks_6" parent="." unique_id=1200223480 instance=ExtResource("8_56dhn")]
+transform = Transform3D(0.13651039, 0, -0.06216847, 0, 0.15, 0, 0.06216847, 0, 0.13651039, 5.0738525, 1.443612, 11.400806)
+
+[node name="6" parent="rocks_6" index="0" unique_id=1880122052]
+transform = Transform3D(1.89277, 0, 0, 0, 1.89277, 0, 0, 0, 1.89277, 1.9066553, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
+
+[node name="rocks_7" parent="." unique_id=621971115 instance=ExtResource("8_56dhn")]
+transform = Transform3D(0.14498846, 0, 0.038449332, 0, 0.15, 0, -0.038449332, 0, 0.14498846, 5.3410516, 1.443612, 11.946273)
+
+[node name="6" parent="rocks_7" index="0" unique_id=1880122052]
+transform = Transform3D(1.89277, 0, 0, 0, 1.89277, 0, 0, 0, 1.89277, 1.9066553, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
+
+[node name="rocks_8" parent="." unique_id=1039947191 instance=ExtResource("8_56dhn")]
+transform = Transform3D(-0.05945412, 0, -0.1377142, 0, 0.14999999, 0, 0.1377142, 0, -0.05945412, 6.112199, 1.443612, 11.920976)
+
+[node name="6" parent="rocks_8" index="0" unique_id=1880122052]
+transform = Transform3D(1.89277, 0, 0, 0, 1.89277, 0, 0, 0, 1.89277, 1.9066553, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=648672855]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D2" unique_id=1563547080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.871485, 0.54649353, 2.4158292)
+height = 0.17358398
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D2" unique_id=1267556063]
+transform = Transform3D(0.93628705, 0, -0.35123584, 0, 1, 0, 0.35123584, 0, 0.93628705, -10.133037, 0.54649353, 3.1669989)
+height = 0.17358398
+
 [editable path="IsoCamera"]
+[editable path="tree_3"]
+[editable path="tree_4"]
+[editable path="rocks_6"]
+[editable path="rocks_7"]
+[editable path="rocks_8"]
