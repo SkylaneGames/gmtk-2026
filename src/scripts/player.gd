@@ -59,5 +59,6 @@ func consume_memory(value: float) -> bool:
 		return false
 
 	memory_count -= value
-	labelMemoryCount.text = "Memories collected: %0.2f" % memory_count
+	if labelMemoryCount != null:
+		labelMemoryCount.text = "Memories collected: %0.2f" % memory_count
 	return true

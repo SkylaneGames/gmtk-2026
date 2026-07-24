@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -1, 0)]
+"values": [Vector3(0, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_o47vv"]
@@ -34,10 +34,27 @@ tracks/0/keys = {
 "values": [Vector3(0, -1, 0), Vector3(0, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_uvdjg"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, -1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmvnm"]
 _data = {
 &"RESET": SubResource("Animation_3sct1"),
-&"close": SubResource("Animation_o47vv")
+&"close": SubResource("Animation_o47vv"),
+&"open": SubResource("Animation_uvdjg")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w5pmr"]
@@ -51,9 +68,10 @@ script = ExtResource("1_hpvv5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1364955867]
 libraries/ = SubResource("AnimationLibrary_fmvnm")
+autoplay = &"open"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1162723933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1295027024]
 shape = SubResource("BoxShape3D_w5pmr")
