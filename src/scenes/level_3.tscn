@@ -16909,3 +16909,19 @@ transform = Transform3D(-0.9857353, 0, 0.1683032, 0, 1, 0, -0.1683032, 0, -0.985
 
 [node name="Wall_1192" type="StaticBody3D" parent="Node3D/GeneratedMaze/GeneratedMaze" unique_id=119616012]
 transform = Transform3D(-0.9857385, 0, 0.16828416, 0, 1, 0, -0.16828416, 0, -0.9857385, -3.3999987, 1, 6.295)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=2015000914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621887, 0.26010132, 8.087402)
+
+[node name="CSGCylinder3D (Large)" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=222613036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.634094, 0.4506836, -8.128162)
+radius = 19.662598
+height = 2.9013672
+sides = 15
+
+[node name="CSGCylinder3D (Small)" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2042589190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.548893, 1.079834, -8.106202)
+operation = 2
+radius = 18.686035
+height = 4.159668
+sides = 15
