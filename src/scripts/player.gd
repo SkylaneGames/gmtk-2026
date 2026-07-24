@@ -2,7 +2,9 @@ extends CharacterBody3D
 
 class_name Player
 
-@onready var body: Node3D = $Body;
+@onready var body := $Body;
+@onready var labelMemoryCount: Label = %label_MemoryCount
+
 @export var light_enabled: bool = true :
 	get:
 		return light.enabled
@@ -13,6 +15,8 @@ class_name Player
 
 @export var SPEED: float = 5.0
 @export var ROTATION_SPEED: float = 8.0
+
+@export var memory_count := 0.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -42,7 +46,18 @@ func face_direction(direction: Vector3, delta: float) -> void:
 		return
 
 	# Get the body node to face the direction smoothly.
-	var target_position := body.global_position + direction
-	var target_transform := body.global_transform.looking_at(target_position, Vector3.UP)
+	var target_position: Vector3 = body.global_position + direction
+	var target_transform: Transform3D = body.global_transform.looking_at(target_position, Vector3.UP)
 
 	body.global_transform.basis = body.global_transform.basis.slerp(target_transform.basis, ROTATION_SPEED * delta)
+
+func pickup_memory() -> void:
+	memory_count += 1
+
+func consume_memory(value: float) -> bool:
+	if memory_count < value:
+		return false
+
+	memory_count -= value
+	labelMemoryCount.text = "Memories collected: %0.2f" % memory_count
+	return true
