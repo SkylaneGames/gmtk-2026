@@ -9864,7 +9864,7 @@ polygon = PackedVector2Array(6.9383802, 4.4749765, 7.3500395, 1.7516756, 7.09671
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Door 1" parent="NavigationRegion3D/Doors" unique_id=804377546 instance=ExtResource("5_4nkto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4804306, -1.5145915, 4.455378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4804306, -0.28670672, 4.455378)
 
 [node name="Door 2" parent="NavigationRegion3D/Doors" unique_id=1823333156 instance=ExtResource("5_4nkto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.526, 0, 1.7031324)
