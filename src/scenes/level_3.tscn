@@ -3,6 +3,22 @@
 [ext_resource type="Script" uid="uid://c2eoih6i57sgc" path="res://scripts/maze_g.gd" id="1_70nk6"]
 [ext_resource type="Material" uid="uid://oworh5hcq758" path="res://assets/models/level_3_wall_mat.tres" id="2_h23n6"]
 
+[sub_resource type="Gradient" id="Gradient_ha73p"]
+colors = PackedColorArray(0.720538, 0.54344386, 0.28762567, 1, 0.87234896, 0.8787446, 0.886312, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wae8j"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hhfj6"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_wae8j")
+color_ramp = SubResource("Gradient_ha73p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6vls"]
+albedo_color = Color(0.9913458, 0.85404927, 0.68080276, 1)
+albedo_texture = SubResource("NoiseTexture2D_hhfj6")
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_2d7kw"]
 top_radius = 19.0
 height = 1.0
@@ -6823,6 +6839,15 @@ size = Vector3(0.40019774, 2, 0.25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_17pl0"]
 size = Vector3(0.40019774, 2, 0.25)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah8om"]
+albedo_color = Color(0.31696296, 0.31696323, 0.31696305, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pn4d"]
+albedo_color = Color(0.4105838, 0.41058382, 0.4105838, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwxec"]
+albedo_color = Color(0.26399913, 0.26399934, 0.26399925, 1)
+
 [node name="Level3" type="Node3D" unique_id=340066768]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1776940229]
@@ -6831,6 +6856,7 @@ disable_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1674151447]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33244705, 0)
+material_override = SubResource("StandardMaterial3D_p6vls")
 mesh = SubResource("CylinderMesh_2d7kw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=153454932]
@@ -17906,15 +17932,18 @@ transform = Transform3D(-0.9857385, 0, 0.16828416, 0, 1, 0, -0.16828416, 0, -0.9
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=2015000914]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621887, 0.26010132, 8.087402)
+material_override = SubResource("StandardMaterial3D_ah8om")
 
 [node name="CSGCylinder3D (Large)" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=222613036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.634094, 0.4506836, -8.128162)
+material_override = SubResource("StandardMaterial3D_1pn4d")
 radius = 19.662598
 height = 2.9013672
 sides = 15
 
 [node name="CSGCylinder3D (Small)" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2042589190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.548893, 1.079834, -8.106202)
+material_override = SubResource("StandardMaterial3D_uwxec")
 operation = 2
 radius = 18.686035
 height = 4.159668
