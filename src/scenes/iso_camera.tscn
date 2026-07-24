@@ -24,6 +24,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="Camera3D" type="Camera3D" parent="." unique_id=250779762]
 transform = Transform3D(0.7071052, -0.40824825, 0.57735014, 2.9802251e-08, 0.8164966, 0.5773502, -0.707105, -0.4082483, 0.5773503, 10, 10, 10)
 top_level = true
+fov = 50.0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1530126430]
 process_priority = 300
