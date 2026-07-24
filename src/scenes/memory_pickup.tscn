@@ -20,4 +20,7 @@ shape = SubResource("SphereShape3D_lfxu0")
 debug_color = Color(0.75686276, 0.043137256, 0.6313726, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1437539934]
+light_color = Color(0.5058824, 1, 1, 1)
+light_energy = 0.5
 shadow_enabled = true
+omni_range = 2.8845453

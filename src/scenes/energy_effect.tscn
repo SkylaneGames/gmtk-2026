@@ -149,7 +149,9 @@ color_ramp = SubResource("GradientTexture1D_fjfp4")
 transparency = 1
 blend_mode = 1
 shading_mode = 0
+disable_ambient_light = true
 disable_fog = true
+disable_specular_occlusion = true
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.13153484, 0.13153487, 0.13153487, 1)
 albedo_texture = ExtResource("1_qj3e3")
@@ -211,7 +213,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_tr3ms")
 
 [node name="Core" type="GPUParticles3D" parent="." unique_id=1181858700]
-amount = 70
+amount = 40
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_3g4q3")
 draw_pass_1 = SubResource("QuadMesh_w5pmr")
@@ -224,7 +226,7 @@ draw_pass_1 = SubResource("QuadMesh_0pf81")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=50907600]
 light_color = Color(1, 0.68235296, 0.36078432, 1)
-light_energy = 1.0129383
+light_energy = 0.743476
 light_size = 0.01
 shadow_enabled = true
 omni_range = 5.9894843

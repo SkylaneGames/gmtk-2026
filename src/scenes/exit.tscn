@@ -7,8 +7,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
 [sub_resource type="Gradient" id="Gradient_l5n14"]
-offsets = PackedFloat32Array(0.6389706, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.63083637, 0.97198987)
+colors = PackedColorArray(0, 0.835742, 0.4949134, 1, 0.5059506, 0.35285282, 0.47243893, 1, 0.28685737, 0.5152801, 0.54511803, 0.99215686)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_56pq6"]
 gradient = SubResource("Gradient_l5n14")
@@ -53,18 +53,19 @@ gravity = Vector3(0, 0, 0)
 tangential_accel_min = -2.2351742e-06
 tangential_accel_max = 0.71999776
 scale_curve = SubResource("CurveTexture_ts7x6")
-color = Color(0.34872934, 0.90101576, 0.591193, 1)
 color_ramp = SubResource("GradientTexture1D_56pq6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpn1d"]
 transparency = 1
+blend_mode = 1
+shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_l5n14")
-emission_enabled = true
-emission = Color(0.66677207, 0.8453963, 0.5190216, 1)
-emission_energy_multiplier = 1.8
-billboard_mode = 1
+billboard_mode = 3
 billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 grow_amount = 0.581
 proximity_fade_distance = 0.01
 

@@ -26,11 +26,10 @@ sky = SubResource("Sky_15mv3")
 tonemap_mode = 3
 ssao_enabled = true
 glow_enabled = true
-glow_intensity = 0.84
-glow_bloom = 0.15
+glow_intensity = 0.5
 fog_enabled = true
 fog_light_color = Color(0.60617363, 0.37412068, 0.770315, 1)
-fog_light_energy = 1.64
+fog_light_energy = 0.8
 fog_sky_affect = 0.0
 fog_height_density = -0.4318
 
@@ -3679,7 +3678,7 @@ camera_attributes = SubResource("CameraAttributesPhysical_0pf81")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1941911600]
 transform = Transform3D(-0.93358046, -0.31035575, 0.17918395, 0, 0.49999997, 0.86602545, -0.35836792, 0.80850446, -0.4667902, 0.55797577, 16.040764, -28.62469)
 light_color = Color(0.9885784, 0.7943377, 1.540184e-06, 1)
-light_energy = 0.66
+light_energy = 0.397
 shadow_enabled = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=204055180]
