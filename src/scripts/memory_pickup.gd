@@ -8,6 +8,7 @@ var starting_y: float
 var elapsed_time: float = 0.0
 @onready var game_manager = %GameManagerLevel1
 
+
 func _ready() -> void:
 	starting_y = position.y
 	body_entered.connect(_on_body_entered)
