@@ -11,3 +11,6 @@ Countdown
 * Game Engine: [Godot 4.7.1](https://godotengine.org/)
 * JT
 
+## Sources
+
+- Kenney Particle Pack - https://kenney.nl/assets/particle-pack
