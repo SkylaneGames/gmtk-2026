@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dibswh15t04vh"]
+
+[ext_resource type="AudioStream" uid="uid://pbg62hxcq2wi" path="res://assets/sounds/music_level-1_draft_01.mp3" id="1_hvcqi"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=638917353]
+stream = ExtResource("1_hvcqi")
+autoplay = true
