@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://d2t74rq5t4eyc"]
 
 [ext_resource type="PackedScene" uid="uid://cfvasj5ub0bp2" path="res://assets/models/dark thought.glb" id="1_770li"]
-[ext_resource type="Script" uid="uid://or08ww2fwemk" path="res://scripts/dark_thought.gd" id="1_o5dua"]
+[ext_resource type="Script" uid="uid://5kwtkp54fxm4" path="res://scripts/dark_thought_controller.gd" id="1_o5dua"]
 [ext_resource type="Texture2D" uid="uid://c8nalkyd3binw" path="res://assets/models/dark thought_Dark Thoughts Albedo.png" id="2_v87l2"]
 [ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="4_2aa1l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7jhi"]
 diffuse_mode = 3
@@ -13,22 +15,29 @@ roughness = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
-[node name="Dark Thought" type="Node3D" unique_id=1534479851]
+[node name="Dark Thought" type="CharacterBody3D" unique_id=712645014]
 script = ExtResource("1_o5dua")
+SPEED = 3.0
 
-[node name="dark thought" parent="." unique_id=1821134870 instance=ExtResource("1_770li")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.57990795)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=668218740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w5pmr")
 
-[node name="Skeleton3D" parent="dark thought/Dark Thought" parent_id_path=PackedInt32Array(1821134870, 47767368) index="0" unique_id=1411775165]
+[node name="Body" type="Node3D" parent="." unique_id=806022512]
+
+[node name="Model" parent="Body" unique_id=1821134870 instance=ExtResource("1_770li")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -0.589)
+
+[node name="Skeleton3D" parent="Body/Model/Dark Thought" parent_id_path=PackedInt32Array(1821134870, 454304376) index="0" unique_id=843368892]
 bones/0/position = Vector3(3.9871475e-09, 0.7369818, -0.65765697)
 bones/1/rotation = Quaternion(-0.06041632, -0.004365783, -0.013639923, 0.99807054)
 bones/2/rotation = Quaternion(-0.019439654, 0.0038335992, -0.6233711, 0.78167516)
 bones/3/rotation = Quaternion(0.9471325, -0.0800599, -0.026087955, -0.3095963)
 
-[node name="DarkThought" parent="dark thought/Dark Thought/Skeleton3D" index="0" unique_id=298772683]
+[node name="DarkThought" parent="Body/Model/Dark Thought/Skeleton3D" index="0" unique_id=904786454]
 surface_material_override/0 = SubResource("StandardMaterial3D_o7jhi")
 
-[node name="AnimationPlayer" parent="dark thought" index="1" unique_id=1202056338]
+[node name="AnimationPlayer" parent="Body/Model" index="1" unique_id=1457575843]
 autoplay = &"idle"
 
 [node name="Interactable" parent="." unique_id=1123878260 instance=ExtResource("4_2aa1l")]
@@ -37,6 +46,6 @@ autoplay = &"idle"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37131226, 0)
 shape = SubResource("SphereShape3D_w5pmr")
 
-[connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=58907943]
 
-[editable path="dark thought"]
+[editable path="Body/Model"]
