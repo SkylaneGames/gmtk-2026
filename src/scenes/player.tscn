@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cihi57x30053y" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://b0abllb5hkptc" path="res://scenes/interactor.tscn" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dorc4s07g6fjp" path="res://assets/effects/textures/circle_02.png" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://bui77c7e1hja8" path="res://scenes/energy_effect.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
@@ -10,20 +11,17 @@ height = 1.2070313
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5pmr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cvei"]
 render_priority = -1
 transparency = 1
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.26828408, 0.2682841, 0.26828402, 1)
-roughness = 0.26
+shading_mode = 0
+albedo_color = Color(0.82869285, 0.6294011, 1.7321486, 1)
+albedo_texture = ExtResource("3_dqkch")
+billboard_mode = 1
 
-[sub_resource type="SphereMesh" id="SphereMesh_w5pmr"]
-material = SubResource("StandardMaterial3D_w5pmr")
-radius = 0.1
-height = 0.2
-radial_segments = 16
-rings = 8
+[sub_resource type="QuadMesh" id="QuadMesh_ne2mo"]
+material = SubResource("StandardMaterial3D_6cvei")
+size = Vector2(0.25, 0.25)
 
 [node name="Player" type="CharacterBody3D" unique_id=730368400 node_paths=PackedStringArray("light") groups=["player"]]
 script = ExtResource("1_3vyb7")
@@ -45,6 +43,12 @@ shape = SubResource("SphereShape3D_w5pmr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6806635, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1545146745]
-mesh = SubResource("SphereMesh_w5pmr")
+mesh = SubResource("QuadMesh_ne2mo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Body/MeshInstance3D" unique_id=998793818]
+light_color = Color(0.4965608, 0.47221684, 1, 1)
+light_energy = 0.2
+light_size = 0.1
+omni_range = 1.0
 
 [node name="Energy" parent="Body" unique_id=529939267 instance=ExtResource("3_qhqgy")]
