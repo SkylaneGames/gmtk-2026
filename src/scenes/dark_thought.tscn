@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://d2t74rq5t4eyc"]
 
 [ext_resource type="PackedScene" uid="uid://cfvasj5ub0bp2" path="res://assets/models/dark thought.glb" id="1_770li"]
+[ext_resource type="Script" uid="uid://or08ww2fwemk" path="res://scripts/dark_thought.gd" id="1_o5dua"]
 [ext_resource type="Texture2D" uid="uid://c8nalkyd3binw" path="res://assets/models/dark thought_Dark Thoughts Albedo.png" id="2_v87l2"]
+[ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="4_2aa1l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7jhi"]
 diffuse_mode = 3
@@ -9,20 +11,32 @@ specular_mode = 1
 albedo_texture = ExtResource("2_v87l2")
 roughness = 0.2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
+
 [node name="Dark Thought" type="Node3D" unique_id=1534479851]
+script = ExtResource("1_o5dua")
 
 [node name="dark thought" parent="." unique_id=1821134870 instance=ExtResource("1_770li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.57990795)
 
-[node name="Skeleton3D" parent="dark thought/Dark Thought" parent_id_path=PackedInt32Array(1821134870, 1485642641) index="0" unique_id=2063011731]
-bones/0/position = Vector3(-2.8421716e-14, 2.1253996, -1.1772205)
-bones/1/rotation = Quaternion(-0.07264576, -0.009080409, -0.028369712, 0.99691296)
-bones/2/rotation = Quaternion(-0.00049475016, 0.03193546, -0.5908188, 0.8061718)
-bones/3/rotation = Quaternion(0.9563157, 3.4849123e-08, 1.1400182e-07, -0.29233596)
+[node name="Skeleton3D" parent="dark thought/Dark Thought" parent_id_path=PackedInt32Array(1821134870, 47767368) index="0" unique_id=1411775165]
+bones/0/position = Vector3(3.9871475e-09, 0.7369818, -0.65765697)
+bones/1/rotation = Quaternion(-0.06041632, -0.004365783, -0.013639923, 0.99807054)
+bones/2/rotation = Quaternion(-0.019439654, 0.0038335992, -0.6233711, 0.78167516)
+bones/3/rotation = Quaternion(0.9471325, -0.0800599, -0.026087955, -0.3095963)
 
-[node name="DarkThought" parent="dark thought/Dark Thought/Skeleton3D" index="0" unique_id=785818351]
+[node name="DarkThought" parent="dark thought/Dark Thought/Skeleton3D" index="0" unique_id=298772683]
 surface_material_override/0 = SubResource("StandardMaterial3D_o7jhi")
 
-[node name="AnimationPlayer" parent="dark thought" index="1" unique_id=584956189]
+[node name="AnimationPlayer" parent="dark thought" index="1" unique_id=1202056338]
 autoplay = &"idle"
+
+[node name="Interactable" parent="." unique_id=1123878260 instance=ExtResource("4_2aa1l")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=228651293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37131226, 0)
+shape = SubResource("SphereShape3D_w5pmr")
+
+[connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]
 
 [editable path="dark thought"]
