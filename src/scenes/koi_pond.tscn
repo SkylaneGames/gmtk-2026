@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bdgrwgr4unah6"]
+
+[ext_resource type="PackedScene" uid="uid://yq4qnkspy3ph" path="res://assets/models/koi_pond.glb" id="1_kdgt6"]
+[ext_resource type="Texture2D" uid="uid://do7dh318brddo" path="res://assets/models/WaterDistortion.png" id="3_415qy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_415qy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_o5mqn"]
+sky_material = SubResource("ProceduralSkyMaterial_415qy")
+
+[sub_resource type="Environment" id="Environment_n7t8c"]
+background_mode = 2
+sky = SubResource("Sky_o5mqn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdgt6"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.27969933, 0.8979521, 0.92739606, 1)
+roughness = 0.03
+normal_enabled = true
+normal_scale = -0.08
+normal_texture = ExtResource("3_415qy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w5pmr"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 1.6
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 0.1030001
+orbit_velocity_max = 0.1030001
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g4q3"]
+albedo_color = Color(0.861917, 0.40920487, 5.7756904e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0pf81"]
+material = SubResource("StandardMaterial3D_3g4q3")
+radius = 0.3
+height = 0.6
+
+[node name="Koi Pond" type="Node3D" unique_id=1190557702]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703116980]
+environment = SubResource("Environment_n7t8c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1057081104]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1406778466]
+transform = Transform3D(0.57957274, -0.44880486, 0.68019825, 0, 0.8346805, 0.5507345, -0.8149205, -0.3191907, 0.4837581, 4.903424, 3.9701436, 3.4873226)
+
+[node name="koi_pond" parent="." unique_id=767025198 instance=ExtResource("1_kdgt6")]
+
+[node name="Koi_water" parent="koi_pond" index="2" unique_id=1566316010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0046949387, 0, -0.0015485287)
+material_override = SubResource("StandardMaterial3D_kdgt6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1825948875]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.20814466, 0)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_w5pmr")
+draw_pass_1 = SubResource("SphereMesh_0pf81")
+
+[editable path="koi_pond"]
