@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://chlrwtcoixjt5"]
+
+[ext_resource type="Texture2D" uid="uid://cyxwvjicrbx41" path="res://assets/BackgroundLoopFrames/Monitor frame 1.png" id="1_o5d6g"]
+[ext_resource type="Texture2D" uid="uid://be6f761d34gfq" path="res://assets/BackgroundLoopFrames/Monitor frame 2.png" id="2_wuwyj"]
+[ext_resource type="Texture2D" uid="uid://7elc3t62pmos" path="res://assets/BackgroundLoopFrames/Monitor frame 3.png" id="3_14awv"]
+[ext_resource type="Texture2D" uid="uid://dir4mr0y7vnxi" path="res://assets/BackgroundLoopFrames/Monitor frame 4.png" id="4_v6dg1"]
+[ext_resource type="Texture2D" uid="uid://ccvm06vds8x5u" path="res://assets/BackgroundLoopFrames/Monitor frame 5.png" id="5_g6ivn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gef2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o5d6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wuwyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_14awv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v6dg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g6ivn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="MonitorLoopedBg" type="Node2D" unique_id=1113455253]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1192242315]
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gef2k")
+frame_progress = 0.73580366
