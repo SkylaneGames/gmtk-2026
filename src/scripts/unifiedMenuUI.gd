@@ -59,6 +59,8 @@ func show_memory_image(memory_image: Texture2D) -> void:
 	if memory_image == null:
 		push_warning("No image was provided for this memory.")
 		return
+		
+	add_memory_thumbnail(memory_image) # JT
 
 	# Stop the previous animation if another memory is collected quickly.
 	if memory_popup_tween != null:
@@ -90,3 +92,29 @@ func show_memory_image(memory_image: Texture2D) -> void:
 	)
 
 	memory_popup_tween.tween_callback(%MemoryPopup.hide)
+	
+	# JT
+	
+func add_memory_thumbnail(memory_image: Texture2D) -> void:
+	if memory_image == null:
+		push_warning("Thumbnail image is null.")
+		return
+
+	var image := TextureRect.new()
+
+	image.texture = memory_image
+	image.custom_minimum_size = Vector2(96, 96)
+
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+
+	image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	image.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+
+	image.modulate = Color.WHITE
+	image.visible = true
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	%MemoryList.add_child(image)
+
+	print("Added thumbnail: ", memory_image.resource_path)
