@@ -10,6 +10,7 @@ script = ExtResource("1_q6ma6")
 
 [node name="GameUI" type="MarginContainer" parent="." unique_id=781968181]
 unique_name_in_owner = true
+visible = false
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
