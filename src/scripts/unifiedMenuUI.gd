@@ -46,7 +46,6 @@ func displayUI_gameover(gameover_reason: String = "") -> void: # call this on tr
 	%label_GameOverReason.text = gameover_reason
 
 func update_memory_label() -> void:
-	print("Updating memory label")
 	%label_MemoryCount.text = generate_memory_label()
 
 func generate_memory_label() -> String:

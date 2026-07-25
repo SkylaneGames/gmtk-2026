@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bywr5vyrlpkvp" path="res://scenes/level_2_world.tscn" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://ckmg44cw5256e" path="res://scenes/level_3_world.tscn" id="7_u5sy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5sy4"]
 
@@ -39,7 +40,7 @@ shadow_enabled = true
 [node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds")]
 unique_name_in_owner = true
 script = ExtResource("1_iywne")
-worlds = [NodePath("../Level 1 World"), NodePath("../Level 2 World")]
+worlds = [NodePath("../Level 1 World"), NodePath("../Level 2 World"), NodePath("../Level 3 World")]
 
 [node name="UnifiedMenuUI" parent="." unique_id=839514077 node_paths=PackedStringArray("player") instance=ExtResource("2_p57ef")]
 unique_name_in_owner = true
@@ -51,6 +52,10 @@ player = NodePath("../Player")
 
 [node name="Level 2 World" parent="." unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("5_u5sy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.071064, 0)
+player = NodePath("../Player")
+
+[node name="Level 3 World" parent="." unique_id=1228685239 node_paths=PackedStringArray("player") instance=ExtResource("7_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 74, 0)
 player = NodePath("../Player")
 
 [node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]
