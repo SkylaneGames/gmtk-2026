@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name HeadController
+
 var _current_state: HeadState
 @export var current_state: HeadState = HeadState.PEACEFUL :
 	get: return _current_state
@@ -16,7 +18,7 @@ var _eyes_open: bool
 		if value:
 			_current_state = HeadState.PEACEFUL
 
-@export var current_layout: Layout = Layout.WHOLE
+@export var current_layout: HeadLayout = HeadLayout.WHOLE
 
 enum HeadState { PEACEFUL, STRAINED_SLIGHT, STRAINED_MEDUIM, STRAINED_HEAVY }
-enum Layout { WHOLE, LEVEL_1, LEVEL_2, LEVEL_3 }
+enum HeadLayout { WHOLE, LEVEL_1, LEVEL_2, LEVEL_3 }

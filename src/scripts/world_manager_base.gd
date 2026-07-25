@@ -14,8 +14,9 @@ var running := false
 
 func initialize_world() -> void:
 	print("initializing world %d" % world_id)
-	_initialize_world()
 	spawn_player()
+	await get_tree().create_timer(5).timeout
+	_initialize_world()
 	running = true
 
 func dispose() -> void:
