@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bof12vkc6udmv"
+path="res://.godot/imported/Basketball Memory.ogg-95549a5b5861a14adc12a1dceac1e9da.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Basketball Memory.ogg"
+dest_files=["res://.godot/imported/Basketball Memory.ogg-95549a5b5861a14adc12a1dceac1e9da.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
