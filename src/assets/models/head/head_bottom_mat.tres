@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3mtegrmqp637"]
+
+[ext_resource type="Texture2D" uid="uid://dt2s772ccvymq" path="res://assets/models/head/Mouht_Peaceful.png" id="1_254n4"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_254n4")
