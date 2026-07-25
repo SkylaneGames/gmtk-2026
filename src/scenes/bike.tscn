@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dce2dvtk57a3p"]
+
+[ext_resource type="PackedScene" uid="uid://djvtoflncnkjn" path="res://assets/models/low_poly_bicycle.glb" id="1_oy3wg"]
+
+[node name="Bike" type="Node3D" unique_id=1119664138]
+
+[node name="Sketchfab_Scene" parent="." unique_id=611824323 instance=ExtResource("1_oy3wg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -615.87317, 41.235275, 172.54611)
