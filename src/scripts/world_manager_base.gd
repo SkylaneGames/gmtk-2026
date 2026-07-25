@@ -29,7 +29,7 @@ func spawn_player() -> void:
 	if player == null:
 		return
 
-	player.set_position(spawn_point.get_position())
+	player.global_transform.origin = spawn_point.global_position
 
 func _notify_level_completed() -> void:
 	print("Level %d Completed!" % world_id)
