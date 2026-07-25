@@ -10,6 +10,7 @@ script = ExtResource("1_q6ma6")
 
 [node name="GameUI" type="Control" parent="." unique_id=499547022]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1917.0
