@@ -607,7 +607,6 @@ graph_offset = Vector2(-85.55078, 130.3711)
 
 [node name="Head" type="Node3D" unique_id=1332359877]
 script = ExtResource("1_n8xhp")
-eyes_open = false
 
 [node name="HeadComplete" type="Node3D" parent="." unique_id=1158485046]
 
