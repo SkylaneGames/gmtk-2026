@@ -1,4 +1,4 @@
-extends Area3D
+extends Node3D
 
 @export var rotation_speed: float = 2.0
 @export var bob_height: float = 0.2
@@ -6,13 +6,10 @@ extends Area3D
 
 var starting_y: float
 var elapsed_time: float = 0.0
-@onready var game_manager = %GameManagerLevel1
 
 
 func _ready() -> void:
 	starting_y = position.y
-	body_entered.connect(_on_body_entered)
-
 
 func _process(delta: float) -> void:
 	elapsed_time += delta
@@ -23,10 +20,10 @@ func _process(delta: float) -> void:
 		elapsed_time * bob_speed
 	) * bob_height
 
-
-func _on_body_entered(body: Node3D) -> void:
-	if not body.is_in_group("player"):
+func _on_interactable_interaction_started(interactor: Interactor) -> void:
+	if interactor.root is not Player:
 		return
 
-	game_manager.incrementMemoryCount()
+	var player: Player = interactor.root
+	player.pickup_memory()
 	queue_free()
