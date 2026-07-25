@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://djesw0mcxu7gc"]
 
+[ext_resource type="PackedScene" uid="uid://cdqendukm2k86" path="res://scenes/head.tscn" id="1_gee14"]
 [ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://jhyuywgfd0sf" path="res://scenes/unifiedmenu.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://qqnm0uxh4xq3" path="res://scenes/level_1_world.tscn" id="3_u5sy4"]
@@ -7,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bywr5vyrlpkvp" path="res://scenes/level_2_world.tscn" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://ckmg44cw5256e" path="res://scenes/level_3_world.tscn" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_kvpfn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5sy4"]
 
@@ -14,21 +17,47 @@
 sky_material = SubResource("ProceduralSkyMaterial_u5sy4")
 
 [sub_resource type="Environment" id="Environment_0pf81"]
-background_color = Color(0.12555411, 0.12555403, 0.12555405, 1)
+background_color = Color(0.62570125, 0.6125492, 0.5811857, 1)
 sky = SubResource("Sky_p57ef")
 tonemap_mode = 3
 ssao_enabled = true
 glow_enabled = true
 glow_bloom = 0.1
 fog_enabled = true
-fog_light_color = Color(0.08259808, 0.09401498, 0.1117801, 1)
+fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.005
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_w5pmr"]
 
 [sub_resource type="Compositor" id="Compositor_3g4q3"]
 
+[sub_resource type="Resource" id="Resource_vtaks"]
+script = ExtResource("10_kvpfn")
+duration = 5.0
+transition = 1
+
+[sub_resource type="Resource" id="Resource_kvpfn"]
+script = ExtResource("10_kvpfn")
+duration = 5.0
+transition = 1
+
 [node name="Game" type="Node3D" unique_id=1341214287]
+
+[node name="Head" parent="." unique_id=1332359877 instance=ExtResource("1_gee14")]
+transform = Transform3D(-1.2202471e-06, 0, 27.916, 0, 27.916, 0, -27.916, 0, -1.2202471e-06, 0, 1.6424623, 0)
+
+[node name="Level 2 World" parent="Head/HeadComplete/Eye-Plate" parent_id_path=PackedInt32Array(1332359877, 1668346744) index="0" unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("5_u5sy4")]
+transform = Transform3D(-1.5658184e-09, 0, -0.03582175, 0, 0.03582175, 0, 0.03582175, 0, -1.5658184e-09, 0.005, 0.16678298, -1.3877788e-17)
+player = NodePath("../../../../Player")
+
+[node name="Level 1 World" parent="Head/HeadComplete/Head-bottom-half" parent_id_path=PackedInt32Array(1332359877, 1900624569) index="0" unique_id=553002256 node_paths=PackedStringArray("nav_agent", "player") instance=ExtResource("3_u5sy4")]
+transform = Transform3D(-2.345596e-09, 0, -0.053660985, 0, 0.053660985, 0, 0.053660985, 0, -2.345596e-09, 0, 0.531037, 0)
+nav_agent = NodePath("../../../../Player/NavigationAgent3D")
+player = NodePath("../../../../Player")
+
+[node name="Level 3 World" parent="Head/HeadComplete/Head-Top" parent_id_path=PackedInt32Array(1332359877, 136728721) index="0" unique_id=1228685239 node_paths=PackedStringArray("player") instance=ExtResource("7_u5sy4")]
+transform = Transform3D(-1.431158e-09, 0, -0.03274108, 0, 0.03274108, 0, 0.03274108, 0, -1.431158e-09, 0, 0.160465, 0)
+player = NodePath("../../../../Player")
 
 [node name="Environment" type="Node3D" parent="." unique_id=392757848]
 
@@ -39,29 +68,19 @@ compositor = SubResource("Compositor_3g4q3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1095723466]
 transform = Transform3D(-0.8660254, -0.35355347, 0.35355347, 0, 0.7071068, 0.7071068, -0.5000001, 0.61237246, -0.61237246, 11.733267, 12.435956, -5.4501266)
-light_color = Color(0.67769593, 0.7989027, 0.82642883, 1)
-light_energy = 0.327
+light_color = Color(0.83233577, 0.75987476, 0.69634515, 1)
+light_energy = 0.334
 shadow_enabled = true
 
-[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds")]
+[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds", "head", "camera_menu")]
 unique_name_in_owner = true
 script = ExtResource("1_iywne")
-worlds = [NodePath("../Level 1 World"), NodePath("../Level 2 World"), NodePath("../Level 3 World")]
+worlds = [NodePath("../Head/HeadComplete/Head-bottom-half/Level 1 World"), NodePath("../Head/HeadComplete/Eye-Plate/Level 2 World"), NodePath("../Head/HeadComplete/Head-Top/Level 3 World")]
+head = NodePath("../Head")
+camera_menu = NodePath("../PhantomCamera3D2")
 
 [node name="UnifiedMenuUI" parent="." unique_id=839514077 node_paths=PackedStringArray("player") instance=ExtResource("2_p57ef")]
 unique_name_in_owner = true
-player = NodePath("../Player")
-
-[node name="Level 1 World" parent="." unique_id=553002256 node_paths=PackedStringArray("nav_agent", "player") instance=ExtResource("3_u5sy4")]
-nav_agent = NodePath("../Player/NavigationAgent3D")
-player = NodePath("../Player")
-
-[node name="Level 2 World" parent="." unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("5_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.071064, 0)
-player = NodePath("../Player")
-
-[node name="Level 3 World" parent="." unique_id=1228685239 node_paths=PackedStringArray("player") instance=ExtResource("7_u5sy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 74, 0)
 player = NodePath("../Player")
 
 [node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]
@@ -69,16 +88,17 @@ target = NodePath("../Player")
 
 [node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
 transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, 2.4872003, 13.457002, 21.060978)
+priority = 1
 follow_target = NodePath("../../Player")
 look_at_mode = 2
 look_at_target = NodePath("../../Player")
+tween_resource = SubResource("Resource_vtaks")
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
-physics_interpolation_mode = 1
-transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 2.4872003, 13.457002, 21.060978)
+transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.34879, 46.916718, 89.37436)
 
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("5_0tnpc")]
 unique_name_in_owner = true
@@ -86,4 +106,12 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
 
+[node name="PhantomCamera3D2" type="Node3D" parent="." unique_id=32303124]
+transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.34879, 46.916718, 89.37436)
+script = ExtResource("9_vtaks")
+priority = 2
+tween_resource = SubResource("Resource_kvpfn")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[editable path="Head"]
 [editable path="IsoCamera"]

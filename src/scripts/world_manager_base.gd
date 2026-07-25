@@ -14,8 +14,9 @@ var running := false
 
 func initialize_world() -> void:
 	print("initializing world %d" % world_id)
-	_initialize_world()
 	spawn_player()
+	await get_tree().create_timer(5).timeout
+	_initialize_world()
 	running = true
 
 func dispose() -> void:
@@ -31,7 +32,7 @@ func _initialize_world() -> void:
 func spawn_player() -> void:
 	if player == null:
 		return
-
+	player.input_enabled = true
 	player.global_transform.origin = spawn_point.global_position
 
 func _notify_level_completed() -> void:
@@ -41,6 +42,7 @@ func _notify_level_completed() -> void:
 	dispose()
 
 func _notify_level_failed() -> void:
+	player.input_enabled = false
 	print("Level %d Failed!" % world_id)
 	running = false
 	level_failed.emit(self)
