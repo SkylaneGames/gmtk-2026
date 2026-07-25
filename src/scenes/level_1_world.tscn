@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="3_gr71i"]
 [ext_resource type="PackedScene" uid="uid://c7drrprun5j4h" path="res://assets/models/furniture/rugDoormat.glb" id="4_dovuv"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="4_qa103"]
-[ext_resource type="PackedScene" uid="uid://dfmvikec8q6gu" path="res://assets/models/Zen_Arch.glb" id="5_6nnqs"]
 [ext_resource type="PackedScene" uid="uid://sttd1yco80h3" path="res://assets/models/Xmas/tree-decorated.glb" id="6_giyus"]
 [ext_resource type="PackedScene" uid="uid://sy8daeb74hw5" path="res://assets/models/furniture/bedSingle.glb" id="8_p2u81"]
 [ext_resource type="PackedScene" uid="uid://bavnn80ga0niu" path="res://assets/models/furniture/trashcan.glb" id="9_afkka"]
@@ -33,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://73ln8ldwv7c2" path="res://scenes/hop_scotch.tscn" id="31_p2u81"]
 [ext_resource type="PackedScene" uid="uid://dce2dvtk57a3p" path="res://scenes/bike.tscn" id="32_p2u81"]
 [ext_resource type="PackedScene" uid="uid://cjf6xia1lorke" path="res://assets/models/tree_1.glb" id="33_afkka"]
+[ext_resource type="PackedScene" uid="uid://cnik3o0l3m5ft" path="res://assets/models/rocks_3.glb" id="33_p2u81"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_18xhc"]
 sky_top_color = Color(0.8, 0.65882355, 0.9137255, 1)
@@ -71,6 +71,9 @@ albedo_color = Color(0.6901961, 0.6509804, 0.58431375, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngb10"]
 albedo_color = Color(0.9411765, 0.62352943, 0.42745098, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nnqy"]
+albedo_color = Color(0.19227806, 0.38869897, 0.21079585, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d7kw"]
 albedo_color = Color(0.40626618, 0.6062101, 0.34696093, 1)
 
@@ -95,6 +98,7 @@ camera_attributes = SubResource("CameraAttributesPhysical_g8dwo")
 transform = Transform3D(-0.93358046, -0.31035575, 0.17918395, 0, 0.49999997, 0.86602545, -0.35836792, 0.80850446, -0.4667902, 0.55797577, 16.040764, -28.62469)
 
 [node name="Terrain" type="NavigationRegion3D" parent="." unique_id=1618838769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002419114, -0.004433155, -0.021853924)
 navigation_mesh = SubResource("NavigationMesh_g8dwo")
 
 [node name="Maze" parent="Terrain" unique_id=1699325480 instance=ExtResource("1_4x3lm")]
@@ -152,43 +156,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.522, 0, -11.165)
 [node name="Christmas_Memory" type="Node3D" parent="." unique_id=1403145567]
 
 [node name="loungeDesignChair" parent="Christmas_Memory" unique_id=225980423 instance=ExtResource("18_p24l3")]
-transform = Transform3D(-0.060490657, 0, 0.99816877, 0, 1, 0, -0.99816877, 0, -0.060490657, -1.515536, -2.3841858e-07, 7.8523235)
+transform = Transform3D(0.01918444, 0, 1.4998775, 0, 1.5000002, 0, -1.4998775, 0, 0.01918444, -2.324667, -2.3841858e-07, 8.317816)
 
 [node name="loungeDesignSofa" parent="Christmas_Memory" unique_id=1592052707 instance=ExtResource("19_7tlof")]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, -1.3707976, -4.7683716e-07, 6.6635003)
+transform = Transform3D(2.25, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.9685857, -4.7683716e-07, 6.41948)
 
 [node name="rugRounded" parent="Christmas_Memory" unique_id=1014331156 instance=ExtResource("20_g7iqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3358155, 0, 7.978426)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.8052539, 0, 8.45032)
 
 [node name="present-a-cube2" parent="Christmas_Memory" unique_id=1699618716 instance=ExtResource("21_eckpc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.49275374, 3.574515e-09, 8.706127)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.86803484, -0.019815441, 7.934224)
 
 [node name="present-a-rectangle2" parent="Christmas_Memory" unique_id=796009999 instance=ExtResource("22_1hob6")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.0965245, 4.813074e-07, 8.171449)
+transform = Transform3D(0.37185016, 0, -0.33425656, 0, 0.5, 0, 0.33425656, 0, 0.37185016, -0.08983421, 4.813074e-07, 7.927307)
 
 [node name="present-a-round2" parent="Christmas_Memory" unique_id=1391155734 instance=ExtResource("23_0ebf6")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.0574951, -9.536743e-07, 9.241226)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.6610432, -9.536743e-07, 9.241226)
 
 [node name="present-b-cube2" parent="Christmas_Memory" unique_id=1452475833 instance=ExtResource("24_puh45")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.9733129, 4.7683716e-07, 8.288008)
+transform = Transform3D(0.25394005, 0, -0.4307139, 0, 0.5, 0, 0.4307139, 0, 0.25394005, 1.6967106, 4.7683716e-07, 8.83171)
 
 [node name="present-b-rectangle2" parent="Christmas_Memory" unique_id=450365304 instance=ExtResource("25_hmrps")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.2868776, 0, 8.705513)
+transform = Transform3D(-0.048284825, 0, -0.4976631, 0, 0.5, 0, 0.4976631, 0, -0.048284825, 1.2868776, 0, 8.978838)
 
 [node name="present-b-round2" parent="Christmas_Memory" unique_id=536371150 instance=ExtResource("26_gvxlg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5115151, -4.723789e-07, 8.359555)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.68463373, -4.723789e-07, 7.297714)
 
 [node name="cabinetTelevision" parent="Christmas_Memory" unique_id=1416158634 instance=ExtResource("27_ypsqs")]
-transform = Transform3D(-0.99904287, 0, -0.04374172, 0, 1, 0, 0.04374172, 0, -0.99904287, -0.13810551, 4.8400284e-07, 9.000559)
+transform = Transform3D(-1.4999999, 0, 0.00020616502, 0, 1.5000002, 0, -0.00020616502, 0, -1.4999999, -0.13810551, 4.8400284e-07, 9.000559)
 
 [node name="televisionVintage" parent="Christmas_Memory" unique_id=1958042160 instance=ExtResource("28_t46ug")]
-transform = Transform3D(-0.99948514, 0, -0.032085307, 0, 1, 0, 0.032085307, 0, -0.99948514, -0.36210835, 0.32036924, 8.999111)
+transform = Transform3D(-1.4992278, 0, -0.04812796, 0, 1.5, 0, 0.04812796, 0, -1.4992278, -0.45490766, 0.44379473, 8.999111)
 
 [node name="gingerbread-man2" parent="Christmas_Memory" unique_id=89767235 instance=ExtResource("29_j2ssh")]
-transform = Transform3D(0.11586283, -0.16302088, -7.125869e-09, -4.2351648e-23, -8.742278e-09, 0.2, -0.16302088, -0.11586283, -5.0645252e-09, -1.6458544, 0.33250368, 7.2137203)
+transform = Transform3D(0.11586283, -0.16302088, -7.125869e-09, -4.2351648e-23, -8.742278e-09, 0.2, -0.16302088, -0.11586283, -5.0645252e-09, -2.4474077, 0.49925494, 7.319586)
 
 [node name="tree-decorated2" parent="Christmas_Memory" unique_id=17666403 instance=ExtResource("6_giyus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7023056, 1.0634182e-08, 8.820522)
+
+[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=1655295295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2771635, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_8nnqy")
 
 [node name="Baby_Memory" type="Node3D" parent="." unique_id=1799867827]
 
@@ -290,13 +298,29 @@ transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04
 [node name="rugDoormat" parent="Wedding_Memory" unique_id=2142913856 instance=ExtResource("4_dovuv")]
 transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 2, -2.424413, -0.012122512, -1.9424244)
 
-[node name="Zen_Arch2" parent="Wedding_Memory" unique_id=231913595 instance=ExtResource("5_6nnqs")]
-transform = Transform3D(-0.010429595, 0, -0.9999456, 0, 0.75, 0, 0.9999456, 0, -0.010429595, -3.252473, 0.0011680237, -2.259769)
+[node name="Node3D" type="Node3D" parent="Wedding_Memory" unique_id=1339994385]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wedding_Memory/Node3D" unique_id=2082364102]
+transform = Transform3D(-0.02288027, 0, -0.9997382, 0, 1, 0, 0.9997382, 0, -0.02288027, -3.0514972, 1.885108, -2.1746092)
+operation = 2
+size = Vector3(1.9459305, 0.15783691, 0.13226318)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wedding_Memory/Node3D/CSGBox3D" unique_id=261322225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9090911, -0.97320557, -0.0042328835)
+size = Vector3(0.119140625, 2.0223389, 0.1204834)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Wedding_Memory/Node3D/CSGBox3D" unique_id=153291814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9028647, -0.97320557, 0.02812028)
+size = Vector3(0.119140625, 2.0223389, 0.1204834)
 
 [node name="Puppy_Memory" type="Node3D" parent="." unique_id=1210981823]
 
 [node name="Husky" parent="Puppy_Memory" unique_id=2062905693 instance=ExtResource("30_6nnqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.004206, -4.4049133e-07, 8.637089)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Puppy_Memory" unique_id=1419085531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.817392, 0.04516864, 9.629696)
+radius = 0.1
 
 [node name="Children_Playing_Mem" type="Node3D" parent="." unique_id=1128108001]
 
@@ -312,10 +336,15 @@ transform = Transform3D(0.0035255211, 0, 0.0043195505, 0, 0.0069999998, 0, -0.00
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -9.736868, -0.032700658, -1.0091166)
 
 [node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=585217852]
+transform = Transform3D(0.60735387, 0, 0, 0, -2.1720669e-07, -0.60735387, 0, 0.60735387, -2.1720669e-07, -0.5974426, 0, -0.504112)
 surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
 surface_material_override/1 = SubResource("StandardMaterial3D_n2q3u")
+
+[node name="rocks_3" parent="." unique_id=488181870 instance=ExtResource("33_p2u81")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.136264, -0.080485344, -0.12828147)
 
 [connection signal="player_exited" from="Exit" to="." method="_on_exit_player_exited"]
 
 [editable path="Terrain/Maze"]
+[editable path="Christmas_Memory/tree-decorated2"]
 [editable path="First_B_Mem/tree_1"]
