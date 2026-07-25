@@ -14,11 +14,15 @@
 sky_material = SubResource("ProceduralSkyMaterial_u5sy4")
 
 [sub_resource type="Environment" id="Environment_0pf81"]
-background_mode = 2
-background_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+background_color = Color(0.12555411, 0.12555403, 0.12555405, 1)
 sky = SubResource("Sky_p57ef")
+tonemap_mode = 3
 ssao_enabled = true
 glow_enabled = true
+glow_bloom = 0.1
+fog_enabled = true
+fog_light_color = Color(0.08259808, 0.09401498, 0.1117801, 1)
+fog_density = 0.005
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_w5pmr"]
 
@@ -35,6 +39,8 @@ compositor = SubResource("Compositor_3g4q3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1095723466]
 transform = Transform3D(-0.8660254, -0.35355347, 0.35355347, 0, 0.7071068, 0.7071068, -0.5000001, 0.61237246, -0.61237246, 11.733267, 12.435956, -5.4501266)
+light_color = Color(0.67769593, 0.7989027, 0.82642883, 1)
+light_energy = 0.327
 shadow_enabled = true
 
 [node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds")]

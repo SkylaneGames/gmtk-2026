@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bxapy176pbr1f" path="res://assets/models/level 1 maze.glb" id="1_4x3lm"]
 [ext_resource type="Script" uid="uid://cyqe8mtt665fl" path="res://scripts/world_manager_level_1.gd" id="1_qa103"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="2_nn6gf"]
+[ext_resource type="Material" uid="uid://b088hy0b4jciv" path="res://assets/models/void_mat.tres" id="3_7tlof"]
 [ext_resource type="PackedScene" uid="uid://dlbcxlgrh7vli" path="res://assets/models/furniture/chair.glb" id="3_8kbdd"]
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="3_gr71i"]
 [ext_resource type="PackedScene" uid="uid://c7drrprun5j4h" path="res://assets/models/furniture/rugDoormat.glb" id="4_dovuv"]
@@ -33,14 +34,21 @@
 [ext_resource type="PackedScene" uid="uid://pc4x1ps8wkoc" path="res://assets/models/Xmas/present-b-cube.glb" id="24_puh45"]
 [ext_resource type="PackedScene" uid="uid://bmku2ib1imsw7" path="res://assets/models/Xmas/present-b-rectangle.glb" id="25_hmrps"]
 [ext_resource type="PackedScene" uid="uid://cnsvsf84v71sb" path="res://assets/models/Xmas/present-b-round.glb" id="26_gvxlg"]
+[ext_resource type="PackedScene" uid="uid://k5gok68jd1v7" path="res://assets/models/Xmas/sock-red-cane.glb" id="26_hmrps"]
 [ext_resource type="PackedScene" uid="uid://3ldjvr6mtbkx" path="res://assets/models/furniture/cabinetTelevision.glb" id="27_ypsqs"]
+[ext_resource type="PackedScene" uid="uid://bgbdetvjbcq6a" path="res://assets/models/Xmas/lights-colored.glb" id="28_gvxlg"]
 [ext_resource type="PackedScene" uid="uid://8ya0hqpu1spk" path="res://assets/models/furniture/televisionVintage.glb" id="28_t46ug"]
 [ext_resource type="PackedScene" uid="uid://5rp6qa70v155" path="res://assets/models/Xmas/gingerbread-man.glb" id="29_j2ssh"]
+[ext_resource type="PackedScene" uid="uid://b1vfd3848tudn" path="res://assets/models/Xmas/nutcracker.glb" id="29_ypsqs"]
 [ext_resource type="PackedScene" uid="uid://depie3ue3yloi" path="res://scenes/husky.tscn" id="30_6nnqs"]
+[ext_resource type="PackedScene" uid="uid://dkdrk3wbjr27m" path="res://assets/models/Xmas/candy-cane-red.glb" id="30_t46ug"]
+[ext_resource type="PackedScene" uid="uid://ch8caeih8gy68" path="res://assets/models/Xmas/reindeer.glb" id="31_j2ssh"]
 [ext_resource type="PackedScene" uid="uid://73ln8ldwv7c2" path="res://scenes/hop_scotch.tscn" id="31_p2u81"]
 [ext_resource type="PackedScene" uid="uid://dce2dvtk57a3p" path="res://scenes/bike.tscn" id="32_p2u81"]
 [ext_resource type="PackedScene" uid="uid://cjf6xia1lorke" path="res://assets/models/tree_1.glb" id="33_afkka"]
 [ext_resource type="PackedScene" uid="uid://cnik3o0l3m5ft" path="res://assets/models/rocks_3.glb" id="33_p2u81"]
+[ext_resource type="PackedScene" uid="uid://dpocw5cwq7qs1" path="res://assets/models/furniture/pottedPlant.glb" id="41_sky80"]
+[ext_resource type="PackedScene" uid="uid://d3tw6ussmdkja" path="res://assets/models/Xmas/snowflake-c.glb" id="43_qqgny"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_g8dwo"]
 vertices = PackedVector3Array(-8.783951, 1.8000001, -15.606055, -8.583951, 1.8000001, -15.206055, -8.383951, 1.8000001, -15.506055, -7.1839504, 0.19999999, -11.706055, -7.083951, 0.19999999, -10.906055, -6.1839504, 0.19999999, -11.106054, -6.1839504, 0.09999998, -13.506055, -5.283951, 0.09999998, -13.606055, -5.283951, 0.19999999, -15.206055, -8.083951, 0.19999999, -15.206055, -8.18395, 0.09999998, -15.006055, -8.383951, 0.19999999, -11.706055, 3.1160498, 0.09999998, -13.906055, 3.2160501, 0.19999999, -13.706055, 3.3160486, 0.19999999, -15.206055, 1.3160486, 0.09999998, -13.906055, 9.516049, 0.19999999, -13.806055, 9.61605, 0.19999999, -13.606055, 10.11605, 0.19999999, -14.706055, 6.3160486, 0.19999999, -11.406055, 6.416049, 0.19999999, -11.006055, 7.8160486, 0.19999999, -11.206055, 7.8160486, 0.19999999, -13.806055, 8.71605, 0.19999999, -13.906055, 8.416049, 0.19999999, -15.206055, 3.5160494, 0.19999999, -11.506055, -13.483951, 0.19999999, -12.406055, -14.183951, 0.19999999, -11.206055, -11.083951, 0.19999999, -11.306055, -12.18395, 0.09999998, -13.706055, -10.68395, 0.09999998, -14.606055, -9.18395, 0.19999999, -11.406055, -8.983952, 0.09999998, -15.106055, 11.11605, 0.19999999, -14.306055, 9.416049, 0.19999999, -13.006055, 8.516049, 0.19999999, -13.106055, 8.71605, 0.19999999, -9.406055, 12.11605, 0.19999999, -9.506055, 14.516049, 0.19999999, -9.906055, 13.816049, 0.19999999, -11.706055, 12.816049, 0.19999999, -13.006055, 3.3160486, 0.19999999, -10.306055, 3.5160494, 0.19999999, -10.806055, 2.8160486, 0.19999999, -10.906055, 1.916049, 0.19999999, -10.306055, -0.8839512, 0.19999999, -13.006055, -0.7839508, 0.19999999, -11.306055, 1.7160501, 0.19999999, -11.406055, 2.5160494, 0.19999999, -13.106055, -1.4839506, 0.19999999, -11.206055, -5.4839506, 0.19999999, -12.906055, -5.4839506, 0.19999999, -8.706055, -1.4839506, 0.19999999, -9.106054, -10.783951, 0.19999999, -11.006055, -10.783951, 0.19999999, -10.106054, -10.583951, 0.19999999, -9.706055, -8.983952, 0.19999999, -9.506055, -9.083951, 0.19999999, -11.006055, -8.883951, 0.19999999, -5.6060553, -7.8839507, 0.19999999, -5.6060553, -7.783951, 0.19999999, -10.906055, 8.316049, 0.19999999, -8.306055, 8.21605, 0.19999999, -8.706055, 7.916049, 0.19999999, -8.806055, 6.5160494, 0.19999999, -8.406055, 8.21605, 0.19999999, -7.2060547, 6.61605, 0.19999999, -9.806055, 3.416049, 0.19999999, -8.006055, 3.416049, 0.19999999, -7.006055, -14.883951, 1.8000001, -10.906055, -14.883951, 1.8000001, -10.706055, -14.583951, 1.8000001, -10.806055, -14.683951, 1.8000001, -11.106054, -6.083951, 0.19999999, -7.2060547, -5.4839506, 0.19999999, -7.2060547, -5.4839506, 0.19999999, -8.006055, -6.1839504, 0.19999999, -8.106054, -7.083951, 0.19999999, -5.506055, -6.283951, 0.19999999, -7.006055, -6.283951, 0.19999999, -5.506055, 3.8160486, 0.19999999, -10.306055, 4.0160494, 0.19999999, -10.106054, 5.71605, 0.19999999, -10.706055, 1.3160486, 0.19999999, -9.606054, 1.1160498, 0.19999999, -10.606054, -0.6839504, 0.19999999, -10.606054, -0.7839508, 0.19999999, -8.706055, 0.11604881, 0.19999999, -8.406055, 5.8160486, 0.19999999, -9.106054, 3.916049, 0.19999999, -9.406055, -14.983951, 0.19999999, -8.006055, -13.983951, 0.19999999, -8.006055, -13.883951, 0.19999999, -8.406055, -14.983951, 0.19999999, -8.806055, -11.283951, 0.19999999, -9.006055, -10.283951, 0.19999999, -8.206055, -9.68395, 0.19999999, -8.906055, -14.583951, 0.19999999, -10.406055, -11.583951, 0.19999999, -10.506055, -10.383951, 0.19999999, -5.506055, -9.68395, 0.19999999, -5.506055, 12.416049, 0.19999999, -5.306055, 12.21605, 0.19999999, -5.2060547, 12.316049, 0.19999999, -4.2060547, 12.916049, 0.19999999, -4.1060553, 14.816049, 0.19999999, -2.9060545, 14.816049, 0.19999999, -8.906055, 12.416049, 0.19999999, -7.506055, 13.016049, 0.19999999, -2.806055, 12.316049, 0.19999999, -9.406055, -0.083951, 0.19999999, -8.306055, -0.8839512, 0.19999999, -8.406055, -0.083951, 0.19999999, -7.306055, -1.1839504, 0.19999999, -8.306055, 6.61605, 0.19999999, -4.506055, 7.416049, 0.19999999, -4.506055, 7.5160494, 0.19999999, -5.7060547, 6.61605, 0.19999999, -6.4060545, 11.61605, 0.19999999, -5.9060545, 11.61605, 0.19999999, -8.706055, 10.016049, 0.19999999, -7.4060545, 10.11605, 0.19999999, -6.6060553, 8.916049, 0.19999999, -8.706055, 9.016049, 0.19999999, -7.306055, -11.983951, 0.19999999, -5.6060553, -11.883951, 0.19999999, -5.2060547, -11.083951, 0.19999999, -5.2060547, -10.983952, 0.19999999, -7.506055, -13.883951, 0.19999999, -7.6060553, -14.983951, 0.19999999, -5.506055, 0.71605015, 0.19999999, -5.506055, 0.8160486, 0.19999999, -5.1060553, 1.5160494, 0.19999999, -5.1060553, 1.6160498, 0.19999999, -6.9060545, 0.61604977, 0.19999999, -7.7060547, 0.5160494, 0.19999999, -6.506055, -3.9839506, 0.19999999, -6.506055, -3.9839506, 0.19999999, -5.506055, 5.71605, 1.8000001, -6.7060547, 6.21605, 1.8000001, -6.506055, 6.21605, 1.8000001, -6.7060547, -8.983952, 0.19999999, -4.7060547, -10.283951, 0.19999999, -4.7060547, -10.383951, 0.19999999, -3.806055, -4.6839504, 0.19999999, -6.506055, -5.4839506, 0.19999999, -6.506055, -5.6839504, 0.19999999, -4.7060547, -4.783951, 0.19999999, -4.1060553, -8.883951, 0.19999999, -4.9060545, 5.8160486, 0.19999999, -6.2060547, 2.3160486, 0.19999999, -6.2060547, 2.3160486, 0.19999999, -4.9060545, 2.416049, 0.19999999, 0.3939457, 5.8160486, 0.19999999, 0.3939457, -10.983952, 0.19999999, -4.7060547, -11.983951, 0.19999999, -4.7060547, -14.983951, 0.19999999, -3.306055, -13.383951, 0.19999999, -3.306055, -13.083951, 0.19999999, -3.7060547, -14.983951, 0.19999999, -4.7060547, 10.416049, 0.19999999, -0.10605526, 10.11605, 0.19999999, -0.0060548782, 10.11605, 0.19999999, 0.7939453, 12.21605, 0.19999999, 0.7939453, 12.11605, 0.19999999, -4.1060553, 10.11605, 0.19999999, -5.1060553, 10.416049, 0.19999999, -0.80605507, 1.6160498, 0.19999999, -4.7060547, 0.71605015, 0.19999999, -4.7060547, -4.083951, 0.19999999, -4.7060547, -4.083951, 0.19999999, 0.3939457, 2.2160501, 0.19999999, -4.7060547, 8.316049, 0.19999999, -1.0060549, 9.516049, 0.19999999, -1.0060549, 9.316049, 0.19999999, -5.006055, 8.21605, 0.19999999, -5.006055, 6.61605, 0.19999999, 0.9939461, 4.21605, 0.19999999, 1.1939449, 4.21605, 0.19999999, 1.8939457, 7.61605, 0.19999999, 1.8939457, -13.18395, 0.19999999, -2.806055, -8.583951, 0.19999999, 0.59394455, -7.983951, 0.19999999, 0.3939457, -8.18395, 0.19999999, -3.1060553, -14.983951, 0.19999999, 3.493946, -8.883951, 0.19999999, 3.5939445, -4.883951, 0.19999999, 0.3939457, -4.783951, 0.19999999, -3.2060547, 13.016049, 0.19999999, 0.59394455, 14.816049, 0.19999999, 0.59394455, 9.61605, 0.19999999, 0.9939461, 9.516049, 0.19999999, -0.20605469, 8.416049, 0.19999999, 2.3939457, 9.61605, 0.19999999, 2.3939457, 12.916049, 0.19999999, 3.993946, 13.016049, 0.19999999, 4.3939457, 14.816049, 0.19999999, 4.3939457, 13.016049, 0.19999999, 1.3939457, 12.21605, 0.19999999, 1.4939461, 12.21605, 0.19999999, 3.993946, -8.383951, 0.19999999, 5.2939453, -7.083951, 0.19999999, 5.193945, -6.9839506, 0.19999999, 2.0939445, -7.8839507, 0.19999999, 1.1939449, -2.4839506, 0.19999999, 1.1939449, -2.583951, 0.19999999, 1.8939457, 3.2160501, 0.19999999, 1.9939461, 3.5160494, 0.19999999, 1.8939457, 3.5160494, 0.19999999, 1.1939449, -1.7839508, 0.19999999, 1.9939461, -1.7839508, 0.19999999, 3.693945, -3.7839508, 0.19999999, 3.7939453, -3.7839508, 0.19999999, 9.993946, 2.8160486, 0.19999999, 9.793945, 10.316049, 0.19999999, 1.5939445, 10.516049, 0.19999999, 4.0939445, 8.316049, 0.19999999, 2.5939445, 9.71605, 0.19999999, 4.0939445, 3.916049, 0.19999999, 2.693945, 3.916049, 0.19999999, 4.2939453, -5.1839504, 0.19999999, 7.3939457, -5.1839504, 0.19999999, 7.993946, -4.4839506, 0.19999999, 7.8939457, -5.383951, 0.19999999, 7.0939445, -6.383951, 0.19999999, 5.7939453, -7.083951, 0.19999999, 5.993946, -6.9839506, 0.19999999, 6.993946, -4.4839506, 0.19999999, 3.0939445, -6.383951, 0.19999999, 2.7939453, -2.4839506, 0.19999999, 2.993946, -2.4839506, 0.19999999, 2.693945, -14.883951, 0.19999999, 8.793945, -14.783951, 0.19999999, 9.093945, -13.683951, 0.19999999, 9.093945, -13.583951, 0.19999999, 7.8939457, -13.583951, 0.19999999, 5.493946, -14.983951, 0.19999999, 4.2939453, -9.083951, 0.19999999, 5.2939453, -9.083951, 0.19999999, 4.2939453, 11.416049, 0.19999999, 4.8939457, 11.316049, 0.19999999, 5.5939445, 12.11605, 0.19999999, 5.693945, 12.916049, 0.19999999, 4.7939453, 12.11605, 0.19999999, 11.293945, 13.816049, 0.19999999, 11.193945, 14.71605, 0.19999999, 8.893946, 13.21605, 0.19999999, 11.893946, 3.6160498, 0.19999999, 8.493946, 6.0160494, 0.19999999, 8.493946, 5.916049, 0.19999999, 5.493946, 3.8160486, 0.19999999, 5.0939445, -12.883951, 0.19999999, 6.193945, -12.883951, 0.19999999, 7.193945, 7.0160494, 0.19999999, 11.393946, 7.8160486, 0.19999999, 11.993946, 11.316049, 0.19999999, 11.293945, 11.416049, 0.19999999, 6.3939457, 6.71605, 0.19999999, 6.2939453, -6.9839506, 0.19999999, 9.293945, -6.9839506, 0.19999999, 12.093945, -6.1839504, 0.19999999, 12.093945, -6.083951, 0.19999999, 7.8939457, -7.1839504, 0.19999999, 8.993946, -4.383951, 0.19999999, 10.693945, -5.383951, 0.19999999, 11.493946, 2.6160498, 0.19999999, 11.493946, 2.5160494, 0.19999999, 10.593945, 3.5160494, 0.19999999, 10.393946, 4.416049, 0.19999999, 11.493946, 4.916049, 0.19999999, 11.893946, 6.21605, 0.19999999, 11.693945, -15.083951, 1.8000001, 9.493946, -15.083951, 1.8000001, 9.793945, -14.883951, 1.8000001, 9.593945, -11.483952, 0.19999999, 13.693945, -10.18395, 0.19999999, 14.293945, -9.68395, 0.19999999, 13.393946, -8.68395, 0.19999999, 12.393946, -7.783951, 0.19999999, 11.993946, -7.783951, 0.19999999, 9.793945, -14.483951, 0.19999999, 9.893946, -13.983951, 0.19999999, 11.193945, -12.983951, 0.19999999, 12.493946, 12.016049, 0.19999999, 11.493946, 11.916049, 0.19999999, 13.293945, 11.416049, 0.19999999, 11.493946, 8.61605, 0.19999999, 12.793945, 9.516049, 0.19999999, 14.493946, 6.3160486, 0.19999999, 12.093945, 4.8160486, 0.19999999, 12.393946, 3.5160494, 0.19999999, 13.493946, 2.916049, 0.19999999, 14.793945, 8.516049, 0.19999999, 14.693945, 7.8160486, 0.19999999, 13.193945, 6.71605, 0.19999999, 12.193945, -5.783951, 1.8000001, 11.793945, -5.783951, 1.8000001, 11.993946, -5.4839506, 1.8000001, 11.993946, -5.1839504, 1.8000001, 12.293945, -4.9839506, 1.8000001, 11.993946, 4.21605, 1.8000001, 11.993946, 4.21605, 1.8000001, 12.293945, 4.416049, 1.8000001, 12.193945, 4.416049, 1.8000001, 11.993946, -7.1839504, 0.19999999, 12.693945, -7.4839506, 0.19999999, 14.793945, -3.8839512, 0.19999999, 14.793945, -4.583951, 0.19999999, 13.293945, -8.783951, 0.19999999, 13.693945, -9.18395, 0.19999999, 14.593945, -7.983951, 0.19999999, 12.993946, -3.4839506, 0.19999999, 13.293945, -2.8839512, 0.19999999, 14.793945, 2.0160494, 0.19999999, 14.793945, 2.6160498, 0.19999999, 13.193945, 3.416049, 0.19999999, 12.393946, -4.383951, 0.19999999, 12.293945, -10.083951, 1.8000001, 14.693945, -9.783951, 1.8000001, 14.793945, -9.783951, 1.8000001, 14.593945, 8.816049, 1.8000001, 14.893946, 9.21605, 1.8000001, 14.993946, 9.016049, 1.8000001, 14.593945)
@@ -55,8 +63,39 @@ albedo_color = Color(0.6901961, 0.6509804, 0.58431375, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngb10"]
 albedo_color = Color(0.9411765, 0.62352943, 0.42745098, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eckpc"]
+albedo_color = Color(1, 0.15294118, 0.18039216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tlof"]
+albedo_color = Color(1, 0.15294118, 0.18039216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7iqf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hob6"]
+albedo_color = Color(1, 0.15294118, 0.18039216, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ebf6"]
+albedo_color = Color(0.11403451, 0.26001865, 0.15500844, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofp8m"]
+albedo_color = Color(0.5647059, 0.39215687, 0.30588236, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puh45"]
+albedo_color = Color(0.6431373, 0.6627451, 0.6509804, 0.57254905)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmrps"]
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvxlg"]
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypsqs"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nnqy"]
 albedo_color = Color(0.19227806, 0.38869897, 0.21079585, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y31dy"]
+albedo_color = Color(1, 0.39215687, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d7kw"]
 albedo_color = Color(0.40626618, 0.6062101, 0.34696093, 1)
@@ -74,16 +113,16 @@ spawn_point = NodePath("Level1SpawnPoint")
 game_over_message = "You got stuck in the past!"
 
 [node name="Terrain" type="NavigationRegion3D" parent="." unique_id=1618838769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002419114, -0.004433155, -0.021853924)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015392065, -0.0044322014, -0.035259247)
 navigation_mesh = SubResource("NavigationMesh_g8dwo")
 
 [node name="Maze" parent="Terrain" unique_id=1699325480 instance=ExtResource("1_4x3lm")]
 
-[node name="Ground" parent="Terrain/Maze" index="0" unique_id=1042859300]
-surface_material_override/0 = SubResource("StandardMaterial3D_6ieja")
+[node name="Ground" parent="Terrain/Maze" index="0" unique_id=146701133]
+surface_material_override/0 = ExtResource("3_7tlof")
 
-[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1737341189]
-surface_material_override/0 = SubResource("StandardMaterial3D_ngb10")
+[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1988516584]
+surface_material_override/0 = ExtResource("3_7tlof")
 
 [node name="Doors" type="Node3D" parent="Terrain" unique_id=1141097254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -146,11 +185,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.522, 0, -11.165)
 [node name="loungeDesignChair" parent="Christmas_Memory" unique_id=225980423 instance=ExtResource("18_p24l3")]
 transform = Transform3D(0.01918444, 0, 1.4998775, 0, 1.5000002, 0, -1.4998775, 0, 0.01918444, -2.324667, -2.3841858e-07, 8.317816)
 
+[node name="loungeDesignChair(Clone)" parent="Christmas_Memory/loungeDesignChair" index="0" unique_id=141177816]
+surface_material_override/0 = SubResource("StandardMaterial3D_eckpc")
+
 [node name="loungeDesignSofa" parent="Christmas_Memory" unique_id=1592052707 instance=ExtResource("19_7tlof")]
 transform = Transform3D(2.25, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.9685857, -4.7683716e-07, 6.41948)
 
+[node name="loungeDesignSofa(Clone)" parent="Christmas_Memory/loungeDesignSofa" index="0" unique_id=1437006090]
+surface_material_override/0 = SubResource("StandardMaterial3D_7tlof")
+surface_material_override/1 = SubResource("StandardMaterial3D_g7iqf")
+
 [node name="rugRounded" parent="Christmas_Memory" unique_id=1014331156 instance=ExtResource("20_g7iqf")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.8052539, 0, 8.45032)
+
+[node name="rugRounded(Clone)" parent="Christmas_Memory/rugRounded" index="0" unique_id=2072252369]
+surface_material_override/0 = SubResource("StandardMaterial3D_1hob6")
+surface_material_override/1 = SubResource("StandardMaterial3D_0ebf6")
 
 [node name="present-a-cube2" parent="Christmas_Memory" unique_id=1699618716 instance=ExtResource("21_eckpc")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.86803484, -0.019815441, 7.934224)
@@ -173,18 +223,64 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.68463373, -4.723789e
 [node name="cabinetTelevision" parent="Christmas_Memory" unique_id=1416158634 instance=ExtResource("27_ypsqs")]
 transform = Transform3D(-1.4999999, 0, 0.00020616502, 0, 1.5000002, 0, -0.00020616502, 0, -1.4999999, -0.13810551, 4.8400284e-07, 9.000559)
 
+[node name="cabinetTelevision(Clone)" parent="Christmas_Memory/cabinetTelevision" index="0" unique_id=88907716]
+surface_material_override/0 = SubResource("StandardMaterial3D_ofp8m")
+
 [node name="televisionVintage" parent="Christmas_Memory" unique_id=1958042160 instance=ExtResource("28_t46ug")]
 transform = Transform3D(-1.4992278, 0, -0.04812796, 0, 1.5, 0, 0.04812796, 0, -1.4992278, -0.45490766, 0.44379473, 8.999111)
+
+[node name="televisionVintage(Clone)" parent="Christmas_Memory/televisionVintage" index="0" unique_id=1955119019]
+transform = Transform3D(1, 0, 3.7252903e-09, 0, 1, 0, -3.7252903e-09, 0, 1, -0.027423859, 0.02516979, -0.045261383)
+surface_material_override/0 = SubResource("StandardMaterial3D_puh45")
+surface_material_override/1 = SubResource("StandardMaterial3D_hmrps")
+surface_material_override/2 = SubResource("StandardMaterial3D_gvxlg")
+surface_material_override/3 = SubResource("StandardMaterial3D_ypsqs")
 
 [node name="gingerbread-man2" parent="Christmas_Memory" unique_id=89767235 instance=ExtResource("29_j2ssh")]
 transform = Transform3D(0.11586283, -0.16302088, -7.125869e-09, -4.2351648e-23, -8.742278e-09, 0.2, -0.16302088, -0.11586283, -5.0645252e-09, -2.4474077, 0.49925494, 7.319586)
 
+[node name="sock-red-cane2" parent="Christmas_Memory" unique_id=89607368 instance=ExtResource("26_hmrps")]
+transform = Transform3D(-0.7606355, 0, 0.64917934, 0, 1, 0, -0.64917934, 0, -0.7606355, -3.7312129, -0.02197206, 9.831786)
+
 [node name="tree-decorated2" parent="Christmas_Memory" unique_id=17666403 instance=ExtResource("6_giyus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7023056, 1.0634182e-08, 8.820522)
 
-[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=1655295295]
+[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=938413466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2771635, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_8nnqy")
+
+[node name="lights-colored2" parent="Christmas_Memory" unique_id=72119249 instance=ExtResource("28_gvxlg")]
+transform = Transform3D(-0.024133703, 0, 0.9997089, 0, 1, 0, -0.9997089, 0, -0.024133703, -3.9703882, 1.1957061, 4.311186)
+
+[node name="lights-colored3" parent="Christmas_Memory" unique_id=1313617023 instance=ExtResource("28_gvxlg")]
+transform = Transform3D(-0.024133703, 0, 0.9997089, 0, 1, 0, -0.9997089, 0, -0.024133703, -3.9703882, 1.1957061, 5.2923727)
+
+[node name="lights-colored4" parent="Christmas_Memory" unique_id=1273394081 instance=ExtResource("28_gvxlg")]
+transform = Transform3D(-0.024133703, 0, 0.9997089, 0, 1, 0, -0.9997089, 0, -0.024133703, -3.9703882, 1.1957061, 6.2891774)
+
+[node name="lights-colored5" parent="Christmas_Memory" unique_id=93781822 instance=ExtResource("28_gvxlg")]
+transform = Transform3D(-0.024133703, 0, 0.9997089, 0, 1, 0, -0.9997089, 0, -0.024133703, -3.9703882, 1.1957061, 7.2797613)
+
+[node name="lights-colored6" parent="Christmas_Memory" unique_id=1666376692 instance=ExtResource("28_gvxlg")]
+transform = Transform3D(-0.024133703, 0, 0.9997089, 0, 1, 0, -0.9997089, 0, -0.024133703, -3.9703882, 1.1957061, 8.273733)
+
+[node name="lights-colored7" parent="Christmas_Memory" unique_id=102088377 instance=ExtResource("28_gvxlg")]
+transform = Transform3D(-0.024133703, 0, 0.9997089, 0, 1, 0, -0.9997089, 0, -0.024133703, -3.9703882, 1.1957061, 9.258004)
+
+[node name="nutcracker2" parent="Christmas_Memory" unique_id=1543137141 instance=ExtResource("29_ypsqs")]
+transform = Transform3D(0.15244673, 0, 0.9883117, 0, 1, 0, -0.9883117, 0, 0.15244673, -1.9043213, -0.0044333935, 2.4006555)
+
+[node name="candy-cane-red2" parent="Christmas_Memory" unique_id=1154984482 instance=ExtResource("30_t46ug")]
+transform = Transform3D(1.2517555, 0, 0.82650363, 0, 1.5, 0, -0.82650363, 0, 1.2517555, 2.3652496, 0.0036283731, 4.7552533)
+
+[node name="candy-cane-red3" parent="Christmas_Memory" unique_id=91227075 instance=ExtResource("30_t46ug")]
+transform = Transform3D(-2.1798341, 0, 2.0611463, 0, 3, 0, -2.0611463, 0, -2.1798341, 2.000331, 0.0036283731, 3.9913287)
+
+[node name="candy-cane-red4" parent="Christmas_Memory" unique_id=319274621 instance=ExtResource("30_t46ug")]
+transform = Transform3D(2.195176, 0, 1.196329, 0, 2.5, 0, -1.196329, 0, 2.195176, 2.3376164, 0.0036283731, 3.1630318)
+
+[node name="reindeer2" parent="Christmas_Memory" unique_id=1321216781 instance=ExtResource("31_j2ssh")]
+transform = Transform3D(0.7114979, 0, 0.70268816, 0, 1, 0, -0.70268816, 0, 0.7114979, -3.2789416, -0.004433155, 4.2269893)
 
 [node name="Baby_Memory" type="Node3D" parent="." unique_id=1799867827]
 
@@ -283,8 +379,72 @@ transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04
 [node name="chair18" parent="Wedding_Memory" unique_id=2073599581 instance=ExtResource("3_8kbdd")]
 transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8422081, -9.536743e-07, -0.40116453)
 
+[node name="pottedPlant" parent="Wedding_Memory" unique_id=1269956800 instance=ExtResource("41_sky80")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0992281, -0.004433155, -0.8999331)
+
+[node name="pottedPlant2" parent="Wedding_Memory" unique_id=1530198967 instance=ExtResource("41_sky80")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0992281, -0.004433155, -3.4939837)
+
 [node name="rugDoormat" parent="Wedding_Memory" unique_id=2142913856 instance=ExtResource("4_dovuv")]
 transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 2, -2.424413, -0.012122512, -1.9424244)
+
+[node name="rugDoormat(Clone)" parent="Wedding_Memory/rugDoormat" index="0" unique_id=109157488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00040400028, -0.0007212162, 0.0018581152)
+surface_material_override/0 = SubResource("StandardMaterial3D_y31dy")
+
+[node name="snowflake-c2" parent="Wedding_Memory" unique_id=1060666812 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, 0.5265664, 0.6187767, -1.3450943)
+
+[node name="snowflake-c3" parent="Wedding_Memory" unique_id=717364857 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, 0.5265664, 0.6187767, -0.73701787)
+
+[node name="snowflake-c4" parent="Wedding_Memory" unique_id=1052294821 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, 0.5265664, 0.6187767, -0.12814927)
+
+[node name="snowflake-c5" parent="Wedding_Memory" unique_id=1448728193 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, 0.49356598, 0.6187767, -4.146163)
+
+[node name="snowflake-c6" parent="Wedding_Memory" unique_id=1990164636 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, 0.49356598, 0.6187767, -3.5380867)
+
+[node name="snowflake-c7" parent="Wedding_Memory" unique_id=1165442879 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, 0.49356598, 0.6187767, -2.929218)
+
+[node name="snowflake-c8" parent="Wedding_Memory" unique_id=1925357735 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -0.44433838, 0.6187767, -1.3450943)
+
+[node name="snowflake-c9" parent="Wedding_Memory" unique_id=1204954202 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -0.44433838, 0.6187767, -0.73701787)
+
+[node name="snowflake-c10" parent="Wedding_Memory" unique_id=910038391 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -0.44433838, 0.6187767, -0.12814927)
+
+[node name="snowflake-c11" parent="Wedding_Memory" unique_id=1361039267 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -0.4773388, 0.6187767, -4.146163)
+
+[node name="snowflake-c12" parent="Wedding_Memory" unique_id=422026067 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -0.4773388, 0.6187767, -3.5380867)
+
+[node name="snowflake-c13" parent="Wedding_Memory" unique_id=1232009786 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -0.4773388, 0.6187767, -2.929218)
+
+[node name="snowflake-c15" parent="Wedding_Memory" unique_id=338969294 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -1.3977456, 0.6187767, -1.3450943)
+
+[node name="snowflake-c16" parent="Wedding_Memory" unique_id=1415959689 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -1.3977456, 0.6187767, -0.73701787)
+
+[node name="snowflake-c17" parent="Wedding_Memory" unique_id=373605374 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -1.3977456, 0.6187767, -0.12814927)
+
+[node name="snowflake-c18" parent="Wedding_Memory" unique_id=288643460 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -1.4307461, 0.6187767, -4.146163)
+
+[node name="snowflake-c19" parent="Wedding_Memory" unique_id=928016976 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -1.4307461, 0.6187767, -3.5380867)
+
+[node name="snowflake-c20" parent="Wedding_Memory" unique_id=1652455357 instance=ExtResource("43_qqgny")]
+transform = Transform3D(0.027488291, 0, -0.49924383, 0, 0.5, 0, 0.49924383, 0, 0.027488291, -1.4307461, 0.6187767, -2.929218)
 
 [node name="Node3D" type="Node3D" parent="Wedding_Memory" unique_id=1339994385]
 
@@ -306,7 +466,7 @@ size = Vector3(0.119140625, 2.0223389, 0.1204834)
 [node name="Husky" parent="Puppy_Memory" unique_id=2062905693 instance=ExtResource("30_6nnqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.004206, -4.4049133e-07, 8.637089)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Puppy_Memory" unique_id=1419085531]
+[node name="Ball" type="CSGSphere3D" parent="Puppy_Memory" unique_id=1419085531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.817392, 0.04516864, 9.629696)
 radius = 0.1
 
@@ -323,7 +483,7 @@ transform = Transform3D(0.0035255211, 0, 0.0043195505, 0, 0.0069999998, 0, -0.00
 [node name="tree_1" parent="First_B_Mem" unique_id=582829228 instance=ExtResource("33_afkka")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -9.736868, -0.032700658, -1.0091166)
 
-[node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=585217852]
+[node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=706472558]
 transform = Transform3D(0.60735387, 0, 0, 0, -2.1720669e-07, -0.60735387, 0, 0.60735387, -2.1720669e-07, -0.5974426, 0, -0.504112)
 surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
 surface_material_override/1 = SubResource("StandardMaterial3D_n2q3u")
@@ -334,5 +494,11 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.136264, -0.080485344
 [connection signal="player_exited" from="Exit" to="." method="_on_exit_player_exited"]
 
 [editable path="Terrain/Maze"]
+[editable path="Christmas_Memory/loungeDesignChair"]
+[editable path="Christmas_Memory/loungeDesignSofa"]
+[editable path="Christmas_Memory/rugRounded"]
+[editable path="Christmas_Memory/cabinetTelevision"]
+[editable path="Christmas_Memory/televisionVintage"]
 [editable path="Christmas_Memory/tree-decorated2"]
+[editable path="Wedding_Memory/rugDoormat"]
 [editable path="First_B_Mem/tree_1"]
