@@ -1,4 +1,4 @@
-extends Node
+extends WorldManagerBase
 
 @export var start_time_seconds: float = 60
 @export var doors: Array[Door]
@@ -13,9 +13,6 @@ var time_since_last_nav_update: float = 0.0
 func _ready() -> void:
 	time_remaining = start_time_seconds
 	nav_agent.target_position = exit.global_position
-	%UnifiedMenuUI.spawn_requested.connect(spawn_player_level1)
-	%UnifiedMenuUI.quitgame.connect(quit_game)
-	
 
 func _process(delta: float) -> void:
 	time_remaining -= delta
@@ -43,17 +40,5 @@ func check_player_can_complete() -> void:
 func game_over() -> void:
 	print("Game over!")
 	get_tree().reload_current_scene()
-	
-func incrementMemoryCount() -> void:
-	#add varying memory related logic here
-	%UnifiedMenuUI.incrementMemoryCountLabel()
-	
-func decrementMemoryCount() -> void:
-	#add varying memory related logic here
-	%UnifiedMenuUI.decrementMemoryCountLabel()
-	
-func spawn_player_level1() -> void:
-	pass #player spawn logic goes here when the 3 levels are all one
-	
-func quit_game() -> void:
-	get_tree().quit()
+
+
