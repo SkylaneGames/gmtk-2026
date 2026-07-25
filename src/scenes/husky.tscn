@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://depie3ue3yloi"]
+
+[ext_resource type="PackedScene" uid="uid://dakdg6h5y40rf" path="res://assets/models/husky.fbx" id="1_6oky3"]
+[ext_resource type="Texture2D" uid="uid://b0tj4ydvs72y5" path="res://assets/models/husky.png" id="2_oiwev"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s2k0"]
+albedo_texture = ExtResource("2_oiwev")
+
+[node name="Husky" type="Node3D" unique_id=2062905693]
+
+[node name="husky" parent="." unique_id=1978315596 instance=ExtResource("1_6oky3")]
+
+[node name="Root_CTRL" parent="husky/Master_Controller" parent_id_path=PackedInt32Array(1978315596, 2068363521) index="0" unique_id=497821117]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.42515433, -0.20014535)
+
+[node name="Tail_0_CTRL" parent="husky/Master_Controller/Root_CTRL" index="0" unique_id=1811735214]
+transform = Transform3D(0.8305825, -0.075432025, -0.551763, 0.33526784, 0.85884494, 0.3872735, 0.44466603, -0.50665104, 0.7386316, 0, 0.00871554, -0.066193104)
+
+[node name="Tail_1_CTRL" parent="husky/Master_Controller/Root_CTRL/Tail_0_CTRL" index="0" unique_id=1790600490]
+transform = Transform3D(0.8305825, -0.075432025, -0.551763, 0.33526784, 0.85884494, 0.3872735, 0.44466603, -0.50665104, 0.7386316, -1.540744e-33, -0.025722055, -0.05805835)
+
+[node name="Tail_2_CTRL" parent="husky/Master_Controller/Root_CTRL/Tail_0_CTRL/Tail_1_CTRL" index="0" unique_id=306182153]
+transform = Transform3D(0.8306731, -0.07817777, -0.55124414, -0.22085607, 0.86259335, -0.45514286, 0.51108164, 0.49982062, 0.69926727, -1.540744e-33, -0.0066142385, -0.08818987)
+
+[node name="Tail_3_CTRL" parent="husky/Master_Controller/Root_CTRL/Tail_0_CTRL/Tail_1_CTRL/Tail_2_CTRL" index="0" unique_id=2014706986]
+transform = Transform3D(0.8306731, -0.07817777, -0.55124414, -0.22085607, 0.86259335, -0.45514286, 0.51108164, 0.49982062, 0.69926727, -2.4651903e-32, -0.00073492527, -0.09112957)
+
+[node name="Neck_CTRL" parent="husky/Master_Controller/Root_CTRL/Spine_CTRL/Chest_CTRL" parent_id_path=PackedInt32Array(1978315596, 1954207397) index="0" unique_id=452901257]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.051031798, 0.018891871)
+
+[node name="Head_CTRL" parent="husky/Master_Controller/Root_CTRL/Spine_CTRL/Chest_CTRL/Neck_CTRL" index="0" unique_id=1346605204]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 6.162976e-33, 0.08523768, 0.032927856)
+
+[node name="Left_Ear_CTRL" parent="husky/Master_Controller/Root_CTRL/Spine_CTRL/Chest_CTRL/Neck_CTRL/Head_CTRL" index="2" unique_id=1511019155]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, -0.00091069145, 0, 0.00091069145, 0.9999995, 0.090127766, 0.18821019, 0.03432721)
+
+[node name="Right_Ear_CTRL" parent="husky/Master_Controller/Root_CTRL/Spine_CTRL/Chest_CTRL/Neck_CTRL/Head_CTRL" index="3" unique_id=1026629947]
+transform = Transform3D(1, 0, 0, 0, 0.9999995, -0.00091069145, 0, 0.00091069145, 0.9999995, -0.090128, 0.18821084, 0.034327)
+
+[node name="Chest_Breathing_CTRL" parent="husky/Master_Controller/Root_CTRL/Spine_CTRL/Chest_CTRL" parent_id_path=PackedInt32Array(1978315596, 1954207397) index="1" unique_id=635541598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.162976e-33, -0.051333964, 0.09733469)
+
+[node name="Left_Front_Leg_CTRL" parent="husky/Master_Controller" parent_id_path=PackedInt32Array(1978315596, 2068363521) index="1" unique_id=1605236482]
+transform = Transform3D(1, 0, 0, 0, 0.9982855, -0.058530606, 0, 0.058530606, 0.9982855, 0.07243121, 0.008603547, 0.12905654)
+
+[node name="Right_Front_Leg_CTRL" parent="husky/Master_Controller" parent_id_path=PackedInt32Array(1978315596, 2068363521) index="2" unique_id=525214400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.076037996, 0.002838725, 0.2461724)
+
+[node name="Left_Rear_Leg_CTRL" parent="husky/Master_Controller" parent_id_path=PackedInt32Array(1978315596, 2068363521) index="3" unique_id=1696168119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07621945, 0.120013036, -0.10082617)
+
+[node name="Left_Rear_Paw_CTRL" parent="husky/Master_Controller/Left_Rear_Leg_CTRL" index="0" unique_id=434829999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Right_Rear_Leg_CTRL" parent="husky/Master_Controller" parent_id_path=PackedInt32Array(1978315596, 2068363521) index="4" unique_id=1404643905]
+transform = Transform3D(1, 0, 0, 0, 0.999809, -0.019543651, 0, 0.019543651, 0.999809, -0.077902675, 0.12524338, -0.24792957)
+
+[node name="Right_Rear_Paw_CTRL" parent="husky/Master_Controller/Right_Rear_Leg_CTRL" index="0" unique_id=54975342]
+transform = Transform3D(1, 0, 0, 0, 0.99960536, -0.02809168, 0, 0.02809168, 0.99960536, 0, 0, 0)
+
+[node name="Skeleton3D" parent="husky" index="1" unique_id=1322742570]
+bones/0/position = Vector3(0, 0.4251543, -0.20014535)
+bones/1/position = Vector3(0.22165027, -1.8648277e-15, 3.1753822e-18)
+bones/1/rotation = Quaternion(1.0339758e-25, 3.2211067e-25, 0.18190861, 0.98331547)
+bones/2/position = Vector3(0.18710776, -4.3368087e-17, 1.481845e-18)
+bones/3/rotation = Quaternion(0.05782497, 0.002516915, 0.99713147, -0.048774578)
+bones/4/rotation = Quaternion(0.99788076, 0.06505645, 0.001284498, -0.00016451658)
+bones/5/rotation = Quaternion(-0.69976056, 0.711973, -0.03806142, 0.044508673)
+bones/6/position = Vector3(0.09160236, -1.0164395e-17, 3.035766e-16)
+bones/7/position = Vector3(0.054387145, -0.0017847336, 3.2340793e-18)
+bones/7/rotation = Quaternion(1.2924697e-26, 3.0696156e-26, -0.05151799, 0.99867207)
+bones/8/position = Vector3(0.09123252, 0.0051314137, 4.905094e-18)
+bones/8/rotation = Quaternion(5.169879e-26, 1.6478989e-25, -0.085857555, 0.99630743)
+bones/9/position = Vector3(0.22742851, -3.2526065e-16, 1.1519032e-17)
+bones/9/rotation = Quaternion(-1.0438283e-25, 8.393197e-18, 0.1370713, 0.9905612)
+bones/10/rotation = Quaternion(-0.019494507, 0.17569609, 0.108542345, 0.97824824)
+bones/11/position = Vector3(0.094631396, -4.7213616e-16, 6.505213e-17)
+bones/12/position = Vector3(0.10651104, -0.102184355, 8.135462e-18)
+bones/12/rotation = Quaternion(-8.271806e-25, 0, -0.537185, 0.84346443)
+bones/13/position = Vector3(0.12434735, 1.2143064e-15, 1.2142263e-18)
+bones/13/rotation = Quaternion(-4.584549e-18, 2.4235894e-17, 0.537185, 0.84346443)
+bones/14/position = Vector3(0.0710105, -0.10955201, 6.5350093e-18)
+bones/14/rotation = Quaternion(8.271806e-25, -6.206465e-25, -0.75712216, 0.65327334)
+bones/15/position = Vector3(0.037889466, 0.000118042786, 1.5727208e-18)
+bones/15/rotation = Quaternion(2.1740008e-25, -1.8891131e-17, 0.30851558, 0.9512193)
+bones/16/position = Vector3(0.07133257, -0.012200912, 5.02605e-19)
+bones/16/rotation = Quaternion(-3.3363296e-18, 2.5457661e-17, 0.5186442, 0.8549902)
+bones/17/rotation = Quaternion(-0.17569606, -0.019494506, 0.9782481, -0.108542345)
+bones/19/rotation = Quaternion(0.0015773, -0.05143128, 0.31829378, 0.9465947)
+bones/20/rotation = Quaternion(0.99704546, -0.07681442, -0.00010655748, -1.4429863e-06)
+bones/21/rotation = Quaternion(-0.77034134, 0.63554734, -0.03739919, 0.03543097)
+bones/22/position = Vector3(-0.09160239, 1.6006153e-09, 6.028185e-09)
+bones/23/position = Vector3(0.002398238, -0.013966426, 7.2407374e-19)
+bones/23/rotation = Quaternion(-8.271806e-25, -4.135903e-25, -0.4736378, 0.8807197)
+bones/24/rotation = Quaternion(1.796559e-39, 1.231223e-39, 0.0058304276, 0.999983)
+bones/27/position = Vector3(-0.06639507, -0.0070130904, -9.631003e-19)
+bones/27/rotation = Quaternion(-0.5256478, 0.7993655, 0.086151354, 0.278006)
+bones/28/position = Vector3(0.063501135, 0, -7.286463e-18)
+bones/28/rotation = Quaternion(-0.04205431, -0.2879945, -0.08026065, 0.9533357)
+bones/29/position = Vector3(0.088437565, 9.540979e-16, -1.06856e-17)
+bones/29/rotation = Quaternion(0.050652117, -0.28652823, 0.28984237, 0.91177166)
+bones/30/position = Vector3(0.09113251, -1.6479873e-15, -1.0162412e-17)
+bones/30/rotation = Quaternion(0.013588268, -0.29065344, 0.34529626, 0.89224803)
+bones/31/position = Vector3(0.07322652, 1.1275703e-15, -6.6846364e-18)
+bones/31/rotation = Quaternion(-0.027248042, 0.9996287, 1.0517222e-16, 8.05753e-17)
+bones/32/rotation = Quaternion(0.8845137, -0.44353014, -0.009288947, 0.14432678)
+bones/33/position = Vector3(0.20170923, 5.2041704e-16, 0)
+bones/33/rotation = Quaternion(-1.3959029e-17, 6.65902e-17, 0.43193918, 0.9019028)
+bones/34/position = Vector3(0.09576007, 8.6736174e-17, 3.2526065e-16)
+bones/34/rotation = Quaternion(0.9434449, -0.28769732, 0.16445827, -0.009773094)
+bones/35/position = Vector3(0.08553369, 5.2041704e-16, 1.1926224e-15)
+bones/35/rotation = Quaternion(1.323489e-23, -2.646978e-23, 0.55045336, 0.8348659)
+bones/36/position = Vector3(0.12058682, 1.7347235e-16, -1.3660947e-15)
+bones/37/rotation = Quaternion(0.6925622, 0.7101126, 0.122847095, 0.031721577)
+bones/37/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/38/rotation = Quaternion(2.341132e-08, 4.437067e-08, 0.3074961, 0.95154935)
+bones/39/rotation = Quaternion(0.89120984, -0.43886566, 0.11213666, -0.023820734)
+bones/39/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/40/rotation = Quaternion(0.002221188, 0.00031074398, 0.5388244, 0.84241515)
+
+[node name="husky_mesh" parent="husky/Skeleton3D" index="0" unique_id=793653416]
+surface_material_override/0 = SubResource("StandardMaterial3D_6s2k0")
+
+[node name="Right_Rear_Leg_IK" parent="husky/IKs" parent_id_path=PackedInt32Array(1978315596, 1663552173) index="0" unique_id=1612750877]
+transform = Transform3D(-0.11418474, -0.17318824, 0.9782473, 0.7714902, -0.63584256, -0.02251786, 0.6259111, 0.75213695, 0.20621657, -0.077902675, 0.12524278, -0.24792999)
+
+[node name="Left_Rear_Leg_IK" parent="husky/IKs" parent_id_path=PackedInt32Array(1978315596, 1663552173) index="1" unique_id=764452050]
+transform = Transform3D(-0.11418474, -0.1731883, 0.9782473, -0.7714902, 0.6358426, 0.02251792, -0.6259111, -0.75213695, -0.20621657, 0.07621944, 0.120013036, -0.100825846)
+
+[node name="Right_Front_Leg_IK" parent="husky/IKs" parent_id_path=PackedInt32Array(1978315596, 1663552173) index="2" unique_id=1806779972]
+transform = Transform3D(-0.00097346306, -0.0073160827, 0.99997276, 0.99408567, -0.10859823, 0.0001732111, 0.108594, 0.9940588, 0.007378578, -0.076037996, 0.002838725, 0.2461727)
+
+[node name="Left_Front_Leg_IK" parent="husky/IKs" parent_id_path=PackedInt32Array(1978315596, 1663552173) index="3" unique_id=712116065]
+transform = Transform3D(-0.00097346306, -0.0073160827, 0.99997276, -0.99408567, 0.10859823, -0.0001732111, -0.108594, -0.9940588, -0.007378578, 0.07243121, 0.008602878, 0.1290562)
+
+[node name="Chest_IK" parent="husky/IKs" parent_id_path=PackedInt32Array(1978315596, 1663552173) index="4" unique_id=1592898969]
+transform = Transform3D(0, 0, -1, 0.26879895, 0.9631963, 0, 0.9631963, -0.26879895, 0, -6.162976e-33, 0.34616277, 0.29822388)
+
+[node name="AnimationPlayer" parent="husky" index="3" unique_id=2004636665]
+autoplay = &"Walk"
+
+[editable path="husky"]
