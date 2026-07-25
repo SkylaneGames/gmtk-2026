@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://8rpa3bra2tn2" path="res://assets/models/head/Mouht_Slight_Strain.png" id="14_m3bpo"]
 [ext_resource type="Texture2D" uid="uid://drwbolgbyer5x" path="res://assets/models/head/Eyes_Opened.png" id="15_uxhsu"]
 [ext_resource type="Texture2D" uid="uid://43gj120grien" path="res://assets/models/head/Eyes_Radiant.png" id="16_4amx5"]
+[ext_resource type="Curve" uid="uid://cwgscfnv3cayq" path="res://assets/curves/head_layout_anim_curve.tres" id="19_uxhsu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un3jo"]
 resource_name = "UVHelper"
@@ -184,7 +185,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.17599446, 0)]
+"values": [Vector3(-0.005, 0.176, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -196,7 +197,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.6171629, 0)]
+"values": [Vector3(0, -0.613, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -208,7 +209,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.5788874, 0)]
+"values": [Vector3(0, 0.574, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -302,6 +303,159 @@ tracks/2/keys = {
 "values": [ExtResource("8_aeddr")]
 }
 
+[sub_resource type="Animation" id="Animation_4amx5"]
+resource_name = "layout_level_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 1.173975, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HeadComplete/Head-Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8582723, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HeadComplete/Eye-Plate:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HeadComplete/Head-Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m3bpo"]
+resource_name = "layout_level_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 0.176, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HeadComplete/Head-Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8582723, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HeadComplete/Eye-Plate:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HeadComplete/Head-Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pnnvi"]
+resource_name = "layout_level_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 0.176, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HeadComplete/Head-Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.573, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HeadComplete/Eye-Plate:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HeadComplete/Head-Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_hlgx5"]
 resource_name = "layout_whole"
 tracks/0/type = "value"
@@ -314,7 +468,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.17599446, 0)]
+"values": [Vector3(-0.005, 0.176, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -326,7 +480,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.6171629, 0)]
+"values": [Vector3(0, -0.613, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -338,7 +492,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.5788874, 0)]
+"values": [Vector3(0, 0.573, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -515,6 +669,9 @@ _data = {
 &"RESET": SubResource("Animation_qmx2h"),
 &"close_eyes": SubResource("Animation_bdqwf"),
 &"heavy_strain": SubResource("Animation_6uoiv"),
+&"layout_level_1": SubResource("Animation_4amx5"),
+&"layout_level_2": SubResource("Animation_m3bpo"),
+&"layout_level_3": SubResource("Animation_pnnvi"),
 &"layout_whole": SubResource("Animation_hlgx5"),
 &"medium_strain": SubResource("Animation_7hvi8"),
 &"open_eyes": SubResource("Animation_njaeo"),
@@ -605,32 +762,140 @@ states/slight_strain/position = Vector2(522.26953, 226.23828)
 transitions = ["peaceful", "slight_strain", SubResource("AnimationNodeStateMachineTransition_4amx5"), "slight_strain", "peaceful", SubResource("AnimationNodeStateMachineTransition_hlgx5"), "slight_strain", "medium_strain", SubResource("AnimationNodeStateMachineTransition_njaeo"), "medium_strain", "slight_strain", SubResource("AnimationNodeStateMachineTransition_m3bpo"), "medium_strain", "heavy_strain", SubResource("AnimationNodeStateMachineTransition_qmx2h"), "heavy_strain", "medium_strain", SubResource("AnimationNodeStateMachineTransition_6uoiv"), "Start", "peaceful", SubResource("AnimationNodeStateMachineTransition_7hvi8"), "peaceful", "open_eyes", SubResource("AnimationNodeStateMachineTransition_ym82m"), "close_eyes", "peaceful", SubResource("AnimationNodeStateMachineTransition_pnnvi"), "open_eyes", "close_eyes", SubResource("AnimationNodeStateMachineTransition_bdqwf")]
 graph_offset = Vector2(-85.55078, 130.3711)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_77p83"]
+animation = &"layout_level_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ik5q6"]
+animation = &"layout_level_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_njaeo"]
+animation = &"layout_level_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vpj3h"]
+animation = &"layout_whole"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3icn5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wjmmm"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3aaqt"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2x55p"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rk2hn"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wlbt"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nq8vk"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbtww"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_77p83"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ik5q6"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vpj3h"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_43uil"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nexyk"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 2"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0pf81"]
+states/End/position = Vector2(1007.8203, 100)
+states/Start/position = Vector2(109.33594, 144.48047)
+states/layout_level_1/node = SubResource("AnimationNodeAnimation_77p83")
+states/layout_level_1/position = Vector2(621.9961, 31.410156)
+states/layout_level_2/node = SubResource("AnimationNodeAnimation_ik5q6")
+states/layout_level_2/position = Vector2(621.9961, 216.89453)
+states/layout_level_3/node = SubResource("AnimationNodeAnimation_njaeo")
+states/layout_level_3/position = Vector2(803.14844, 110.14453)
+states/layout_whole/node = SubResource("AnimationNodeAnimation_vpj3h")
+states/layout_whole/position = Vector2(361.48438, 110.14453)
+transitions = ["Start", "layout_whole", SubResource("AnimationNodeStateMachineTransition_3icn5"), "layout_whole", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_wjmmm"), "layout_whole", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_3aaqt"), "layout_level_1", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_2x55p"), "layout_level_2", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_rk2hn"), "layout_level_1", "layout_whole", SubResource("AnimationNodeStateMachineTransition_4wlbt"), "layout_level_2", "layout_whole", SubResource("AnimationNodeStateMachineTransition_nq8vk"), "layout_whole", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_dbtww"), "layout_level_3", "layout_whole", SubResource("AnimationNodeStateMachineTransition_77p83"), "layout_level_1", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_ik5q6"), "layout_level_3", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_vpj3h"), "layout_level_2", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_43uil"), "layout_level_3", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_nexyk")]
+graph_offset = Vector2(-32.242188, -6.7382813)
+
 [node name="Head" type="Node3D" unique_id=1332359877]
 script = ExtResource("1_n8xhp")
 
 [node name="HeadComplete" type="Node3D" parent="." unique_id=1158485046]
 
 [node name="Eye-Plate" type="MeshInstance3D" parent="HeadComplete" unique_id=1668346744]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17599446, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.176, 0)
 mesh = SubResource("ArrayMesh_sb1yt")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdwbp")
 
 [node name="Head-bottom-half" type="MeshInstance3D" parent="HeadComplete" unique_id=1900624569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6171629, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.613, 0)
 mesh = SubResource("ArrayMesh_obsv3")
 surface_material_override/0 = ExtResource("3_480qb")
 
 [node name="Head-Top" type="MeshInstance3D" parent="HeadComplete" unique_id=136728721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5788874, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574, 0)
 mesh = SubResource("ArrayMesh_qduk8")
 surface_material_override/0 = SubResource("StandardMaterial3D_254n4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1216284543]
 root_node = NodePath("../Facial Expression Animator")
 libraries/ = SubResource("AnimationLibrary_pnnvi")
+blend_times = [&"layout_level_1", &"layout_level_1", 2.0, &"layout_level_1", &"layout_whole", 2.0]
 
 [node name="Facial Expression Animator" type="AnimationTree" parent="." unique_id=161198036]
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="LayoutAnimator" type="AnimationTree" parent="." unique_id=2053015849]
+root_node = NodePath("../Facial Expression Animator")
+tree_root = SubResource("AnimationNodeStateMachine_0pf81")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
