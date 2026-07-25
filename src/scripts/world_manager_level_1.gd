@@ -1,11 +1,11 @@
 extends WorldManagerBase
 
-@export var start_time_seconds: float = 60
+@export var start_time_seconds: float = 60.0
 @export var doors: Array[Door]
-@export_range(0, 100, 1, "The % of time left in the level which will trigger the door to close.") var door_times: Array[float]
+@export_range(0.0, 100.0, 1.0, "The % of time left in the level which will trigger the door to close.") var door_times: Array[float]
 @export var nav_agent: NavigationAgent3D
 @export var exit: Node3D
-@export var nav_check_interval: float = 2
+@export var nav_check_interval: float = 2.0
 
 var time_remaining: float
 var time_since_last_nav_update: float = 0.0
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 			doors[i].close()
 
 	if (time_since_last_nav_update > nav_check_interval):
-		time_since_last_nav_update = 0
+		time_since_last_nav_update = 0.0
 		check_player_can_complete()
 
 func _on_exit_player_exited() -> void:
