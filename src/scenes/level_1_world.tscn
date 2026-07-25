@@ -3,22 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://bxapy176pbr1f" path="res://assets/models/level 1 maze.glb" id="1_4x3lm"]
 [ext_resource type="Script" uid="uid://cyqe8mtt665fl" path="res://scripts/world_manager_level_1.gd" id="1_qa103"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="2_nn6gf"]
-[ext_resource type="Material" uid="uid://b088hy0b4jciv" path="res://assets/models/void_mat.tres" id="3_7tlof"]
 [ext_resource type="PackedScene" uid="uid://dlbcxlgrh7vli" path="res://assets/models/furniture/chair.glb" id="3_8kbdd"]
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="3_gr71i"]
+[ext_resource type="Texture2D" uid="uid://deupwbr2mj7fj" path="res://assets/models/Void_Tileable.png" id="3_t46ug"]
 [ext_resource type="PackedScene" uid="uid://c7drrprun5j4h" path="res://assets/models/furniture/rugDoormat.glb" id="4_dovuv"]
+[ext_resource type="Texture2D" uid="uid://duccacdw7k2ml" path="res://assets/models/Void Tileable-emission.png" id="4_j2ssh"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="4_qa103"]
-[ext_resource type="Texture2D" uid="uid://drfh8nrr2t423" path="res://assets/memories/Christmas.PNG" id="5_due22"]
+[ext_resource type="Texture2D" uid="uid://cew5c6bmm1jkc" path="res://assets/memories/Christmas.PNG" id="5_due22"]
 [ext_resource type="PackedScene" uid="uid://sttd1yco80h3" path="res://assets/models/Xmas/tree-decorated.glb" id="6_giyus"]
 [ext_resource type="AudioStream" uid="uid://u46jgrcc8c24" path="res://assets/sounds/test sound oof.ogg" id="6_p24l3"]
-[ext_resource type="Texture2D" uid="uid://dpgibuedpfhoy" path="res://assets/memories/Puppy.PNG" id="6_vc8ll"]
-[ext_resource type="Texture2D" uid="uid://ckcpivrc5rvr7" path="res://assets/memories/Wedding.PNG" id="7_p24l3"]
-[ext_resource type="Texture2D" uid="uid://bbxwowm3gdas1" path="res://assets/memories/Baby.PNG" id="8_7tlof"]
+[ext_resource type="Texture2D" uid="uid://b4gf8ri4q4nus" path="res://assets/memories/Puppy.PNG" id="6_vc8ll"]
+[ext_resource type="Texture2D" uid="uid://cxergl26vogsn" path="res://assets/memories/Wedding.PNG" id="7_p24l3"]
+[ext_resource type="Texture2D" uid="uid://bfuohuqpmx0ar" path="res://assets/memories/Baby.PNG" id="8_7tlof"]
 [ext_resource type="PackedScene" uid="uid://sy8daeb74hw5" path="res://assets/models/furniture/bedSingle.glb" id="8_p2u81"]
 [ext_resource type="AudioStream" uid="uid://stxc7hroxhn2" path="res://assets/sounds/yapping.ogg" id="8_p24l3"]
 [ext_resource type="PackedScene" uid="uid://bavnn80ga0niu" path="res://assets/models/furniture/trashcan.glb" id="9_afkka"]
-[ext_resource type="Texture2D" uid="uid://q7q0ujl620av" path="res://assets/memories/First_Bike.PNG" id="9_g7iqf"]
-[ext_resource type="Texture2D" uid="uid://vggg3o4fksws" path="res://assets/memories/Children_Playing.PNG" id="10_eckpc"]
+[ext_resource type="Texture2D" uid="uid://cwayyh2gq034d" path="res://assets/memories/First_Bike.PNG" id="9_g7iqf"]
+[ext_resource type="Texture2D" uid="uid://1jvxw83orwxq" path="res://assets/memories/Children_Playing.PNG" id="10_eckpc"]
 [ext_resource type="PackedScene" uid="uid://dbbp1883d0ajs" path="res://assets/models/furniture/table.glb" id="10_k6pba"]
 [ext_resource type="PackedScene" uid="uid://cf8chd8mdvf6w" path="res://assets/models/furniture/loungeChairRelax.glb" id="11_6e5p4"]
 [ext_resource type="PackedScene" uid="uid://okevabi3kgbu" path="res://assets/models/furniture/kitchenSink.glb" id="12_fprdh"]
@@ -57,11 +58,49 @@ cell_size = 0.1
 cell_height = 0.1
 agent_radius = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ieja"]
-albedo_color = Color(0.6901961, 0.6509804, 0.58431375, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sky80"]
+specular_mode = 2
+albedo_color = Color(0.81314147, 0.8131414, 0.81314135, 1)
+albedo_texture = ExtResource("3_t46ug")
+emission_enabled = true
+emission = Color(0.7893097, 0.6492345, 0.89225936, 1)
+emission_energy_multiplier = 2.0
+emission_operator = 1
+emission_texture = ExtResource("4_j2ssh")
+uv1_scale = Vector3(5, 5, 5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngb10"]
-albedo_color = Color(0.9411765, 0.62352943, 0.42745098, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqgny"]
+transparency = 1
+specular_mode = 2
+albedo_color = Color(0.8117647, 0.8117647, 0.8117647, 0.13725491)
+emission_enabled = true
+emission = Color(0.7893097, 0.6492345, 0.89225936, 1)
+emission_energy_multiplier = 2.0
+emission_operator = 1
+emission_texture = ExtResource("4_j2ssh")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="Gradient" id="Gradient_sky80"]
+offsets = PackedFloat32Array(0.36188298, 1)
+colors = PackedColorArray(0.053413115, 0.053413115, 0.053413115, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j2ssh"]
+noise_type = 3
+frequency = 0.058
+offset = Vector3(0.08, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t46ug"]
+noise = SubResource("FastNoiseLite_j2ssh")
+color_ramp = SubResource("Gradient_sky80")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xiacr"]
+specular_mode = 2
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.59545135, 0.37397972, 0.73130304, 1)
+emission_energy_multiplier = 0.63
+emission_texture = SubResource("NoiseTexture2D_t46ug")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eckpc"]
 albedo_color = Color(1, 0.15294118, 0.18039216, 1)
@@ -103,6 +142,86 @@ albedo_color = Color(0.40626618, 0.6062101, 0.34696093, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2q3u"]
 albedo_color = Color(0.575581, 0.32861465, 0.31833848, 1)
 
+[sub_resource type="Animation" id="Animation_t46ug"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Terrain/Maze/Walls:surface_material_override/1:emission_texture:noise:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.08, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Terrain/Maze/Walls:surface_material_override/1:emission_texture:noise:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terrain/Maze/Walls:surface_material_override/1:emission_texture:noise:offset:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_j2ssh"]
+resource_name = "wavey_walls"
+length = 20.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Terrain/Maze/Walls:surface_material_override/1:emission_texture:noise:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.08, -0.25, 0, 0.25, 0, 198.64, -0.7833333, -33.093334, 0, 0),
+"times": PackedFloat32Array(0, 20)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Terrain/Maze/Walls:surface_material_override/1:emission_texture:noise:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 118.7, -0.7833333, -19.783333, 0, 0),
+"times": PackedFloat32Array(0, 20)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terrain/Maze/Walls:surface_material_override/1:emission_texture:noise:offset:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.7833333, 0, 0, 0),
+"times": PackedFloat32Array(0, 20)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sky80"]
+_data = {
+&"RESET": SubResource("Animation_t46ug"),
+&"wavey_walls": SubResource("Animation_j2ssh")
+}
+
 [node name="Level 1 World" type="Node3D" unique_id=553002256 node_paths=PackedStringArray("doors", "exit", "spawn_point")]
 script = ExtResource("1_qa103")
 doors = [NodePath("Terrain/Doors/Door 1"), NodePath("Terrain/Doors/Door 2"), NodePath("Terrain/Doors/Door 3"), NodePath("Terrain/Doors/Door 4"), NodePath("Terrain/Doors/Door 5")]
@@ -118,11 +237,12 @@ navigation_mesh = SubResource("NavigationMesh_g8dwo")
 
 [node name="Maze" parent="Terrain" unique_id=1699325480 instance=ExtResource("1_4x3lm")]
 
-[node name="Ground" parent="Terrain/Maze" index="0" unique_id=146701133]
-surface_material_override/0 = ExtResource("3_7tlof")
+[node name="Ground" parent="Terrain/Maze" index="0" unique_id=663301653]
+surface_material_override/0 = SubResource("StandardMaterial3D_sky80")
 
-[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1988516584]
-surface_material_override/0 = ExtResource("3_7tlof")
+[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1459605119]
+surface_material_override/0 = SubResource("StandardMaterial3D_qqgny")
+surface_material_override/1 = SubResource("StandardMaterial3D_xiacr")
 
 [node name="Doors" type="Node3D" parent="Terrain" unique_id=1141097254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -185,20 +305,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.522, 0, -11.165)
 [node name="loungeDesignChair" parent="Christmas_Memory" unique_id=225980423 instance=ExtResource("18_p24l3")]
 transform = Transform3D(0.01918444, 0, 1.4998775, 0, 1.5000002, 0, -1.4998775, 0, 0.01918444, -2.324667, -2.3841858e-07, 8.317816)
 
-[node name="loungeDesignChair(Clone)" parent="Christmas_Memory/loungeDesignChair" index="0" unique_id=141177816]
+[node name="loungeDesignChair(Clone)" parent="Christmas_Memory/loungeDesignChair" index="0" unique_id=1819053789]
 surface_material_override/0 = SubResource("StandardMaterial3D_eckpc")
 
 [node name="loungeDesignSofa" parent="Christmas_Memory" unique_id=1592052707 instance=ExtResource("19_7tlof")]
 transform = Transform3D(2.25, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.9685857, -4.7683716e-07, 6.41948)
 
-[node name="loungeDesignSofa(Clone)" parent="Christmas_Memory/loungeDesignSofa" index="0" unique_id=1437006090]
+[node name="loungeDesignSofa(Clone)" parent="Christmas_Memory/loungeDesignSofa" index="0" unique_id=376411461]
 surface_material_override/0 = SubResource("StandardMaterial3D_7tlof")
 surface_material_override/1 = SubResource("StandardMaterial3D_g7iqf")
 
 [node name="rugRounded" parent="Christmas_Memory" unique_id=1014331156 instance=ExtResource("20_g7iqf")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.8052539, 0, 8.45032)
 
-[node name="rugRounded(Clone)" parent="Christmas_Memory/rugRounded" index="0" unique_id=2072252369]
+[node name="rugRounded(Clone)" parent="Christmas_Memory/rugRounded" index="0" unique_id=636161640]
 surface_material_override/0 = SubResource("StandardMaterial3D_1hob6")
 surface_material_override/1 = SubResource("StandardMaterial3D_0ebf6")
 
@@ -223,13 +343,13 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.68463373, -4.723789e
 [node name="cabinetTelevision" parent="Christmas_Memory" unique_id=1416158634 instance=ExtResource("27_ypsqs")]
 transform = Transform3D(-1.4999999, 0, 0.00020616502, 0, 1.5000002, 0, -0.00020616502, 0, -1.4999999, -0.13810551, 4.8400284e-07, 9.000559)
 
-[node name="cabinetTelevision(Clone)" parent="Christmas_Memory/cabinetTelevision" index="0" unique_id=88907716]
+[node name="cabinetTelevision(Clone)" parent="Christmas_Memory/cabinetTelevision" index="0" unique_id=1441946216]
 surface_material_override/0 = SubResource("StandardMaterial3D_ofp8m")
 
 [node name="televisionVintage" parent="Christmas_Memory" unique_id=1958042160 instance=ExtResource("28_t46ug")]
 transform = Transform3D(-1.4992278, 0, -0.04812796, 0, 1.5, 0, 0.04812796, 0, -1.4992278, -0.45490766, 0.44379473, 8.999111)
 
-[node name="televisionVintage(Clone)" parent="Christmas_Memory/televisionVintage" index="0" unique_id=1955119019]
+[node name="televisionVintage(Clone)" parent="Christmas_Memory/televisionVintage" index="0" unique_id=948313045]
 transform = Transform3D(1, 0, 3.7252903e-09, 0, 1, 0, -3.7252903e-09, 0, 1, -0.027423859, 0.02516979, -0.045261383)
 surface_material_override/0 = SubResource("StandardMaterial3D_puh45")
 surface_material_override/1 = SubResource("StandardMaterial3D_hmrps")
@@ -388,7 +508,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0992281, -0.004433155, -3.
 [node name="rugDoormat" parent="Wedding_Memory" unique_id=2142913856 instance=ExtResource("4_dovuv")]
 transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 2, -2.424413, -0.012122512, -1.9424244)
 
-[node name="rugDoormat(Clone)" parent="Wedding_Memory/rugDoormat" index="0" unique_id=109157488]
+[node name="rugDoormat(Clone)" parent="Wedding_Memory/rugDoormat" index="0" unique_id=843063230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00040400028, -0.0007212162, 0.0018581152)
 surface_material_override/0 = SubResource("StandardMaterial3D_y31dy")
 
@@ -490,6 +610,10 @@ surface_material_override/1 = SubResource("StandardMaterial3D_n2q3u")
 
 [node name="rocks_3" parent="First_B_Mem" unique_id=488181870 instance=ExtResource("33_p2u81")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.136264, -0.080485344, -0.12828147)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=115623730]
+libraries/ = SubResource("AnimationLibrary_sky80")
+autoplay = &"wavey_walls"
 
 [connection signal="player_exited" from="Exit" to="." method="_on_exit_player_exited"]
 
