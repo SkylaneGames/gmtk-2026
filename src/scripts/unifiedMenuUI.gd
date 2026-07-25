@@ -1,16 +1,16 @@
 extends CanvasLayer
+
+class_name UnifiedMenuUI
+
 signal spawn_requested
 signal quitgame
 signal restartgame
-var memorycount: int = 0
+
+@export var player: Player
+
+var memory_label: String = "Memories Collected"
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 #Functions to send signals to game manager to execute logic
 func _on_button_start_pressed() -> void:
@@ -40,13 +40,13 @@ func displayUI_gameover(gameover_reason: String = "") -> void: # call this on tr
 	%GameUI.hide()
 	%GameOverUI.show()
 	%label_GameOverReason.text = gameover_reason
-	
-func incrementMemoryCountLabel() -> void:
-	memorycount = memorycount+1
-	print("Memories Collected: " + str(memorycount))
-	%label_MemoryCount.text = "Memories Collected: " + str(memorycount)
-	
-func decrementMemoryCountLabel() -> void:
-	memorycount = memorycount-1
-	print("Memories Remaining: " + str(memorycount))
-	%label_MemoryCount.text = "Memories Remaining: " + str(memorycount)
+
+func update_memory_label() -> void:
+	print("Updating memory label")
+	%label_MemoryCount.text = generate_memory_label()
+
+func generate_memory_label() -> String:
+	if player == null:
+		return "%s: N/A"
+
+	return "%s: %d" % [memory_label, player.memory_count]

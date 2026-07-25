@@ -3,7 +3,7 @@ extends CharacterBody3D
 class_name Player
 
 @onready var body := $Body;
-@onready var labelMemoryCount: Label = %label_MemoryCount
+@onready var ui: UnifiedMenuUI = %UnifiedMenuUI
 
 @export var light_enabled: bool = true :
 	get:
@@ -53,12 +53,14 @@ func face_direction(direction: Vector3, delta: float) -> void:
 
 func pickup_memory() -> void:
 	memory_count += 1
+	if ui != null:
+		ui.update_memory_label()
 
 func consume_memory(value: float) -> bool:
 	if memory_count < value:
 		return false
 
 	memory_count -= value
-	if labelMemoryCount != null:
-		labelMemoryCount.text = "Memories collected: %0.2f" % memory_count
+	if ui != null:
+		ui.update_memory_label()
 	return true
