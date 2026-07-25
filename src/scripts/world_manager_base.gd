@@ -31,7 +31,7 @@ func _initialize_world() -> void:
 func spawn_player() -> void:
 	if player == null:
 		return
-
+	player.input_enabled = true
 	player.global_transform.origin = spawn_point.global_position
 
 func _notify_level_completed() -> void:
@@ -41,6 +41,7 @@ func _notify_level_completed() -> void:
 	dispose()
 
 func _notify_level_failed() -> void:
+	player.input_enabled = false
 	print("Level %d Failed!" % world_id)
 	running = false
 	level_failed.emit(self)

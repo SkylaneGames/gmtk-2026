@@ -5,6 +5,7 @@ class_name Player
 @onready var body := $Body;
 @onready var ui: UnifiedMenuUI = %UnifiedMenuUI
 
+@export var input_enabled: bool
 @export var light_enabled: bool = true :
 	get:
 		return light.enabled
@@ -28,6 +29,9 @@ func _physics_process(delta: float) -> void:
 #	if Input.is_action_just_pressed("jump") and is_on_floor():
 #		velocity.y = JUMP_VELOCITY
 
+	# only do movement logic if input is enabled
+	if not input_enabled:
+		return
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")

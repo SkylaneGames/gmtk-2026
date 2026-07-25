@@ -42,7 +42,6 @@ func _on_world_completed(world: WorldManagerBase) -> void:
 func next_level() -> void:
 	current_world_index += 1
 	if current_world_index >= worlds.size():
-		game_over("You have successfully escaped the countdown!")
 		current_state = GameState.MENU
 		return;
 	%UnifiedMenuUI.displayUI_levelUI(current_world_index+1)
@@ -50,7 +49,7 @@ func next_level() -> void:
 
 func _on_world_failed(world: WorldManagerBase) -> void:
 	game_over(world.game_over_message)
-	world.initialize_world()
 
 func restart_game() -> void:
 	get_tree().reload_current_scene()
+	
