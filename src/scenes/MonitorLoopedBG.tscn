@@ -35,4 +35,4 @@ animations = [{
 position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gef2k")
-frame_progress = 0.73580366
+frame_progress = 0.60142475
