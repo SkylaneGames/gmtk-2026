@@ -1,10 +1,8 @@
 [gd_scene format=4 uid="uid://cdqendukm2k86"]
 
-[ext_resource type="Texture2D" uid="uid://dvq685d2i630" path="res://assets/models/head/HeadComplete_Untitled.png" id="1_cwpmm"]
 [ext_resource type="Script" uid="uid://nusc26abvd8o" path="res://scenes/head_controller.gd" id="1_n8xhp"]
 [ext_resource type="Texture2D" uid="uid://cadvy8mkenypj" path="res://assets/models/head/Eyes_Peaceful.png" id="2_6rdic"]
 [ext_resource type="Texture2D" uid="uid://wwedw3n0348o" path="res://assets/models/head/Eyes_Heavy_Strain.png" id="2_emtd3"]
-[ext_resource type="Material" uid="uid://3mtegrmqp637" path="res://assets/models/head/head_bottom_mat.tres" id="3_480qb"]
 [ext_resource type="Texture2D" uid="uid://e7to4a52b3t4" path="res://assets/models/head/HeadTop_Heavy-Strain.png" id="4_n8xhp"]
 [ext_resource type="Texture2D" uid="uid://bjgg7nx7dl5ke" path="res://assets/models/head/HeadTop_Peaceful.png" id="4_tctuf"]
 [ext_resource type="Texture2D" uid="uid://dt2s772ccvymq" path="res://assets/models/head/Mouht_Peaceful.png" id="6_a80fa"]
@@ -18,12 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://8rpa3bra2tn2" path="res://assets/models/head/Mouht_Slight_Strain.png" id="14_m3bpo"]
 [ext_resource type="Texture2D" uid="uid://drwbolgbyer5x" path="res://assets/models/head/Eyes_Opened.png" id="15_uxhsu"]
 [ext_resource type="Texture2D" uid="uid://43gj120grien" path="res://assets/models/head/Eyes_Radiant.png" id="16_4amx5"]
+[ext_resource type="Curve" uid="uid://cwgscfnv3cayq" path="res://assets/curves/head_layout_anim_curve.tres" id="19_uxhsu"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un3jo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeddr"]
 resource_name = "UVHelper"
 cull_mode = 2
-albedo_texture = ExtResource("1_cwpmm")
-roughness = 0.5
+shading_mode = 0
+albedo_texture = ExtResource("2_6rdic")
 metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_re6lt"]
@@ -50,7 +49,7 @@ _surfaces = [{
 "index_count": 1320,
 "index_data": PackedByteArray("BwEBAAIABwG1AAEAtAAHAQIAtAACAAQAtgC0AAQAtgAEAAUACAEHAAgAuwAIAQgAuwAIAAkACAEJAQcACQEKAAcACQG8AAoADAANAA4ADAAKAQ0ACgEQAA0ACgEPABAACwESABMACwEMARIADQELARMADQETABUADgENARUADgEVABYADwEOARYADwEWABcAEAEZABoAEAERARkAEQEeABkAEQESAR4AEwEQARoAEwEaABsAFAETARsAFAEbABwAFQEWASEAFQEXARYBGAGuAKwAGAEZAa4AGgGxALIAGgEbAbEAHAGqAKgAHAEdAaoAHgEnACUAHgEfAScA5AAqACsA5ADlACoAIAEuAC8AIAEhAS4AIgEiACAAIgEjASIA7AA0ADUA7ADtADQAOwAkASUBOwA8ACQBJQEkASYBJQEmAfAAPAAnASQBPAAoAScBJAEpASYBJAEnASkB8AAmASoB8AAqATcANwAqATgANwA4ADkAKgErATgAJgEsASoBKgEsASsBJgEpASwBLAE6ACsBLAEtAToAKQEtASwBKQEuAS0BJwEuASkBLgEvAS0BJwEwAS4BKAEwAScBKAExATABLgEyAS8BMAEyAS4BMgEzAS8BMQE0ATABMAE0ATIBMQE1ATQBMgE2ATMBNAE2ATIBNgE3ATMBNQE4ATQBNAE4ATYBNQE9ADgBNgE5ATcBOAE5ATYBOQE6ATcBPQA7ATgBOAE7ATkBPQA8ATsBOQE9AToBOwE9ATkBPAE+ATsBOwE+AT0BPAE/AT4BPwFAAT4BPwFBAUABPgFCAT0BPgFAAUIBPQFDAToBPQFCAUMBOgFDAUQBOgFEAUEAQwFEAEQBQwFFAUQAQgFFAUMBRQFFAEQARQFCAEUAQgFGAUUBRgFCAEUBQAFGAUIBRgFHAUIAQAFIAUYBSAFHAUYBQQFIAUABSAFJAUcBQQE+AEgBPgBJAUgBPgBDAEkBSgFLAUAASgFMAUsBTAE/AEsBTAFNAT8ATgFKAEgATgFPAUoATwFQAUoAUQFPAU4BTwFSAVABUQFTAU8BUwFSAU8BVAFTAVEBUgFVAVABVAFWAVMBRgBWAVQBRgBHAFYBVgFXAVMBUwFXAVIBRwBYAVYBVgFYAVcBRwBZAVgBUgFaAVUBVwFaAVIBWgFbAVUBWAFcAVcBVwFcAVoBWQFdAVgBWAFdAVwBWQFeAV0BWgFfAVsBXAFfAVoBXwFgAVsBXQFhAVwBXAFhAV8BXgFiAV0BXQFiAWEBXgFjAWIBXwFkAWABYQFkAV8BZAFlAWABYgFmAWEBYQFmAWQBYwFnAWIBYgFnAWYBYwFoAWcBZAFpAWUBZgFpAWQBaQFqAWUBZwFrAWYBZgFrAWkBaAFsAWcBZwFsAWsBaAHxAGwBaQFtAWoBawFtAWkBbQFuAWoBbAFvAWsBawFvAW0B8QBwAWwBbAFwAW8B8QBxAXABbQFyAW4BbwFyAW0BcgFJAG4BcAFzAW8BbwFzAXIBcQF0AXABcAF0AXMBcQF1AXQBcgF2AUkAcwF2AXIBdgFNAEkAdgF3AU0AcwF4AXYBeAF3AXYBdAF4AXMBeAF5AXcBdQF6AXQBdAF6AXgBegF5AXgBdQFLAHoBegF7AXkBSwB7AXoBSwBMAHsB+QB8AX0BfQF8AVwAfQFcAF0A+QB+AXwB+AB+AfkA+AB/AX4BWgB/AfgAWgBbAH8BbgCAAYEBbgBtAIABgQGAAYIBgQGCAYMBgwGCAYQBgwGEAYUBhQGEAYYBhQGGAWoAagCGAYcBagCHAYgBiAGHAYkBiAGJAYoBigGJAYsBigGLAYwBjAGLAWsAjAFrAGwATgBPAFAATgBRAE8AjQGOAY8BjwGOAVMAjwFTAFQAjQGQAY4BkQGQAY0BkQGSAZABUgCSAZEBUgBVAJIB8gBoAGYA8gCTAWgAlAGTAfIAlAGVAZMBlgGVAZQBlgGXAZUB9ACXAZYB9ACYAZcB9QCYAfQA9QDzAJgB9gDzAPUA9gCZAfMA9wCZAfYA9wCaAZkBaQCaAfcAaQBnAJoBVgBXAFgAVgBZAFcAXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAbwBwAHEAcQBwAHMAbwCbAXAAcQBzAHQAcgCbAW8AdABzAJwBcgCdAZsBdACcAXUAfACdAXIAdQCcAZ4BfACfAZ0BdQCeAXYAfQCfAXwAdgCeAaABfQB6AJ8BdgCgAXgAfgB6AH0AeACgAXcAfgChAXoAeAB3AHkAfwChAX4AeQB3AHsAfwCiAaEBeQB7AIAAggCiAX8AgAB7APoAggCjAaIBgAD6AIcAgwCjAYIAhwD6APsAgwCBAKMBhwD7AIgAhACBAIMAiAD7APwAhACFAIEAiAD8AIkAhgCFAIQAiQD8AP0AhgCkAYUAiQD9AIoAjQCkAYYAigD9AKUBjQAAAaQBigClAZEAjgAAAY0AkQClAaYBjgD/AAABkQCmAZMAjwD/AI4AkwCmAf4AjwCLAP8AkwD+AJIAkACLAI8AkgD+AIwAkACMAIsAkgCMAJAApwEwAKgBpwGpATAAqgGrAawBqgGtAasBlACVAJYAlACXAJUArgGvAbABrgGxAa8BmACZAJoAmACbAJkAnAABAQIBnACfAAEBGACyAbMBGAC0AbIBtAG1AbIBtAG2AbUBtgG3AbUBtgG4AbcBuAG5AbcBuAEdALkBugG7AbwBugG9AbsBvQG+AbsBvQERAL4BvwG6AbwBvwG8AcABFAC/AcABFADAAcEBwgHDAcQBwgGgAMMBowDCAcQBowDEAcUBpAAFAQYBpACnAAUBxgHHAcgBxgEyAMcBLQDGAcgBLQDIAckBMwDvAO4AMwA2AO8AygHLAcwBygEjAMsBJADKAcwBJADMAc0BAAC4ALcAAADOAbgAzgHPAbgAzgG6AM8BugC5AM8BugADALkAKQDnAOYAKQAsAOcA0AG+ANEB0AELAL4A0gHQAdEB0gHRAdMBBgDSAdMBBgDTAb0AKADUAdUBKAAmANQB3gDdANwA3gDfAN0A2gDZANgA2gDbANkA1gDVANQA1gDXANUArwDWAdcBrwCtANYBsADYAdkBsACzANgBqwDaAdsBqwCpANoB3AGdAJ4A3AHdAZ0AzQDOAM8AzQDMAM4AzADIAM4AzADKAMgAygDeAcgAygDfAd4B3wHJAN4B3wHLAMkAxAC/AMEAxADCAL8AwgDAAL8AwgDDAMAAxQDEAMEAxQDBAOABxgDFAOABxgDgAccA4QGhAOIB4QEDAaEABAHhAeIBBAHiAaIA4wGlAKYA4wHkAaUA5QExAOkA5QHrADEA6gDlAekA6gDpAOgA5gHnAegB5gHpAecB6gHRANAA6gHTANEA0gDqAdAA0gDQAB8A6wHsAe0B6wHuAewB7gHvAewB7gHwAe8B8AHxAe8B8AHyAfEB8wH0AfUB8wH2AfQB9wH4AfkB9wH6AfgB+wH3AfkB+wH5AfwB/QH7AfwB/QH8Af4B4gDhAOAA4gDjAOEA"),
 "lods": [0.00054089737, PackedByteArray("tAABAAIAtAC1AAEAtAACAAQAtgC0AAQAtgAEAAUAtwC0ALYAuAC1ALQAtwC4ALQAAAC4ALcAuAC5ALUAAAC6ALgAugC5ALgAugADALkAuwAHAAgAuwAIAAkAuwC8AAcAvAAKAAcAvQC8ALsAvQC+ALwABgC+AL0ABgALAL4ADAANAA4ADAAPAA0ADwAQAA0AvwASABMAvwDAABIAwQC/ABMAwQATABUAwgDAAL8AwgDDAMAAEQDDAMIAxADCAL8AEQDCAMQAxAC/AMEAFAARAMQAFADEAMUAxQDEAMEAFADFAMYAxgDFAMEAxgDBAMcAwQAVABYAxwDBABYAxwAWABcAyAAZABoAyQAeABkAyADJABkAygDJAMgAygDLAMkAHQDLAMoAHQDKAMwAzADKAMgAGAAdAMwAGADMAM0AzADIAM4AzQDMAM4AzgDIABoAzQDOAM8AzgAaABsAzwDOABsAzwAbABwAHwAgACEAHwDQACAA0AAiACAA0ADRACIA0gDQAB8A0wDRANAA0gDTANAAJADTANIAJAAjANMA1ACuAKwA1ADVAK4A1gDVANQA1gDXANUArwDXANYArwCtANcA2ACxALIA2ADZALEA2gDZANgA2gDbANkAsADbANoAsACzANsA3ACqAKgA3ADdAKoA3gDdANwA3gDfAN0AqwDfAN4AqwCpAN8A4AAnACUA4ADhACcA4gDhAOAA4gDjAOEAKADjAOIAKAAmAOMA5AAqACsA5ADlACoA5gDlAOQA5gDnAOUAKQDnAOYAKQAsAOcA6AAuAC8A6ADpAC4A6QAwAC4A6QAxADAA6gDpAOgA6gAxAOkA6gDrADEAMgDrAOoALQAyAOoA7AA0ADUA7ADtADQA7gDtAOwA7gDvAO0AMwDvAO4AMwA2AO8ANwA4ADkANwA6ADgA8AA6ADcAOwA6APAAOwA8ADoAPAA9ADoAPQA+ADoAOgA/AEAAOgBBAD8APgBCADoAOgBCAEEAPgBDAEIAQQBCAEQAQgBFAEQARgBHAEgARwBJAEgASABJAEoARwDxAEkA8QBMAEkATABNAEkA8QBLAEwATgBPAFAATgBRAE8AUgBTAFQAUgBVAFMA8gBoAGYA8gDzAGgA9ADzAPIA9QDzAPQA9gDzAPUA9wDzAPYAaQDzAPcAaQBnAPMAVgBXAFgAVgBZAFcA+ABcAPkA+QBcAF0AWgBcAPgAWgBbAFwAXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAagBrAGwAagBtAGsAbgBtAGoAbwBwAHEAcgBwAG8AcQBwAHMAcQBzAHQAdABzAHUAdQBzAHYAdgBzAHcAdgB3AHgAeAB3AHkAeQB3AHsAeQB7AIAAgAB7APoAgAD6AIcAhwD6APsAhwD7AIgAiAD7APwAiAD8AIkAiQD8AP0AiQD9AIoAigD9AP4AigD+AJEAkQD+AJMAkwD+AJIAkgD+AIwAkgCMAJAAkACMAIsAkACLAI8AjwCLAP8AjwD/AI4AjgD/AAABjgAAAY0AjQAAAYYAhgAAAYUAhgCFAIQAhACFAIEAhACBAIMAgwCBAIIAggCBAH8AfwCBAHoAfwB6AH4AfgB6AH0AfQB6AHwAfAB6AHIAcgB6AHAAlACVAJYAlACXAJUAmACZAJoAmACbAJkAnAABAQIBnACfAAEBAgEBAZ0AAgGdAJ4AoAADAQQBowCgAAQBBAEDAaEABAGhAKIApAAFAQYBpACnAAUBBgEFAaUABgGlAKYA"), 0.08128545, PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAAAEAAUABgAHAAgABgAIAAkABgAKAAcABgALAAoADAANAA4ADAAPAA0ADwAQAA0AEQASABMAFAARABMAFAATABUAFAAVABYAFAAWABcAGAAZABoAGAAaABsAGAAbABwAGAAdABkAHQAeABkAHwAgACEAHwAiACAAHwAjACIAJAAjAB8AJQAmACcAKAAmACUAKQAqACsAKQAsACoALQAuAC8ALQAwAC4ALQAxADAAMgAxAC0AMwA0ADUAMwA2ADQANwA4ADkANwA6ADgAOwA6ADcAOwA8ADoAPAA9ADoAPQA+ADoAOgA/AEAAOgBBAD8APgBCADoAOgBCAEEAPgBDAEIAQQBCAEQAQgBFAEQARgBHAEgARwBJAEgASABJAEoARwBLAEkASwBMAEkATABNAEkATgBPAFAATgBRAE8AUgBTAFQAUgBVAFMAVgBXAFgAVgBZAFcAWgBbAFwAWgBcAF0AXgBfAGAAXgBhAF8AYgBjAGQAYgBlAGMAZgBnAGgAaQBnAGYAagBrAGwAagBtAGsAbgBtAGoAbwBwAHEAcgBwAG8AcQBwAHMAcQBzAHQAdABzAHUAdQBzAHYAdgBzAHcAdgB3AHgAeAB3AHkAcgB6AHAAeQB3AHsAfAB6AHIAfQB6AHwAfgB6AH0AfwB6AH4AeQB7AIAAfwCBAHoAggCBAH8AgwCBAIIAhACBAIMAhACFAIEAhgCFAIQAgAB7AIcAhwB7AIgAiAB7AIkAiQB7AIoAhgCLAIUAigB7AIwAjQCLAIYAjgCLAI0AjwCLAI4AkACLAI8AkACMAIsAigCMAJEAkgCMAJAAkQCMAJMAkwCMAJIAlACVAJYAlACXAJUAmACZAJoAmACbAJkAnACdAJ4AnACfAJ0AoAChAKIAowCgAKIApAClAKYApACnAKUAqACpAKoAqwCpAKgArACtAK4ArwCtAKwAsACxALIAsACzALEA")],
-"material": SubResource("StandardMaterial3D_un3jo"),
+"material": SubResource("StandardMaterial3D_aeddr"),
 "name": "UVHelper",
 "primitive": 3,
 "uv_scale": Vector4(2.0018296, 1.5869128, 0, 0),
@@ -60,9 +59,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_re6lt")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdwbp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdqwf"]
+resource_name = "UVHelper"
+cull_mode = 2
 shading_mode = 0
-albedo_texture = ExtResource("2_6rdic")
+albedo_texture = ExtResource("6_a80fa")
+metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bbbt4"]
 _surfaces = [{
@@ -88,7 +90,7 @@ _surfaces = [{
 "index_count": 1869,
 "index_data": PackedByteArray("CACRASgBCAAnAZEBAACSAZMBAAABAJIBkwGSASwBkwEsAQMAlAEJAAoAlAGVAQkAMgGWAZcBMgEzAZYBlwGWATQBlwE0ATYBmAESABAAmAGZARIAmgGZAZgBmgGbAZkBEwCbAZoBEwCcAZsBEwARAJwBnQFGASEAIQBGAUcBnQGeAUYBnwGgARYAFgCgARcAnwGhAaABogGhAZ8BogGjAaEBFACjAaIBFAAVAKMBpAGlAaYBpwGmAQ8ApwGkAaYBqAGkAacBpAGpAaUBqQEOAKUBqQGqAQ4AqAGrAaQBqwGpAaQBrAGrAagBrQGqAakBqwGtAakBrQGuAaoBrAGvAasBrwGtAasBDQCvAawBDQCwAa8BrwGxAa0BsQGuAa0BsAGxAa8BsQErAa4BsAGyAbEBsgErAbEBsgEqASsBswEHALQBswG1AQcAtgGzAbQBtgG0AbcBuAG2AbcBuAG3AQYAuQG2AbgBuQG6AbYBugGzAbYBMAG6AbkBuwG1AbMBugG7AbMBuwG8AbUBMAG9AboBvQG7AboBLgG9ATABLgEtAb0BvQG+AbsBvgG8AbsBLQG+Ab0BvgG/AbwBLQExAb4BMQG/Ab4BMQEFAL8BGABBARoAGADAAUEBwAEZAEEBGwDAARgAwAHBARkAGwDCAcABwgHBAcABwgEbABwAwgHDAcEBwgEcAMQBHQDEARwAHQDFAcQBxAFAAcIBQAHDAcIBxQFAAcQBQAE8AcMBxQE7AUABOwE8AUABOwHFAcYBOwE6ATwBxwHIAckBygHHAckBywHHAcoBygHJAcwBywHNAccBzgHNAcsBzQHPAccBxwHPAcgBzgHQAc0B0QHQAc4BzQHSAc8B0AHSAc0B0QHTAdAB1AHTAdEB0AHVAdIB0wHVAdAB1AHWAdMB0gDWAdQB0wHXAdUB1gHXAdMB0gDYAdYB0ADYAdIA0ADZAdgB2AHaAdYB1gHaAdcB2QHbAdgB2AHbAdoB2QHcAdsB3AHdAdsB3AHeAd0B3gHPAN0B3gHOAM8A3QHPAN8B2wHdAeAB3QHfAeAB2wHgAdoB4AHfAeEB2gHgAeIB4AHhAeIB2gHiAdcB4gHhAeMB1wHiAeQB4gHjAeQB5AHjAdEA1wHkAdUB5AHRANMA1QHkAdMA1QHTANIB0gHTAOUB0gHlAc8B0wDmAeUB0wDXAOYB5QHmAecBzwHlAegB5QHnAegBzwHoAcgB6AHnAekB6AHpAeoByAHoAeoB6gHpAdgAyAHqAesByQHIAesB6gHYAOwB6wHqAewB7AHYANUA7AHVAO0B7gHsAe0B6wHsAe4B7gHtAe8ByQHrAfAB8AHrAe4BzAHJAfABzAHwAfEB8AHuAfIB8gHuAe8B8QHwAfIB8gHvAfMB8QHyAdQA1ADyAfMB1ADzAdYA9AFjAfUB9AH2AWMB9gH4AGMB9gH3AfgA+AH0AfUB+AH1AfkBZQH4AfkBZQH5AfkAZgH4AWUBZgH6AfgB+gH0AfgB+wH6AWYB/AH2AfQB+gH8AfQB+wH9AfoB/QH8AfoBZwH9AfsBZwH+Af0B/gH/Af0B/QH/AfwB/gEAAv8B/AEBAvYB/wEBAvwBAQL3AfYBAQICAvcB/wEDAgECAwICAgECAAIDAv8BAwJkAQICAAIEAgMCBAJkAQMCBAJiAWQBBQL8AAYCBQJOAfwABwIFAgYCBwIGAggCCQJOAQUCCQJQAU4BCgIFAgcCCgIJAgUCCwIHAggCCwIIAk8BDAILAk8BDAJPAf4ADQILAgwCDgIHAgsCDQIOAgsCDgIKAgcCUQEOAg0CUQEPAg4CDwIKAg4CUgEPAlEBUgEQAg8CDwIRAgoCEAIRAg8CEQIJAgoCEAISAhECEQITAgkCEgITAhECEwJQAQkCEgIUAhMCEwIVAlABFAIVAhMCFAJTARUCKQBUAVUBKQAqAFQBLwBYAVkBLwAwAFgBNAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAFgICAQEBFgIXAgIBGAIXAhYCGAIZAhcCjQEZAhgCjQGMARkCGgKMAY0BGgIbAowBXQE9AD4AXQFeAT0AHAIzADIAHAIdAjMAHgIdAhwCHgIfAh0CXAEfAh4CXAFbAR8CIAJbAVwBIAIhAlsBIgItAC4AIgIjAi0AJAIjAiICJAIlAiMCVwElAiQCVwFWASUCJgJWAVcBJgInAlYBKAJBAEIAKAIpAkEAKgIpAigCKgIrAikCLAIrAioCLAJhASsCQABhASwCQABDAGEBLQJLASgALQIuAksBLgInAEsBLwIuAi0CLgImACcALwIwAi4CMAImAC4CSgEwAi8CMAIlACYASgFJATACIgBJAUoBTAElADACSQFMATACIgBIAUkBTAEkACUAMQJJAUgBSQExAjICSQEyAkwBJABMATICJAAyAiMAMwJFAEYAMwI0AkUANQI0AjMCNQI2AjQCaAE2AjUCaAE3AjYCRAA3AmgBRABHADcCOAI5AjoCOwI8Aj0CSAA+Aj8CHgA5ATgBHgA4AUACHgBAAkECTABCAkMCUABRAFIARAJSAFEAUABVAFEARAJRAEUCRgJVAFAARwJEAkUCRgJIAlUARwJFAkkCUwBHAkkCUwBJAlQAVgBIAkYCVgBGAlcAWABWAFcAWABZAFYAawFZAFgAawFYAEoCbAFrAUoCbAFKAksCTAJsAUsCTAJLAk0CbQFMAk0CbQFNAk4CbwFtAU4CbwFOAm4BTwJvAW4BTwJuAVACYABfAF4AcAFeAF8AcAFRAl4AYABhAF8AYABSAmEAYABTAlICUwJUAlICUwJVAlQCVQJiAFQCVQJjAGIAXABaAFsAXABdAFoAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB2AFYCdAB1AHYAVgJ2AHcAVgJ3AHgAVwJ6AHsAVwJ8AHoAWAJ8AFcCWAJ9AHwAeQB9AFgCeQB+AH0AWQKBAFoCWgKBAIQAWQKAAIEAWgKEAFsCXAKAAFkCWwKEAIYAXAKCAIAAfwCCAFwCfwCDAIIAWwKGAHEBcQGGAIcAcQGHAIUAXQKKAIgAXQKJAIoAXgKJAF0CXgKLAIkAjACLAF4CjACNAIsAXwKQAI4AXwKPAJAAkQCPAF8CkQCSAI8AYAJhAmICYAJjAmECnABkAmUCnACdAGQCZQJkAmYCZQJmAmcCZwJmAmgCZwJoApsAmwBoApoAmwCaAJkAkwCUAJUAkwByAZQAaQKkAKMAaQJqAqQAawJqAmkCawJsAmoCpQBsAmsCpQBtAmwCpgBtAqUApgCnAG0CbgJ5AXoBbgJvAnkBegF5AXACegFwAnECcQJwAnICcQJyAnMCcwJyAnQCcwJ0AqAAoAB0AngBoAB4AXUCdQJ4AXYCdQJ2AncCdwJ2AncBdwJ3AXYBdgF3AXgCdgF4AnkCegJ1AXQBegJ7AnUBdAF1AXwCdAF8An0CngB+An8CngCfAH4CgAKhAKIAgAKBAqEAggKYAJcAggKDApgAqACEAoUCqACpAIQCewGGAocCewF8AYYCiAJ8AXsBiAJ7AYkCigKLAowCjAKLAo0CigKOAosCrgCOAooCrgCvAI4CjAKNAo8CjwKNArEAjwKxALAAsgCzALQAsgC1ALMAtgC3ALgAtgC5ALcAfwHyAPAAfwGQAvIAkQKQAn8BkQJ/AYABkgKRAoABkgKAAYEB7wCSAoEB7wCBAfEAggHEAMUAggGTAsQAgwGTAoIBgwGUApMChAGUAoMBhAGVApQCwgCVAoQBwgDDAJUClgLBAMAAlgKXAsEAmAKXApYCmAKZApcCmgKZApgCmgKbApkCvgCbApoCvgC/AJsCugCcAoUBugC7AJwChQGcAp0ChQGdAp4CngKdAp8CngKfAqACoAKfAqECoAKhAqICogKhAqMCogKjAoYBhgGjAqQChgGkAqUCpQKkAqYCpQKmAocBhwGmArwAhwG8AL0AxgDHAMgAxgDJAMcAygDLAMwAygDNAMsA2QDaANsA2QDcANoA3QDeAN8A4ADhAOIA4ADjAOEApwLlAOYApwKoAuUAqALnAOUAqAKpAucA6wDsAO0A6wDuAOwAqgKqAKsCqgJ9AaoArAJDAUQBrAKtAkMBqwCsAK0AqwB+AawA8wD0APUA8wD2APQAlgCuAq8ClgBzAa4CNQGwArECNQE3AbACsgKzArQCsgK1ArMCtQK2ArMCtQL7ALYCtwKyArQCtwK0ArgC/QC3ArgC/QC4ArkCugK7ArwCugK9ArsCvgK6ArwCvgK8Ar8CwALBAsICwALDAsEC9wDEAsUC9wDGAsQCxgLHAsQCxgLIAscCyALJAscCyALKAskCygLLAskCygL6AMsCzALNAs4CzALPAs0C0ALMAs4C0ALOAtEC0gLTAtQC0gLVAtMCaQFLAEoAaQFJAEsA1gLXAtgC1gLZAtcC2gLWAtgC2gLYAtsCAgDcAt0CAgDeAtwCTgBNAE8ATgBqAU0A3wLgAuEC3wILAOAC4gIsACsA4gLjAiwA5AIxAFoB5ALlAjEAXwHmAucCXwFgAeYC6AJgAV8B6ALpAmAB6gLpAugC6gLrAukCPADrAuoCPAA/AOsC/wCKAYsB/wAAAYoBLwHsAu0CLwHuAuwC7gLvAuwC7gIEAO8CDADwAvECDADyAvAC8gLzAvAC8gIpAfMCQgH0AiAAQgH1AvQC9QIfAPQC9QI+AR8A9gIFAQMB9gL3AgUBBgGPAY4BBgEEAY8BBwEIAQkBBwEKAQgBCwEMAQ0BCwEOAQwBDwGQAREBDwH4ApAB+QISAfoC+QIQARIB6gCIAeQA6gCJAYgB+wLoAPwC+wLpAOgAEwEUARUBFwEYARkBGgEbARwBHQEeAR8BIQEiASMBJAElASYB/QI/Af4C/QI9AT8BRQH/Ak0BRQEAA/8CAQMWAQIDAwMgAQQDBQMGAwcDCAMJAwoD"),
 "lods": [0.00087724265, PackedByteArray("CAAnASgBCAALACcBKAEnAQkAKAEJAAoAKQELACoBKQEqAQ0ADAApAQ0ADQAqAQ4AKgErAQ4ADQAOAA8AAAABACwBAAAsAQMAAwAsAQIAAgAtAS4BAgAvAS0BLgEtATABLwExAS0BLQExATABLwEFADEBMQEFADABLwEEAAUAMAEFAAcAMAEHAAYAMgEzATQBNQEzATIBMgE0ATYBNQE3ATMBHgA3ATUBHgA4ATcBHgA5ATgBOAE5AToBOAE6ATsBNwE4ATsBOwE6ATwBMwE3AT0BNwE7AT0BMwE9AT4BNAEzAT4BOwE/AT0BPgE9AT8BOwE8AUABPwE7AUABQAE8ARkAQAEZABwAHAAZAEEBHQBAARwAPwFAAR0AGwAcAEEBGwBBARgAGABBARoAPwEdAB8APgE/AR8AQgE+AR8ANAE+AUIBQgEfACAAQwE0AUIBNgE0AUMBNgFDAUQBQwFCAUUBRQFCASAARAFDAUYBRgFDAUUBRAFGASEAIQBGAUcBRwFGAUgBRgFFAUgBRwFIASIAIgBIAUkBRQFJAUgBIgBJAUoBSgFJASgAKABJAUsBSQEnAEsBSQEmACcASQElACYATAElAEkBTAEkACUASQFFAU0BSQFNAUwBJABMAU0BRQEgAE0BJABNASMAIAAjAE0BEAARABIAEwARABAAFAAVABYAFgAVABcATgH8AE8B/gBOAU8BUAFOAf4AUQFQAf4AUgFQAVEBUgFTAVAB+wBTAVIB/QD7AFIBKQBUAVUBKQAqAFQBVQFUASwAVQEsACsAKwAsAFYBKwBWAVcBVwFWAS0AVwEtAC4ALwBYAVkBLwAwAFgBWQFYATEAWQExAFoBWgExAFsBWgFbAVwBXAFbATIAMgBbATMANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAXQE9AD4AXQFeAT0AXwFeAV0BXwFgAV4BXwE/AGABPAA/AF8BQABBAEIAQABhAUEAQABDAGEBYgH4AGMBYgFkAfgAZQFjAfkAYgFjAWUBZgFiAWUBZwFiAWYB9wBiAWcB9wD6AGIBaAFFAEYAaAFHAEUARABHAGgBSABJAGkBaQFJAEsAaQFLAEoATABqAU4ATgBqAU0ATgBNAE8AUABRAFIAUwBSAFEAUwBRAFQAUABVAFEAUABWAFUAVgBQAFcAWABWAFcAWABZAFYAawFZAFgAbAFrAVgAbQFsAVgAbQFYAG4BbwFtAW4BWgBvAW4BWgBuAVsAXABaAFsAXABdAFoAXQBcAF4AXQBeAHABcAFeAF8AYABfAF4AYABhAF8AYABiAGEAYABjAGIAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB2AHcAdAB3AHgAeQB6AHsAeQB8AHoAeQB9AHwAeQB+AH0AfwCAAIEAfwCCAIAAfwCDAIIAfwCBAIQAfwCEAHEBcQGEAIYAcQGGAIcAcQGHAIUAiACJAIoAiACLAIkAjACLAIgAjACNAIsAjgCPAJAAkQCPAI4AkQCSAI8AkwCUAJUAkwByAZQAlgByAZMAlgBzAXIBdAFzAZYAdAF1AXMBlwB1AXQBlwCYAHUBmQCYAJcAmQCaAJgAmwCaAJkAnACaAJsAnACdAJoAngCdAJwAngCfAJ0AdgGfAJ4AdgF3AZ8AdgF4AXcBoAB4AXYBoAB5AXgBegF5AaAAogB5AXoBogChAHkBowChAKIAowCkAKEApQCkAKMApgCkAKUApgCnAKQAqACnAKYAqACpAKcAewGpAKgAewF8AakAfQF8AXsBfQF7AaoAfgF9AaoAfgGqAKwAqwB+AawAqwCsAK0ArgCvALAAsACvALEAsgCzALQAsgC1ALMAtgC3ALgAtgC5ALcAfwHyAPAA8gB/AYAB7wDyAIAB7wCAAYEB7wCBAfEAggHEAMUAgwHEAIIBhAHEAIMBwgDEAIQBwgDDAMQAugC8AIUBugC7ALwAhQG8AIYBhgG8AIcBhwG8AL0AvgC/AMAAwAC/AMEAxgDHAMgAxgDJAMcAygDLAMwAygDNAMsAzgDPANAA0ADPANEA0gDQANEA0gDRANMA1ADSANMA1ADTANUA1ADVANYA0wDXANUA1QDXANgA2QDaANsA2QDcANoA3QDeAN8A4ADhAOIA4ADjAOEA5ADlAOYA5ACIAeUAiAHnAOUA6gCIAeQAiAHoAOcA6gCJAYgBiQHoAIgBiQHpAOgA6wDsAO0A6wDuAOwA8wD0APUA8wD2APQA/wCKAYsB/wAAAYoBiwGKAYwBiwGMAY0BjQGMAQIBjQECAQEBjgEFAQMBjgGPAQUBBgGPAY4BBgEEAY8BBwEIAQkBBwEKAQgBCwEMAQ0BCwEOAQwBDwGQAREBDwEQAZABEAESAZABEwEUARUBFAEWARUBFwEYARkBGgEbARwBHQEeAR8BHwEgAR0BIQEiASMBJAElASYB"), 0.5531973, PackedByteArray("AAABAAIAAAACAAMAAgAEAAUAAgAFAAYABgAFAAcACAAJAAoACAALAAkADAALAA0ACwAOAA0ADQAOAA8AEAARABIAEwARABAAFAAVABYAFgAVABcAGAAZABoAGwAZABgAGwAcABkAHQAZABwAHQAeABkAHwAeAB0AHgAfACAAIQAeACAAIQAgACIAIgAgACMAIgAjACQAJAAlACIAIgAlACYAIgAmACcAKAAiACcAKQAqACsAKwAqACwAKwAsAC0AKwAtAC4ALwAwADEALwAxADIAMgAxADMANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASgBJAEsATABNAE4ATgBNAE8AUABRAFIAUwBSAFEAUwBRAFQAUABVAFEAUABWAFUAVgBQAFcAWABWAFcAWABZAFYAWgBZAFgAWgBYAFsAXABaAFsAXABdAFoAXQBcAF4AXQBeAF8AYABfAF4AYABhAF8AYABiAGEAYABjAGIAZABlAGYAZABnAGUAaABpAGoAaABrAGkAbABtAG4AbABvAG0AcABxAHIAcABzAHEAdAB1AHYAdAB2AHcAdAB3AHgAeQB6AHsAeQB8AHoAeQB9AHwAeQB+AH0AfwCAAIEAfwCCAIAAfwCDAIIAfwCBAIQAfwCEAIUAhQCEAIYAhQCGAIcAiACJAIoAiACLAIkAjACLAIgAjACNAIsAjgCPAJAAkQCPAI4AkQCSAI8AkwCUAJUAlgCUAJMAlwCUAJYAlwCYAJQAmQCYAJcAmQCaAJgAmwCaAJkAnACaAJsAnACdAJoAngCdAJwAngCfAJ0AoACfAJ4AoAChAJ8AogChAKAAowChAKIAowCkAKEApQCkAKMApgCkAKUApgCnAKQAqACnAKYAqACpAKcAqgCpAKgAqwCpAKoAqwCqAKwAqwCsAK0ArgCvALAAsACvALEAsgCzALQAsgC1ALMAtgC3ALgAtgC5ALcAugC7ALwAugC8AL0AvgC/AMAAwAC/AMEAwgDDAMQAwgDEAMUAxgDHAMgAxgDJAMcAygDLAMwAygDNAMsAzgDPANAA0ADPANEA0gDQANEA0gDRANMA1ADSANMA1ADTANUA1ADVANYA0wDXANUA1QDXANgA2QDaANsA2QDcANoA3QDeAN8A4ADhAOIA4ADjAOEA5ADlAOYA5ADnAOUA5ADoAOcA6QDoAOQA6gDpAOQA6wDsAO0A6wDuAOwA7wDwAPEA7wDyAPAA8wD0APUA8wD2APQA9wD4APkA9wD6APgA+wD8AP0A/QD8AP4A/wAAAQEBAQEAAQIBAwEEAQUBBgEEAQMBBwEIAQkBBwEKAQgBCwEMAQ0BCwEOAQwBDwEQAREBEAESAREBEwEUARUBFAEWARUBFwEYARkBGgEbARwBHQEeAR8BHwEgAR0BIQEiASMBJAElASYB")],
-"material": SubResource("StandardMaterial3D_un3jo"),
+"material": SubResource("StandardMaterial3D_bdqwf"),
 "name": "UVHelper",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -97,6 +99,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bbbt4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un3jo"]
+resource_name = "UVHelper"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("4_tctuf")
+metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1g1xe"]
 _surfaces = [{
@@ -132,16 +141,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1g1xe")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_254n4"]
-shading_mode = 0
-albedo_texture = ExtResource("4_tctuf")
-
 [sub_resource type="Animation" id="Animation_qmx2h"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -153,7 +158,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../HeadComplete/Head-bottom-half:surface_material_override/0:albedo_texture")
+tracks/1/path = NodePath("../HeadComplete/Head-bottom-half:mesh:surface_0/material:albedo_texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -165,7 +170,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HeadComplete/Head-Top:surface_material_override/0:albedo_texture")
+tracks/2/path = NodePath("../HeadComplete/Head-Top:mesh:surface_0/material:albedo_texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -184,7 +189,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.17599446, 0)]
+"values": [Vector3(-0.005, 0.176, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -196,7 +201,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.6171629, 0)]
+"values": [Vector3(0, -0.613, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -208,7 +213,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.5788874, 0)]
+"values": [Vector3(0, 0.574, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -246,6 +251,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6rdic")]
+}
 
 [sub_resource type="Animation" id="Animation_bdqwf"]
 resource_name = "close_eyes"
@@ -253,7 +270,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -268,7 +285,7 @@ resource_name = "heavy_strain"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Head-Top:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Head-Top:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -280,7 +297,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/1/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -292,7 +309,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HeadComplete/Head-bottom-half:surface_material_override/0:albedo_texture")
+tracks/2/path = NodePath("../HeadComplete/Head-bottom-half:mesh:surface_0/material:albedo_texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -300,6 +317,159 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("8_aeddr")]
+}
+
+[sub_resource type="Animation" id="Animation_4amx5"]
+resource_name = "layout_level_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 1.173975, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HeadComplete/Head-Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8582723, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HeadComplete/Eye-Plate:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HeadComplete/Head-Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m3bpo"]
+resource_name = "layout_level_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 0.176, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HeadComplete/Head-Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8582723, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HeadComplete/Eye-Plate:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HeadComplete/Head-Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pnnvi"]
+resource_name = "layout_level_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.005, 0.176, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HeadComplete/Head-Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.573, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HeadComplete/Eye-Plate:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HeadComplete/Head-Top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hlgx5"]
@@ -314,7 +484,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.17599446, 0)]
+"values": [Vector3(-0.005, 0.176, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -326,7 +496,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.6171629, 0)]
+"values": [Vector3(0, -0.613, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -338,7 +508,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.5788874, 0)]
+"values": [Vector3(0, 0.573, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -382,7 +552,7 @@ resource_name = "medium_strain"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Head-bottom-half:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Head-bottom-half:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -394,7 +564,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/1/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -406,7 +576,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HeadComplete/Head-Top:surface_material_override/0:albedo_texture")
+tracks/2/path = NodePath("../HeadComplete/Head-Top:mesh:surface_0/material:albedo_texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -422,11 +592,11 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.1920929e-07, 1.0000001, 2),
+"times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("14_bdqwf"), ExtResource("15_uxhsu"), ExtResource("16_4amx5")]
@@ -437,7 +607,7 @@ resource_name = "peaceful"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -449,7 +619,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../HeadComplete/Head-bottom-half:surface_material_override/0:albedo_texture")
+tracks/1/path = NodePath("../HeadComplete/Head-bottom-half:mesh:surface_0/material:albedo_texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -461,7 +631,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HeadComplete/Head-Top:surface_material_override/0:albedo_texture")
+tracks/2/path = NodePath("../HeadComplete/Head-Top:mesh:surface_0/material:albedo_texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -476,7 +646,7 @@ resource_name = "slight_strain"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../HeadComplete/Head-Top:surface_material_override/0:albedo_texture")
+tracks/0/path = NodePath("../HeadComplete/Head-Top:mesh:surface_0/material:albedo_texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -488,7 +658,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../HeadComplete/Eye-Plate:surface_material_override/0:albedo_texture")
+tracks/1/path = NodePath("../HeadComplete/Eye-Plate:mesh:surface_0/material:albedo_texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -500,7 +670,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HeadComplete/Head-bottom-half:surface_material_override/0:albedo_texture")
+tracks/2/path = NodePath("../HeadComplete/Head-bottom-half:mesh:surface_0/material:albedo_texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -515,6 +685,9 @@ _data = {
 &"RESET": SubResource("Animation_qmx2h"),
 &"close_eyes": SubResource("Animation_bdqwf"),
 &"heavy_strain": SubResource("Animation_6uoiv"),
+&"layout_level_1": SubResource("Animation_4amx5"),
+&"layout_level_2": SubResource("Animation_m3bpo"),
+&"layout_level_3": SubResource("Animation_pnnvi"),
 &"layout_whole": SubResource("Animation_hlgx5"),
 &"medium_strain": SubResource("Animation_7hvi8"),
 &"open_eyes": SubResource("Animation_njaeo"),
@@ -603,7 +776,108 @@ states/peaceful/position = Vector2(314.77734, 226.23828)
 states/slight_strain/node = SubResource("AnimationNodeAnimation_uxhsu")
 states/slight_strain/position = Vector2(522.26953, 226.23828)
 transitions = ["peaceful", "slight_strain", SubResource("AnimationNodeStateMachineTransition_4amx5"), "slight_strain", "peaceful", SubResource("AnimationNodeStateMachineTransition_hlgx5"), "slight_strain", "medium_strain", SubResource("AnimationNodeStateMachineTransition_njaeo"), "medium_strain", "slight_strain", SubResource("AnimationNodeStateMachineTransition_m3bpo"), "medium_strain", "heavy_strain", SubResource("AnimationNodeStateMachineTransition_qmx2h"), "heavy_strain", "medium_strain", SubResource("AnimationNodeStateMachineTransition_6uoiv"), "Start", "peaceful", SubResource("AnimationNodeStateMachineTransition_7hvi8"), "peaceful", "open_eyes", SubResource("AnimationNodeStateMachineTransition_ym82m"), "close_eyes", "peaceful", SubResource("AnimationNodeStateMachineTransition_pnnvi"), "open_eyes", "close_eyes", SubResource("AnimationNodeStateMachineTransition_bdqwf")]
-graph_offset = Vector2(-85.55078, 130.3711)
+graph_offset = Vector2(-129.07813, 118.46875)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_77p83"]
+animation = &"layout_level_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ik5q6"]
+animation = &"layout_level_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_njaeo"]
+animation = &"layout_level_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vpj3h"]
+animation = &"layout_whole"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3icn5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wjmmm"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3aaqt"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2x55p"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rk2hn"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wlbt"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nq8vk"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbtww"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_77p83"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ik5q6"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vpj3h"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_43uil"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 3"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nexyk"]
+xfade_time = 3.0
+xfade_curve = ExtResource("19_uxhsu")
+advance_mode = 2
+advance_expression = "current_layout == 2"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0pf81"]
+states/End/position = Vector2(1007.8203, 100)
+states/Start/position = Vector2(109.33594, 144.48047)
+states/layout_level_1/node = SubResource("AnimationNodeAnimation_77p83")
+states/layout_level_1/position = Vector2(621.9961, 31.410156)
+states/layout_level_2/node = SubResource("AnimationNodeAnimation_ik5q6")
+states/layout_level_2/position = Vector2(621.9961, 216.89453)
+states/layout_level_3/node = SubResource("AnimationNodeAnimation_njaeo")
+states/layout_level_3/position = Vector2(803.14844, 110.14453)
+states/layout_whole/node = SubResource("AnimationNodeAnimation_vpj3h")
+states/layout_whole/position = Vector2(361.48438, 110.14453)
+transitions = ["Start", "layout_whole", SubResource("AnimationNodeStateMachineTransition_3icn5"), "layout_whole", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_wjmmm"), "layout_whole", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_3aaqt"), "layout_level_1", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_2x55p"), "layout_level_2", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_rk2hn"), "layout_level_1", "layout_whole", SubResource("AnimationNodeStateMachineTransition_4wlbt"), "layout_level_2", "layout_whole", SubResource("AnimationNodeStateMachineTransition_nq8vk"), "layout_whole", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_dbtww"), "layout_level_3", "layout_whole", SubResource("AnimationNodeStateMachineTransition_77p83"), "layout_level_1", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_ik5q6"), "layout_level_3", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_vpj3h"), "layout_level_2", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_43uil"), "layout_level_3", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_nexyk")]
+graph_offset = Vector2(-32.242188, -6.7382813)
 
 [node name="Head" type="Node3D" unique_id=1332359877]
 script = ExtResource("1_n8xhp")
@@ -611,26 +885,30 @@ script = ExtResource("1_n8xhp")
 [node name="HeadComplete" type="Node3D" parent="." unique_id=1158485046]
 
 [node name="Eye-Plate" type="MeshInstance3D" parent="HeadComplete" unique_id=1668346744]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17599446, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 0.176, 0)
 mesh = SubResource("ArrayMesh_sb1yt")
-surface_material_override/0 = SubResource("StandardMaterial3D_xdwbp")
 
 [node name="Head-bottom-half" type="MeshInstance3D" parent="HeadComplete" unique_id=1900624569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6171629, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.613, 0)
 mesh = SubResource("ArrayMesh_obsv3")
-surface_material_override/0 = ExtResource("3_480qb")
 
 [node name="Head-Top" type="MeshInstance3D" parent="HeadComplete" unique_id=136728721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5788874, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574, 0)
 mesh = SubResource("ArrayMesh_qduk8")
-surface_material_override/0 = SubResource("StandardMaterial3D_254n4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1216284543]
 root_node = NodePath("../Facial Expression Animator")
 libraries/ = SubResource("AnimationLibrary_pnnvi")
+blend_times = [&"layout_level_1", &"layout_level_1", 2.0, &"layout_level_1", &"layout_whole", 2.0]
 
 [node name="Facial Expression Animator" type="AnimationTree" parent="." unique_id=161198036]
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="LayoutAnimator" type="AnimationTree" parent="." unique_id=2053015849]
+root_node = NodePath("../Facial Expression Animator")
+tree_root = SubResource("AnimationNodeStateMachine_0pf81")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
