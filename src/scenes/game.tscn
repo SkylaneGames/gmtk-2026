@@ -19,6 +19,7 @@ tmp_level_2_scene = ExtResource("2_u5sy4")
 unique_name_in_owner = true
 
 [node name="Level 1 World" parent="." unique_id=553002256 node_paths=PackedStringArray("nav_agent", "player") instance=ExtResource("3_u5sy4")]
+unique_name_in_owner = true
 nav_agent = NodePath("../Player/NavigationAgent3D")
 player = NodePath("../Player")
 

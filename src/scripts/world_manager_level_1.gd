@@ -43,5 +43,3 @@ func _on_exit_player_exited() -> void:
 func check_player_can_complete() -> void:
 	if (!nav_agent.is_target_reachable()):
 		_notify_level_failed()
-
-

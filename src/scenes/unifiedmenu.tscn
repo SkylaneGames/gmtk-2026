@@ -8,16 +8,37 @@ font_size = 38
 [node name="UnifiedMenuUI" type="CanvasLayer" unique_id=839514077]
 script = ExtResource("1_q6ma6")
 
-[node name="GameUI" type="VBoxContainer" parent="." unique_id=881743846]
+[node name="GameUI" type="MarginContainer" parent="." unique_id=781968181]
 unique_name_in_owner = true
 visible = false
-offset_right = 1708.0
-offset_bottom = 135.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_right = -1274.0
+offset_bottom = -862.0
 
-[node name="label_MemoryCount" type="Label" parent="GameUI" unique_id=837533977]
+[node name="VBox" type="VBoxContainer" parent="GameUI" unique_id=881743846]
+layout_mode = 2
+alignment = 1
+
+[node name="label_MemoryCount" type="Label" parent="GameUI/VBox" unique_id=837533977]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 17
 text = "Memories Collected: 0"
+
+[node name="VerticalPadding" type="Container" parent="GameUI/VBox" unique_id=728872723]
+custom_minimum_size = Vector2(5, 20)
+layout_mode = 2
+
+[node name="label_TutorialAllLevels" type="Label" parent="GameUI/VBox" unique_id=253635702]
+layout_mode = 2
+text = "WASD or arrow keys to move"
+
+[node name="label_TutorialThisLevel" type="Label" parent="GameUI/VBox" unique_id=1374695679]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="MenuUI" type="MarginContainer" parent="." unique_id=880154610]
 unique_name_in_owner = true
@@ -51,5 +72,47 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 
+[node name="GameOverUI" type="MarginContainer" parent="." unique_id=2081673986]
+unique_name_in_owner = true
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverUI" unique_id=1847664809]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="GameOverUI/CenterContainer" unique_id=250453123]
+layout_mode = 2
+alignment = 1
+
+[node name="label_GameOver" type="Label" parent="GameOverUI/CenterContainer/VBox" unique_id=2029783404]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_w5pmr")
+horizontal_alignment = 1
+
+[node name="label_GameOverReason" type="Label" parent="GameOverUI/CenterContainer/VBox" unique_id=301961010]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "[provide reason as parameter]"
+label_settings = SubResource("LabelSettings_w5pmr")
+horizontal_alignment = 1
+
+[node name="button_BackToMenu" type="Button" parent="GameOverUI/CenterContainer/VBox" unique_id=1493828373]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Back to Menu
+"
+
+[node name="button_Quit" type="Button" parent="GameOverUI/CenterContainer/VBox" unique_id=1498599932]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
 [connection signal="pressed" from="MenuUI/CenterContainer/VBox/button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="MenuUI/CenterContainer/VBox/button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="GameOverUI/CenterContainer/VBox/button_BackToMenu" to="." method="_on_button_back_to_menu_pressed"]
+[connection signal="pressed" from="GameOverUI/CenterContainer/VBox/button_Quit" to="." method="_on_button_quit_pressed"]
