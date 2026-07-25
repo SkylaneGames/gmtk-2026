@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bxapy176pbr1f" path="res://assets/models/level 1 maze.glb" id="1_4x3lm"]
 [ext_resource type="Script" uid="uid://cyqe8mtt665fl" path="res://scripts/world_manager_level_1.gd" id="1_qa103"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="2_nn6gf"]
+[ext_resource type="Material" uid="uid://b088hy0b4jciv" path="res://assets/models/void_mat.tres" id="3_7tlof"]
 [ext_resource type="PackedScene" uid="uid://dlbcxlgrh7vli" path="res://assets/models/furniture/chair.glb" id="3_8kbdd"]
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="3_gr71i"]
 [ext_resource type="PackedScene" uid="uid://c7drrprun5j4h" path="res://assets/models/furniture/rugDoormat.glb" id="4_dovuv"]
@@ -49,12 +50,6 @@ cell_size = 0.1
 cell_height = 0.1
 agent_radius = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ieja"]
-albedo_color = Color(0.6901961, 0.6509804, 0.58431375, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngb10"]
-albedo_color = Color(0.9411765, 0.62352943, 0.42745098, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nnqy"]
 albedo_color = Color(0.19227806, 0.38869897, 0.21079585, 1)
 
@@ -79,11 +74,11 @@ navigation_mesh = SubResource("NavigationMesh_g8dwo")
 
 [node name="Maze" parent="Terrain" unique_id=1699325480 instance=ExtResource("1_4x3lm")]
 
-[node name="Ground" parent="Terrain/Maze" index="0" unique_id=1042859300]
-surface_material_override/0 = SubResource("StandardMaterial3D_6ieja")
+[node name="Ground" parent="Terrain/Maze" index="0" unique_id=146701133]
+surface_material_override/0 = ExtResource("3_7tlof")
 
-[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1737341189]
-surface_material_override/0 = SubResource("StandardMaterial3D_ngb10")
+[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1988516584]
+surface_material_override/0 = ExtResource("3_7tlof")
 
 [node name="Doors" type="Node3D" parent="Terrain" unique_id=1141097254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -182,7 +177,7 @@ transform = Transform3D(0.11586283, -0.16302088, -7.125869e-09, -4.2351648e-23, 
 [node name="tree-decorated2" parent="Christmas_Memory" unique_id=17666403 instance=ExtResource("6_giyus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7023056, 1.0634182e-08, 8.820522)
 
-[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=1655295295]
+[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=938413466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2771635, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_8nnqy")
 
@@ -323,7 +318,7 @@ transform = Transform3D(0.0035255211, 0, 0.0043195505, 0, 0.0069999998, 0, -0.00
 [node name="tree_1" parent="First_B_Mem" unique_id=582829228 instance=ExtResource("33_afkka")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -9.736868, -0.032700658, -1.0091166)
 
-[node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=585217852]
+[node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=706472558]
 transform = Transform3D(0.60735387, 0, 0, 0, -2.1720669e-07, -0.60735387, 0, 0.60735387, -2.1720669e-07, -0.5974426, 0, -0.504112)
 surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
 surface_material_override/1 = SubResource("StandardMaterial3D_n2q3u")
