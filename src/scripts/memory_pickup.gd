@@ -3,6 +3,7 @@ extends Node3D
 @export var rotation_speed: float = 2.0
 @export var bob_height: float = 0.2
 @export var bob_speed: float = 2.0
+@export var memory_image: Texture2D # JT
 
 var starting_y: float
 var elapsed_time: float = 0.0
@@ -25,5 +26,5 @@ func _on_interactable_interaction_started(interactor: Interactor) -> void:
 		return
 
 	var player: Player = interactor.root
-	player.pickup_memory()
+	player.pickup_memory(memory_image) # JT player.pickup_memory()
 	queue_free()

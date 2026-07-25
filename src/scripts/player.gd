@@ -16,7 +16,7 @@ class_name Player
 @export var SPEED: float = 5.0
 @export var ROTATION_SPEED: float = 8.0
 
-@export var memory_count := 0.0
+@export var memory_count: int = 0 # JT Changed to int was := 0.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -51,16 +51,41 @@ func face_direction(direction: Vector3, delta: float) -> void:
 
 	body.global_transform.basis = body.global_transform.basis.slerp(target_transform.basis, ROTATION_SPEED * delta)
 
-func pickup_memory() -> void:
+# JT trying add images on pick up
+
+#func pickup_memory() -> void:
+#	memory_count += 1
+#	if ui != null:
+#		ui.update_memory_label()
+
+#func consume_memory(value: float) -> bool:
+#	if memory_count < value:
+#		return false
+
+#	memory_count -= value
+#	if ui != null:
+#		ui.update_memory_label()
+#	return true
+	
+func pickup_memory(memory_image: Texture2D) -> void:
 	memory_count += 1
+
 	if ui != null:
 		ui.update_memory_label()
 
-func consume_memory(value: float) -> bool:
+		if memory_image != null:
+			ui.show_memory_image(memory_image)
+
+
+func consume_memory(value: int) -> bool:
 	if memory_count < value:
 		return false
 
 	memory_count -= value
+
 	if ui != null:
 		ui.update_memory_label()
+
 	return true
+	
+	# JT End

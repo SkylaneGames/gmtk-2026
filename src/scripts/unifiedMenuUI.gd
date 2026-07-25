@@ -8,6 +8,10 @@ signal restartgame
 
 @export var player: Player
 
+@export var memory_display_time: float = 0.5
+
+var memory_popup_tween: Tween
+
 var memory_label: String = "Memories Collected"
 
 # Called when the node enters the scene tree for the first time.
@@ -50,3 +54,39 @@ func generate_memory_label() -> String:
 		return "%s: N/A"
 
 	return "%s: %d" % [memory_label, player.memory_count]
+	
+func show_memory_image(memory_image: Texture2D) -> void:
+	if memory_image == null:
+		push_warning("No image was provided for this memory.")
+		return
+
+	# Stop the previous animation if another memory is collected quickly.
+	if memory_popup_tween != null:
+		memory_popup_tween.kill()
+
+	%MemoryTexture.texture = memory_image
+	%MemoryPopup.modulate.a = 0.0
+	%MemoryPopup.show()
+
+	memory_popup_tween = create_tween()
+
+	# Fade in.
+	memory_popup_tween.tween_property(
+		%MemoryPopup,
+		"modulate:a",
+		1.0,
+		0.25
+	)
+
+	# Remain visible.
+	memory_popup_tween.tween_interval(memory_display_time)
+
+	# Fade out.
+	memory_popup_tween.tween_property(
+		%MemoryPopup,
+		"modulate:a",
+		0.0,
+		0.4
+	)
+
+	memory_popup_tween.tween_callback(%MemoryPopup.hide)

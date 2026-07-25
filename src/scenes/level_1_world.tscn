@@ -7,9 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="3_gr71i"]
 [ext_resource type="PackedScene" uid="uid://c7drrprun5j4h" path="res://assets/models/furniture/rugDoormat.glb" id="4_dovuv"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="4_qa103"]
+[ext_resource type="Texture2D" uid="uid://drfh8nrr2t423" path="res://assets/memories/Christmas.PNG" id="5_due22"]
 [ext_resource type="PackedScene" uid="uid://sttd1yco80h3" path="res://assets/models/Xmas/tree-decorated.glb" id="6_giyus"]
+[ext_resource type="Texture2D" uid="uid://dpgibuedpfhoy" path="res://assets/memories/Puppy.PNG" id="6_vc8ll"]
+[ext_resource type="Texture2D" uid="uid://ckcpivrc5rvr7" path="res://assets/memories/Wedding.PNG" id="7_p24l3"]
+[ext_resource type="Texture2D" uid="uid://bbxwowm3gdas1" path="res://assets/memories/Baby.PNG" id="8_7tlof"]
 [ext_resource type="PackedScene" uid="uid://sy8daeb74hw5" path="res://assets/models/furniture/bedSingle.glb" id="8_p2u81"]
 [ext_resource type="PackedScene" uid="uid://bavnn80ga0niu" path="res://assets/models/furniture/trashcan.glb" id="9_afkka"]
+[ext_resource type="Texture2D" uid="uid://q7q0ujl620av" path="res://assets/memories/First_Bike.PNG" id="9_g7iqf"]
+[ext_resource type="Texture2D" uid="uid://vggg3o4fksws" path="res://assets/memories/Children_Playing.PNG" id="10_eckpc"]
 [ext_resource type="PackedScene" uid="uid://dbbp1883d0ajs" path="res://assets/models/furniture/table.glb" id="10_k6pba"]
 [ext_resource type="PackedScene" uid="uid://cf8chd8mdvf6w" path="res://assets/models/furniture/loungeChairRelax.glb" id="11_6e5p4"]
 [ext_resource type="PackedScene" uid="uid://okevabi3kgbu" path="res://assets/models/furniture/kitchenSink.glb" id="12_fprdh"]
@@ -131,21 +137,27 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.3
 
 [node name="MemoryPickup1" parent="Items" unique_id=78866939 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.3871171, 0.48297, 7.3682556)
+memory_image = ExtResource("5_due22")
 
 [node name="MemoryPickup2" parent="Items" unique_id=1312294266 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 9.014617, 1.0029116, 8.560659)
+memory_image = ExtResource("6_vc8ll")
 
 [node name="MemoryPickup3" parent="Items" unique_id=1240754602 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.6462016, 0.5444145, -2.3511562)
+memory_image = ExtResource("7_p24l3")
 
 [node name="MemoryPickup4" parent="Items" unique_id=1454792968 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.773441, 0.5444145, -9.685804)
+memory_image = ExtResource("8_7tlof")
 
 [node name="MemoryPickup5" parent="Items" unique_id=1309585721 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, -10.795431, 0.6037125, 1.1582164)
+memory_image = ExtResource("9_g7iqf")
 
 [node name="MemoryPickup6" parent="Items" unique_id=1178751861 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 9.714738, 0.6037125, -10.874897)
+memory_image = ExtResource("10_eckpc")
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=2122873144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71279, 0, 13.403428)

@@ -40,6 +40,36 @@ text = "WASD or arrow keys to move"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="MemoryPopup" type="Control" parent="." unique_id=135561118]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="MemoryPopup" unique_id=810583749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MemoryTexture" type="TextureRect" parent="MemoryPopup" unique_id=666898459]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
 [node name="MenuUI" type="MarginContainer" parent="." unique_id=880154610]
 unique_name_in_owner = true
 anchors_preset = 15
