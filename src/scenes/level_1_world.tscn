@@ -3,8 +3,32 @@
 [ext_resource type="PackedScene" uid="uid://bxapy176pbr1f" path="res://assets/models/level 1 maze.glb" id="1_4x3lm"]
 [ext_resource type="Script" uid="uid://cyqe8mtt665fl" path="res://scripts/world_manager_level_1.gd" id="1_qa103"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="2_nn6gf"]
+[ext_resource type="PackedScene" uid="uid://dlbcxlgrh7vli" path="res://assets/models/furniture/chair.glb" id="3_8kbdd"]
 [ext_resource type="PackedScene" uid="uid://cg6i7ho2iej11" path="res://scenes/memory_pickup.tscn" id="3_gr71i"]
+[ext_resource type="PackedScene" uid="uid://c7drrprun5j4h" path="res://assets/models/furniture/rugDoormat.glb" id="4_dovuv"]
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="4_qa103"]
+[ext_resource type="PackedScene" uid="uid://dfmvikec8q6gu" path="res://assets/models/Zen_Arch.glb" id="5_6nnqs"]
+[ext_resource type="PackedScene" uid="uid://sttd1yco80h3" path="res://assets/models/Xmas/tree-decorated.glb" id="6_giyus"]
+[ext_resource type="PackedScene" uid="uid://sy8daeb74hw5" path="res://assets/models/furniture/bedSingle.glb" id="8_p2u81"]
+[ext_resource type="PackedScene" uid="uid://bavnn80ga0niu" path="res://assets/models/furniture/trashcan.glb" id="9_afkka"]
+[ext_resource type="PackedScene" uid="uid://dbbp1883d0ajs" path="res://assets/models/furniture/table.glb" id="10_k6pba"]
+[ext_resource type="PackedScene" uid="uid://cf8chd8mdvf6w" path="res://assets/models/furniture/loungeChairRelax.glb" id="11_6e5p4"]
+[ext_resource type="PackedScene" uid="uid://okevabi3kgbu" path="res://assets/models/furniture/kitchenSink.glb" id="12_fprdh"]
+[ext_resource type="PackedScene" uid="uid://cvaunklo0s4us" path="res://assets/models/furniture/computerScreen.glb" id="13_kuipl"]
+[ext_resource type="PackedScene" uid="uid://dq4trjoh2i173" path="res://assets/models/furniture/desk.glb" id="16_due22"]
+[ext_resource type="PackedScene" uid="uid://cqqovppt3ayh5" path="res://assets/models/furniture/computerKeyboard.glb" id="17_vc8ll"]
+[ext_resource type="PackedScene" uid="uid://b6khb1ewldx01" path="res://assets/models/furniture/loungeDesignChair.glb" id="18_p24l3"]
+[ext_resource type="PackedScene" uid="uid://ccrfaq3qcfnid" path="res://assets/models/furniture/loungeDesignSofa.glb" id="19_7tlof"]
+[ext_resource type="PackedScene" uid="uid://dcufu8xss6wc" path="res://assets/models/furniture/rugRounded.glb" id="20_g7iqf"]
+[ext_resource type="PackedScene" uid="uid://d4myckh43wgpm" path="res://assets/models/Xmas/present-a-cube.glb" id="21_eckpc"]
+[ext_resource type="PackedScene" uid="uid://b35vsyqh4nhbv" path="res://assets/models/Xmas/present-a-rectangle.glb" id="22_1hob6"]
+[ext_resource type="PackedScene" uid="uid://d1u503cer28st" path="res://assets/models/Xmas/present-a-round.glb" id="23_0ebf6"]
+[ext_resource type="PackedScene" uid="uid://pc4x1ps8wkoc" path="res://assets/models/Xmas/present-b-cube.glb" id="24_puh45"]
+[ext_resource type="PackedScene" uid="uid://bmku2ib1imsw7" path="res://assets/models/Xmas/present-b-rectangle.glb" id="25_hmrps"]
+[ext_resource type="PackedScene" uid="uid://cnsvsf84v71sb" path="res://assets/models/Xmas/present-b-round.glb" id="26_gvxlg"]
+[ext_resource type="PackedScene" uid="uid://3ldjvr6mtbkx" path="res://assets/models/furniture/cabinetTelevision.glb" id="27_ypsqs"]
+[ext_resource type="PackedScene" uid="uid://8ya0hqpu1spk" path="res://assets/models/furniture/televisionVintage.glb" id="28_t46ug"]
+[ext_resource type="PackedScene" uid="uid://5rp6qa70v155" path="res://assets/models/Xmas/gingerbread-man.glb" id="29_j2ssh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_18xhc"]
 sky_top_color = Color(0.8, 0.65882355, 0.9137255, 1)
@@ -38,6 +62,12 @@ cell_size = 0.1
 cell_height = 0.1
 agent_radius = 0.2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ieja"]
+albedo_color = Color(0.6471838, 0.6207458, 0.5845687, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngb10"]
+albedo_color = Color(1, 0.7254902, 1, 1)
+
 [node name="Level 1 World" type="Node3D" unique_id=553002256 node_paths=PackedStringArray("doors", "exit", "spawn_point")]
 script = ExtResource("1_qa103")
 doors = [NodePath("Terrain/Doors/Door 1"), NodePath("Terrain/Doors/Door 2"), NodePath("Terrain/Doors/Door 3"), NodePath("Terrain/Doors/Door 4"), NodePath("Terrain/Doors/Door 5")]
@@ -63,6 +93,75 @@ navigation_mesh = SubResource("NavigationMesh_g8dwo")
 
 [node name="Maze" parent="Terrain" unique_id=1699325480 instance=ExtResource("1_4x3lm")]
 
+[node name="Ground" parent="Terrain/Maze" index="0" unique_id=1042859300]
+surface_material_override/0 = SubResource("StandardMaterial3D_6ieja")
+
+[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1737341189]
+surface_material_override/0 = SubResource("StandardMaterial3D_ngb10")
+
+[node name="chair" parent="Terrain/Maze" unique_id=1883746131 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, 0.09650636, -9.536743e-07, -4.4635897)
+
+[node name="chair2" parent="Terrain/Maze" unique_id=1775102874 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, 0.08367902, -9.536743e-07, -3.8563643)
+
+[node name="chair3" parent="Terrain/Maze" unique_id=1231403271 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, 0.086190164, -9.536743e-07, -3.2422643)
+
+[node name="chair4" parent="Terrain/Maze" unique_id=1862675563 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -0.8681358, -9.536743e-07, -4.4635897)
+
+[node name="chair5" parent="Terrain/Maze" unique_id=1923786358 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -0.88096315, -9.536743e-07, -3.8563643)
+
+[node name="chair6" parent="Terrain/Maze" unique_id=162870527 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -0.878452, -9.536743e-07, -3.2422643)
+
+[node name="chair7" parent="Terrain/Maze" unique_id=642998949 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8318919, -9.536743e-07, -4.4635897)
+
+[node name="chair8" parent="Terrain/Maze" unique_id=582440110 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8447192, -9.536743e-07, -3.8563643)
+
+[node name="chair9" parent="Terrain/Maze" unique_id=502569581 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8422081, -9.536743e-07, -3.2422643)
+
+[node name="chair10" parent="Terrain/Maze" unique_id=1823336784 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, 0.09650636, -9.536743e-07, -1.6224899)
+
+[node name="chair11" parent="Terrain/Maze" unique_id=1990509315 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, 0.08367902, -9.536743e-07, -1.0152645)
+
+[node name="chair12" parent="Terrain/Maze" unique_id=1827851472 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, 0.086190164, -9.536743e-07, -0.40116453)
+
+[node name="chair13" parent="Terrain/Maze" unique_id=377153676 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -0.8681358, -9.536743e-07, -1.6224899)
+
+[node name="chair14" parent="Terrain/Maze" unique_id=1611080939 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -0.88096315, -9.536743e-07, -1.0152645)
+
+[node name="chair15" parent="Terrain/Maze" unique_id=491431962 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -0.878452, -9.536743e-07, -0.40116453)
+
+[node name="chair16" parent="Terrain/Maze" unique_id=1440793324 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8318919, -9.536743e-07, -1.6224899)
+
+[node name="chair17" parent="Terrain/Maze" unique_id=694950157 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8447192, -9.536743e-07, -1.0152645)
+
+[node name="chair18" parent="Terrain/Maze" unique_id=2073599581 instance=ExtResource("3_8kbdd")]
+transform = Transform3D(-0.04673186, 0, -1.9994541, 0, 2, 0, 1.9994541, 0, -0.04673186, -1.8422081, -9.536743e-07, -0.40116453)
+
+[node name="rugDoormat" parent="Terrain/Maze" unique_id=2142913856 instance=ExtResource("4_dovuv")]
+transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 2, -2.424413, -0.012122512, -1.9424244)
+
+[node name="Zen_Arch2" parent="Terrain/Maze" unique_id=231913595 instance=ExtResource("5_6nnqs")]
+transform = Transform3D(-0.010429595, 0, -0.9999456, 0, 0.75, 0, 0.9999456, 0, -0.010429595, -3.252473, 0.0011680237, -2.259769)
+
+[node name="tree-decorated2" parent="Terrain/Maze" unique_id=17666403 instance=ExtResource("6_giyus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7023056, 1.0634182e-08, 8.820522)
+
 [node name="Doors" type="Node3D" parent="Terrain" unique_id=1141097254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
@@ -80,6 +179,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2839584, 0, -5.8957467)
 
 [node name="Door 5" parent="Terrain/Doors" unique_id=1658503139 instance=ExtResource("2_nn6gf")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.32408, 0.0030543804, -5.2130256)
+
+[node name="bedSingle" parent="Terrain" unique_id=1606973202 instance=ExtResource("8_p2u81")]
+transform = Transform3D(-1.4987054, 0, -0.062307887, 0, 1.5, 0, 0.062307887, 0, -1.4987054, -2.5693119, -0.07395315, -10.413421)
+
+[node name="trashcan" parent="Terrain" unique_id=283563983 instance=ExtResource("9_afkka")]
+transform = Transform3D(-0.18131031, 0, 0.9834259, 0, 1, 0, -0.9834259, 0, -0.18131031, -5.4827476, -0.0126674175, -10.372906)
+
+[node name="table" parent="Terrain" unique_id=1428720404 instance=ExtResource("10_k6pba")]
+transform = Transform3D(1.1981748, 0, -0.027567405, 0, 2, 0, 0.066161774, 0, 0.49923947, -4.088607, 4.7683716e-07, -10.209361)
+
+[node name="loungeChairRelax" parent="Terrain" unique_id=419858809 instance=ExtResource("11_6e5p4")]
+transform = Transform3D(-1.057042, 0, 0.56803375, 0, 1.2, 0, -0.56803375, 0, -1.057042, -4.815014, 0.085356474, -9.295577)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Terrain" unique_id=1188584127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.778792, 0, -9.112193)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Terrain/CSGCombiner3D" unique_id=387121797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015202522, 0, -0.56287956)
+size = Vector3(0.35058594, 1, 0.5704346)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Terrain/CSGCombiner3D" unique_id=2025651781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019230843, 0.44255066, -0.5812969)
+operation = 2
+size = Vector3(0.29467773, 0.13162231, 0.4914856)
+
+[node name="kitchenSink" parent="Terrain" unique_id=1747052097 instance=ExtResource("12_fprdh")]
+transform = Transform3D(0.03520341, 0, -0.9993802, 0, 1, 0, 0.9993802, 0, 0.03520341, -1.6698102, 0, -10.923571)
+
+[node name="computerScreen" parent="Terrain" unique_id=1771028963 instance=ExtResource("13_kuipl")]
+transform = Transform3D(-0.99925387, 0, -0.038622458, 0, 1, 0, 0.038622458, 0, -0.99925387, -4.0614996, 0.6212958, -8.744027)
 
 [node name="Items" type="Node3D" parent="." unique_id=385113902]
 
@@ -107,4 +236,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71279, 0, 13.403428)
 [node name="Exit" parent="." unique_id=63415680 instance=ExtResource("4_qa103")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.522, 0, -11.165)
 
+[node name="desk" parent="." unique_id=1044973413 instance=ExtResource("16_due22")]
+transform = Transform3D(-0.020505704, 0, 0.9997897, 0, 1, 0, -0.9997897, 0, -0.020505704, -0.6608472, 0.0006135702, -11.110631)
+
+[node name="computerKeyboard" parent="." unique_id=1035890806 instance=ExtResource("17_vc8ll")]
+transform = Transform3D(-0.49074107, 0, 0.87130547, 0, 1, 0, -0.87130547, 0, -0.49074107, -0.7460335, 0.39491385, -11.534328)
+
+[node name="computerScreen" parent="." unique_id=94682285 instance=ExtResource("13_kuipl")]
+transform = Transform3D(-0.36832833, 0, 0.9296958, 0, 1, 0, -0.9296958, 0, -0.36832833, -0.84254277, 0.3971765, -11.351269)
+
+[node name="loungeDesignChair" parent="." unique_id=225980423 instance=ExtResource("18_p24l3")]
+transform = Transform3D(-0.060490657, 0, 0.99816877, 0, 1, 0, -0.99816877, 0, -0.060490657, -1.515536, -2.3841858e-07, 7.8523235)
+
+[node name="loungeDesignSofa" parent="." unique_id=1592052707 instance=ExtResource("19_7tlof")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, -1.3707976, -4.7683716e-07, 6.6635003)
+
+[node name="rugRounded" parent="." unique_id=1014331156 instance=ExtResource("20_g7iqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3358155, 0, 7.978426)
+
+[node name="present-a-cube2" parent="." unique_id=1699618716 instance=ExtResource("21_eckpc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.49275374, 3.574515e-09, 8.706127)
+
+[node name="present-a-rectangle2" parent="." unique_id=796009999 instance=ExtResource("22_1hob6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.0965245, 4.813074e-07, 8.171449)
+
+[node name="present-a-round2" parent="." unique_id=1391155734 instance=ExtResource("23_0ebf6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.0574951, -9.536743e-07, 9.241226)
+
+[node name="present-b-cube2" parent="." unique_id=1452475833 instance=ExtResource("24_puh45")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.9733129, 4.7683716e-07, 8.288008)
+
+[node name="present-b-rectangle2" parent="." unique_id=450365304 instance=ExtResource("25_hmrps")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.2868776, 0, 8.705513)
+
+[node name="present-b-round2" parent="." unique_id=536371150 instance=ExtResource("26_gvxlg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5115151, -4.723789e-07, 8.359555)
+
+[node name="cabinetTelevision" parent="." unique_id=1416158634 instance=ExtResource("27_ypsqs")]
+transform = Transform3D(-0.99904287, 0, -0.04374172, 0, 1, 0, 0.04374172, 0, -0.99904287, -0.13810551, 4.8400284e-07, 9.000559)
+
+[node name="televisionVintage" parent="." unique_id=1958042160 instance=ExtResource("28_t46ug")]
+transform = Transform3D(-0.99948514, 0, -0.032085307, 0, 1, 0, 0.032085307, 0, -0.99948514, -0.36210835, 0.32036924, 8.999111)
+
+[node name="gingerbread-man2" parent="." unique_id=89767235 instance=ExtResource("29_j2ssh")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5162678, 4.7683716e-07, 7.556745)
+
 [connection signal="player_exited" from="Exit" to="." method="_on_exit_player_exited"]
+
+[editable path="Terrain/Maze"]
