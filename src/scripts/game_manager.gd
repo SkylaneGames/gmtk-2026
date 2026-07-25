@@ -53,3 +53,7 @@ func _on_world_failed(world: WorldManagerBase) -> void:
 func restart_game() -> void:
 	get_tree().reload_current_scene()
 	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().reload_current_scene()
+	
