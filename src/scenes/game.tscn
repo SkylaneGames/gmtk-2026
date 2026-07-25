@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://jhyuywgfd0sf" path="res://scenes/unifiedmenu.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bc3ei81ffph76" path="res://scenes/level_2.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://qqnm0uxh4xq3" path="res://scenes/level_1_world.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_0tnpc"]
@@ -11,6 +12,7 @@
 [node name="GameManager" type="Node" parent="." unique_id=30003758]
 unique_name_in_owner = true
 script = ExtResource("1_iywne")
+tmp_level_2_scene = ExtResource("2_u5sy4")
 
 [node name="UnifiedMenuUI" parent="." unique_id=839514077 instance=ExtResource("2_p57ef")]
 unique_name_in_owner = true
@@ -38,5 +40,8 @@ transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -6.9148, 1.9073486e-06, 13.560978)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
+
+[connection signal="level_completed" from="Level 1 World" to="GameManager" method="_on_world_completed"]
+[connection signal="level_failed" from="Level 1 World" to="GameManager" method="_on_world_failed"]
 
 [editable path="IsoCamera"]

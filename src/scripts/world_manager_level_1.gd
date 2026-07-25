@@ -28,17 +28,10 @@ func _process(delta: float) -> void:
 		check_player_can_complete()
 
 func _on_exit_player_exited() -> void:
-	print("Level Completed!")
+	_notify_level_completed()
 
 func check_player_can_complete() -> void:
 	if (!nav_agent.is_target_reachable()):
-		game_over()
-		return
-
-	print("Exit is still reachable.")
-
-func game_over() -> void:
-	print("Game over!")
-	get_tree().reload_current_scene()
+		_notify_level_failed()
 
 
