@@ -10,11 +10,21 @@ extends WorldManagerBase
 var time_remaining: float
 var time_since_last_nav_update: float = 0.0
 
-func _ready() -> void:
+func _initialize_world() -> void:
 	time_remaining = start_time_seconds
 	nav_agent.target_position = exit.global_position
 
+	# reset all doors
+	for door in doors:
+		door.open()
+
+	# TODO: Respawn memories
+	# TODO: Reset player's memories to 0
+
 func _process(delta: float) -> void:
+	if !running:
+		pass
+
 	time_remaining -= delta
 	time_since_last_nav_update += delta
 
@@ -28,11 +38,10 @@ func _process(delta: float) -> void:
 		check_player_can_complete()
 
 func _on_exit_player_exited() -> void:
-	print("Level Completed!")
+	_notify_level_completed()
 
 func check_player_can_complete() -> void:
 	if (!nav_agent.is_target_reachable()):
-		game_over()
-		return
+		_notify_level_failed()
 
-	print("Exit is still reachable.")
+

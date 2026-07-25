@@ -2,22 +2,26 @@
 
 [ext_resource type="Script" uid="uid://cg30881tafmxb" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://jhyuywgfd0sf" path="res://scenes/unifiedmenu.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bc3ei81ffph76" path="res://scenes/level_2.tscn" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://qqnm0uxh4xq3" path="res://scenes/level_1_world.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_0tnpc"]
 
 [node name="Level 1" type="Node3D" unique_id=1341214287]
 
-[node name="GameManager" type="Node" parent="." unique_id=30003758]
+[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds")]
 unique_name_in_owner = true
 script = ExtResource("1_iywne")
+worlds = [NodePath("../Level 1 World")]
+tmp_level_2_scene = ExtResource("2_u5sy4")
 
 [node name="UnifiedMenuUI" parent="." unique_id=839514077 instance=ExtResource("2_p57ef")]
 unique_name_in_owner = true
 
-[node name="Level 1 World" parent="." unique_id=553002256 node_paths=PackedStringArray("nav_agent") instance=ExtResource("3_u5sy4")]
+[node name="Level 1 World" parent="." unique_id=553002256 node_paths=PackedStringArray("nav_agent", "player") instance=ExtResource("3_u5sy4")]
 unique_name_in_owner = true
 nav_agent = NodePath("../Player/NavigationAgent3D")
+player = NodePath("../Player")
 
 [node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]
 target = NodePath("../Player")
@@ -33,11 +37,14 @@ align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
 physics_interpolation_mode = 1
-transform = Transform3D(0.62359923, -0.58287895, 0.5209377, -2.9802322e-08, 0.66637874, 0.74561346, -0.78174424, -0.46496403, 0.4155532, 2.4872003, 13.457002, 21.060978)
+transform = Transform3D(0.62359923, -0.58287895, 0.52093774, -5.9604645e-08, 0.66637874, 0.7456134, -0.7817442, -0.46496397, 0.4155532, 2.4872003, 13.457002, 21.060978)
 
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("5_0tnpc")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -6.9148, 1.9073486e-06, 13.560978)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
+
+[connection signal="level_completed" from="Level 1 World" to="GameManager" method="_on_world_completed"]
+[connection signal="level_failed" from="Level 1 World" to="GameManager" method="_on_world_failed"]
 
 [editable path="IsoCamera"]
