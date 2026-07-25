@@ -877,7 +877,7 @@ states/layout_level_3/position = Vector2(803.14844, 110.14453)
 states/layout_whole/node = SubResource("AnimationNodeAnimation_vpj3h")
 states/layout_whole/position = Vector2(361.48438, 110.14453)
 transitions = ["Start", "layout_whole", SubResource("AnimationNodeStateMachineTransition_3icn5"), "layout_whole", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_wjmmm"), "layout_whole", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_3aaqt"), "layout_level_1", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_2x55p"), "layout_level_2", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_rk2hn"), "layout_level_1", "layout_whole", SubResource("AnimationNodeStateMachineTransition_4wlbt"), "layout_level_2", "layout_whole", SubResource("AnimationNodeStateMachineTransition_nq8vk"), "layout_whole", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_dbtww"), "layout_level_3", "layout_whole", SubResource("AnimationNodeStateMachineTransition_77p83"), "layout_level_1", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_ik5q6"), "layout_level_3", "layout_level_1", SubResource("AnimationNodeStateMachineTransition_vpj3h"), "layout_level_2", "layout_level_3", SubResource("AnimationNodeStateMachineTransition_43uil"), "layout_level_3", "layout_level_2", SubResource("AnimationNodeStateMachineTransition_nexyk")]
-graph_offset = Vector2(-32.242188, -6.7382813)
+graph_offset = Vector2(68.27344, -56.027344)
 
 [node name="Head" type="Node3D" unique_id=1332359877]
 script = ExtResource("1_n8xhp")

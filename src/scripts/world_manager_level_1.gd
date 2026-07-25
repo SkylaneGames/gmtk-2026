@@ -23,7 +23,7 @@ func _initialize_world() -> void:
 
 func _process(delta: float) -> void:
 	if !running:
-		pass
+		return
 
 	time_remaining -= delta
 	time_since_last_nav_update += delta
