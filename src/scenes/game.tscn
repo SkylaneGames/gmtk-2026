@@ -7,9 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bywr5vyrlpkvp" path="res://scenes/level_2_world.tscn" id="5_u5sy4"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5sy4"]
+
+[sub_resource type="Sky" id="Sky_p57ef"]
+sky_material = SubResource("ProceduralSkyMaterial_u5sy4")
+
 [sub_resource type="Environment" id="Environment_0pf81"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+sky = SubResource("Sky_p57ef")
 ssao_enabled = true
 glow_enabled = true
 

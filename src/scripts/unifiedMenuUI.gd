@@ -53,7 +53,7 @@ func generate_memory_label() -> String:
 	if player == null:
 		return "%s: N/A"
 
-	return "%s: %d" % [memory_label, player.memory_count]
+	return "%s: %0.2f" % [memory_label, player.memory_count]
 	
 func show_memory_image(memory_image: Texture2D) -> void:
 	if memory_image == null:

@@ -60,14 +60,15 @@ func face_direction(direction: Vector3, delta: float) -> void:
 #		ui.update_memory_label()
 
 func consume_memory(value: float) -> bool:
-	print("consume_memory: " + str(value))
 	if memory_count < value:
-		return false
+		memory_count = 0
+	else:
+		memory_count -= value
 
-	memory_count -= value
 	if ui != null:
 		ui.update_memory_label()
-	return true
+
+	return memory_count > 0
 	
 func pickup_memory(memory_image: Texture2D) -> void:
 	memory_count += 1
