@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name DarkThoughtController
+
 signal player_killed
 
 @export var SPEED := 5.0
@@ -12,17 +14,11 @@ signal player_killed
 # The time it takes for the enemy to lose interest in the player after losing a visual.
 @export var attention_span := 5.0
 
-
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var body: Node3D = $Body;
 
 var time_since_last_visual: float = attention_span + 1.0
 var time_since_last_check: float = 0.0
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if target == null:
-		target = %Player
 
 func set_target(delta: float) -> void:
 	if target == null:
@@ -38,10 +34,11 @@ func is_hunting_target(delta: float) -> bool:
 
 #	print("Raycasting for player...")
 
+	# Add 1 so the ray doesn't pass under the player (as we're raycasting from the origin positions which are both at ground level
 	var start := global_position
-	start.y = 1
+	start.y += 1
 	var end := target.global_position
-	end.y = 1
+	end.y += 1
 
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(start, end)
@@ -90,7 +87,6 @@ func _physics_process(delta: float) -> void:
 
 	set_target(delta)
 	var destination: Vector3 = agent.get_next_path_position()
-	destination.y = 0.0
 	var direction: Vector3 = (destination - position).normalized()
 
 	# Add the gravity.

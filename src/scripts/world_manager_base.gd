@@ -19,6 +19,9 @@ func initialize_world() -> void:
 	running = true
 
 func dispose() -> void:
+	_dispose()
+
+func _dispose() -> void:
 	# TODO: dispose of world resources, NPCs, items, etc.
 	pass
 
@@ -35,8 +38,10 @@ func _notify_level_completed() -> void:
 	print("Level %d Completed!" % world_id)
 	running = false
 	level_completed.emit(self)
+	dispose()
 
 func _notify_level_failed() -> void:
 	print("Level %d Failed!" % world_id)
 	running = false
 	level_failed.emit(self)
+	dispose()

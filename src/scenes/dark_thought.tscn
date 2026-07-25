@@ -47,6 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37131226, 0)
 shape = SubResource("SphereShape3D_w5pmr")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=58907943]
+navigation_layers = 2
 
 [connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]
 

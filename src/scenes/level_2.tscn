@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bc4w6gabcpacn" path="res://scenes/iso_camera.tscn" id="4_hey2k"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/player.tscn" id="5_172wr"]
 [ext_resource type="Script" uid="uid://btp3050m35i1e" path="res://scripts/game_manager_level_2.gd" id="6_ne2mo"]
-[ext_resource type="PackedScene" uid="uid://d2t74rq5t4eyc" path="res://scenes/dark_thought.tscn" id="7_y0kc7"]
 
 [node name="Level1Prototype" type="Node3D" unique_id=340066768]
 
@@ -13,7 +12,8 @@ visible = false
 light_energy = 0.585
 sky_mode = 1
 
-[node name="World" parent="." unique_id=1399302127 instance=ExtResource("1_b4j7a")]
+[node name="World" parent="." unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("1_b4j7a")]
+player = NodePath("../Player")
 
 [node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_hey2k")]
 target = NodePath("../Player")
@@ -38,37 +38,12 @@ memory_count = 3.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=263606531]
 
-[node name="GameManagerLevel2" type="Node" parent="." unique_id=479928619 node_paths=PackedStringArray("nav_agent", "exit")]
+[node name="GameManagerLevel2" type="Node" parent="." unique_id=479928619 node_paths=PackedStringArray("nav_agent", "world")]
 unique_name_in_owner = true
 script = ExtResource("6_ne2mo")
 nav_agent = NodePath("../Player/NavigationAgent3D")
-exit = NodePath("")
-
-[node name="Dark Thought" parent="." unique_id=1534479851 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(0.35421383, 0, 0.93516445, 0, 1, 0, -0.93516445, 0, 0.35421383, 4.4858203, 0.007842302, 4.837325)
-
-[node name="Dark Thought2" parent="." unique_id=712645014 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(0.17242736, 0, -0.98502225, 0, 1, 0, 0.98502225, 0, 0.17242736, 7.5655093, 0.007842302, 15.380014)
-
-[node name="Dark Thought3" parent="." unique_id=391978302 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(0.9885416, 0, -0.15094846, 0, 1, 0, 0.15094846, 0, 0.9885416, -18.221773, 0.007842302, 5.658581)
-
-[node name="Dark Thought4" parent="." unique_id=1232942885 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(0.2041903, 0, 0.9789313, 0, 1, 0, -0.9789313, 0, 0.2041903, 8.104518, 0.007842302, -3.1832075)
-
-[node name="Dark Thought5" parent="." unique_id=1909012842 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(0.101982534, 0, -0.99478626, 0, 1, 0, 0.99478626, 0, 0.101982534, 5.626932, 0.007842302, -6.4977837)
-
-[node name="Dark Thought6" parent="." unique_id=2008087184 instance=ExtResource("7_y0kc7")]
-transform = Transform3D(0.95068413, 0, -0.31016102, 0, 1, 0, 0.31016102, 0, 0.95068413, 16.374363, 0.007842302, 0.17424154)
+world = NodePath("../World")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=898395114]
-
-[connection signal="player_killed" from="Dark Thought" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
-[connection signal="player_killed" from="Dark Thought2" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
-[connection signal="player_killed" from="Dark Thought3" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
-[connection signal="player_killed" from="Dark Thought4" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
-[connection signal="player_killed" from="Dark Thought5" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
-[connection signal="player_killed" from="Dark Thought6" to="GameManagerLevel2" method="_on_dark_thought_player_killed"]
 
 [editable path="IsoCamera"]

@@ -1,9 +1,34 @@
 extends WorldManagerBase
 
 @export_range(0, 0.2, 0.01, "Memory consumption per second.") var memory_consumption_rate := 0.04
+@export var enemy_spawn_positions: Array[Node3D] = []
+@export var enemy_template: PackedScene
+
+@onready var ui = %UnifiedMenuUI
+
+var enemies: Array[Node] = []
+
+var nav_map: RID
 
 func _initialize_world() -> void:
-	%UnifiedMenuUI.memory_label = "Memories remaining"
+	if ui != null:
+		ui.memory_label = "Memories remaining"
+
+	# TODO: Spawn enemies
+	for spawn in enemy_spawn_positions:
+		print("Spawning enemy at %d, %d, %d" % [spawn.global_position.x, spawn.global_position.y, spawn.global_position.z])
+		var instance: DarkThoughtController = enemy_template.instantiate()
+		get_node("/root").add_child(instance)
+		instance.global_position = spawn.global_position
+		instance.target = player
+		instance.player_killed.connect(_on_dark_thought_player_killed)
+		enemies.append(instance)
+
+func _dispose() -> void:
+	for enemy in enemies:
+		enemy.queue_free()
+
+	enemies.clear()
 
 func _process(delta: float) -> void:
 	if !running:
@@ -13,8 +38,7 @@ func _process(delta: float) -> void:
 		player.light_enabled = false
 
 func _on_dark_thought_player_killed() -> void:
-#	get_tree().reload_current_scene()
-	pass
+	_notify_level_failed()
 
 func _on_exit_player_exited() -> void:
 	_notify_level_completed()
