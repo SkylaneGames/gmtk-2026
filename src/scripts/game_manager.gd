@@ -30,8 +30,18 @@ func start_game() -> void:
 
 func play(world_index: int) -> void:
 	# TODO: Set environment lighting
+	if (world_index > 0):
+		camera_menu.priority = 2
+		await get_tree().create_timer(1.5).timeout
+
 	head.current_layout = world_index + 1 as HeadController.HeadLayout
+
+	if (world_index > 0):
+		await get_tree().create_timer(2).timeout
+		camera_menu.priority = 0
+
 	worlds[world_index].initialize_world()
+
 
 func game_over(gameover_reason: String) -> void:
 	print("Game over!")

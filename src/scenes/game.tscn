@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ckmg44cw5256e" path="res://scenes/level_3_world.tscn" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="9_vtaks"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_kvpfn"]
+[ext_resource type="SpriteFrames" uid="uid://c57pqa6vnayra" path="res://assets/IntroductionFrames/intro_sprite_frames.tres" id="11_dinhu"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="11_kvuet"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5sy4"]
 
@@ -36,10 +38,20 @@ script = ExtResource("10_kvpfn")
 duration = 5.0
 transition = 1
 
+[sub_resource type="Resource" id="Resource_kvuet"]
+script = ExtResource("11_kvuet")
+fov = 55.1
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="Resource" id="Resource_kvpfn"]
 script = ExtResource("10_kvpfn")
 duration = 5.0
 transition = 1
+
+[sub_resource type="Resource" id="Resource_dinhu"]
+script = ExtResource("11_kvuet")
+fov = 34.6
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [node name="Game" type="Node3D" unique_id=1341214287]
 
@@ -53,7 +65,7 @@ compositor = SubResource("Compositor_3g4q3")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1095723466]
 transform = Transform3D(-0.8660254, -0.35355347, 0.35355347, 0, 0.7071068, 0.7071068, -0.5000001, 0.61237246, -0.61237246, 11.733267, 12.435956, -5.4501266)
 light_color = Color(0.83233577, 0.75987476, 0.69634515, 1)
-light_energy = 0.334
+light_energy = 0.0
 shadow_enabled = true
 
 [node name="Head" parent="." unique_id=1332359877 instance=ExtResource("1_gee14")]
@@ -88,17 +100,19 @@ target = NodePath("../Player")
 
 [node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
 transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, 2.4872003, 13.457002, 21.060978)
-priority = 1
+priority = 2
 follow_target = NodePath("../../Player")
 look_at_mode = 2
 look_at_target = NodePath("../../Player")
 tween_resource = SubResource("Resource_vtaks")
+camera_3d_resource = SubResource("Resource_kvuet")
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
-transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.34879, 46.916718, 89.37436)
+transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
+fov = 34.6
 
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("5_0tnpc")]
 unique_name_in_owner = true
@@ -107,11 +121,21 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
 
 [node name="PhantomCamera3D2" type="Node3D" parent="." unique_id=32303124]
-transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.34879, 46.916718, 89.37436)
+transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
 script = ExtResource("9_vtaks")
 priority = 2
 tween_resource = SubResource("Resource_kvpfn")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_dinhu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="PhantomCamera3D2" unique_id=956873520]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, -34.242)
+modulate = Color(1, 1, 1, 0)
+sprite_frames = ExtResource("11_dinhu")
+autoplay = "default"
+frame = 26
+frame_progress = 0.6263719
 
 [editable path="Head"]
 [editable path="IsoCamera"]
