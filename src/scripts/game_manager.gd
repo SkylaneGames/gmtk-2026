@@ -1,10 +1,14 @@
 extends Node
 
+@export var worlds: Array[WorldManagerBase]
 @export var tmp_level_2_scene: PackedScene
+@export var current_world_index: int
 
 func _ready() -> void:
 	%UnifiedMenuUI.spawn_requested.connect(spawn_player_level1)
 	%UnifiedMenuUI.quitgame.connect(quit_game)
+
+	worlds[current_world_index].initialize_world()
 
 func game_over() -> void:
 	print("Game over!")
@@ -33,4 +37,4 @@ func _on_world_completed(world: WorldManagerBase) -> void:
 
 
 func _on_world_failed(world: WorldManagerBase) -> void:
-	world._initialize_world()
+	world.initialize_world()

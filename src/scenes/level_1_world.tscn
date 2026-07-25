@@ -38,12 +38,13 @@ cell_size = 0.1
 cell_height = 0.1
 agent_radius = 0.2
 
-[node name="Level 1 World" type="Node3D" unique_id=553002256 node_paths=PackedStringArray("doors", "exit")]
+[node name="Level 1 World" type="Node3D" unique_id=553002256 node_paths=PackedStringArray("doors", "exit", "spawn_point")]
 script = ExtResource("1_qa103")
 doors = [NodePath("Terrain/Doors/Door 1"), NodePath("Terrain/Doors/Door 2"), NodePath("Terrain/Doors/Door 3"), NodePath("Terrain/Doors/Door 4"), NodePath("Terrain/Doors/Door 5")]
 door_times = Array[float]([90.0, 80.0, 42.0, 20.0, 3.0])
 exit = NodePath("Exit")
 world_id = 1
+spawn_point = NodePath("SpawnPoint")
 
 [node name="Environment" type="Node3D" parent="." unique_id=818232397]
 
@@ -99,6 +100,9 @@ transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, -10.401784, 0.
 
 [node name="MemoryPickup6" parent="Items" unique_id=1178751861 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 9.36542, 0.6037125, -10.42112)
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=2122873144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71279, 0, 13.403428)
 
 [node name="Exit" parent="." unique_id=63415680 instance=ExtResource("4_qa103")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.522, 0, -11.165)

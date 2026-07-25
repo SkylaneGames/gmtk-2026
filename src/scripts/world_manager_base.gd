@@ -6,18 +6,32 @@ signal level_completed(world: WorldManagerBase);
 signal level_failed(world: WorldManagerBase);
 
 @export var world_id: int = 0
+@export var player: Player
+@export var spawn_point: Node3D
+
+var running := false
+
+func initialize_world() -> void:
+	print("initializing world %d" % world_id)
+	_initialize_world()
+	spawn_player()
+	running = true
 
 func _initialize_world() -> void:
-	get_tree().reload_current_scene()
 	pass
 
 func spawn_player() -> void:
-	pass #player spawn logic goes here when the 3 levels are all one
+	if player == null:
+		pass
+
+	player.set_position(spawn_point.get_position())
 
 func _notify_level_completed() -> void:
 	print("Level %d Completed!" % world_id)
+	running = false
 	level_completed.emit(self)
 
 func _notify_level_failed() -> void:
 	print("Level %d Failed!" % world_id)
+	running = false
 	level_failed.emit(self)

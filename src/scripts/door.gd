@@ -13,3 +13,11 @@ func close() -> void:
 	closed = true;
 	animation.play("close")
 	$NavigationLink3D.enabled = false
+
+func open() -> void:
+	if !closed:
+		return
+
+	closed = false;
+	animation.play("open")
+	$NavigationLink3D.enabled = true
