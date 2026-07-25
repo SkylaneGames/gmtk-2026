@@ -8,50 +8,73 @@ font_size = 38
 [node name="UnifiedMenuUI" type="CanvasLayer" unique_id=839514077]
 script = ExtResource("1_q6ma6")
 
-[node name="GameUI" type="MarginContainer" parent="." unique_id=781968181]
+[node name="GameUI" type="Control" parent="." unique_id=499547022]
 unique_name_in_owner = true
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1917.0
+offset_bottom = 1082.0
+
+[node name="InstructionsMargin" type="MarginContainer" parent="GameUI" unique_id=781968181]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 90.0
-offset_right = -1274.0
-offset_bottom = -862.0
+offset_left = 113.0
+offset_right = -1301.0
+offset_bottom = -916.0
 
-[node name="VBox" type="VBoxContainer" parent="GameUI" unique_id=881743846]
+[node name="VBox" type="VBoxContainer" parent="GameUI/InstructionsMargin" unique_id=881743846]
 layout_mode = 2
 alignment = 1
 
-[node name="label_MemoryCount" type="Label" parent="GameUI/VBox" unique_id=837533977]
+[node name="label_TutorialAllLevels" type="Label" parent="GameUI/InstructionsMargin/VBox" unique_id=253635702]
+layout_mode = 2
+text = "WASD or arrow keys to move"
+
+[node name="label_TutorialThisLevel" type="Label" parent="GameUI/InstructionsMargin/VBox" unique_id=1374695679]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MemoryCountMargin" type="MarginContainer" parent="GameUI" unique_id=918297256]
+layout_mode = 0
+offset_left = 1714.0
+offset_top = 254.0
+offset_right = 1896.0
+offset_bottom = 302.0
+
+[node name="label_MemoryCount" type="Label" parent="GameUI/MemoryCountMargin" unique_id=837533977]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "Memories Collected: 0"
 
-[node name="VerticalPadding" type="Container" parent="GameUI/VBox" unique_id=728872723]
-custom_minimum_size = Vector2(5, 20)
-layout_mode = 2
+[node name="MemoryGallery" type="PanelContainer" parent="GameUI" unique_id=125301058]
+layout_mode = 0
+offset_left = 1738.0
+offset_top = 290.0
+offset_right = 1920.0
+offset_bottom = 910.0
+grow_horizontal = 0
+grow_vertical = 2
 
-[node name="label_TutorialAllLevels" type="Label" parent="GameUI/VBox" unique_id=253635702]
-layout_mode = 2
-text = "WASD or arrow keys to move"
-
-[node name="label_TutorialThisLevel" type="Label" parent="GameUI/VBox" unique_id=1374695679]
+[node name="MemoryList" type="VBoxContainer" parent="GameUI/MemoryGallery" unique_id=49614235]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MemoryPopup" type="Control" parent="." unique_id=135561118]
+[node name="Memories" type="Label" parent="GameUI/MemoryGallery" unique_id=1580453106]
+layout_mode = 2
+
+[node name="MemoryPopup" type="Control" parent="GameUI" unique_id=135561118]
 unique_name_in_owner = true
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
 
-[node name="Background" type="ColorRect" parent="MemoryPopup" unique_id=810583749]
+[node name="Background" type="ColorRect" parent="GameUI/MemoryPopup" unique_id=810583749]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +82,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MemoryTexture" type="TextureRect" parent="MemoryPopup" unique_id=666898459]
+[node name="MemoryTexture" type="TextureRect" parent="GameUI/MemoryPopup" unique_id=666898459]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -141,25 +164,6 @@ text = "Back to Menu
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Quit"
-
-[node name="MemoryGallery" type="PanelContainer" parent="." unique_id=125301058]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -250.0
-offset_bottom = 370.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="MemoryList" type="VBoxContainer" parent="MemoryGallery" unique_id=49614235]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Memories" type="Label" parent="MemoryGallery" unique_id=1580453106]
-layout_mode = 2
 
 [connection signal="pressed" from="MenuUI/CenterContainer/VBox/button_Start" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="MenuUI/CenterContainer/VBox/button_Quit" to="." method="_on_button_quit_pressed"]
