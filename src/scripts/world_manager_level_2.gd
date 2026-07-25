@@ -14,9 +14,7 @@ func _initialize_world() -> void:
 	if ui != null:
 		ui.memory_label = "Memories remaining"
 
-	# TODO: Spawn enemies
 	for spawn in enemy_spawn_positions:
-		print("Spawning enemy at %d, %d, %d" % [spawn.global_position.x, spawn.global_position.y, spawn.global_position.z])
 		var instance: DarkThoughtController = enemy_template.instantiate()
 		get_node("/root").add_child(instance)
 		instance.global_position = spawn.global_position
