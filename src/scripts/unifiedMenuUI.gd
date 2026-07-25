@@ -2,7 +2,7 @@ extends CanvasLayer
 
 class_name UnifiedMenuUI
 
-signal spawn_requested
+signal start_game
 signal quitgame
 signal restartgame
 
@@ -18,7 +18,7 @@ var memory_label: String = "Memories Collected"
 
 #Functions to send signals to game manager to execute logic
 func _on_button_start_pressed() -> void:
-	spawn_requested.emit()
+	start_game.emit()
 	
 func _on_button_quit_pressed() -> void:
 	quitgame.emit()
