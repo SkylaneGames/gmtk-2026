@@ -43,6 +43,19 @@ transition = 1
 
 [node name="Game" type="Node3D" unique_id=1341214287]
 
+[node name="Environment" type="Node3D" parent="." unique_id=392757848]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=187910835]
+environment = SubResource("Environment_0pf81")
+camera_attributes = SubResource("CameraAttributesPractical_w5pmr")
+compositor = SubResource("Compositor_3g4q3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1095723466]
+transform = Transform3D(-0.8660254, -0.35355347, 0.35355347, 0, 0.7071068, 0.7071068, -0.5000001, 0.61237246, -0.61237246, 11.733267, 12.435956, -5.4501266)
+light_color = Color(0.83233577, 0.75987476, 0.69634515, 1)
+light_energy = 0.334
+shadow_enabled = true
+
 [node name="Head" parent="." unique_id=1332359877 instance=ExtResource("1_gee14")]
 transform = Transform3D(-1.2202471e-06, 0, 27.916, 0, 27.916, 0, -27.916, 0, -1.2202471e-06, 0, 1.6424623, 0)
 
@@ -58,19 +71,6 @@ player = NodePath("../../../../Player")
 [node name="Level 3 World" parent="Head/HeadComplete/Head-Top" parent_id_path=PackedInt32Array(1332359877, 136728721) index="0" unique_id=1228685239 node_paths=PackedStringArray("player") instance=ExtResource("7_u5sy4")]
 transform = Transform3D(-1.431158e-09, 0, -0.03274108, 0, 0.03274108, 0, 0.03274108, 0, -1.431158e-09, 0, 0.160465, 0)
 player = NodePath("../../../../Player")
-
-[node name="Environment" type="Node3D" parent="." unique_id=392757848]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=187910835]
-environment = SubResource("Environment_0pf81")
-camera_attributes = SubResource("CameraAttributesPractical_w5pmr")
-compositor = SubResource("Compositor_3g4q3")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1095723466]
-transform = Transform3D(-0.8660254, -0.35355347, 0.35355347, 0, 0.7071068, 0.7071068, -0.5000001, 0.61237246, -0.61237246, 11.733267, 12.435956, -5.4501266)
-light_color = Color(0.83233577, 0.75987476, 0.69634515, 1)
-light_energy = 0.334
-shadow_enabled = true
 
 [node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds", "head", "camera_menu")]
 unique_name_in_owner = true
