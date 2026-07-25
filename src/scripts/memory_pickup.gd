@@ -6,7 +6,7 @@ extends Area3D
 
 var starting_y: float
 var elapsed_time: float = 0.0
-@onready var game_manager = %GameManagerLevel1
+@onready var game_manager = $"../../../GameManager"
 
 
 func _ready() -> void:

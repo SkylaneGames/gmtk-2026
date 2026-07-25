@@ -16,6 +16,7 @@ script = ExtResource("1_iywne")
 unique_name_in_owner = true
 
 [node name="Level 1 World" parent="." unique_id=553002256 node_paths=PackedStringArray("nav_agent") instance=ExtResource("3_u5sy4")]
+unique_name_in_owner = true
 nav_agent = NodePath("../Player/NavigationAgent3D")
 
 [node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]

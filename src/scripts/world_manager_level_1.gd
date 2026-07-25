@@ -36,9 +36,3 @@ func check_player_can_complete() -> void:
 		return
 
 	print("Exit is still reachable.")
-
-func game_over() -> void:
-	print("Game over!")
-	get_tree().reload_current_scene()
-
-
