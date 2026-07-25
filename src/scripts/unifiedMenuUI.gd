@@ -36,6 +36,7 @@ func displayUI_levelUI(levelindex: int) -> void:
 		%label_MemoryCount.text = "Memories Remaining: 0 "
 		%label_TutorialThisLevel.text = "Let your memories keep you safe from dark thoughts"
 	elif levelindex == 3:
+		%label_MemoryCount.text = "Memories Held: 0 "
 		%label_TutorialThisLevel.text = "Clear your mind"
 	else:
 		print("Error: Attempted to display level-specific UI with invalid level index: "+str(levelindex))

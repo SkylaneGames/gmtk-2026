@@ -26,7 +26,7 @@ func start_game() -> void:
 func play(world_index: int) -> void:
 	# TODO: Set environment lighting
 	# TODO: Move camera
-	# TODO: Play music
+	
 	worlds[world_index].initialize_world()
 
 func game_over(gameover_reason: String) -> void:
@@ -45,7 +45,7 @@ func next_level() -> void:
 		# TODO: return to main menu
 		current_state = GameState.MENU
 		return;
-
+	%UnifiedMenuUI.displayUI_levelUI(current_world_index+1)
 	worlds[current_world_index].initialize_world()
 
 func _on_world_failed(world: WorldManagerBase) -> void:
