@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://u46jgrcc8c24"
+path="res://.godot/imported/test sound oof.ogg-12777e8f7d4c0b2640f0e66b096dcfb9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/test sound oof.ogg"
+dest_files=["res://.godot/imported/test sound oof.ogg-12777e8f7d4c0b2640f0e66b096dcfb9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

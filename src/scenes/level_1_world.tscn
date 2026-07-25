@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="4_qa103"]
 [ext_resource type="Texture2D" uid="uid://drfh8nrr2t423" path="res://assets/memories/Christmas.PNG" id="5_due22"]
 [ext_resource type="PackedScene" uid="uid://sttd1yco80h3" path="res://assets/models/Xmas/tree-decorated.glb" id="6_giyus"]
+[ext_resource type="AudioStream" uid="uid://u46jgrcc8c24" path="res://assets/sounds/test sound oof.ogg" id="6_p24l3"]
 [ext_resource type="Texture2D" uid="uid://dpgibuedpfhoy" path="res://assets/memories/Puppy.PNG" id="6_vc8ll"]
 [ext_resource type="Texture2D" uid="uid://ckcpivrc5rvr7" path="res://assets/memories/Wedding.PNG" id="7_p24l3"]
 [ext_resource type="Texture2D" uid="uid://bbxwowm3gdas1" path="res://assets/memories/Baby.PNG" id="8_7tlof"]
 [ext_resource type="PackedScene" uid="uid://sy8daeb74hw5" path="res://assets/models/furniture/bedSingle.glb" id="8_p2u81"]
+[ext_resource type="AudioStream" uid="uid://stxc7hroxhn2" path="res://assets/sounds/yapping.ogg" id="8_p24l3"]
 [ext_resource type="PackedScene" uid="uid://bavnn80ga0niu" path="res://assets/models/furniture/trashcan.glb" id="9_afkka"]
 [ext_resource type="Texture2D" uid="uid://q7q0ujl620av" path="res://assets/memories/First_Bike.PNG" id="9_g7iqf"]
 [ext_resource type="Texture2D" uid="uid://vggg3o4fksws" path="res://assets/memories/Children_Playing.PNG" id="10_eckpc"]
@@ -77,10 +79,10 @@ navigation_mesh = SubResource("NavigationMesh_g8dwo")
 
 [node name="Maze" parent="Terrain" unique_id=1699325480 instance=ExtResource("1_4x3lm")]
 
-[node name="Ground" parent="Terrain/Maze" index="0" unique_id=146701133]
+[node name="Ground" parent="Terrain/Maze" index="0" unique_id=1042859300]
 surface_material_override/0 = SubResource("StandardMaterial3D_6ieja")
 
-[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1988516584]
+[node name="Walls" parent="Terrain/Maze" index="1" unique_id=1737341189]
 surface_material_override/0 = SubResource("StandardMaterial3D_ngb10")
 
 [node name="Doors" type="Node3D" parent="Terrain" unique_id=1141097254]
@@ -106,26 +108,32 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.3
 [node name="MemoryPickup1" parent="Items" unique_id=78866939 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.3871171, 0.48297, 7.3682556)
 memory_image = ExtResource("5_due22")
+memory_music = ExtResource("6_p24l3")
 
 [node name="MemoryPickup2" parent="Items" unique_id=1312294266 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 9.014617, 1.0029116, 8.560659)
 memory_image = ExtResource("6_vc8ll")
+memory_music = ExtResource("8_p24l3")
 
 [node name="MemoryPickup3" parent="Items" unique_id=1240754602 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.6462016, 0.5444145, -2.3511562)
 memory_image = ExtResource("7_p24l3")
+memory_music = ExtResource("6_p24l3")
 
 [node name="MemoryPickup4" parent="Items" unique_id=1454792968 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.773441, 0.5444145, -9.685804)
 memory_image = ExtResource("8_7tlof")
+memory_music = ExtResource("6_p24l3")
 
 [node name="MemoryPickup5" parent="Items" unique_id=1309585721 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, -10.795431, 0.6037125, 1.1582164)
 memory_image = ExtResource("9_g7iqf")
+memory_music = ExtResource("6_p24l3")
 
 [node name="MemoryPickup6" parent="Items" unique_id=1178751861 instance=ExtResource("3_gr71i")]
 transform = Transform3D(0.0625, 0, 0, 0, 0.0625, 0, 0, 0, 0.0625, 9.714738, 0.6037125, -10.874897)
 memory_image = ExtResource("10_eckpc")
+memory_music = ExtResource("6_p24l3")
 
 [node name="Level1SpawnPoint" type="Node3D" parent="." unique_id=2122873144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.71279, 0, 13.403428)
@@ -174,7 +182,7 @@ transform = Transform3D(0.11586283, -0.16302088, -7.125869e-09, -4.2351648e-23, 
 [node name="tree-decorated2" parent="Christmas_Memory" unique_id=17666403 instance=ExtResource("6_giyus")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7023056, 1.0634182e-08, 8.820522)
 
-[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=938413466]
+[node name="tree-decorated" parent="Christmas_Memory/tree-decorated2" index="0" unique_id=1655295295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2771635, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_8nnqy")
 
@@ -315,12 +323,12 @@ transform = Transform3D(0.0035255211, 0, 0.0043195505, 0, 0.0069999998, 0, -0.00
 [node name="tree_1" parent="First_B_Mem" unique_id=582829228 instance=ExtResource("33_afkka")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -9.736868, -0.032700658, -1.0091166)
 
-[node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=706472558]
+[node name="2" parent="First_B_Mem/tree_1" index="0" unique_id=585217852]
 transform = Transform3D(0.60735387, 0, 0, 0, -2.1720669e-07, -0.60735387, 0, 0.60735387, -2.1720669e-07, -0.5974426, 0, -0.504112)
 surface_material_override/0 = SubResource("StandardMaterial3D_2d7kw")
 surface_material_override/1 = SubResource("StandardMaterial3D_n2q3u")
 
-[node name="rocks_3" parent="." unique_id=488181870 instance=ExtResource("33_p2u81")]
+[node name="rocks_3" parent="First_B_Mem" unique_id=488181870 instance=ExtResource("33_p2u81")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -9.136264, -0.080485344, -0.12828147)
 
 [connection signal="player_exited" from="Exit" to="." method="_on_exit_player_exited"]
