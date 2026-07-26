@@ -628,8 +628,8 @@ align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
-transform = Transform3D(0.71982044, -0.3102662, 0.62096167, 0, 0.89455086, 0.44696623, -0.69416034, -0.32173544, 0.643916, 83.349, 60.296, 89.374)
-fov = 74.35375
+transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
+fov = 34.6
 
 [node name="Environment" type="Node3D" parent="." unique_id=392757848]
 
