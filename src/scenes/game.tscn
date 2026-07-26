@@ -165,6 +165,120 @@ tracks/8/keys = {
 "update": 1,
 "values": [SubResource("Sky_p57ef")]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("UnifiedMenuUI:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rysoc"]
+resource_name = "intro"
+length = 16.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 16.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Environment/DirectionalLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Environment/WorldEnvironment:environment:background_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UnifiedMenuUI:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 15, 16.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PhantomCamera3D2/AnimatedSprite3D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_trtic"]
 resource_name = "level_1"
@@ -355,13 +469,33 @@ tracks/4/keys = {
 "values": [SubResource("Sky_p57ef")]
 }
 
+[sub_resource type="Animation" id="Animation_ssvqc"]
+resource_name = "menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UnifiedMenuUI:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rysoc"]
 _data = {
 &"RESET": SubResource("Animation_kvuet"),
+&"intro": SubResource("Animation_rysoc"),
 &"level_1": SubResource("Animation_trtic"),
 &"level_2": SubResource("Animation_ir15t"),
-&"level_3": SubResource("Animation_ca42v")
+&"level_3": SubResource("Animation_ca42v"),
+&"menu": SubResource("Animation_ssvqc")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_264po"]
+animation = &"intro"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dinhu"]
 animation = &"level_1"
@@ -372,8 +506,8 @@ animation = &"level_2"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_trtic"]
 animation = &"level_3"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ir15t"]
-advance_mode = 2
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1kice"]
+animation = &"menu"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ca42v"]
 xfade_time = 3.0
@@ -417,15 +551,38 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "current_world_index == 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5newe"]
+advance_mode = 2
+advance_expression = "skip_intro == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_37s47"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ir15t"]
+xfade_time = 3.0
+xfade_curve = ExtResource("13_kvuet")
+switch_mode = 2
+advance_mode = 2
+advance_expression = "current_state == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_264po"]
+advance_mode = 2
+advance_expression = "skip_intro == true"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w5pmr"]
-states/Start/position = Vector2(116.453125, 100)
+states/Start/position = Vector2(55.273438, 95)
+states/intro/node = SubResource("AnimationNodeAnimation_264po")
+states/intro/position = Vector2(162.9961, 181.5586)
 states/level_1/node = SubResource("AnimationNodeAnimation_dinhu")
 states/level_1/position = Vector2(349.89453, 100)
 states/level_2/node = SubResource("AnimationNodeAnimation_kvuet")
 states/level_2/position = Vector2(511.09766, 61.03125)
 states/level_3/node = SubResource("AnimationNodeAnimation_trtic")
 states/level_3/position = Vector2(511.09766, 207.45703)
-transitions = ["Start", "level_1", SubResource("AnimationNodeStateMachineTransition_ir15t"), "level_1", "level_2", SubResource("AnimationNodeStateMachineTransition_ca42v"), "level_2", "level_3", SubResource("AnimationNodeStateMachineTransition_rysoc"), "level_3", "level_1", SubResource("AnimationNodeStateMachineTransition_ssvqc"), "level_1", "level_3", SubResource("AnimationNodeStateMachineTransition_dinhu"), "level_3", "level_2", SubResource("AnimationNodeStateMachineTransition_kvuet"), "level_2", "level_1", SubResource("AnimationNodeStateMachineTransition_trtic")]
+states/menu/node = SubResource("AnimationNodeAnimation_1kice")
+states/menu/position = Vector2(309.0078, 201.22266)
+transitions = ["level_1", "level_2", SubResource("AnimationNodeStateMachineTransition_ca42v"), "level_2", "level_3", SubResource("AnimationNodeStateMachineTransition_rysoc"), "level_3", "level_1", SubResource("AnimationNodeStateMachineTransition_ssvqc"), "level_1", "level_3", SubResource("AnimationNodeStateMachineTransition_dinhu"), "level_3", "level_2", SubResource("AnimationNodeStateMachineTransition_kvuet"), "level_2", "level_1", SubResource("AnimationNodeStateMachineTransition_trtic"), "Start", "intro", SubResource("AnimationNodeStateMachineTransition_5newe"), "intro", "menu", SubResource("AnimationNodeStateMachineTransition_37s47"), "menu", "level_1", SubResource("AnimationNodeStateMachineTransition_ir15t"), "Start", "menu", SubResource("AnimationNodeStateMachineTransition_264po")]
 
 [node name="Game" type="Node3D" unique_id=1341214287]
 
@@ -444,7 +601,7 @@ shadow_enabled = true
 
 [node name="Head" parent="." unique_id=1332359877 instance=ExtResource("1_gee14")]
 transform = Transform3D(-1.2202471e-06, 0, 27.916, 0, 27.916, 0, -27.916, 0, -1.2202471e-06, 0, 1.6424623, 0)
-current_layout = 3
+current_state = 3
 
 [node name="Level 2 World" parent="Head/HeadComplete/Eye-Plate" parent_id_path=PackedInt32Array(1332359877, 1668346744) index="0" unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("5_u5sy4")]
 transform = Transform3D(-1.5658184e-09, 0, -0.03582175, 0, 0.03582175, 0, 0.03582175, 0, -1.5658184e-09, 0.005, 0.16678298, -1.3877788e-17)
@@ -462,6 +619,7 @@ player = NodePath("../../../../Player")
 [node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds", "head", "camera_menu")]
 unique_name_in_owner = true
 script = ExtResource("1_iywne")
+skip_intro = true
 worlds = [NodePath("../Head/HeadComplete/Head-bottom-half/Level 1 World"), NodePath("../Head/HeadComplete/Eye-Plate/Level 2 World"), NodePath("../Head/HeadComplete/Head-Top/Level 3 World")]
 head = NodePath("../Head")
 camera_menu = NodePath("../PhantomCamera3D2")
@@ -505,12 +663,10 @@ camera_3d_resource = SubResource("Resource_dinhu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="PhantomCamera3D2" unique_id=956873520]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, -34.242)
-modulate = Color(1, 1, 1, 0)
+transform = Transform3D(0.9999999, -7.4505806e-08, 2.9802322e-08, 2.9802322e-08, 0.9999998, 0, 0, 2.9802322e-08, 1, -3.8146973e-06, 5.722046e-06, -34.24202)
+visible = false
+modulate = Color(0, 0, 0, 1)
 sprite_frames = ExtResource("11_dinhu")
-autoplay = "default"
-frame = 26
-frame_progress = 0.6263719
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=893726890]
 libraries/ = SubResource("AnimationLibrary_rysoc")

@@ -1,5 +1,6 @@
 extends Node
 
+@export var skip_intro := false
 @export var worlds: Array[WorldManagerBase]
 @export var current_world_index: int
 
@@ -15,6 +16,8 @@ func _ready() -> void:
 	%UnifiedMenuUI.start_game.connect(start_game)
 	%UnifiedMenuUI.quitgame.connect(quit_game)
 	%UnifiedMenuUI.restartgame.connect(restart_game)
+
+	head.current_state = HeadController.HeadState.STRAINED_HEAVY
 
 	for world in worlds:
 		world.level_completed.connect(_on_world_completed)
@@ -33,6 +36,7 @@ func play(world_index: int) -> void:
 	if (world_index > 0):
 		camera_menu.priority = 2
 		await get_tree().create_timer(1.5).timeout
+		head.current_state = 3 - world_index as HeadController.HeadState
 
 	head.current_layout = world_index + 1 as HeadController.HeadLayout
 

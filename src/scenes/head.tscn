@@ -796,72 +796,84 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wjmmm"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3aaqt"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2x55p"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rk2hn"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wlbt"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nq8vk"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbtww"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_77p83"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ik5q6"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vpj3h"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_43uil"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nexyk"]
 xfade_time = 3.0
 xfade_curve = ExtResource("19_uxhsu")
+reset = false
 advance_mode = 2
 advance_expression = "current_layout == 2"
 
@@ -902,12 +914,14 @@ libraries/ = SubResource("AnimationLibrary_pnnvi")
 blend_times = [&"layout_level_1", &"layout_level_1", 2.0, &"layout_level_1", &"layout_whole", 2.0]
 
 [node name="Facial Expression Animator" type="AnimationTree" parent="." unique_id=161198036]
+deterministic = false
 root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="LayoutAnimator" type="AnimationTree" parent="." unique_id=2053015849]
+deterministic = false
 root_node = NodePath("../Facial Expression Animator")
 tree_root = SubResource("AnimationNodeStateMachine_0pf81")
 advance_expression_base_node = NodePath("..")
