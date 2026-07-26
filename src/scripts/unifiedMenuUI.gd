@@ -5,6 +5,8 @@ class_name UnifiedMenuUI
 signal start_game
 signal quitgame
 signal restartgame
+signal restart_level
+signal restart_game_skip_intro
 
 @export var player: Player
 
@@ -28,12 +30,20 @@ func _on_button_quit_pressed() -> void:
 
 func _on_button_back_to_menu_pressed() -> void:
 	restartgame.emit()
+	
+func _on_button_restart_level_pressed() -> void:
+	restart_level.emit()
+
+func _on_button_restart_pressed() -> void:
+	restart_game_skip_intro.emit()
 
 #Functions to update the UI while running
 func displayUI_levelUI(levelindex: int) -> void:
+	%GameOverUI.hide()
+	%GameUI.show()
+	%MenuUI.hide()
+	
 	if levelindex == 1:
-		%MenuUI.hide()
-		%GameUI.show()
 		%label_TutorialThisLevel.text = "Gather your memories, but don't linger too long"
 	elif levelindex == 2:
 #		%label_MemoryCount.text = "Memories Remaining: 0 "
