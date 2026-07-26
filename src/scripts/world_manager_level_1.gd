@@ -18,8 +18,9 @@ func _initialize_world() -> void:
 	nav_agent.target_position = exit.global_position
 
 	# reset all doors
-	for door in doors:
-		door.open()
+	for i in doors.size():
+		doors[i].open()
+		doors[i].close_after((100 - door_times[i]) * start_time_seconds / 100)
 
 	# If we don't reset the scene on game over, then:
 	# TODO: Respawn memories
@@ -29,13 +30,13 @@ func _process(delta: float) -> void:
 	if !running:
 		return
 
-	time_remaining -= delta
+#	time_remaining -= delta
 	time_since_last_nav_update += delta
 
-	var time_remaining_percent: float = time_remaining / start_time_seconds * 100
-	for i in door_times.size():
-		if (time_remaining_percent < door_times[i]):
-			doors[i].close()
+#	var time_remaining_percent: float = time_remaining / start_time_seconds * 100
+#	for i in door_times.size():
+#		if (time_remaining_percent < door_times[i]):
+#			doors[i].close_after()
 
 	if (time_since_last_nav_update > nav_check_interval):
 		time_since_last_nav_update = 0.0
