@@ -1,19 +1,87 @@
 [gd_scene format=3 uid="uid://cg6i7ho2iej11"]
 
 [ext_resource type="Script" uid="uid://ba0da0utm5tf5" path="res://scripts/memory_pickup.gd" id="1_h6lpd"]
-[ext_resource type="Material" uid="uid://cvg1avg5yqf1l" path="res://assets/models/transparent_glow.tres" id="2_hlkj0"]
 [ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="3_dyfy0"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_wjkn1"]
+[ext_resource type="Texture2D" uid="uid://y0tp0uxsidug" path="res://assets/effects/textures/star_06.png" id="4_yfw7b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lfxu0"]
+radius = 0.9159296
+
+[sub_resource type="Curve" id="Curve_veoyd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.026562572), -2.99184, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ae0kh"]
+curve = SubResource("Curve_veoyd")
+
+[sub_resource type="Gradient" id="Gradient_174qg"]
+offsets = PackedFloat32Array(0, 0.17918918, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.63280106, 0.9606983, 0.99999994, 1, 0.3077132, 0.8809336, 0.9999998, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3jhap"]
+gradient = SubResource("Gradient_174qg")
+
+[sub_resource type="Curve" id="Curve_47m0f"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_f4gda"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_vyt8x"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_j6dta"]
+curve_x = SubResource("Curve_47m0f")
+curve_y = SubResource("Curve_f4gda")
+curve_z = SubResource("Curve_vyt8x")
+
+[sub_resource type="Curve" id="Curve_fp58k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.78171885), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vbxkw"]
+curve = SubResource("Curve_fp58k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w5pmr"]
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 0.5
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+orbit_velocity_min = -0.35499993
+orbit_velocity_max = 0.3880001
+orbit_velocity_curve = SubResource("CurveXYZTexture_j6dta")
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 0.19999775
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_vbxkw")
+color_ramp = SubResource("GradientTexture1D_3jhap")
+alpha_curve = SubResource("CurveTexture_ae0kh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3g4q3"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_yfw7b")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_0pf81"]
+material = SubResource("StandardMaterial3D_3g4q3")
 
 [node name="MemoryPickup" type="Node3D" unique_id=1223275279]
 script = ExtResource("1_h6lpd")
-
-[node name="OrbMesh" type="MeshInstance3D" parent="." unique_id=1376022186]
-mesh = SubResource("SphereMesh_wjkn1")
-surface_material_override/0 = ExtResource("2_hlkj0")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1437539934]
 light_color = Color(0.5058824, 1, 1, 1)
@@ -28,5 +96,11 @@ shape = SubResource("SphereShape3D_lfxu0")
 debug_color = Color(0.75686276, 0.043137256, 0.6313726, 1)
 
 [node name="MemorySound" type="AudioStreamPlayer3D" parent="." unique_id=161900027]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1644927568]
+amount = 200
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_w5pmr")
+draw_pass_1 = SubResource("QuadMesh_0pf81")
 
 [connection signal="interaction_started" from="Interactable" to="." method="_on_interactable_interaction_started"]
