@@ -14,11 +14,17 @@ signal player_killed
 # The time it takes for the enemy to lose interest in the player after losing a visual.
 @export var attention_span := 5.0
 
+@export_group("Damage")
+@export var memory_damage := 0.5
+@export var damage_cooldown := 5.0
+@export var damage_effect: PackedScene
+
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
 @onready var body: Node3D = $Body;
 
 var time_since_last_visual: float = attention_span + 1.0
 var time_since_last_check: float = 0.0
+var current_cooldown: float = 0.0
 
 func set_target(delta: float) -> void:
 	if target == null:
@@ -64,8 +70,23 @@ func is_hunting_target(delta: float) -> bool:
 	return true
 
 func _on_interactable_interaction_started(interactor: Interactor) -> void:
+	if current_cooldown > 0:
+		return
+
 	if interactor.root is Player:
-		player_killed.emit()
+		current_cooldown = damage_cooldown
+		is_hunting = false
+		var effect: Node3D = damage_effect.instantiate()
+		var vfx: GPUParticles3D = effect.get_child(0)
+		vfx.emitting = true
+		add_child(effect)
+		effect.position = Vector3.ZERO
+		effect.position.y += 1.0
+		effect.rotation = body.rotation
+		effect.rotation_degrees.y += 180
+		# If the player doesn't have enough memory to absorb the damage, game over.
+		if !interactor.root.consume_memory(memory_damage):
+			player_killed.emit()
 
 var is_hunting: bool = false
 
@@ -81,6 +102,10 @@ func _physics_process(delta: float) -> void:
 	if time_since_last_check > check_interval:
 		time_since_last_check = 0.0
 		is_hunting = is_hunting_target(delta)
+
+	if current_cooldown > 0:
+		current_cooldown -= delta
+		return
 
 	if !is_hunting:
 		return
