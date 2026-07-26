@@ -10,7 +10,7 @@ extends Node3D
 @onready var body: Node3D = $Body
 @onready var emitter: GPUParticles3D = $Body/GPUParticles3D
 
-var memory_sound: AudioStreamPlayer3D #JT
+@onready var memory_sound: AudioStreamPlayer3D = $MemorySound #JT
 
 var starting_y: float
 var elapsed_time: float = 0.0
@@ -18,9 +18,6 @@ var collected: bool = false
 
 func _ready() -> void:
 	starting_y = body.position.y
-
-	memory_sound = AudioStreamPlayer3D.new()
-	add_child(memory_sound)
 
 func _process(delta: float) -> void:
 	elapsed_time += delta

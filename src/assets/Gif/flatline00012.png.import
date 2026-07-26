@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c13evmnhsm4sd"
-path.s3tc="res://.godot/imported/Brain_Tileable.png-6944bbc41a16750ad07137b4a43ecdf9.s3tc.ctex"
+uid="uid://bx24xvg0a00n3"
+path.s3tc="res://.godot/imported/flatline00012.png-7c6629ba2a07e75c8d309396c0ce5662.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/Brain_Tileable.png"
-dest_files=["res://.godot/imported/Brain_Tileable.png-6944bbc41a16750ad07137b4a43ecdf9.s3tc.ctex"]
+source_file="res://assets/Gif/flatline00012.png"
+dest_files=["res://.godot/imported/flatline00012.png-7c6629ba2a07e75c8d309396c0ce5662.s3tc.ctex"]
 
 [params]
 

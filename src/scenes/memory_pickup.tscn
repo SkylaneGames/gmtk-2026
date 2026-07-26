@@ -85,6 +85,7 @@ material = SubResource("StandardMaterial3D_3g4q3")
 script = ExtResource("1_h6lpd")
 
 [node name="MemorySound" type="AudioStreamPlayer3D" parent="." unique_id=161900027]
+bus = &"Memory"
 
 [node name="Interactable" parent="." unique_id=1123878260 instance=ExtResource("3_dyfy0")]
 

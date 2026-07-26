@@ -13,6 +13,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c57pqa6vnayra" path="res://assets/IntroductionFrames/intro_sprite_frames.tres" id="11_dinhu"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="11_kvuet"]
 [ext_resource type="Curve" uid="uid://cwgscfnv3cayq" path="res://assets/curves/head_layout_anim_curve.tres" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://crbbb4r3djpop" path="res://scenes/ecg.tscn" id="14_trtic"]
 
 [sub_resource type="Resource" id="Resource_vtaks"]
 script = ExtResource("10_kvpfn")
@@ -21,7 +22,7 @@ transition = 1
 
 [sub_resource type="Resource" id="Resource_kvuet"]
 script = ExtResource("11_kvuet")
-fov = 55.1
+fov = 65.0
 metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5sy4"]
@@ -687,6 +688,9 @@ libraries/ = SubResource("AnimationLibrary_rysoc")
 tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
 advance_expression_base_node = NodePath("../GameManager")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="ECG" parent="." unique_id=1020079375 instance=ExtResource("14_trtic")]
+transform = Transform3D(5.9964447, 0, 4.701813, 0, 7.62, 0, -4.701813, 0, 5.9964447, -68.782936, -5.678, -60.624596)
 
 [editable path="IsoCamera"]
 [editable path="Head"]
