@@ -128,7 +128,7 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Countdown: Brain Jam
-(placeholder title)"
+What Counts"
 horizontal_alignment = 1
 
 [node name="button_Start" type="Button" parent="UIThemeContainer/MenuUI/CenterContainer/VBox" unique_id=1252660638]
