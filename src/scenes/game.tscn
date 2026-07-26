@@ -651,11 +651,8 @@ transform = Transform3D(-1.2202471e-06, 0, 27.916, 0, 27.916, 0, -27.916, 0, -1.
 transform = Transform3D(-1.5658184e-09, 0, -0.03582175, 0, 0.03582175, 0, 0.03582175, 0, -1.5658184e-09, 0.005, 0.16678298, -1.3877788e-17)
 player = NodePath("../../../../Player")
 
-[node name="Level 1 World" parent="Head/HeadComplete/Head-bottom-half" parent_id_path=PackedInt32Array(1332359877, 1900624569) index="0" unique_id=553002256 node_paths=PackedStringArray("nav_agent", "player") instance=ExtResource("3_u5sy4")]
+[node name="Level 1 World" parent="Head/HeadComplete/Head-bottom-half" parent_id_path=PackedInt32Array(1332359877, 1900624569) index="0" unique_id=553002256 node_paths=PackedStringArray("player") instance=ExtResource("3_u5sy4")]
 transform = Transform3D(-2.345596e-09, 0, -0.053660985, 0, 0.053660985, 0, 0.053660985, 0, -2.345596e-09, 0, 0.531037, 0)
-start_time_seconds = 60.0
-door_times = Array[float]([90.0, 80.0, 42.0, 20.0, 3.0])
-nav_agent = NodePath("../../../../Player/NavigationAgent3D")
 player = NodePath("../../../../Player")
 
 [node name="Level 3 World" parent="Head/HeadComplete/Head-Top" parent_id_path=PackedInt32Array(1332359877, 136728721) index="0" unique_id=1228685239 node_paths=PackedStringArray("player") instance=ExtResource("7_u5sy4")]
