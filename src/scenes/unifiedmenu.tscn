@@ -179,6 +179,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Quit"
 
+[node name="button_Restart" type="Button" parent="UIThemeContainer/GameOverUI/CenterContainer/VBox" unique_id=634272155]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Restart Game"
+
+[node name="button_Restart_Level" type="Button" parent="UIThemeContainer/GameOverUI/CenterContainer/VBox" unique_id=838696983]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Restart Level"
+
 [node name="TextureRect_PanelVertical" type="TextureRect" parent="UIThemeContainer" unique_id=1632684995]
 layout_mode = 0
 offset_left = 1717.0
@@ -192,3 +202,5 @@ texture = ExtResource("5_haiom")
 [connection signal="pressed" from="UIThemeContainer/MenuUI/CenterContainer/VBox/button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="UIThemeContainer/GameOverUI/CenterContainer/VBox/button_BackToMenu" to="." method="_on_button_back_to_menu_pressed"]
 [connection signal="pressed" from="UIThemeContainer/GameOverUI/CenterContainer/VBox/button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="UIThemeContainer/GameOverUI/CenterContainer/VBox/button_Restart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="UIThemeContainer/GameOverUI/CenterContainer/VBox/button_Restart_Level" to="." method="_on_button_restart_level_pressed"]

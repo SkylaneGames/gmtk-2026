@@ -30,6 +30,8 @@ func _ready() -> void:
 	%UnifiedMenuUI.start_game.connect(start_game)
 	%UnifiedMenuUI.quitgame.connect(quit_game)
 	%UnifiedMenuUI.restartgame.connect(restart_game)
+	%UnifiedMenuUI.restart_level.connect(restart_level)
+	%UnifiedMenuUI.restart_game_skip_intro.connect(restart_game_skip_intro)
 
 	if (skip_intro):
 		transition_to_menu()
@@ -93,9 +95,6 @@ func next_level() -> void:
 
 func _on_world_failed(world: WorldManagerBase) -> void:
 	game_over(world.game_over_message)
-
-func restart_game() -> void:
-	get_tree().reload_current_scene()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -105,3 +104,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		get_tree().reload_current_scene()
 	
+func restart_game() -> void:
+	get_tree().reload_current_scene()
+	
+func restart_game_skip_intro() -> void:
+	restart_to_specific_level(0)
+	
+func restart_level() -> void:
+	restart_to_specific_level(current_world_index)
+	
+func restart_to_specific_level(world_index: int) -> void:
+	current_state = GameState.GAME
+	head.current_layout = world_index + 1 as HeadController.HeadLayout
+	%UnifiedMenuUI.displayUI_levelUI(world_index + 1)
+	camera_menu.priority = 0
+	current_world_index = world_index
+	worlds[current_world_index].initialize_world()
