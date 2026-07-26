@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://jhyuywgfd0sf"]
 
 [ext_resource type="Script" uid="uid://d2jfrnoupo26s" path="res://scripts/unifiedMenuUI.gd" id="1_q6ma6"]
+[ext_resource type="PackedScene" uid="uid://b0mpeth1h4kxx" path="res://scenes/photo_frame.tscn" id="3_p6sv1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w5pmr"]
 font_size = 38
@@ -12,21 +13,18 @@ script = ExtResource("1_q6ma6")
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -1917.0
-offset_bottom = 1082.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="InstructionsMargin" type="MarginContainer" parent="GameUI" unique_id=781968181]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 113.0
-offset_right = -1301.0
-offset_bottom = -916.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 254.0
+offset_bottom = 80.0
 
 [node name="VBox" type="VBoxContainer" parent="GameUI/InstructionsMargin" unique_id=881743846]
 layout_mode = 2
@@ -41,11 +39,18 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="MemoryCountMargin" type="MarginContainer" parent="GameUI" unique_id=918297256]
-layout_mode = 0
-offset_left = 1714.0
-offset_top = 254.0
-offset_right = 1896.0
-offset_bottom = 302.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -360.0
+offset_right = -30.0
+offset_bottom = -312.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="label_MemoryCount" type="Label" parent="GameUI/MemoryCountMargin" unique_id=837533977]
 unique_name_in_owner = true
@@ -54,11 +59,18 @@ theme_override_font_sizes/font_size = 17
 text = "Memories Collected: 0"
 
 [node name="MemoryGallery" type="PanelContainer" parent="GameUI" unique_id=125301058]
-layout_mode = 0
-offset_left = 1738.0
-offset_top = 290.0
-offset_right = 1920.0
-offset_bottom = 910.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -310.0
+offset_right = -30.0
+offset_bottom = 310.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="MemoryList" type="VBoxContainer" parent="GameUI/MemoryGallery" unique_id=49614235]
 unique_name_in_owner = true
@@ -67,33 +79,9 @@ layout_mode = 2
 [node name="Memories" type="Label" parent="GameUI/MemoryGallery" unique_id=1580453106]
 layout_mode = 2
 
-[node name="MemoryPopup" type="Control" parent="GameUI" unique_id=135561118]
-unique_name_in_owner = true
+[node name="PhotoFrame" parent="GameUI" unique_id=1527285093 instance=ExtResource("3_p6sv1")]
 visible = false
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-mouse_filter = 2
-
-[node name="Background" type="ColorRect" parent="GameUI/MemoryPopup" unique_id=810583749]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="MemoryTexture" type="TextureRect" parent="GameUI/MemoryPopup" unique_id=666898459]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
 
 [node name="MenuUI" type="MarginContainer" parent="." unique_id=880154610]
 unique_name_in_owner = true

@@ -10,6 +10,8 @@ signal restartgame
 
 @export var memory_display_time: float = 0.5
 
+@onready var photo_frame: PhotoFrame = $GameUI/PhotoFrame
+
 var memory_popup_tween: Tween
 
 var memory_label: String = "Memories Collected"
@@ -61,38 +63,8 @@ func show_memory_image(memory_image: Texture2D) -> void:
 		return
 		
 	add_memory_thumbnail(memory_image) # JT
+	photo_frame.show_image(memory_image)
 
-	# Stop the previous animation if another memory is collected quickly.
-	if memory_popup_tween != null:
-		memory_popup_tween.kill()
-
-	%MemoryTexture.texture = memory_image
-	%MemoryPopup.modulate.a = 0.0
-	%MemoryPopup.show()
-
-	memory_popup_tween = create_tween()
-
-	# Fade in.
-	memory_popup_tween.tween_property(
-		%MemoryPopup,
-		"modulate:a",
-		1.0,
-		0.25
-	)
-
-	# Remain visible.
-	memory_popup_tween.tween_interval(memory_display_time)
-
-	# Fade out.
-	memory_popup_tween.tween_property(
-		%MemoryPopup,
-		"modulate:a",
-		0.0,
-		0.4
-	)
-
-	memory_popup_tween.tween_callback(%MemoryPopup.hide)
-	
 	# JT
 	
 func add_memory_thumbnail(memory_image: Texture2D) -> void:

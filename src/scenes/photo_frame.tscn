@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b0mpeth1h4kxx"]
+
+[ext_resource type="Script" uid="uid://dasnvqtxa7sea" path="res://scripts/photo_frame.gd" id="1_wo7jj"]
+[ext_resource type="Texture2D" uid="uid://dy6mrhav2ped2" path="res://assets/effects/textures/dirt_01.png" id="3_xmlmw"]
+
+[node name="PhotoFrame" type="Control" unique_id=1527285093]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wo7jj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1096361136]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.46155
+offset_top = -327.0
+offset_right = 402.46155
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=902124598]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.3051
+offset_top = -258.2434
+offset_right = 345.62018
+offset_bottom = 237.59338
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0034906585
+offset_transform_enabled = true
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Stains" type="TextureRect" parent="ColorRect" unique_id=1014136936]
+modulate = Color(0.3137255, 0.13725491, 0.043137256, 0.2509804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.4621
+offset_top = -68.62535
+offset_right = -32.77179
+offset_bottom = 37.582153
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.634, 1.634)
+texture = ExtResource("3_xmlmw")
