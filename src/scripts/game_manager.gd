@@ -36,7 +36,6 @@ func play(world_index: int) -> void:
 	if (world_index > 0):
 		camera_menu.priority = 2
 		await get_tree().create_timer(1.5).timeout
-		head.current_state = 3 - world_index as HeadController.HeadState
 
 	head.current_layout = world_index + 1 as HeadController.HeadLayout
 
@@ -57,6 +56,13 @@ func quit_game() -> void:
 	get_tree().quit()
 
 func _on_world_completed(world: WorldManagerBase) -> void:
+	head.current_state = 3 - world.world_id as HeadController.HeadState
+	if (world.world_id == 3):
+		camera_menu.priority = 2
+		await get_tree().create_timer(2).timeout
+		head.eyes_open = true
+		%UnifiedMenuUI.displayUI_gameover("You have successfully escaped the countdown!")
+
 	next_level()
 
 func next_level() -> void:
