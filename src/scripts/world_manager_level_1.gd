@@ -6,6 +6,7 @@ extends WorldManagerBase
 @export var nav_agent: NavigationAgent3D
 @export var exit: Node3D
 @export var nav_check_interval: float = 2.0
+@export var memories: Array[MemoryPickup]
 
 var time_remaining: float
 var time_since_last_nav_update: float = 0.0
@@ -17,14 +18,13 @@ func _initialize_world() -> void:
 	time_remaining = start_time_seconds
 	nav_agent.target_position = exit.global_position
 
+	for memory in memories:
+		memory.reset()		
 	# reset all doors
 	for i in doors.size():
 		doors[i].open()
 		doors[i].close_after((100 - door_times[i]) * start_time_seconds / 100)
 
-	# If we don't reset the scene on game over, then:
-	# TODO: Respawn memories
-	# TODO: Reset player's memories to 0
 
 func _process(delta: float) -> void:
 	if !running:
