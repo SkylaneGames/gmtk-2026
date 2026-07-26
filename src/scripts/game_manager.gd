@@ -111,12 +111,15 @@ func restart_game() -> void:
 	get_tree().reload_current_scene()
 	
 func restart_game_skip_intro() -> void:
+	worlds[0].player.force_reset()
 	restart_to_specific_level(0)
 	
 func restart_level() -> void:
 	restart_to_specific_level(current_world_index)
 	
 func restart_to_specific_level(world_index: int) -> void:
+	if world_index==3:
+		return;
 	current_state = GameState.GAME
 	head.current_layout = world_index + 1 as HeadController.HeadLayout
 	%UnifiedMenuUI.displayUI_levelUI(world_index + 1)

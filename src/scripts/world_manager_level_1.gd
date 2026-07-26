@@ -20,6 +20,7 @@ func _initialize_world() -> void:
 
 	for memory in memories:
 		memory.reset()		
+		ui.clear_memory_thumbnails()
 	# reset all doors
 	for i in doors.size():
 		doors[i].open()
