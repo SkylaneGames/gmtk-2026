@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bbhk4ao3qmfco" path="res://scripts/music_controller.gd" id="1_r714o"]
 [ext_resource type="AudioStream" uid="uid://mk5gmy1blu11" path="res://assets/sounds/GameJamFirstLevel.mp3" id="2_0yexm"]
+[ext_resource type="AudioStream" uid="uid://dy6b84staa51k" path="res://assets/sounds/SoundForOpeningCutScene.ogg" id="2_npq0v"]
 [ext_resource type="AudioStream" uid="uid://dvwe5yhk5tq7" path="res://assets/sounds/Sketch2TheDarkSide.mp3" id="3_0yexm"]
 [ext_resource type="AudioStream" uid="uid://ghm4w8ucjkf5" path="res://assets/sounds/Sketch for Zen.mp3" id="4_npq0v"]
 
 [node name="MusicController" type="Node" unique_id=1810567995]
 script = ExtResource("1_r714o")
 LevelTracks = Dictionary[int, AudioStream]({
-0: ExtResource("2_0yexm"),
+0: ExtResource("2_npq0v"),
 1: ExtResource("3_0yexm"),
 2: ExtResource("2_0yexm"),
 3: ExtResource("3_0yexm"),

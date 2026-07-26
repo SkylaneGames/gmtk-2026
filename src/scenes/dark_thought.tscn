@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cfvasj5ub0bp2" path="res://assets/models/dark thought.glb" id="1_770li"]
 [ext_resource type="Script" uid="uid://5kwtkp54fxm4" path="res://scripts/dark_thought_controller.gd" id="1_o5dua"]
+[ext_resource type="PackedScene" uid="uid://crpmikype0je6" path="res://scenes/energy_suck.tscn" id="2_2aa1l"]
 [ext_resource type="Texture2D" uid="uid://c8nalkyd3binw" path="res://assets/models/dark thought_Dark Thoughts Albedo.png" id="2_v87l2"]
 [ext_resource type="PackedScene" uid="uid://3fhs6wcks6bu" path="res://scenes/interactable.tscn" id="4_2aa1l"]
 
@@ -18,6 +19,7 @@ roughness = 0.2
 [node name="Dark Thought" type="CharacterBody3D" unique_id=712645014]
 script = ExtResource("1_o5dua")
 SPEED = 3.0
+damage_effect = ExtResource("2_2aa1l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=668218740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
