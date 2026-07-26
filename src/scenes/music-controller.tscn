@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://eaxum2t7ncoh"]
+
+[ext_resource type="Script" uid="uid://bbhk4ao3qmfco" path="res://scripts/music_controller.gd" id="1_r714o"]
+[ext_resource type="AudioStream" uid="uid://pbg62hxcq2wi" path="res://assets/sounds/music_level-1_draft_01.mp3" id="2_gtrs3"]
+[ext_resource type="AudioStream" uid="uid://dvwe5yhk5tq7" path="res://assets/sounds/Sketch2TheDarkSide.mp3" id="3_0yexm"]
+
+[node name="MusicController" type="Node" unique_id=1810567995]
+script = ExtResource("1_r714o")
+LevelTracks = Dictionary[int, AudioStream]({
+0: ExtResource("2_gtrs3"),
+1: ExtResource("3_0yexm"),
+2: ExtResource("2_gtrs3"),
+3: ExtResource("3_0yexm")
+})
+crossfade_duration_seconds = 3.0
+min_volume_db = -40.0
+
+[node name="AudioStreamPlayerA" type="AudioStreamPlayer" parent="." unique_id=1241437225]
+volume_db = -80.0
+bus = &"Music"
+
+[node name="AudioStreamPlayerB" type="AudioStreamPlayer" parent="." unique_id=1862556789]
+volume_db = -80.0
+bus = &"Music"

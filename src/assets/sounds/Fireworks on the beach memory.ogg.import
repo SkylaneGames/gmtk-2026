@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkvs5ida50wod"
+path="res://.godot/imported/Fireworks on the beach memory.ogg-df942132da018e2de1b07dae767f26fc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Fireworks on the beach memory.ogg"
+dest_files=["res://.godot/imported/Fireworks on the beach memory.ogg-df942132da018e2de1b07dae767f26fc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

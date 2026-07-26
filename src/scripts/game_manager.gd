@@ -8,6 +8,20 @@ extends Node
 
 @export var camera_menu: PhantomCamera3D
 
+@onready var music = MusicController
+
+func transition_to_menu() -> void:
+		current_state = GameState.MENU
+		music.play_track(MusicController.Track.MENU)
+
+func skip_intro_pressed() -> void:
+	print("skipping intro")
+	set_intro_complete()
+
+func set_intro_complete() -> void:
+	print("setting game state to menu")
+	transition_to_menu()
+
 enum GameState { SPLASH, MENU, GAME } # TODO: Add game over, win, pause, etc. as needed.
 
 var current_state: GameState = GameState.SPLASH
@@ -17,12 +31,16 @@ func _ready() -> void:
 	%UnifiedMenuUI.quitgame.connect(quit_game)
 	%UnifiedMenuUI.restartgame.connect(restart_game)
 
+	if (skip_intro):
+		transition_to_menu()
+	else:
+		music.play_track(MusicController.Track.SPLASH)
+
 	head.current_state = HeadController.HeadState.STRAINED_HEAVY
 
 	for world in worlds:
 		world.level_completed.connect(_on_world_completed)
 		world.level_failed.connect(_on_world_failed)
-
 
 func start_game() -> void:
 	%UnifiedMenuUI.displayUI_levelUI(1)
@@ -81,5 +99,9 @@ func restart_game() -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		if current_state == GameState.SPLASH:
+			skip_intro_pressed()
+			return
+
 		get_tree().reload_current_scene()
 	

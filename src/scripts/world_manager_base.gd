@@ -11,11 +11,13 @@ signal level_failed(world: WorldManagerBase);
 @export var game_over_message: String
 
 @onready var ui = %UnifiedMenuUI
+@onready var music = MusicController
 
 var running := false
 
 func initialize_world() -> void:
 	print("initializing world %d" % world_id)
+	music.play_track(world_id_to_track(world_id))
 	spawn_player()
 	await get_tree().create_timer(5).timeout
 	_initialize_world()
@@ -49,3 +51,10 @@ func _notify_level_failed() -> void:
 	running = false
 	level_failed.emit(self)
 	dispose()
+
+func world_id_to_track(id: int) -> MusicController.Track:
+	match id:
+		1: return MusicController.Track.LEVEL_1
+		2: return MusicController.Track.LEVEL_2
+		3: return MusicController.Track.LEVEL_3
+		_: return MusicController.Track.LEVEL_1
