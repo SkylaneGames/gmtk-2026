@@ -50,7 +50,7 @@ navigation_layers = 2
 [node name="Walls" parent="Terrain" unique_id=1380759905 instance=ExtResource("1_4bdap")]
 transform = Transform3D(-7.8899056e-08, 0, 2.104, 0, 1.811, 0, -1.805, 0, -9.1968765e-08, 0, 1.819406, 0)
 
-[node name="Walls" parent="Terrain/Walls" index="0" unique_id=654186421]
+[node name="Walls" parent="Terrain/Walls" index="0" unique_id=56740938]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_gtrs3")
 
