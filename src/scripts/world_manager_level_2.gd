@@ -4,15 +4,13 @@ extends WorldManagerBase
 @export var enemy_spawn_positions: Array[Node3D] = []
 @export var enemy_template: PackedScene
 
-@onready var ui = %UnifiedMenuUI
-
 var enemies: Array[Node] = []
 
 var nav_map: RID
 
 func _initialize_world() -> void:
 	if ui != null:
-		ui.memory_label = "Memories remaining"
+		ui.memory_popup_state = UnifiedMenuUI.MemoryPopupState.CONSUMING
 
 	for spawn in enemy_spawn_positions:
 		var instance: DarkThoughtController = enemy_template.instantiate()

@@ -10,6 +10,8 @@ signal level_failed(world: WorldManagerBase);
 @export var spawn_point: Node3D
 @export var game_over_message: String
 
+@onready var ui = %UnifiedMenuUI
+
 var running := false
 
 func initialize_world() -> void:

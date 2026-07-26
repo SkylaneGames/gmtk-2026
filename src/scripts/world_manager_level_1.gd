@@ -11,6 +11,9 @@ var time_remaining: float
 var time_since_last_nav_update: float = 0.0
 
 func _initialize_world() -> void:
+	if ui != null:
+		ui.memory_popup_state = UnifiedMenuUI.MemoryPopupState.COLLECTING
+
 	time_remaining = start_time_seconds
 	nav_agent.target_position = exit.global_position
 
@@ -18,6 +21,7 @@ func _initialize_world() -> void:
 	for door in doors:
 		door.open()
 
+	# If we don't reset the scene on game over, then:
 	# TODO: Respawn memories
 	# TODO: Reset player's memories to 0
 

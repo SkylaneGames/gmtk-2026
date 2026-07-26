@@ -14,7 +14,8 @@ signal restartgame
 
 var memory_popup_tween: Tween
 
-var memory_label: String = "Memories Collected"
+enum MemoryPopupState { COLLECTING, CONSUMING }
+var memory_popup_state: MemoryPopupState = MemoryPopupState.COLLECTING
 
 # Called when the node enters the scene tree for the first time.
 
@@ -51,11 +52,20 @@ func displayUI_gameover(gameover_reason: String = "") -> void: # call this on tr
 func update_memory_label() -> void:
 	%label_MemoryCount.text = generate_memory_label()
 
+func get_memory_label() -> String:
+	match memory_popup_state:
+		MemoryPopupState.COLLECTING:
+			return "Memories collected: %d"
+		MemoryPopupState.CONSUMING:
+			return "Memories remaining: %0.2f"
+		_:
+			return "Memories: %d"
+
 func generate_memory_label() -> String:
 	if player == null:
-		return "%s: N/A"
+		return "Memories: N/A"
 
-	return "%s: %0.2f" % [memory_label, player.memory_count]
+	return get_memory_label() % player.memory_count
 	
 func show_memory_image(memory_image: Texture2D) -> void:
 	if memory_image == null:
