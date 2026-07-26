@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://eaxum2t7ncoh"]
 
 [ext_resource type="Script" uid="uid://bbhk4ao3qmfco" path="res://scripts/music_controller.gd" id="1_r714o"]
-[ext_resource type="AudioStream" uid="uid://pbg62hxcq2wi" path="res://assets/sounds/music_level-1_draft_01.mp3" id="2_gtrs3"]
+[ext_resource type="AudioStream" uid="uid://mk5gmy1blu11" path="res://assets/sounds/GameJamFirstLevel.mp3" id="2_0yexm"]
 [ext_resource type="AudioStream" uid="uid://dvwe5yhk5tq7" path="res://assets/sounds/Sketch2TheDarkSide.mp3" id="3_0yexm"]
+[ext_resource type="AudioStream" uid="uid://ghm4w8ucjkf5" path="res://assets/sounds/Sketch for Zen.mp3" id="4_npq0v"]
 
 [node name="MusicController" type="Node" unique_id=1810567995]
 script = ExtResource("1_r714o")
 LevelTracks = Dictionary[int, AudioStream]({
-0: ExtResource("2_gtrs3"),
+0: ExtResource("2_0yexm"),
 1: ExtResource("3_0yexm"),
-2: ExtResource("2_gtrs3"),
+2: ExtResource("2_0yexm"),
 3: ExtResource("3_0yexm"),
-4: ExtResource("2_gtrs3")
+4: ExtResource("4_npq0v")
 })
 crossfade_duration_seconds = 3.0
 min_volume_db = -40.0

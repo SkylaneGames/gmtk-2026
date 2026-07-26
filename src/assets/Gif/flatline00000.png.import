@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://q3btvxqrvv0b"
-path.s3tc="res://.godot/imported/flatline00000.png-38401b5f56e2e98f9bc6b6e0026b6356.s3tc.ctex"
+path="res://.godot/imported/flatline00000.png-38401b5f56e2e98f9bc6b6e0026b6356.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/Gif/flatline00000.png"
-dest_files=["res://.godot/imported/flatline00000.png-38401b5f56e2e98f9bc6b6e0026b6356.s3tc.ctex"]
+dest_files=["res://.godot/imported/flatline00000.png-38401b5f56e2e98f9bc6b6e0026b6356.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

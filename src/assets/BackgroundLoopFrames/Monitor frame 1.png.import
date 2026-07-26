@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/Monitor frame 1.png-5d06fdcd83cab54b05f686d10
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
