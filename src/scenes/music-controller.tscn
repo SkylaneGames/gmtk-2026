@@ -10,7 +10,8 @@ LevelTracks = Dictionary[int, AudioStream]({
 0: ExtResource("2_gtrs3"),
 1: ExtResource("3_0yexm"),
 2: ExtResource("2_gtrs3"),
-3: ExtResource("3_0yexm")
+3: ExtResource("3_0yexm"),
+4: ExtResource("2_gtrs3")
 })
 crossfade_duration_seconds = 3.0
 min_volume_db = -40.0
