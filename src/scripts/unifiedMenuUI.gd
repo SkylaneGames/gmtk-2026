@@ -51,6 +51,12 @@ func displayUI_gameover(gameover_reason: String = "") -> void: # call this on tr
 
 func update_memory_label() -> void:
 	%label_MemoryCount.text = generate_memory_label()
+	match memory_popup_state:
+		MemoryPopupState.CONSUMING:
+			var child_id = ceil(player.memory_count)-1
+			var child_newalpha = player.memory_count - floor(player.memory_count)
+			var memory: TextureRect = %MemoryList.get_child(child_id)
+			memory.modulate = Color(1.0, 1.0, 1.0, child_newalpha)
 
 func get_memory_label() -> String:
 	match memory_popup_state:
