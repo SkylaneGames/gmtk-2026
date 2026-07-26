@@ -1,0 +1,14 @@
+[gd_resource type="Theme" format=3 uid="uid://da0h4vxk6b4sf"]
+
+[ext_resource type="StyleBox" uid="uid://bv3n08nplkxnc" path="res://assets/UI textures and themes/UI_buttons_stylebox_hover.tres" id="1_ltfsx"]
+[ext_resource type="StyleBox" uid="uid://b8diuyv8l3832" path="res://assets/UI textures and themes/UI_buttons_stylebox_default.tres" id="2_f5xtl"]
+[ext_resource type="StyleBox" uid="uid://mtx7tqpsskma" path="res://assets/UI textures and themes/UI_buttons_stylebox_pressed.tres" id="3_gkktk"]
+[ext_resource type="FontFile" uid="uid://f3tlmitoep8a" path="res://assets/fonts/EduNSWACTCursive-SemiBold.ttf" id="4_i54gl"]
+
+[resource]
+default_font = ExtResource("4_i54gl")
+Button/styles/focus = ExtResource("1_ltfsx")
+Button/styles/hover = ExtResource("1_ltfsx")
+Button/styles/normal = ExtResource("2_f5xtl")
+Button/styles/pressed = ExtResource("3_gkktk")
+Label/colors/font_shadow_color = Color(0.7529412, 0.23921569, 0.98039216, 1)

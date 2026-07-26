@@ -10,7 +10,7 @@ signal restartgame
 
 @export var memory_display_time: float = 0.5
 
-@onready var photo_frame: PhotoFrame = $GameUI/PhotoFrame
+@onready var photo_frame: PhotoFrame = %PhotoFrame
 
 var memory_popup_tween: Tween
 
