@@ -11,7 +11,6 @@ script = ExtResource("1_q6ma6")
 
 [node name="GameUI" type="Control" parent="." unique_id=499547022]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,17 +39,17 @@ layout_mode = 2
 
 [node name="MemoryCountMargin" type="MarginContainer" parent="GameUI" unique_id=918297256]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -212.0
-offset_top = -360.0
+offset_top = -830.0
 offset_right = -30.0
-offset_bottom = -312.0
+offset_bottom = -782.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="label_MemoryCount" type="Label" parent="GameUI/MemoryCountMargin" unique_id=837533977]
 unique_name_in_owner = true
@@ -60,17 +59,17 @@ text = "Memories Collected: 0"
 
 [node name="MemoryGallery" type="PanelContainer" parent="GameUI" unique_id=125301058]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -212.0
-offset_top = -310.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -750.0
 offset_right = -30.0
-offset_bottom = 310.0
+offset_bottom = -30.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="MemoryList" type="VBoxContainer" parent="GameUI/MemoryGallery" unique_id=49614235]
 unique_name_in_owner = true

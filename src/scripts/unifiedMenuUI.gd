@@ -75,13 +75,9 @@ func add_memory_thumbnail(memory_image: Texture2D) -> void:
 	var image := TextureRect.new()
 
 	image.texture = memory_image
-	image.custom_minimum_size = Vector2(96, 96)
 
-	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-
-	image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	image.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	image.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+	image.stretch_mode = TextureRect.STRETCH_SCALE
 
 	image.modulate = Color.WHITE
 	image.visible = true
