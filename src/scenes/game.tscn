@@ -602,7 +602,7 @@ player = NodePath("../Player")
 target = NodePath("../Player")
 
 [node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, 2.4872003, 13.457002, 21.060978)
+transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, -1.5563965, 13.457002, 27.835388)
 priority = 2
 follow_target = NodePath("../../Player")
 look_at_mode = 2
@@ -649,7 +649,7 @@ player = NodePath("../../../../Player")
 
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("5_0tnpc")]
 unique_name_in_owner = true
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -6.9148, 1.9073486e-06, 13.560978)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -10.958397, 1.9073486e-06, 20.335388)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
 

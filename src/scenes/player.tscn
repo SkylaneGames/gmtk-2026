@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
 radius = 0.31591797
-height = 1.2070313
+height = 1.279541
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w5pmr"]
 
@@ -29,7 +29,7 @@ light = NodePath("Body/Energy")
 ROTATION_SPEED = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633951677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6035156, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397705, 0)
 shape = SubResource("CapsuleShape3D_w5pmr")
 
 [node name="Interactor" parent="." unique_id=1341937022 node_paths=PackedStringArray("root") instance=ExtResource("2_g2els")]
@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5701765, 0)
 shape = SubResource("SphereShape3D_w5pmr")
 
 [node name="Body" type="Node3D" parent="." unique_id=812515218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6806635, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76546675, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1545146745]
 mesh = SubResource("QuadMesh_ne2mo")
