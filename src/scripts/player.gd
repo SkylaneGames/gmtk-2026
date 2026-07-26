@@ -89,9 +89,12 @@ func pickup_memory(memory_image: Texture2D) -> void:
 
 func reset() -> void:
 	reset_memories()
+	
+func force_reset() -> void:
+	memory_count = 0.0
+	memories_from_level_1 = 0.0
 
 func reset_memories(baseline: float = 0.0) -> void:
-	memory_count = baseline
+	memory_count = memories_from_level_1
 	if ui != null:
 		ui.update_memory_label()
-		ui.clear_memory_thumbnails()
