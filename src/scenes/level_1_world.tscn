@@ -11,21 +11,25 @@
 [ext_resource type="PackedScene" uid="uid://bsqiusf3vpks5" path="res://scenes/exit.tscn" id="4_qa103"]
 [ext_resource type="Texture2D" uid="uid://cew5c6bmm1jkc" path="res://assets/memories/Christmas.PNG" id="5_due22"]
 [ext_resource type="PackedScene" uid="uid://sttd1yco80h3" path="res://assets/models/Xmas/tree-decorated.glb" id="6_giyus"]
-[ext_resource type="AudioStream" uid="uid://u46jgrcc8c24" path="res://assets/sounds/test sound oof.ogg" id="6_p24l3"]
 [ext_resource type="Texture2D" uid="uid://b4gf8ri4q4nus" path="res://assets/memories/Puppy.PNG" id="6_vc8ll"]
 [ext_resource type="Texture2D" uid="uid://cxergl26vogsn" path="res://assets/memories/Wedding.PNG" id="7_p24l3"]
 [ext_resource type="Texture2D" uid="uid://bfuohuqpmx0ar" path="res://assets/memories/Baby.PNG" id="8_7tlof"]
 [ext_resource type="PackedScene" uid="uid://sy8daeb74hw5" path="res://assets/models/furniture/bedSingle.glb" id="8_p2u81"]
 [ext_resource type="AudioStream" uid="uid://stxc7hroxhn2" path="res://assets/sounds/yapping.ogg" id="8_p24l3"]
+[ext_resource type="AudioStream" uid="uid://dkvs5ida50wod" path="res://assets/sounds/Fireworks on the beach memory.ogg" id="8_qqgny"]
 [ext_resource type="PackedScene" uid="uid://bavnn80ga0niu" path="res://assets/models/furniture/trashcan.glb" id="9_afkka"]
 [ext_resource type="Texture2D" uid="uid://cwayyh2gq034d" path="res://assets/memories/First_Bike.PNG" id="9_g7iqf"]
 [ext_resource type="Texture2D" uid="uid://1jvxw83orwxq" path="res://assets/memories/Children_Playing.PNG" id="10_eckpc"]
 [ext_resource type="PackedScene" uid="uid://dbbp1883d0ajs" path="res://assets/models/furniture/table.glb" id="10_k6pba"]
 [ext_resource type="PackedScene" uid="uid://cf8chd8mdvf6w" path="res://assets/models/furniture/loungeChairRelax.glb" id="11_6e5p4"]
+[ext_resource type="AudioStream" uid="uid://dsyfg0t4m3wub" path="res://assets/sounds/WeddingBellsMemory.ogg" id="12_5l3l2"]
 [ext_resource type="PackedScene" uid="uid://okevabi3kgbu" path="res://assets/models/furniture/kitchenSink.glb" id="12_fprdh"]
 [ext_resource type="PackedScene" uid="uid://cvaunklo0s4us" path="res://assets/models/furniture/computerScreen.glb" id="13_kuipl"]
+[ext_resource type="AudioStream" uid="uid://ctjv5mb2xs3in" path="res://assets/sounds/BabyCry.ogg" id="14_05he0"]
+[ext_resource type="AudioStream" uid="uid://cdpwf2lt5wnmj" path="res://assets/sounds/BicycleMemory.ogg" id="16_7h1x2"]
 [ext_resource type="PackedScene" uid="uid://dq4trjoh2i173" path="res://assets/models/furniture/desk.glb" id="16_due22"]
 [ext_resource type="PackedScene" uid="uid://cqqovppt3ayh5" path="res://assets/models/furniture/computerKeyboard.glb" id="17_vc8ll"]
+[ext_resource type="AudioStream" uid="uid://doqxnxnbgwa5g" path="res://assets/sounds/Children laughing memory.ogg" id="18_4uto3"]
 [ext_resource type="PackedScene" uid="uid://b6khb1ewldx01" path="res://assets/models/furniture/loungeDesignChair.glb" id="18_p24l3"]
 [ext_resource type="PackedScene" uid="uid://ccrfaq3qcfnid" path="res://assets/models/furniture/loungeDesignSofa.glb" id="19_7tlof"]
 [ext_resource type="PackedScene" uid="uid://dcufu8xss6wc" path="res://assets/models/furniture/rugRounded.glb" id="20_g7iqf"]
@@ -267,7 +271,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0,
 [node name="MemoryPickup1" parent="Items" unique_id=78866939 instance=ExtResource("3_gr71i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3871171, 0.1, 7.3682556)
 memory_image = ExtResource("5_due22")
-memory_music = ExtResource("6_p24l3")
+memory_music = ExtResource("8_qqgny")
 
 [node name="MemoryPickup2" parent="Items" unique_id=1312294266 instance=ExtResource("3_gr71i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.014617, 0.1, 8.560659)
@@ -277,22 +281,22 @@ memory_music = ExtResource("8_p24l3")
 [node name="MemoryPickup3" parent="Items" unique_id=1240754602 instance=ExtResource("3_gr71i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6462016, 0.1, -2.3511562)
 memory_image = ExtResource("7_p24l3")
-memory_music = ExtResource("6_p24l3")
+memory_music = ExtResource("12_5l3l2")
 
 [node name="MemoryPickup4" parent="Items" unique_id=1454792968 instance=ExtResource("3_gr71i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.773441, 0.1, -9.685804)
 memory_image = ExtResource("8_7tlof")
-memory_music = ExtResource("6_p24l3")
+memory_music = ExtResource("14_05he0")
 
 [node name="MemoryPickup5" parent="Items" unique_id=1309585721 instance=ExtResource("3_gr71i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.795431, 0.1, 1.1582164)
 memory_image = ExtResource("9_g7iqf")
-memory_music = ExtResource("6_p24l3")
+memory_music = ExtResource("16_7h1x2")
 
 [node name="MemoryPickup6" parent="Items" unique_id=1178751861 instance=ExtResource("3_gr71i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.714738, 0.1, -10.874897)
 memory_image = ExtResource("10_eckpc")
-memory_music = ExtResource("6_p24l3")
+memory_music = ExtResource("18_4uto3")
 
 [node name="Level1SpawnPoint" type="Node3D" parent="." unique_id=2122873144]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -6.712787, 0, 13.403425)
