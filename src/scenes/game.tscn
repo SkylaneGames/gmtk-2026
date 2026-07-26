@@ -632,7 +632,6 @@ shadow_enabled = true
 
 [node name="Head" parent="." unique_id=1332359877 instance=ExtResource("1_gee14")]
 transform = Transform3D(-1.2202471e-06, 0, 27.916, 0, 27.916, 0, -27.916, 0, -1.2202471e-06, 0, 1.6424623, 0)
-current_state = 3
 
 [node name="Level 2 World" parent="Head/HeadComplete/Eye-Plate" parent_id_path=PackedInt32Array(1332359877, 1668346744) index="0" unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("5_u5sy4")]
 transform = Transform3D(-1.5658184e-09, 0, -0.03582175, 0, 0.03582175, 0, 0.03582175, 0, -1.5658184e-09, 0.005, 0.16678298, -1.3877788e-17)
