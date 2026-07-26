@@ -228,8 +228,9 @@ _data = {
 
 [node name="Level 1 World" type="Node3D" unique_id=553002256 node_paths=PackedStringArray("doors", "exit", "spawn_point")]
 script = ExtResource("1_qa103")
+start_time_seconds = 120.0
 doors = [NodePath("Terrain/Doors/Door 1"), NodePath("Terrain/Doors/Door 2"), NodePath("Terrain/Doors/Door 3"), NodePath("Terrain/Doors/Door 4"), NodePath("Terrain/Doors/Door 5")]
-door_times = Array[float]([90.0, 80.0, 42.0, 20.0, 3.0])
+door_times = Array[float]([93.0, 85.0, 45.0, 30.0, 10.0])
 exit = NodePath("Exit")
 world_id = 1
 spawn_point = NodePath("Level1SpawnPoint")
