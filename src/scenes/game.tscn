@@ -14,6 +14,16 @@
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="11_kvuet"]
 [ext_resource type="Curve" uid="uid://cwgscfnv3cayq" path="res://assets/curves/head_layout_anim_curve.tres" id="13_kvuet"]
 
+[sub_resource type="Resource" id="Resource_vtaks"]
+script = ExtResource("10_kvpfn")
+duration = 5.0
+transition = 1
+
+[sub_resource type="Resource" id="Resource_kvuet"]
+script = ExtResource("11_kvuet")
+fov = 55.1
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5sy4"]
 
 [sub_resource type="Sky" id="Sky_p57ef"]
@@ -34,16 +44,6 @@ fog_density = 0.005
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_w5pmr"]
 
 [sub_resource type="Compositor" id="Compositor_3g4q3"]
-
-[sub_resource type="Resource" id="Resource_vtaks"]
-script = ExtResource("10_kvpfn")
-duration = 5.0
-transition = 1
-
-[sub_resource type="Resource" id="Resource_kvuet"]
-script = ExtResource("11_kvuet")
-fov = 55.1
-metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="Resource" id="Resource_kvpfn"]
 script = ExtResource("10_kvpfn")
@@ -180,7 +180,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:modulate")
+tracks/10/path = NodePath("HeadCamera/AnimatedSprite3D:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -192,7 +192,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:visible")
+tracks/11/path = NodePath("HeadCamera/AnimatedSprite3D:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -208,7 +208,7 @@ length = 16.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:visible")
+tracks/0/path = NodePath("HeadCamera/AnimatedSprite3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -256,7 +256,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PhantomCamera3D2/AnimatedSprite3D:modulate")
+tracks/4/path = NodePath("HeadCamera/AnimatedSprite3D:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -268,7 +268,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PhantomCamera3D2/AnimatedSprite3D")
+tracks/5/path = NodePath("HeadCamera/AnimatedSprite3D")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -586,6 +586,37 @@ transitions = ["level_1", "level_2", SubResource("AnimationNodeStateMachineTrans
 
 [node name="Game" type="Node3D" unique_id=1341214287]
 
+[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds", "head", "camera_menu")]
+unique_name_in_owner = true
+script = ExtResource("1_iywne")
+skip_intro = true
+worlds = [NodePath("../Head/HeadComplete/Head-bottom-half/Level 1 World"), NodePath("../Head/HeadComplete/Eye-Plate/Level 2 World"), NodePath("../Head/HeadComplete/Head-Top/Level 3 World")]
+head = NodePath("../Head")
+camera_menu = NodePath("../HeadCamera")
+
+[node name="UnifiedMenuUI" parent="." unique_id=839514077 node_paths=PackedStringArray("player") instance=ExtResource("2_p57ef")]
+unique_name_in_owner = true
+player = NodePath("../Player")
+
+[node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]
+target = NodePath("../Player")
+
+[node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, 2.4872003, 13.457002, 21.060978)
+priority = 2
+follow_target = NodePath("../../Player")
+look_at_mode = 2
+look_at_target = NodePath("../../Player")
+tween_resource = SubResource("Resource_vtaks")
+camera_3d_resource = SubResource("Resource_kvuet")
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+
+[node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
+transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
+fov = 34.6
+
 [node name="Environment" type="Node3D" parent="." unique_id=392757848]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=187910835]
@@ -616,44 +647,13 @@ player = NodePath("../../../../Player")
 transform = Transform3D(-1.431158e-09, 0, -0.03274108, 0, 0.03274108, 0, 0.03274108, 0, -1.431158e-09, 0, 0.160465, 0)
 player = NodePath("../../../../Player")
 
-[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds", "head", "camera_menu")]
-unique_name_in_owner = true
-script = ExtResource("1_iywne")
-skip_intro = true
-worlds = [NodePath("../Head/HeadComplete/Head-bottom-half/Level 1 World"), NodePath("../Head/HeadComplete/Eye-Plate/Level 2 World"), NodePath("../Head/HeadComplete/Head-Top/Level 3 World")]
-head = NodePath("../Head")
-camera_menu = NodePath("../PhantomCamera3D2")
-
-[node name="UnifiedMenuUI" parent="." unique_id=839514077 node_paths=PackedStringArray("player") instance=ExtResource("2_p57ef")]
-unique_name_in_owner = true
-player = NodePath("../Player")
-
-[node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]
-target = NodePath("../Player")
-
-[node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, 2.4872003, 13.457002, 21.060978)
-priority = 2
-follow_target = NodePath("../../Player")
-look_at_mode = 2
-look_at_target = NodePath("../../Player")
-tween_resource = SubResource("Resource_vtaks")
-camera_3d_resource = SubResource("Resource_kvuet")
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
-
-[node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
-transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
-fov = 34.6
-
 [node name="Player" parent="." unique_id=730368400 instance=ExtResource("5_0tnpc")]
 unique_name_in_owner = true
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -6.9148, 1.9073486e-06, 13.560978)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
 
-[node name="PhantomCamera3D2" type="Node3D" parent="." unique_id=32303124]
+[node name="HeadCamera" type="Node3D" parent="." unique_id=32303124]
 transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
 script = ExtResource("9_vtaks")
 priority = 2
@@ -662,7 +662,7 @@ tween_on_load = false
 camera_3d_resource = SubResource("Resource_dinhu")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="PhantomCamera3D2" unique_id=956873520]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="HeadCamera" unique_id=956873520]
 transform = Transform3D(0.9999999, -7.4505806e-08, 2.9802322e-08, 2.9802322e-08, 0.9999998, 0, 0, 2.9802322e-08, 1, -3.8146973e-06, 5.722046e-06, -34.24202)
 visible = false
 modulate = Color(0, 0, 0, 1)
@@ -676,5 +676,5 @@ tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
 advance_expression_base_node = NodePath("../GameManager")
 anim_player = NodePath("../AnimationPlayer")
 
-[editable path="Head"]
 [editable path="IsoCamera"]
+[editable path="Head"]
