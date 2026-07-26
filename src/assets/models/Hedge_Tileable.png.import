@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Hedge_Tileable.png-eb4d45bc64c4b8d4b856161795
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Brain_Tileable.png-6944bbc41a16750ad07137b4a4
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
