@@ -56,6 +56,7 @@ material_override = SubResource("StandardMaterial3D_kdgt6")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.07806015, 0)
 amount = 2
 lifetime = 7.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_w5pmr")
 draw_pass_1 = SubResource("SphereMesh_0pf81")
 
