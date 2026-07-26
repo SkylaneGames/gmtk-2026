@@ -77,6 +77,9 @@ func quit_game() -> void:
 
 func _on_world_completed(world: WorldManagerBase) -> void:
 	head.current_state = 3 - world.world_id as HeadController.HeadState
+	if world.world_id == 1:
+		worlds[0].player.memories_from_level_1 = worlds[0].player.memory_count
+	
 	if (world.world_id == 3):
 		camera_menu.priority = 2
 		await get_tree().create_timer(2).timeout
@@ -119,4 +122,5 @@ func restart_to_specific_level(world_index: int) -> void:
 	%UnifiedMenuUI.displayUI_levelUI(world_index + 1)
 	camera_menu.priority = 0
 	current_world_index = world_index
+	worlds[0].player.reset()
 	worlds[current_world_index].initialize_world()

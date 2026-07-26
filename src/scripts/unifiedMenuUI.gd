@@ -68,6 +68,10 @@ func update_memory_label() -> void:
 			var memory: TextureRect = %MemoryList.get_child(child_id)
 			memory.modulate = Color(1.0, 1.0, 1.0, child_newalpha)
 
+func clear_memory_thumbnails() -> void:
+	for child in %MemoryList.get_children():
+		child.queue_free()
+
 func get_memory_label() -> String:
 	match memory_popup_state:
 		MemoryPopupState.COLLECTING:

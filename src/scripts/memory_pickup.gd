@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name MemoryPickup
+
 @export var rotation_speed: float = 2.0
 @export var bob_height: float = 0.2
 @export var bob_speed: float = 2.0
@@ -49,4 +51,13 @@ func _on_interactable_interaction_started(
 
 	await get_tree().create_timer(3).timeout
 
-	queue_free()
+	hide()
+	set_process(false)
+	
+func reset() -> void:
+	collected = false
+	elapsed_time = 0.0
+	body.position.y = starting_y
+	emitter.emitting = true
+	show()
+	set_process(true)

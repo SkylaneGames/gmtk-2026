@@ -20,6 +20,8 @@ class_name Player
 @export var memory_count: float = 0.0 # JT Changed to int was := 0.0
 										# JS using float for level 2 memory consumption :)
 
+var memories_from_level_1: float = 0.0
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -84,3 +86,12 @@ func pickup_memory(memory_image: Texture2D) -> void:
 			ui.show_memory_image(memory_image)
 
 	# JT End
+
+func reset() -> void:
+	reset_memories()
+
+func reset_memories(baseline: float = 0.0) -> void:
+	memory_count = baseline
+	if ui != null:
+		ui.update_memory_label()
+		ui.clear_memory_thumbnails()
