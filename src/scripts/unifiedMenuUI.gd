@@ -2,13 +2,7 @@ extends CanvasLayer
 
 class_name UnifiedMenuUI
 
-signal start_game
-signal quitgame
-signal restartgame
-signal restart_level
-signal restart_game_skip_intro
-
-@export var player: Player
+@export var game: GameManager
 
 @export var memory_display_time: float = 0.5
 
@@ -23,19 +17,19 @@ var memory_popup_state: MemoryPopupState = MemoryPopupState.COLLECTING
 
 #Functions to send signals to game manager to execute logic
 func _on_button_start_pressed() -> void:
-	start_game.emit()
-	
+	game.start_game()
+
 func _on_button_quit_pressed() -> void:
-	quitgame.emit()
+	game.quit_game()
 
 func _on_button_back_to_menu_pressed() -> void:
-	restartgame.emit()
-	
+	game.restart(GameManager.FailureResetMode.REPLAY_GAME)
+
 func _on_button_restart_level_pressed() -> void:
-	restart_level.emit()
+	game.restart(GameManager.FailureResetMode.REPLAY_LEVEL)
 
 func _on_button_restart_pressed() -> void:
-	restart_game_skip_intro.emit()
+	game.restart(GameManager.FailureResetMode.REPLAY_GAME)
 
 #Functions to update the UI while running
 func displayUI_levelUI(levelindex: int) -> void:
@@ -63,10 +57,11 @@ func update_memory_label() -> void:
 	%label_MemoryCount.text = generate_memory_label()
 	match memory_popup_state:
 		MemoryPopupState.CONSUMING:
-			var child_id = ceil(player.memory_count)-1
-			var child_newalpha = player.memory_count - floor(player.memory_count)
+			var child_id = ceil(game.get_player().memory_count)-1
+			var child_newalpha = game.get_player().memory_count - floor(game.get_player().memory_count)
 			var memory: TextureRect = %MemoryList.get_child(child_id)
-			memory.modulate = Color(1.0, 1.0, 1.0, child_newalpha)
+			if memory != null:
+				memory.modulate = Color(1.0, 1.0, 1.0, child_newalpha)
 
 func clear_memory_thumbnails() -> void:
 	for child in %MemoryList.get_children():
@@ -82,10 +77,7 @@ func get_memory_label() -> String:
 			return "Memories: %d"
 
 func generate_memory_label() -> String:
-	if player == null:
-		return "Memories: N/A"
-
-	return get_memory_label() % player.memory_count
+	return get_memory_label() % game.get_player().memory_count
 	
 func show_memory_image(memory_image: Texture2D) -> void:
 	if memory_image == null:

@@ -601,31 +601,28 @@ transitions = ["level_1", "level_2", SubResource("AnimationNodeStateMachineTrans
 
 [node name="Game" type="Node3D" unique_id=1341214287]
 
-[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("worlds", "head", "camera_menu")]
+[node name="GameManager" type="Node" parent="." unique_id=30003758 node_paths=PackedStringArray("head", "camera_menu", "worlds", "camera", "ui")]
 unique_name_in_owner = true
 script = ExtResource("1_iywne")
-worlds = [NodePath("../Head/HeadComplete/Head-bottom-half/Level 1 World"), NodePath("../Head/HeadComplete/Eye-Plate/Level 2 World"), NodePath("../Head/HeadComplete/Head-Top/Level 3 World")]
 head = NodePath("../Head")
 camera_menu = NodePath("../HeadCamera")
+worlds = [NodePath("../Head/HeadComplete/Head-bottom-half/Level 1 World"), NodePath("../Head/HeadComplete/Eye-Plate/Level 2 World"), NodePath("../Head/HeadComplete/Head-Top/Level 3 World")]
+player_template = ExtResource("5_0tnpc")
+camera = NodePath("../IsoCamera")
+ui = NodePath("../UnifiedMenuUI")
 
-[node name="UnifiedMenuUI" parent="." unique_id=839514077 node_paths=PackedStringArray("player") instance=ExtResource("2_p57ef")]
+[node name="UnifiedMenuUI" parent="." unique_id=839514077 node_paths=PackedStringArray("game") instance=ExtResource("2_p57ef")]
 unique_name_in_owner = true
-player = NodePath("../Player")
+game = NodePath("../GameManager")
 
-[node name="IsoCamera" parent="." unique_id=878880942 node_paths=PackedStringArray("target") instance=ExtResource("4_gee14")]
-target = NodePath("../Player")
+[node name="IsoCamera" parent="." unique_id=878880942 instance=ExtResource("4_gee14")]
 
-[node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140 node_paths=PackedStringArray("follow_target", "look_at_target")]
+[node name="PhantomCamera3D" parent="IsoCamera" index="0" unique_id=1672321140]
 transform = Transform3D(0.6235973, -0.5828782, 0.52093714, -2.980223e-08, 0.66637784, 0.7456127, -0.7817418, -0.46496344, 0.41555277, -1.5563965, 13.457002, 27.835388)
 priority = 2
-follow_target = NodePath("../../Player")
 look_at_mode = 2
-look_at_target = NodePath("../../Player")
 tween_resource = SubResource("Resource_vtaks")
 camera_3d_resource = SubResource("Resource_kvuet")
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
 
 [node name="Camera3D" parent="IsoCamera" index="1" unique_id=250779762]
 transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)
@@ -647,24 +644,14 @@ shadow_enabled = true
 [node name="Head" parent="." unique_id=1332359877 instance=ExtResource("1_gee14")]
 transform = Transform3D(-1.2202471e-06, 0, 27.916, 0, 27.916, 0, -27.916, 0, -1.2202471e-06, 0, 1.6424623, 0)
 
-[node name="Level 2 World" parent="Head/HeadComplete/Eye-Plate" parent_id_path=PackedInt32Array(1332359877, 1668346744) index="0" unique_id=1399302127 node_paths=PackedStringArray("player") instance=ExtResource("5_u5sy4")]
+[node name="Level 2 World" parent="Head/HeadComplete/Eye-Plate" parent_id_path=PackedInt32Array(1332359877, 1668346744) index="0" unique_id=1399302127 instance=ExtResource("5_u5sy4")]
 transform = Transform3D(-1.5658184e-09, 0, -0.03582175, 0, 0.03582175, 0, 0.03582175, 0, -1.5658184e-09, 0.005, 0.16678298, -1.3877788e-17)
-player = NodePath("../../../../Player")
 
-[node name="Level 1 World" parent="Head/HeadComplete/Head-bottom-half" parent_id_path=PackedInt32Array(1332359877, 1900624569) index="0" unique_id=553002256 node_paths=PackedStringArray("nav_agent", "player") instance=ExtResource("3_u5sy4")]
+[node name="Level 1 World" parent="Head/HeadComplete/Head-bottom-half" parent_id_path=PackedInt32Array(1332359877, 1900624569) index="0" unique_id=553002256 instance=ExtResource("3_u5sy4")]
 transform = Transform3D(-2.345596e-09, 0, -0.053660985, 0, 0.053660985, 0, 0.053660985, 0, -2.345596e-09, 0, 0.531037, 0)
-nav_agent = NodePath("../../../../Player/NavigationAgent3D")
-player = NodePath("../../../../Player")
 
-[node name="Level 3 World" parent="Head/HeadComplete/Head-Top" parent_id_path=PackedInt32Array(1332359877, 136728721) index="0" unique_id=1228685239 node_paths=PackedStringArray("player") instance=ExtResource("7_u5sy4")]
+[node name="Level 3 World" parent="Head/HeadComplete/Head-Top" parent_id_path=PackedInt32Array(1332359877, 136728721) index="0" unique_id=1228685239 instance=ExtResource("7_u5sy4")]
 transform = Transform3D(-1.431158e-09, 0, -0.03274108, 0, 0.03274108, 0, 0.03274108, 0, -1.431158e-09, 0, 0.160465, 0)
-player = NodePath("../../../../Player")
-
-[node name="Player" parent="." unique_id=730368400 instance=ExtResource("5_0tnpc")]
-unique_name_in_owner = true
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -10.958397, 1.9073486e-06, 20.335388)
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player" unique_id=999681000]
 
 [node name="HeadCamera" type="Node3D" parent="." unique_id=32303124]
 transform = Transform3D(0.71982044, -0.31026623, 0.62096167, 0, 0.8945508, 0.44696623, -0.69416034, -0.32173544, 0.64391595, 83.349, 60.296, 89.374)

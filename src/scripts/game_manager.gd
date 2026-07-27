@@ -1,38 +1,29 @@
 extends Node
 
+class_name GameManager
+
 @export var skip_intro := false
+@export var failure_mode: FailureResetMode
+@export var head: HeadController
+@export var camera_menu: PhantomCamera3D
 @export var worlds: Array[WorldManagerBase]
 @export var current_world_index: int
-
-@export var head: HeadController
-
-@export var camera_menu: PhantomCamera3D
+@export var player_template: PackedScene
+@export var camera: IsoCamera
+@export var ui: UnifiedMenuUI
 
 @onready var music = MusicController
 
-func transition_to_menu() -> void:
-		current_state = GameState.MENU
-		music.play_track(MusicController.Track.MENU)
-
-func skip_intro_pressed() -> void:
-	print("skipping intro")
-	set_intro_complete()
-
-func set_intro_complete() -> void:
-	print("setting game state to menu")
-	transition_to_menu()
-
+enum FailureResetMode { DEFAULT, REPLAY_GAME, REPLAY_LEVEL }
 enum GameState { SPLASH, MENU, GAME } # TODO: Add game over, win, pause, etc. as needed.
 
 var current_state: GameState = GameState.SPLASH
 
-func _ready() -> void:
-	%UnifiedMenuUI.start_game.connect(start_game)
-	%UnifiedMenuUI.quitgame.connect(quit_game)
-	%UnifiedMenuUI.restartgame.connect(restart_game)
-	%UnifiedMenuUI.restart_level.connect(restart_level)
-	%UnifiedMenuUI.restart_game_skip_intro.connect(restart_game_skip_intro)
+var _player: Player
+func get_player() -> Player:
+	return _player
 
+func _ready() -> void:
 	if (skip_intro):
 		transition_to_menu()
 	else:
@@ -44,27 +35,74 @@ func _ready() -> void:
 		world.level_completed.connect(_on_world_completed)
 		world.level_failed.connect(_on_world_failed)
 
-func start_game() -> void:
-	%UnifiedMenuUI.displayUI_levelUI(1)
-	current_state = GameState.GAME
-	camera_menu.priority = 0
+func transition_to_menu() -> void:
+		current_state = GameState.MENU
+		music.play_track(MusicController.Track.MENU)
 
+func transition_to_game() -> void:
+	current_state = GameState.GAME
 	play(current_world_index)
 
-func play(world_index: int) -> void:
-	# TODO: Set environment lighting
-	if (world_index > 0):
+func skip_intro_pressed() -> void:
+	print("skipping intro")
+	set_intro_complete()
+
+func set_intro_complete() -> void:
+	print("setting game state to menu")
+	transition_to_menu()
+
+func start_game() -> void:
+	_create_player()
+	transition_to_game()
+
+func play(world_index: int) -> bool:
+	if world_index < 0 || world_index >= worlds.size():
+		# invalid world index
+		return false
+
+	%UnifiedMenuUI.displayUI_levelUI(world_index + 1)
+	var world: WorldManagerBase = worlds[world_index]
+
+	# If we're already focuesed on a level, pan out to the menu camera to see the head animation
+	if world_index > 0:
 		camera_menu.priority = 2
 		await get_tree().create_timer(1.5).timeout
 
+	# Update head layout which will trigger animatations to the next level slice.
 	head.current_layout = world_index + 1 as HeadController.HeadLayout
 
-	if (world_index > 0):
+	# If we're panning back out to the menu, allow some time for that to finish
+	if world_index > 0:
+		await get_tree().create_timer(2.4).timeout
+
+	camera_menu.priority = 0
+
+	# Move player so camera pan
+	teleport_player(world.spawn_point)
+
+	# Wait for head animations and camera moves to more or less finish before starting the level
+	await get_tree().create_timer(0.5).timeout
+	world.initialize_world()
+	world.play()
+	_player.input_enabled = true
+
+	return true
+
+func teleport_player(level_start: Node3D) -> void:
+	_player.global_transform.origin = level_start.global_position
+
+func next_level() -> void:
+	current_world_index += 1
+
+	if current_world_index >= worlds.size():
+		camera_menu.priority = 2
 		await get_tree().create_timer(2).timeout
-		camera_menu.priority = 0
+		head.eyes_open = true
+		%UnifiedMenuUI.displayUI_gameover("You have successfully escaped the countdown!")
+		current_state = GameState.MENU
+		return;
 
-	worlds[world_index].initialize_world()
-
+	play(current_world_index)
 
 func game_over(gameover_reason: String) -> void:
 	print("Game over!")
@@ -75,29 +113,23 @@ func game_over(gameover_reason: String) -> void:
 func quit_game() -> void:
 	get_tree().quit()
 
+var saved_memory_count: float = 0.0
 func _on_world_completed(world: WorldManagerBase) -> void:
+	# store the number of memories the player had for use when resetting subsequent levels.
+	saved_memory_count = _player.memory_count
+	handle_world_end(world)
+
 	head.current_state = 3 - world.world_id as HeadController.HeadState
-	if world.world_id == 1:
-		worlds[0].player.memories_from_level_1 = worlds[0].player.memory_count
-	
-	if (world.world_id == 3):
-		camera_menu.priority = 2
-		await get_tree().create_timer(2).timeout
-		head.eyes_open = true
-		%UnifiedMenuUI.displayUI_gameover("You have successfully escaped the countdown!")
 
 	next_level()
 
-func next_level() -> void:
-	current_world_index += 1
-	if current_world_index >= worlds.size():
-		current_state = GameState.MENU
-		return;
-	%UnifiedMenuUI.displayUI_levelUI(current_world_index+1)
-	play(current_world_index)
-
 func _on_world_failed(world: WorldManagerBase) -> void:
+	handle_world_end(world)
 	game_over(world.game_over_message)
+
+func handle_world_end(world: WorldManagerBase):
+	_player.input_enabled = false
+	world.dispose()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -106,24 +138,36 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 
 		get_tree().reload_current_scene()
-	
-func restart_game() -> void:
-	get_tree().reload_current_scene()
-	
-func restart_game_skip_intro() -> void:
-	worlds[0].player.force_reset()
-	restart_to_specific_level(0)
-	
-func restart_level() -> void:
-	restart_to_specific_level(current_world_index)
-	
-func restart_to_specific_level(world_index: int) -> void:
-	if world_index==3:
-		return;
-	current_state = GameState.GAME
-	head.current_layout = world_index + 1 as HeadController.HeadLayout
-	%UnifiedMenuUI.displayUI_levelUI(world_index + 1)
-	camera_menu.priority = 0
-	current_world_index = world_index
-	worlds[0].player.reset()
-	worlds[current_world_index].initialize_world()
+
+func restart(mode_override: FailureResetMode) -> void:
+	if mode_override == FailureResetMode.DEFAULT:
+		mode_override = failure_mode
+
+	match mode_override:
+		FailureResetMode.REPLAY_GAME:
+			_restart_game()
+		FailureResetMode.REPLAY_LEVEL:
+			_restart_level()
+
+func _restart_game() -> void:
+	# Re-create the player to re-initialize any default values set on the scene in the editor.
+	_player.queue_free()
+	current_world_index = 0
+	start_game()
+
+func _create_player() -> void:
+	_player = player_template.instantiate()
+	_player.init(ui)
+
+	# Add player to root of the Game scene (GameManager node should always be placed directly under the scene root)
+	get_parent().add_child(_player)
+
+	# Alight with camera
+	_player.rotation_degrees.y += 45
+
+	# Link camera to player
+	camera.set_target(_player)
+
+func _restart_level() -> void:
+	_player.set_memory_count(saved_memory_count)
+	play(current_world_index)

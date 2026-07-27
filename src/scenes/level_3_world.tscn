@@ -71,6 +71,7 @@ script = ExtResource("1_aelaq")
 world_id = 3
 spawn_point = NodePath("SpawnPoint")
 game_over_message = "You couldn't find your zen!"
+music_track = 4
 
 [node name="Terrain" type="Node3D" parent="." unique_id=680259945]
 

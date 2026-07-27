@@ -12,11 +12,12 @@ func _initialize_world() -> void:
 	if ui != null:
 		ui.memory_popup_state = UnifiedMenuUI.MemoryPopupState.CONSUMING
 
+	game_manager.get_player().light_enabled = true
 	for spawn in enemy_spawn_positions:
 		var instance: DarkThoughtController = enemy_template.instantiate()
 		get_node("/root").add_child(instance)
 		instance.global_position = spawn.global_position
-		instance.target = player
+		instance.target = game_manager.get_player()
 		instance.player_killed.connect(_on_dark_thought_player_killed)
 		enemies.append(instance)
 
@@ -29,6 +30,8 @@ func _dispose() -> void:
 func _process(delta: float) -> void:
 	if !running:
 		return
+
+	var player = game_manager.get_player()
 
 	if player.light_enabled && !player.consume_memory(memory_consumption_rate * delta):
 		player.light_enabled = false

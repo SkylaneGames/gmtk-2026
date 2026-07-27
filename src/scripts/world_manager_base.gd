@@ -6,55 +6,78 @@ signal level_completed(world: WorldManagerBase);
 signal level_failed(world: WorldManagerBase);
 
 @export var world_id: int = 0
-@export var player: Player
 @export var spawn_point: Node3D
 @export var game_over_message: String
+@export var music_track: MusicController.Track
 
+@onready var game_manager: GameManager = %GameManager
 @onready var ui = %UnifiedMenuUI
 @onready var music = MusicController
 
 var running := false
 
+# PUBLIC FUNCTIONS - START
+# These functions are intended to be called by an external GameManger which will orchestrate the game.
+
+## Set up the world ready for play, but don't start any level-specific logic yet (use _play() for that).
+##   i.e. start music, spawn items / objects, reset timers, set any puzzles etc.
 func initialize_world() -> void:
 	print("initializing world %d" % world_id)
-	music.play_track(world_id_to_track(world_id))
-	spawn_player()
-	await get_tree().create_timer(5).timeout
 	_initialize_world()
+
+	music.play_track(music_track)
+
+## Start the world's level-specific logic, i.e. start timers, enable enemies AI logic, etc.
+func play() -> void:
+	_play()
 	running = true
 
+func stop() -> void:
+	_stop()
+	running = false
+
+## Cleanup any world-specific resources
+## I.e. despawn enemies, items, etc.
+## NOTE: Together with the initialize() and play() functions, these should allow the same level
+## instance to be reused for multiple runs without having to reload the level's scene tree.
 func dispose() -> void:
 	_dispose()
+	if running:
+		stop()
 
-func _dispose() -> void:
-	# TODO: dispose of world resources, NPCs, items, etc.
-	pass
+# PUBLIC FUNCTIONS - END
 
+# PROTECTED FUNCTIONS - START
+# These functions are intended to be called / overridden by child classes. They should only be called
+# from this class or classes that inherit from it.
+
+## Override this function in any child classes to perform world-specific initialization.
 func _initialize_world() -> void:
 	pass
 
-func spawn_player() -> void:
-	if player == null:
-		return
-	player.input_enabled = true
-	player.global_transform.origin = spawn_point.global_position
+## Override this function in any child classes to start any world-specific logic.
+##   i.e. start timers, enable enemies AI logic, etc.
+func _play() -> void:
+	pass
+
+func _stop() -> void:
+	pass
+
+## Override to dispose of world resources, NPCs, items, etc.
+func _dispose() -> void:
+	pass
 
 func _notify_level_completed() -> void:
 	print("Level %d Completed!" % world_id)
-	running = false
 	level_completed.emit(self)
-	dispose()
 
 func _notify_level_failed() -> void:
-	player.input_enabled = false
 	print("Level %d Failed!" % world_id)
-	running = false
 	level_failed.emit(self)
-	dispose()
 
-func world_id_to_track(id: int) -> MusicController.Track:
-	match id:
-		1: return MusicController.Track.LEVEL_1
-		2: return MusicController.Track.LEVEL_2
-		3: return MusicController.Track.LEVEL_3
-		_: return MusicController.Track.LEVEL_1
+# PROTECTED FUNCTIONS - END
+
+# PRIVATE FUNCTIONS - START
+# These functions are intended to be called only by this class.
+
+# PRIVATE FUNCTIONS - END

@@ -1,8 +1,9 @@
 extends Node3D
 
-@onready var camera: PhantomCamera3D = $PhantomCamera3D
-@export var target: Node3D = null
+class_name IsoCamera
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	camera.follow_target = target
+@onready var camera: PhantomCamera3D = $PhantomCamera3D
+
+func set_target(target: Node3D):
+	camera.follow_target = target;
+	camera.look_at_target = target;

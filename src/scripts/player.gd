@@ -3,7 +3,6 @@ extends CharacterBody3D
 class_name Player
 
 @onready var body := $Body;
-@onready var ui: UnifiedMenuUI = %UnifiedMenuUI
 
 @export var input_enabled: bool
 @export var light_enabled: bool = true :
@@ -20,7 +19,11 @@ class_name Player
 @export var memory_count: float = 0.0 # JT Changed to int was := 0.0
 										# JS using float for level 2 memory consumption :)
 
+var ui: UnifiedMenuUI
 var memories_from_level_1: float = 0.0
+
+func init(user_interface: UnifiedMenuUI):
+	ui = user_interface
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -87,14 +90,7 @@ func pickup_memory(memory_image: Texture2D) -> void:
 
 	# JT End
 
-func reset() -> void:
-	reset_memories()
-	
-func force_reset() -> void:
-	memory_count = 0.0
-	memories_from_level_1 = 0.0
-
-func reset_memories(baseline: float = 0.0) -> void:
-	memory_count = memories_from_level_1
+func set_memory_count(value: float) -> void:
+	memory_count = value
 	if ui != null:
 		ui.update_memory_label()
