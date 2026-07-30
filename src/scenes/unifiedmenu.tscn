@@ -107,6 +107,7 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
+duration = 3.0
 
 [node name="MenuUI" type="MarginContainer" parent="UIThemeContainer" unique_id=880154610]
 unique_name_in_owner = true
